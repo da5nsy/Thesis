@@ -1,12 +1,15 @@
 \documentclass{article}
 
-\usepackage{hyperref}
-\usepackage{libertine}
-\usepackage{graphicx}
-\usepackage{listings}
-\usepackage[british]{babel}
-\usepackage{amsmath}
-
+\usepackage{hyperref} %for hyperlinking
+\usepackage{libertine} %fancy font
+\usepackage{graphicx} %for images
+\setkeys{Gin}{width=0.9\textwidth} %sets default width for graphics
+\usepackage{listings} %for code chunks
+\usepackage[british]{babel} %to get the right hyphenation rules
+\usepackage{amsmath} %for multi-line equations
+%\usepackage{doi} %for doi conversion to hyperlinks
+%\usepackage{caption} %for subplots
+%\usepackage{subcaption} %for subplots
 
 \title{Computational Study}
 \author{}
@@ -47,7 +50,7 @@ MacLeod-Boynton chromaticity co-ordinates were calculated, and three-dimensional
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{figs/Level1sigs.pdf}
+    \includegraphics{figs/Level1sigs.pdf}
     \caption{\textit{l}\textsubscript{MB} (MB1 above) against \textit{s}\textsubscript{MB} (MB2 above) against Mel}
     \label{fig:l1}
 \end{figure} 
@@ -77,12 +80,12 @@ Following this, reflectances were introduced, so as to consider a slightly more 
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{figs/mb.pdf}
+    \includegraphics{figs/mb.pdf}
     \caption{\textit{l}\textsubscript{MB} (MB1 above) against \textit{s}\textsubscript{MB} (MB2 above). MacLeod-Boynton chromaticities for 12 reflectances under 2600 daylight illuminants.}
     \label{fig:mb}
 \end{figure} 
 
-Now able to consider the second question, I considered whether it was possible to perform a conversion of these computed chromaticities into a hypothetical illuminant-independent space, using \textit{mel}\textsubscript{MB} as a corrective signal. It was found through an optimization procedure that through addition and subtraction of weighted \textit{mel}\textsubscript{MB} values, using the scaling factors shown in equation \ref{eq:correction} such a conversion could approximately be performed. The results of applying equation \ref{eq:correction} can be seen in \ref{fig:corrected}.
+Now able to consider the second question, I considered whether it was possible to perform a conversion of these computed chromaticities into a hypothetical illuminant-independent space, using \textit{mel}\textsubscript{MB} as a corrective signal. It was found through an optimization procedure that through addition and subtraction of weighted \textit{mel}\textsubscript{MB} values, using the scaling factors shown in equation \ref{eq:correction} such a conversion could approximately be performed. The results of applying equation \ref{eq:correction} can be seen in figure \ref{fig:corrected}.
 
 \begin{subequations} \label{eq:correction}
 \begin{align}
@@ -93,14 +96,48 @@ Now able to consider the second question, I considered whether it was possible t
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[width=\textwidth]{figs/corrected.pdf}
+    \includegraphics{figs/corrected.pdf}
     \caption{\textit{l}\textsubscript{MB}* (MBx1 above) against \textit{s}\textsubscript{MB}* (MBx2 above). MacLeod-Boynton chromaticities for 12 reflectances under 2600 daylight illuminants, corrected by the corresponding \textit{mel}\textsubscript{MB} value.}
     \label{fig:corrected}
 \end{figure} 
 
 It can be seen that the points are no longer smeared by the impact of illumination, and instead roughly cluster together by object.
 
-Following this, an additional optimzation procedure was performed, to consider whether shifting the sensitivity of the melanopsin function along the wavelength spectrum affected the performance of such a signal in correcting these values. The optimization sought to minimise the overall spread of chromaticities. This had the unexpected and unfortunate effect of simply crushing all the chromaticties down onto a single point, without preserving any inter-object chromatic differences, by choosing spectral sensitivities which best overlapped with the cone fundamentals, thus essentially normalising each signal by a near-copy of itself, and returning near-unity for every situation. This is obviously not ideal.
+Following this, an additional optimzation procedure was performed, to consider whether shifting the sensitivity of the melanopsin function along the wavelength spectrum affected the performance of such a signal in correcting these values. The optimization sought to minimise the overall spread of chromaticities (measured as standard deviation of the entire set). The results of this optimisation can be seen in figure \ref{fig:opt}. It can be seen that minima for \textit{l}\textsubscript{MB}* occur at around 530nm and just under 600nm, and minima for \textit{s}\textsubscript{MB}* occur at around 450nm and 580nm. On first appearance this seems to suggest that the optimal spectral sensitivity for a cone type employed to correct the signals from the various cones might be around these points in the spectrum. However, the careful reader might note the correspondance between the figures above and the peak spectral sensitivites of the cones themselves (S-448nm, M-541nm, L-569nm). Indeed we see that the optimal performance occurs when the nominal melanopsin sensitivity overlaps most well with the spectral sensitivity of the cones. It is understandable why this occurs - each signal is then normalised by a near-duplicate of itself, rendering each value in the set being close to zero.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figs/opt.pdf}
+    \caption{The results of an optimization where the spectral sensitivity of the nominal melanopsin fundamental was shifted along the spectrum. Generated using melcomp\_1\_caller.m for iteration.}
+    \label{fig:opt}
+\end{figure} 
+
+This had the unexpected and unfortunate effect of simply crushing all the chromaticties down onto a single line, without preserving any inter-object chromatic differences. We witness perfect colour constancy, at the expense of any chromatic discimination. This is obviously not ideal. The effect of this on the overall set can be seen in figure \ref{fig:sdmeans}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figs/sdmeans.pdf}
+    \caption{Caption!!!!!!!!!!!!!!!!! Generated using melcomp\_1\_caller.m for iteration.}
+    \label{fig:sdmeans}
+\end{figure} 
+
+The work was presented at this stage as a poster at VSS in 2018, which is available at \url{doi.org/10.6084/m9.figshare.6280865}.
+
+An interesting comparison
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{figs/setoverobj.pdf}
+    \caption{Caption!!!!!!!!!!!!!!!!! Generated using melcomp\_1\_caller.m for iteration.}
+    \label{fig:setoverobj}
+\end{figure} 
+
+
+
+
+
+
+
 
 
 \bibliographystyle{alpha}
@@ -113,3 +150,23 @@ Following this, an additional optimzation procedure was performed, to consider w
 
 
 \end{document}
+
+%\begin{figure}
+%     \centering
+%     \begin{subfigure}[b]{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{figs/mb.pdf}
+%         \caption{$y=x$}
+%         \label{fig:y equals x}
+%     \end{subfigure}
+%     \hfill
+%     \begin{subfigure}[b]{0.49\textwidth}
+%         \centering
+%         \includegraphics[width=\textwidth]{figs/corrected.pdf}
+%         \caption{$y=3sinx$}
+%         \label{fig:three sin x}
+%     \end{subfigure}
+%     \hfill
+%        \caption{Three simple graphs}
+%        \label{fig:three graphs}
+%\end{figure}
