@@ -3,7 +3,7 @@
 \usepackage{hyperref} %for hyperlinking
 \usepackage{libertine} %fancy font
 \usepackage{graphicx} %for images
-\setkeys{Gin}{width=0.9\textwidth} %sets default width for graphics
+\setkeys{Gin}{width=1\textwidth} %sets default width for graphics
 \usepackage{listings} %for code chunks
 \usepackage[british]{babel} %to get the right hyphenation rules
 \usepackage{amsmath} %for multi-line equations
@@ -44,19 +44,27 @@ The final question was asked with the hope that such limitations might provide n
 
 Foundational data consisting of the Granada daylight dataset, the Stockman-Sharpe 10 degree cone fundamentals, the Lucas et al. melanopsin fundamental, and the a subset of the Vrhel et al. reflectances (consisting of the `natural' reflectances) were used.
 
-Tristimulus values (L,M,S) and analagous melanopic values (Mel) were calculated for each illuminant within the Granada dataset. The real-world correlate of this computation would be to observe a spectralon tile under each daylight condition.
+Tristimulus values (L,M,S) and analogous melanopic values (Mel) were calculated for each illuminant within the Granada dataset. The real-world correlate of this computation would be to observe a spectralon tile under each daylight condition.
 
 MacLeod-Boynton chromaticity co-ordinates were calculated, and three-dimensional plots were made to display \textit{l}\textsubscript{MB} against \textit{s}\textsubscript{MB} against [L,M,S,Mel] in turn. Each plot was very visually similar to the Mel plot shown in \ref{fig:l1}. As can be seen, although there exists some relationship between the chromaticity values and the `Mel' value it does not appear as though one could predict the other. All that can be said from this relationship is that if `Mel' is above a certain threshold, it is likely to be in a group with a low \textit{s}\textsubscript{MB} value. The real-world correlate of this is to say - \textit{if the day is bright enough, I can be fairly confident that the chromaticity of daylight will be relatively warm in colour.} This is as expected, since the brightest daylight conditions are likely to be those with unobstructed direct sunlight, which is warmer in colour than illumination provided by the blue sky. This relationship seems relatively weak however, and could not be used to accurately predict the chromaticity of an illuminant. The answer to the first question set out for the script then, is that a melanopic signal cannot predict chromaticity (though neither can any other signal).
 
 \begin{figure}[ht]
     \centering
-    \includegraphics{figs/Level1sigs.pdf}
-    \caption{\textit{l}\textsubscript{MB} (MB1 above) against \textit{s}\textsubscript{MB} (MB2 above) against Mel}
+    \includegraphics{C:/Users/cege-user/Dropbox/Documents/MATLAB/Melanopsin_Computational/figs/melcomp_1/level1sigspredictingColorimetry.pdf}
+    \caption{Caption}
     \label{fig:l1}
+\end{figure} 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{C:/Users/cege-user/Dropbox/Documents/MATLAB/Melanopsin_Computational/figs/melcomp_1/correlationBetweenLevel1Sigs.pdf}
+    \caption{The relationship between melanopic power (analogous to a tristimulus value but calculated using the spectral sensitivity of melanopsin) with the traditional tristimulus values showing a strong correlation. Red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants.}
+    \label{fig:tristimCorrelation}
 \end{figure} 
 
 It should be noted that there was very high correlation between each signal. This can be considered as corresponding to the high importance of the first principal component of the spectral measurements in this dataset. Put another way, a sensor with almost any spectral sensitivity could be used to estimate the magnitude of the daylight. I shall return to the discussion of principal components when discussing melcomp\_3.
 
+\begin{minipage}{\linewidth}
 \begin{lstlisting}
 corr(LMSM')
 
@@ -65,6 +73,7 @@ corr(LMSM')
     0.9993    0.9995    1.0000    0.9999
     0.9998    0.9999    0.9999    1.0000
 \end{lstlisting}
+\end{minipage}
 
 Following this, similar plots were made which plotted \textit{l}\textsubscript{MB} against \textit{s}\textsubscript{MB} as before, but now plotted the various combinations of [L,M,S,Mel] created by considering one signal over another (e.g. L/M). Following the terminology of \cite{barrionuevo_contributions_2014} I shall refer to these signals as secondary signals (where the signals used previously will be referred to as primary signals). The twelve plots created all showed clear and simple relationships between chromaticity and these new derived signals.
 
@@ -72,15 +81,17 @@ For many of these signals however, such relationships are to be expected. For ex
 
 This example shows that a melanopsin-based signal exhibits correlation with a chromatic signal \emph{not} due to the underlying mathematics of how chromaticity is calculated, and that any relationship must follow from a genuine regularity in the data.
 
-Following this, reflectances were introduced, so as to consider a slightly more realistic situation. Now the simulation considered the colour signals produced by each of the recorded reflectances, under each of the recorded illuminants. MacLeod-Boynton chromaticities, and an analagous melanopic signal, as defined by equation \ref{eq:m}, were computed. Chromaticities are plotted in figure \ref{fig:mb}.
+Following this, reflectances were introduced, so as to consider a slightly more realistic situation. Now the simulation considered the colour signals produced by each of the recorded reflectances, under each of the recorded illuminants. MacLeod-Boynton chromaticities, and an analogous melanopic signal, were computed as defined by equation \ref{eq:i}, where $k_1$ and $k_2$ represent the constants required such that the sum of the weighted $L$ and $M$ signals equals or approximates the luminance function. Chromaticities are plotted in figure \ref{fig:mb}.
 
-\begin{equation} \label{eq:m}
-\textit{mel}\textsubscript{MB} = \textit{Mel}/(\textit{L}+\textit{M})
+
+\begin{equation} \label{eq:i}
+i_{MB} = I/(k_1L + k_2M) 
 \end{equation}
+
 
 \begin{figure}[ht]
     \centering
-    \includegraphics{figs/mb.pdf}
+    \includegraphics{C:/Users/cege-user/Dropbox/Documents/MATLAB/Melanopsin_Computational/figs/melcomp_1/BasicMB.pdf}
     \caption{\textit{l}\textsubscript{MB} (MB1 above) against \textit{s}\textsubscript{MB} (MB2 above). MacLeod-Boynton chromaticities for 12 reflectances under 2600 daylight illuminants.}
     \label{fig:mb}
 \end{figure} 
@@ -89,64 +100,53 @@ Now able to consider the second question, I considered whether it was possible t
 
 \begin{subequations} \label{eq:correction}
 \begin{align}
-\textit{l}\textsubscript{MB}* = \textit{l}\textsubscript{MB} + 0.23\textit{mel}\textsubscript{MB}\\
-\textit{s}\textsubscript{MB}* = \textit{s}\textsubscript{MB} - 1.70\textit{mel}\textsubscript{MB}
+\textit{l}\textsubscript{MB}* = \textit{l}\textsubscript{MB} + 0.23\textit{i}\textsubscript{MB}\\
+\textit{s}\textsubscript{MB}* = \textit{s}\textsubscript{MB} - 1.70\textit{i}\textsubscript{MB}
 \end{align}
 \end{subequations}
 
 \begin{figure}[ht]
     \centering
-    \includegraphics{figs/corrected.pdf}
+    \includegraphics{C:/Users/cege-user/Dropbox/Documents/MATLAB/Melanopsin_Computational/figs/melcomp_1/correctedChromaticities.pdf}
     \caption{\textit{l}\textsubscript{MB}* (MBx1 above) against \textit{s}\textsubscript{MB}* (MBx2 above). MacLeod-Boynton chromaticities for 12 reflectances under 2600 daylight illuminants, corrected by the corresponding \textit{mel}\textsubscript{MB} value.}
     \label{fig:corrected}
 \end{figure} 
 
 It can be seen that the points are no longer smeared by the impact of illumination, and instead roughly cluster together by object.
 
-Following this, an additional optimzation procedure was performed, to consider whether shifting the sensitivity of the melanopsin function along the wavelength spectrum affected the performance of such a signal in correcting these values. The optimization sought to minimise the overall spread of chromaticities (measured as standard deviation of the entire set). The results of this optimisation can be seen in figure \ref{fig:opt}. It can be seen that minima for \textit{l}\textsubscript{MB}* occur at around 530nm and just under 600nm, and minima for \textit{s}\textsubscript{MB}* occur at around 450nm and 580nm. On first appearance this seems to suggest that the optimal spectral sensitivity for a cone type employed to correct the signals from the various cones might be around these points in the spectrum. However, the careful reader might note the correspondance between the figures above and the peak spectral sensitivites of the cones themselves (S-448nm, M-541nm, L-569nm). Indeed we see that the optimal performance occurs when the nominal melanopsin sensitivity overlaps most well with the spectral sensitivity of the cones. It is understandable why this occurs - each signal is then normalised by a near-duplicate of itself, rendering each value in the set being close to zero.
+Following this, an additional optimization procedure was performed, to consider whether shifting the sensitivity of the melanopsin function along the wavelength spectrum affected the performance of such a signal in correcting these values. The optimization sought to minimise the overall spread of chromaticities (measured as standard deviation of the entire set). The results of this optimisation can be seen in figure \ref{fig:opt}. It can be seen that minima for \textit{l}\textsubscript{MB}* occur at around 530nm and just under 600nm, and minima for \textit{s}\textsubscript{MB}* occur at around 450nm and 580nm. On first appearance this seems to suggest that the optimal spectral sensitivity for a cone type employed to correct the signals from the various cones might be around these points in the spectrum. However, the careful reader might note the correspondence between the figures above and the peak spectral sensitivities of the cones themselves (S-448nm, M-541nm, L-569nm). Indeed we see that the optimal performance occurs when the nominal melanopsin sensitivity overlaps most well with the spectral sensitivity of the cones. It is understandable why this occurs - each signal is then normalised by a near-duplicate of itself, rendering each value in the set being close to zero.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics{figs/opt.pdf}
+    \includegraphics{C:/Users/cege-user/Dropbox/Documents/MATLAB/Melanopsin_Computational/figs/melcomp_1/minimiseSD.pdf}
+    \caption{caption}
+    \label{fig:opt}
+\end{figure} 
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics{C:/Users/cege-user/Dropbox/Documents/MATLAB/Melanopsin_Computational/figs/melcomp_1_caller/opt.pdf}
     \caption{The results of an optimization where the spectral sensitivity of the nominal melanopsin fundamental was shifted along the spectrum. Generated using melcomp\_1\_caller.m for iteration.}
     \label{fig:opt}
 \end{figure} 
 
-This had the unexpected and unfortunate effect of simply crushing all the chromaticties down onto a single line, without preserving any inter-object chromatic differences. We witness perfect colour constancy, at the expense of any chromatic discimination. This is obviously not ideal. The effect of this on the overall set can be seen in figure \ref{fig:sdmeans}.
+This had the unexpected and unfortunate effect of simply crushing all the chromaticties down onto a single line, without preserving any inter-object chromatic differences. We witness perfect colour constancy, at the expense of any chromatic discrimination. This is obviously not ideal. The effect of this on the overall set can be seen in figure \ref{fig:sdmeans}.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics{figs/sdmeans.pdf}
-    \caption{Caption!!!!!!!!!!!!!!!!! Generated using melcomp\_1\_caller.m for iteration.}
+    \includegraphics{C:/Users/cege-user/Dropbox/Documents/MATLAB/Melanopsin_Computational/figs/melcomp_1_caller/sdmeans.pdf}
+    \caption{Normalised average distance between points in the set of the mean chromaticities for the different reflectances. It can be seen that inter-reflectance variation drops to zero at the same minima as seen in figure \ref{fig:opt}, showing that these distinct points are undesirably corrected to the same point. Generated using melcomp\_1\_caller.m for iteration.}
     \label{fig:sdmeans}
 \end{figure} 
 
 The work was presented at this stage as a poster at VSS in 2018, which is available at \url{doi.org/10.6084/m9.figshare.6280865}.
 
-An interesting comparison
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics{figs/setoverobj.pdf}
-    \caption{Caption!!!!!!!!!!!!!!!!! Generated using melcomp\_1\_caller.m for iteration.}
-    \label{fig:setoverobj}
-\end{figure} 
-
-
-
-
-
-
+The actual desired behaviour would be to minimise internal variance for each reflectance group, whilst maintaining at least some distinction between inter-reflectance groups. A crude computational approach to considering this goal is illustrated in figure \ref{fig:setoverobj}, where the nominal melanopic peak is set against the standard deviation of the set divided by the internal standard deviation. A more comprehensive approach to this question would need to consider the relative importance of the two separate requirements, and apply appropriate weightings.
 
 
 
 \bibliographystyle{alpha}
 \bibliography{Zotero}
-
-
-
-
-
 
 
 \end{document}
