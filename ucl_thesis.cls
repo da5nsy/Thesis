@@ -156,7 +156,7 @@
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{book}}
 \ProcessOptions
 \LoadClass{book}
-\RequirePackage{times}
+%\RequirePackage{times}
 \RequirePackage{mathptmx}
 %    \end{macrocode}
 %
