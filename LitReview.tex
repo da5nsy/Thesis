@@ -4,6 +4,19 @@
 \section{Colour Science}
 \subsection{Illumination and Colour Vision}
 \subsection{Colorimetry and Colour Measurement}
+
+Colorimetry is the study of the quantitative specification of colour. As a subjective, internal and anthropocentric concept, in order to measure anything meaningful and comparable, we use a standard observer, or more precisely, one of a number of defined standard observers \cite{cie_bs_2011}.
+
+The classic standard observer was defined by the CIE in 1931, following experiments by Wright and Guild \cite{wright_re-determination_1929, guild_colorimetric_1931}. Despite several more recently published standard observers, the 1931 observer is still much used, and I shall use it in the following example of how a basic colorimetric computation is performed.
+
+An illuminant is defined by its spectral power distribution (SPD), a surface as it's spectral reflectance function (SRF), and a the sensitivity of a sensor (such as a photosensitive cell in the retina, or a pixel in a camera) by its spectral sensitivity function (SSF).
+
+The light reaching (colour stimulus (?)) the eye for a given surface under a given illuminant can be computed by multiplying the SPD by the SRF at each sampled interval.
+
+Equation
+
+From this tristimulus values can be computed.
+
 \subsection{Colour rendering and light quality specification}
 
 \section{Museum Lighting}
@@ -13,6 +26,18 @@
 \subsection{LEDs in museums}
 \subsection{New opportunities with solid state lighting}
 
-\section{Colour Constancy and Chromatic Adaptation}
+\section{Chromatic Adaptation and Colour Constancy}
+`Adaptation' is the general mechanism by which a finite range of sensitivity can be shifted in terms of absolute sensitivity bounds. The benefit of having an adaptive system, as opposed to a fixed system, is that the sensitivity of the system to small changes is maximised, whilst maintining a broad overall sensitivity, at the expense of being able to sense over the entire range at a single timepoint. 
+
+In an environment such as the terrestrial environment, there is a great range in the level of illumination, but this range is rarely existent contiguously; levels of illumination tend to similar across a scene, and only change rather slowly. The notable exception, and thus where we notice the expense of having an adaptive visual system, comes when we enter or exit an environment where illumination is almost entirely excluded, such as a dark cave or below decks of a boat. 
+
+[pirate eyepatch image?]
+
+Lighthness adaptation
+
+Chromatic adaptation
+
+
+
 \section{Intrinsically Photosensitive Retinal Ganglion Cells}
 \section{Research questions and hypothesese}

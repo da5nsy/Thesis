@@ -52,10 +52,12 @@
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
 
+\makeglossaries
+
 
 \begin{document}
 
-\nobibliography*
+%\nobibliography*
 % ^-- This is a dumb trick that works with the bibentry package to let
 %  you put bibliography entries whereever you like.
 % I used this to put references to papers a chapter's work was 
@@ -77,6 +79,7 @@
 \include{LargeSphere}
 \include{SmallSphere}
 
+
 % \include{General discussion}
 % \include{Contribution to vision science}
 % \include{Recommendations for museum lighting}
@@ -94,6 +97,6 @@
 \addcontentsline{toc}{chapter}{Bibliography}
 
 % Actually generates your bibliography.
-\bibliography{example} 
+\bibliography{BIB} 
 
 \end{document}
