@@ -1,44 +1,78 @@
-\chapter{Tablet Method}
+\chapter{The Spatial Achromatic Setting (SAPS) Method}
 \label{TabletMethodChapter}
 
 \section{Summary}
 
-A methodology is proposed that allows for experiments of colour constancy to be performed in real and complex environments, in order to better understand colour constancy in the real world. The methodology considered uses a tablet computer to present a spatial version of an achromatic point selection task. 
-The key concerns are whether such a methodology can record differences in perceptual white point, present a stable stimulus across disparate environments, and be suitable for naive observers following minimal instruction. On each point, the method is shown to be at moderately successful, with caveats, and suggestions are provided for improvements.
-If judged satisfactory, such a methodology could be used to investigate the effect of multiple cues, conflicting cues and cues which cannot easily be reproduced in a controlled in a lab environment.
+The principal aim of this piece of work is to explore a novel method for colour constancy experiments, which allows for experiments to be performed in real and complex environments, in order to better understand colour constancy outside of a lab environment. The methodology uses a tablet computer to present a spatial version of an achromatic point selection task. 
+
+The key concerns are whether such a methodology can record differences in perceptual white point, present a stable stimulus across disparate environments, and be suitable for naive observers following minimal instruction. On each point, the method is shown to be at least moderately successful, with caveats, and suggestions are provided for improvements.
+
+Such a methodology could be used to investigate the effect of multiple cues, conflicting cues and cues which cannot easily be reproduced in a controlled in a lab environment.
+
+\bigskip
+
+The work presented here has been previously presented as an oral presentation at AIC 2016 \citep[p. 125]{garside_estimating_2016} and as a poster presentation at ECVP 2017 \citep[p. 93]{noauthor_ecvp_2017}\footnote{Poster available: \doi{10.6084/m9.figshare.5478493.v1}}
+
+
+\newpage
 
 \section{Introduction}
 
-To further our understanding of colour constancy, investigators have traditionally designed experiments where the number of variables compared to a real-world environment is greatly reduced. This allows investigators to carefully query the impact of any individual variable, or the interplay of a small number of variables. An example may be the `Mondrian' patterns used in a vast number of investigations, most famously used by \citet{land_retinex_1964} (and well described by \citet{hurlbert_colour_1999}) where an observer is presented with a flat and unmoving selection of overlapping coloured rectangles in place of a real scene, or the more recent experiments of \citet{kraft_mechanisms_1999} where objects representing potential colour constancy cues (such as a tin-foil covered cone) were removed from a neutrally coloured box one-by-one in order to probe their relative usefulness.
+To further our understanding of colour constancy, investigators have traditionally designed experiments where the number of variables compared to a real-world environment is greatly reduced. This allows investigators to carefully query the impact of any individual variable, or the interplay of a small number of variables. An example is the `Mondrian' patterns, shown in Figure \ref{fig:mondrian}, and used in a large number of investigations, most famously used by \citet{land_retinex_1964} (and well described by \citet{hurlbert_colour_1999}) where an observer is presented with a flat and unmoving selection of overlapping coloured rectangles in place of a real scene, or the more recent experiments of \citet{kraft_mechanisms_1999} where objects representing potential colour constancy cues such as a tin-foil covered cone were removed from a neutrally coloured box one-by-one in order to probe their relative usefulness (see Figure \ref{fig:KraftBrainard}).
 
-\begin{figure}[hbp]
+\begin{figure}[hbtp]
 \includegraphics[width=\textwidth]{figs/tablet/mondrian.png}
 \caption{An example `Mondrian', reproduced from \citet{land_recent_1986}.}
 \label{fig:mondrian}
 \end{figure}
 
-\begin{figure}[hbp]
+\begin{figure}[hbtp]
 \includegraphics[width=\textwidth]{figs/tablet/KraftBrainard.png}
 \caption{A colour constancy experiment investigating the roles of multiple cues, reproduced from \citet{kraft_mechanisms_1999}}
 \label{fig:KraftBrainard}
 \end{figure}
 
-Simple experimental stimuli allow for clear questions to be asked, and for those questions to be answered with statistical strength. Such research is valuable. However, the use of simplified stimuli risks overlooking unknown scene attributes, and the human behaviours which may be reliant on them. Recent experiments (ref) have found that colour constancy in lab environments is never `complete'; is this representative of real world behaviour or could this result be due a lab environment failing to deliver all the cues available to an observer in a natural environment? Recent technological advances have enabled experimenters to reproduce natural scenes with increasingly accuracy and comprehensiveness \citep{heasly_rendertoolbox3_2014}, but the number of variables in real scenes is practically infinite, and whilst our ability to reproduce a scene increases, we only reproduce what we deem important at the time. Using a real-world environment would allow for processes to occur as they would do naturally, in the environment for which these processes are presumably optimised (See \citet{kelly_chips_2017} (poster ref, try to replace) and \citet{shepard_perceptual_1992}.)
+It is clear that these set-ups are much reduced in their complexity compared to a natural scene. Simple experimental stimuli allow for clear questions to be asked, and for those questions to be answered with statistical strength. Such research is valuable. However, the use of simplified stimuli risks overlooking unknown scene attributes, and the human behaviours which may be reliant on them. Recent experiments %(ref) !!!!!!!! 
+have found that colour constancy in lab environments is never `complete'; is this representative of real world behaviour or could this result be due a lab environment failing to deliver all the cues available to an observer in a natural environment? Recent technological advances have enabled experimenters to reproduce natural scenes with increasingly accuracy and comprehensiveness \citep{heasly_rendertoolbox3_2014}, but the number of variables in real scenes is practically infinite, and whilst our ability to reproduce a scene increases, we only reproduce what we deem important at the time. Using a real-world environment would allow for processes to occur as they would do naturally, in the environment for which these processes are presumably optimised (See \citet{kelly_chips_2017} %(poster ref, try to replace) 
+and \citet{shepard_perceptual_1992}.)
 
 There are two clear challenges to the use of natural environments for scientific study; the inability to control target variables, and the influence of uncontrollable or uncontrolled non-target variables. The first may be surmountable; depending on the variable in question it might either be controlled by force, or over time natural variability may provide the required experimental range. The second may be insurmountable but, depending on the specific situation, it may be permissible to consider uncontrolled variations simply as sources of experimental noise. Further challenges arise where connections exist between target and non-target variables, or where the influence of the non-target variables dwarf the effect of the target variable.
 
 One further challenge: it is rare for an experiment in a real-world environment to not intrude onto that real-world scene and change it in some way. The only true solution to this problem would be to consider unannounced observation of a natural behaviour as the only acceptable scientific method. A pragmatic compromise is to design an experiment such that it modifies the environment of the observer minimally, and to carefully consider the impact that the experimental set-up may have upon observers.
 
-The method presented here is a variant of the `achromatic setting' method. For overviews see `achromatic adjustment' in \citet{foster_color_2011} and `Matching to an internal standard' or `achromatic setting' in \citet{smithson_sensory_2005}. The proposed variation should allow for use in real-world environments, whilst minimally influencing the observers' state of chromatic adaptation. The achromatic setting method requires an observer, under specific conditions, to adjust the chromaticity of an item in their visual field such that this item appears achromatic. Changes in selected achromatic point (in colour space) are thought to represent general adaptive shifts. For example, an observer in a uniform and strongly chromatic environment would be expected to pick an achromatic point which is shifted towards the chromaticity of that environment, compared to the achromatic point which they might select in a more neutral environment. 
+The method presented here is a variant of the `achromatic setting' method. For overviews see %section X, or 
+the section on `achromatic adjustment' in \citet{foster_color_2011} and `Matching to an internal standard' or `achromatic setting' in \citet{smithson_sensory_2005}. The achromatic setting method requires an observer, under specific conditions, to adjust the chromaticity of an item in their visual field such that this item appears achromatic. Changes in selected achromatic point (in colour space) are thought to represent general adaptive shifts. For example, an observer in a uniform and strongly chromatic environment would be expected to pick an achromatic point which is shifted towards the chromaticity of that environment, compared to the achromatic point which they might select in a more neutral environment. This is often practically achieved by having the object be an area of a computer screen, and have it controllable in two or more chromatic dimensions (such as relative amounts of unique red/green and blue/yellow). 
 
-This is often practically achieved by having the object be an area of a computer screen, and have it controllable in two or more dimensions (such as unique red/green and blue/yellow). 
-In the spatial achromatic point setting method, as presented here, a tablet computer is given to an observer to hold as is comfortable to them, and upon this computer appears an isoluminant slice through a nominally perceptually uniform colour space, from which they are requested to select (by touching upon the screen with a finger) the point which they deem to be most achromatic (the specific phrase `grey-est or least colourful' is employed in order to make the task suitable for non-colour-scientist observers). The term `spatial' is used since the user provides information through making a spatial selection which directly corresponds to a colour choice, where in other methods abstract sliders or knobs may be used as input mechanisms.
+In the \gls{SAPS} method, as presented here, a tablet computer is given to an observer to hold as is comfortable to them, and upon this computer an isoluminant slice through a nominally perceptually uniform colour space is presented, from which they are requested to select (by touching upon the screen with a finger) the point which they deem to be most achromatic (the specific phrase `grey-est or least colourful' is employed in order to make the task suitable for non-colour-scientist observers). The term `spatial' is used since the user provides information by making a spatial selection which directly corresponds to a colour choice, where in other methods abstract sliders or knobs may be used as input mechanisms.
 
-To minimise the effect of the presentation of chromatic scenes upon the viewer, which may influence an observer's state of chromatic adaptation, this process is repeated a number of times with the area of colour space which is presented varying, through random rotation about the luminance axis, and ransom offsetting through both dimensions of the chromatic plane.
-In this chapter I will outline the procedure, and describe some experiments performed to explore the potential and limitations of such a method.
+To minimise the effect of the presentation of chromatic scenes upon the viewer, which may influence an observer's state of chromatic adaptation, this process is repeated a number of times with the area of colour space which is presented varying, through random rotation about the luminance axis, and random offsetting through both dimensions of the chromatic plane.
 
-\section{Materials and Methods}
-\subsection{Stimuli}
+In the rest of this chapter I will describe the method in more detail, and describe some experiments performed to explore the potential abilities and limitations of such a method.
+
+\section{Research Questions and Hypotheses}
+
+\subsection*{Hypothesis 1: The \gls{SAPS} method is suitable for colour constancy experiments}
+
+To be fit for performing colour constancy experiments, this method needs to:
+
+\begin{enumerate}
+    \item \emph{Provide a relatively environment-agnostic stimulus.} 
+    This experimental method relies on the assumption that the tablet display delivers a stimulus with identical physical properties to the observer independent of environment. In practical terms, this means that the tablet must not be affected by reflection, either at the glossy surface of the tablet display, or at reflection at any other level of the display architecture, to the extent that this has a non-negligible impact upon recorded data.
+    \item \emph{Collect meaningful data.}
+    One would expect this to be indicated by small intra-observer variability (not recording a change where there is presumably none), and reasonable inter-environment change (recording a change where there is presumably a change). It would be expected that these changes would be in line with previously published results.
+    \item \emph{Additional aim - Be suitable for naïve observers.}
+    This would reduce the amount of time and effort required to run experiments, and allow for the collection of data from participants less likely to be biased through task expectation. It also means that the demographic group of observers is less likely to be 
+    WEIRD (`Western, Educated, Industrialized, Rich, and Democratic', \citep{henrich_weirdest_2010,brookshire_social_2013,noauthor_just_nodate}), white, and undergraduate.
+\end{enumerate}
+
+\subsection*{Hypothesis 2: \gls{ipRGC} activation affects perceptual white point.}
+Primarily as a proof of concept for this methodology, but also to assist in answering other research questions posed within this thesis, an experiment was performed whereby observers made achromatic selections under a selection of colorimetrically metameric illuminants where there was a melanopic contrast between illuminants. %See section X. 
+
+\section{Experimental set-up and methodology}
+\subsection{Method \& Apparatus}
+\subsubsection{Task: Selection of achromatic point on a tablet PC}
+\subsubsection{Instructions to the participants}
+\subsubsection{Specification of tablet PC}
 
 Participants undertook the experiment upon a Dell Latitude 10 ST2 tablet computer with `BROTECT' Matte Screen Protector (223x126mm active screen area, 1366x768 pixels) as described elsewhere \citep{garside_estimating_2016}. This tablet was chosen for its ability to run a Windows environment, and the matte screen protector was added to reduce the severity of specular reflections. 
 
@@ -49,7 +83,12 @@ Participants undertook the experiment upon a Dell Latitude 10 ST2 tablet compute
 \end{figure}
 % Generated using the 'Plot gamut' section of SAPS_TabletCharacterisation.m
 
+\subsubsection{Selection of colour space for creating the stimuli}
+
 The stimulus presented to observers was an isoluminant plane (in CIE L*) through CIELUV colour space. CIELUV was chosen for having an associated object colour space, where comparisons between the chromaticity of light sources and the chromaticity of selections could be made. The stimulus was specified as: L*: 60 uniformly across field, u*: ranging linearly from -50 to 50 from one side of the field to the other, and v*: as for u*, but along the perpendicular axis, so that the stimulus was of uniform lightness and smoothly changing hue and chroma. The stimulus created was 2188 pixels square; this is larger than the pixel dimensions of the screen to allow for the stimulus to be rotated freely and offset by up to a third of the image in any direction before the edge of the image is encountered. [include maths?]
+
+\subsection{Stimuli}
+\subsubsection{Generating the stimuli}
 
 The stimulus was specified with the above attributes in a matrix within MATLAB. CIELUV values were converted to XYZ tristimulus values using built in functions, with reference white set as the XYZ tristimulus values of the display at maximum white (with screen protector), as measured with an Xrite…. Linearisation was achieved through the use of a look-up table, computed by spline interpolation of the measured outputs at 15 pixel (KT: pixel drive value?) value increments from 0 to 255 for each channel. The stimulus was then output as an 8-bit tiff image, which could be easily loaded and manipulated by the psychophysical stimulus presentation software PsychoPy \citep{peirce_psychopypsychophysics_2007}. (Illustrate with flow diagram?)
 
@@ -83,6 +122,19 @@ The effect of rotation and offset was that on each stimulus presentation the obs
 \caption{The `practical gamut' within the context of the display gamut.}
 \label{fig:practical2}
 \end{figure}
+
+\subsubsection{Limitations of the stimuli}
+
+\subsection{Environments}
+% Descriptions of environments incl lighting info
+
+\subsection{Participants}
+
+\subsection{Data Analysis}
+\subsubsection{Processing Pipeline}
+\subsubsection{Exclusion Criteria}
+\subsubsection{Statistical Analysis}
+
 
 \section{Observer Task and Ethics}
 
@@ -177,20 +229,10 @@ There is an additional high power white channel, which is on a separate control 
 
 Additional testing was undertaken within the Chadwick Building of UCL (home of the Department of Civil, Environmental and Geomatic Engineering), in light-tight basement rooms fitted with fluorescent lighting though data from these runs is not reported here.
 
-\section{Research Questions}
-
-To be fit for performing colour constancy experiments, this method needs to:
-
-\begin{enumerate}
-    \item \emph{Provide an environment-agnostic stimulus.} 
-    This experimental method relies on the assumption that the tablet display delivers a stimulus with identical physical properties to the observer independent of environment. In practical terms, this means that the tablet must not be overly affected by reflection, either at the glossy surface of the tablet display, or at reflection at any other level of the display architecture.
-    \item \emph{Collect meaningful data.}
-    One would expect this to be indicated by small intra-observer variability (not recording a change where there is none), and reasonable inter-environment change (where there is a change in conditions that would generally be expected to elicit a change in response that this would be recorded). It would be expected that these changes would be in line with previously published results.
-    \item \emph{Additional aim – Be suitable for naïve observers.}
-    This would reduce the amount of time and effort required to run experiments, and allow for the collection of data from participants less likely to be biased through task expectation. It also means that the demographic group of observers less likely to be biased towards the demographic most used in experimental work – undergraduate students.
-\end{enumerate}
-
 \section{Experiments}
+
+%-----------------------%
+
 \subsection{To what extent is the stimulus environment-agnostic?}
 
 A key requirement in this methodology is that the display device remains colorimetrically stable across a range of lighting environments. This would only be true if the device produced the entirety of the light emanating from it in normal use. In reality, a small amount of light will be reflected from the surrounding environment. This may be reflected either at the surface layer of the screen (specular reflections) or at a lower level of the screen architecture. Here we aim to quantify the amount of light reflected in this way, understand the impact that this has on this method, and seek to minimise this impact if possible.
@@ -224,7 +266,7 @@ Another way of representing the above is to consider the effect that changing li
 % figure
 % [Caption: The recorded spectral power distributions, for each measured level of pixel value, under each of the 4 illuminations. Plots are limited to lower pixel values for attention.] Need to find a better way to present this
 
-Above, it can be seen that at lower levels of pixel value, the spectral power distributions are notably different between lighting conditions. Under MH, for example, there is a noticeable difference in SPD shape whereby at the lowest pixel values there is a peak around 470nm, which quickly fades from notice as pixel values increase. For CW in comparison, we can see that the 450nm peak is substantially higher at low pixel values than at either of the WW measurements, suggesting that this light source provides additional power at these wavelengths.
+Above, it can be seen that at lower levels of pixel value, the spectral power distributions are notably different between lighting conditions. Under MH, for example, there is a noticeable difference in \gls{SPD} shape whereby at the lowest pixel values there is a peak around 470nm, which quickly fades from notice as pixel values increase. For CW in comparison, we can see that the 450nm peak is substantially higher at low pixel values than at either of the WW measurements, suggesting that this light source provides additional power at these wavelengths.
 
 In all the cases above, the impact of such perturbations can be seen to fade rapidly with increasing pixel value.
 
@@ -364,7 +406,7 @@ From the plot of standard deviations in figure X, it can be seen that whilst the
 
 \section{An Experiment: Achromatic settings, does melanopsin play a role?}
 
-In order to test this methodology, and to investigate the role of melanopic activation upon achromatic settings, an experiment was performed using the spatial achromatic point setting method at the UCL PAMELA facility (see section 3.4.3 for details). Observers undertook the experimental task under two lighting conditions which were specified to be colorimetrically matched for the CIE 1931 observer, but which substantially differed in their computed melanopic flux. The conditions used have previously been referred to as `CW' (for `cool white') and `MH' (for `mel-high'); within this section the term `CW' shall be replaced with `ML' (for `mel-low'), in order to align with current literature and for clarity.
+In order to test this methodology, and to investigate the role of melanopic activation upon achromatic settings, an experiment was performed using the \gls{SAPS} method at the UCL PAMELA facility (see section 3.4.3 for details). Observers undertook the experimental task under two lighting conditions which were specified to be colorimetrically matched for the CIE 1931 observer, but which substantially differed in their computed melanopic flux. The conditions used have previously been referred to as `CW' (for `cool white') and `MH' (for `mel-high'); within this section the term `CW' shall be replaced with `ML' (for `mel-low'), in order to align with current literature and for clarity.
 For the purpose of this experiment, the null condition considered is that: achromatic settings are determined solely by retinal cone catches. A corollary of this is that melanopic flux plays no role. CIE 1931 chromaticity is used as a proxy for retinal cone catches.
 
 %table

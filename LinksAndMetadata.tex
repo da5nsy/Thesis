@@ -8,7 +8,9 @@
 % See: http://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv
 \usepackage{bibentry}
 \makeatletter\let\saved@bibitem\@bibitem\makeatother
-\usepackage[pdftex,hidelinks]{hyperref}
+
+%\usepackage[pdftex,hidelinks]{hyperref} %Commented out this line in order to get the doi package to work. Doesn't seem to have any detremental effect...
+
 \makeatletter\let\@bibitem\saved@bibitem\makeatother
 \makeatletter
 \AtBeginDocument{
