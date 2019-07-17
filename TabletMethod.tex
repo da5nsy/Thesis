@@ -1,7 +1,7 @@
 \chapter{Tablet Method}
 \label{TabletMethodChapter}
 
-\section{Abstract}
+\section{Summary}
 
 A methodology is proposed that allows for experiments of colour constancy to be performed in real and complex environments, in order to better understand colour constancy in the real world. The methodology considered uses a tablet computer to present a spatial version of an achromatic point selection task. 
 The key concerns are whether such a methodology can record differences in perceptual white point, present a stable stimulus across disparate environments, and be suitable for naive observers following minimal instruction. On each point, the method is shown to be at moderately successful, with caveats, and suggestions are provided for improvements.
@@ -447,10 +447,10 @@ As previously discussed (see section 5.2.1), consequently chromaticities that li
 
 One modification to the methodology which may improve the situation, would be to render the stimuli on-the-fly (rather than calling the same stimuli for each presentation) with the observer's previous selection having some influence on the new stimulus. A simple implementation of this would be to generate stimuli following the rule that the white point of the stimuli was defined by the achromatic point of the participant's previous achromatic selection. In this way, the white point of each stimulus would, over trials, move closer to the participant's true preferred achromatic point, even if it had not been present in the initial stimuli. This would, of course, only be successful if the participant's preferred achromatic point was within the hardware gamut. 
 
-Such schemes have been used previously, and they have been referred to as operating with an `adaptive starting rule'. \citet{delahunt_evaluation_2001} describes the process (emphasis mine):
+Such schemes have been used previously, and they have been referred to as operating with an `adaptive starting rule'. \citet{delahunt_evaluation_2001} describes the process:
 
 \begin{displayquote}
-\dots I used what Brainard refers to as the \emph{`adaptive starting rule'}. The a* and b* initial settings were randomized within the coordinate rectangle [-25,25] x [-25,25] centered on a reference chromaticity which was calculated as follows. For the first setting, the reference chromaticity was the white point defined by a reference illuminant. For all experiments using achromatic settings in this dissertation, the white point was [.318 .334 17.3] in CIE xyY coordinates. For each subsequent setting, the reference chromaticity was the achromatic setting made in the previous setting.
+``\dots I used what Brainard refers to as the \emph{`adaptive starting rule'}. The a* and b* initial settings were randomized within the coordinate rectangle [-25,25] x [-25,25] centered on a reference chromaticity which was calculated as follows. For the first setting, the reference chromaticity was the white point defined by a reference illuminant. [\dots] For each subsequent setting, the reference chromaticity was the achromatic setting made in the previous setting.''
 \end{displayquote}
 
 I would recommend that if this method were developed further, integration of an adaptive starting rule should be considered.
@@ -458,7 +458,7 @@ One further point of consideration which falls to be discussed within this secti
 
 \subsection{Coding language}
 
-One further recommendation, for a future investigator wishing to build upon this method, or for myself should I return to it, would be to address the current situation of a split across MATLAB and Python. The current situation arose because, having started building the software in Python (specifically PsychoPy [12]), due to the open-source nature of that project (and the implication that those outside of academia could more easily adopt and adapt the method, as well as the fact that this program would have to run on a small tablet, which I was unsure of whether it would run MATLAB) I found that my skills within Python when it came to generating colorimetrically defined imagery were critically lacking, and that my skills and the skills of those around me were much further advanced in MATLAB. I mention this primarily so that any future user might not attach any false significance to the split across languages.
+One further recommendation, for a future investigator wishing to build upon this method, or for myself should I return to it, would be to address the current situation of a split across MATLAB and Python. The current situation arose because, having started building the software in Python (specifically PsychoPy), due to the open-source nature of that project (and the implication that those outside of academia could more easily adopt and adapt the method, as well as the fact that this program would have to run on a small tablet, which I was unsure of whether it would run MATLAB) I found that my skills within Python when it came to generating colorimetrically defined imagery were critically lacking, and that my skills and the skills of those around me were much further advanced in MATLAB. I mention this primarily so that any future user might not attach any false significance to the split across languages.
 
 \section{Conclusions}
 
