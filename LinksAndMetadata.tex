@@ -9,7 +9,7 @@
 \usepackage{bibentry}
 \makeatletter\let\saved@bibitem\@bibitem\makeatother
 
-%\usepackage[pdftex,hidelinks]{hyperref} %Commented out this line in order to get the doi package to work. Doesn't seem to have any detremental effect...
+\usepackage[pdftex,hidelinks]{hyperref} 
 
 \makeatletter\let\@bibitem\saved@bibitem\makeatother
 \makeatletter
@@ -22,4 +22,7 @@
     }
 }
 \makeatother
+
+% Creates hyperlinks automatically from DOIs, and allows for use of \doi{} rather than \url{} which means it can handle non-allowed characters in DOIs.
+\usepackage{doi}
     
