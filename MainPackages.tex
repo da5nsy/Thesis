@@ -79,8 +79,8 @@
 %  alongside your text that can be useful for discussing edits 
 %  in drafts.
 % Remove or comment out the command for proper versions.
-%\usepackage[modulo]{lineno}
-% \linenumbers 
+\usepackage[modulo]{lineno}
+%\linenumbers 
 
 
 % Alternatively, you can use the ifdraft package to let you add
@@ -141,10 +141,6 @@
 % Introduces a few neat typographic tricks
 \usepackage{microtype}
 
-% Adds line numbers
-\usepackage{lineno}
-%\linenumbers
-
 % For quotes
 \usepackage{csquotes}
 
@@ -152,4 +148,8 @@
 \usepackage{epigraph}
 % See https://www.overleaf.com/learn/latex/Typesetting_quotations
 
+% Package to set images to be maximum text width
+\usepackage[export]{adjustbox}
 
+% for making lettered lists
+\usepackage{enumitem}
