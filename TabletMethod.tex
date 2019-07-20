@@ -116,10 +116,9 @@ The stimulus presented to observers was an isoluminant plane (in CIE L*) through
 \subsection{Stimuli} \label{sec:stimuli}
 \subsubsection{Generating the stimuli}
 
-The stimulus was specified as: L*: 60 uniformly across field, u*: ranging linearly from -50 to 50 from one side of the field to the other, and v*: as for u*, but along the perpendicular axis, so that the stimulus was of uniform lightness and smoothly changing hue and chroma. The stimulus created was 2188 pixels square; this is larger than the pixel dimensions of the screen to allow for the stimulus to be rotated freely and offset by up to a third of the image in any direction before the edge of the image is encountered. %[include maths?]
+The stimulus was specified as: L*: 60 uniformly across field, u*: ranging linearly from -50 to 50 from one side of the field to the other, and v*: as for u*, but along the orthogonal axis, so that the stimulus was of uniform lightness and smoothly changing hue and chroma. The full stimulus image (Figure \ref{fig:Stimulus}) was 2188 pixels square; this is larger than the pixel dimensions of the screen to allow for the stimulus to be rotated freely and offset by up to a third of the image in any direction before the edge of the image is encountered. 
 
-The stimulus was specified with the above attributes in a matrix within MATLAB. CIELUV values were converted to XYZ tristimulus values using built in functions, with reference white set as the XYZ tristimulus values of the display at maximum white (with screen protector), as measured with an Xrite %!!!!!!!!!!!!!!!
-Linearisation was achieved through the use of a look-up table, computed by spline interpolation of the measured outputs at 15 pixel %(KT: pixel drive value?)
+The stimulus was specified with the above attributes in a matrix within MATLAB\footnote{Code: \url{https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/stimulusGenerator002.m}}. CIELUV values were converted to XYZ tristimulus values using built in functions, with reference white set as the XYZ tristimulus values of the display at maximum white (with screen protector), as measured with an Xrite i1 device. Linearisation was achieved through the use of a look-up table, computed by spline interpolation of the measured outputs at 15 pixel %(KT: pixel drive value?)
 value increments from 0 to 255 for each channel. The stimulus was then output as an 8-bit tiff image, which could be easily loaded and manipulated by the psychophysical stimulus presentation software PsychoPy \citep{peirce_psychopypsychophysics_2007}. %(Illustrate with flow diagram?)
 
 \begin{figure}[hbp]
@@ -130,11 +129,10 @@ value increments from 0 to 255 for each channel. The stimulus was then output as
 % Copied and pasted from original psychopy folder. Could regenerate using stimulusGenerator002.m
 
 \subsubsection{Presenting the stimuli}
-A program was written in PsychoPy that presents the stimulus 30 times, with random rotation and random offset in the horizontal and vertical dimensions of between -1/6 and +1/6 of the respective dimension. Thus `objective grey', where [u*,v*] = (0,0), was always within the central third (in each dimension) of the screen. This program saved details of the offset and rotation (`dpX', `dpY' and `ori'), co-ordinates of observer selected point (`x-co\_raw', `y-co\_raw', and also `direction\_raw', `magnitude\_raw'), and time taken to make selection, measured since last selection (`toc\_raw').
+A program was written in PsychoPy\footnote{\url{Code:  https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/SpatialAchromaticPointSetting_0940_Grant.py}} that presents the stimulus 30 times, with random rotation and random offset in the horizontal and vertical dimensions of between -1/6 and +1/6 of the respective dimension. Thus `objective grey', where [u*,v*] = (0,0), was always within the central third (in each dimension) of the screen. This program saved details of the stimulsu offset and rotation (`dpX', `dpY' and `ori'), co-ordinates of observer selected point (`x-co\_raw', `y-co\_raw', and also `direction\_raw', `magnitude\_raw'), and time taken to make selection, measured since last selection (`toc\_raw').
 
 The effect of rotation and offset was that on each stimulus presentation the observer saw a stimulus that appeared somewhat different to the previous stimulus, but still hopefully included their preferred achromatic point. The rotation and offset can be illustrated by plotting the chromaticities present in any one stimulus presentation, as in figure X. %!!!!!!!!!!!!!!!!!!!
-Plotting the chromaticities present across a full run of 30 trials yields figure Y, %!!!!!!!!!!!!!!!!!
-where it can be seen that the rotation results in a roughly circular spread of chromaticities, and the rotation and the offsetting together result in a gradient of likelihood of presentation which is high at the centre of the full stimulus and lowest at the edges of the full stimulus. This gamut distribution is referred to further in the text as the `practical gamut'.
+Plotting the chromaticities present across a full run of 30 trials yields Figure \ref{fig:practical}, where it can be seen that the rotation results in a roughly circular spread of chromaticities, and the rotation and the offsetting together result in a gradient of likelihood of presentation which is high at the centre of the full stimulus and lowest at the edges of the full stimulus. This gamut distribution is referred to further in the text as the `practical gamut'.
 
 % Single shot figure needed
 
@@ -144,17 +142,14 @@ where it can be seen that the rotation results in a roughly circular spread of c
 % \label{fig:?????}
 % \end{figure}
 
+
 \begin{figure}[hbp]
 \includegraphics[max width=\textwidth]{figs/tablet/practical_gamut.pdf}
-\caption{The `practical gamut'. This plot shows the relative frequency that chromaticities are presented. The highest number of times a particular chromaticity can be presented is 30, since there are 30 trials. As described in the main text, chromaticities falling towards the specified objective white point of the stimulus are presented every stimulus, whereas those further away from the centre of the stimulus are presented less frequently.}
+\caption{The `practical gamut'. This plot shows the relative frequency that chromaticities are actually presented, within the boundary of the device gamut (as shown in Figure \ref{gamut}). The highest number of times a particular chromaticity can be presented is 30, since there are 30 trials. As described in the main text, chromaticities falling towards the specified objective white point of the stimulus are presented every stimulus, whereas those further away from the centre of the stimulus are presented less frequently. On the left-hand side of the cluster it can be seen that the gamut boundary is reached. This is discussed further in section X. %!!!!!!!!!!!
+}
 \label{fig:practical}
 \end{figure}
 
-\begin{figure}[hbp]
-\includegraphics[max width=\textwidth]{figs/tablet/practical_gamut2.pdf}
-\caption{The `practical gamut' within the context of the display gamut.}
-\label{fig:practical2}
-\end{figure}
 
 \subsubsection{Touch input characterization} \label{sec:touch}
 The checker-board stimuli (Figure \ref{fig:checker-board}), included to allow for fine spatial calibration for individual observers' touch input, was generated by running the main experimental script again but with the stimulus file path replaced with a simple pattern generated within PsychoPy.
@@ -414,7 +409,7 @@ This would equate to a shift of 0.2742 in u*v* space, or a shift of 0.0003 in u'
 To summarise this section: I have considered the variation within data from a single individual (the author) who conducted a number of repeated measurements under controlled conditions. It was found that the variation between repeats was substantially lower than the difference between data from two different lighting conditions. It is unclear what the minimum threshold for different detection by this method is.
 I have also attempted to understand the extent to which the touch input introduces uncertainty, but considering variation in data where the task was considerably easier, and thus the principal source of variation could be assumed to be the touch input. It was found that this source of variation should only account for a very small proportion of the variation seen within the full experiment.
 
-\subsection{Is this method suitable for naive observers?}
+\subsection{Experiment 1C - Is this method suitable for naive observers?}
 
 %figure
 
