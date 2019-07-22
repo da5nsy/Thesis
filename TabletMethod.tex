@@ -1,15 +1,17 @@
-\chapter{The Spatial Achromatic Setting (SAPS) Method}
+\chapter{The Spatial Achromatic Point Setting (SAPS) Method}
 \label{TabletMethodChapter}
 
 \textit{The work presented here has been presented previously as an oral presentation at AIC 2016 \citep[p. 125]{garside_estimating_2016}\footnote{Abstract available: \doi{10.6084/m9.figshare.4269680.v1}} and as a poster presentation at ECVP 2017 \citep[p. 93]{niko_busch_european_2017}\footnote{Poster available: \doi{10.6084/m9.figshare.5478493.v1}}}
 
 \section{Summary}
 
-The principal aim of this piece of work is to explore a novel method for colour constancy experiments, which allows for experiments to be performed in real and complex environments, in order to better understand colour constancy outside of a lab environment. The methodology uses a tablet computer to present a spatial version of an achromatic point setting task. 
+The principal aim of this piece of work is to explore a novel method for colour constancy experiments, which allows for experiments to be performed in real and complex environments, in order to better understand colour constancy outside of a lab environment. The \gls{SAPS} method uses a tablet computer to present a spatial version of an achromatic point setting task. 
 
-The key concerns are whether such a methodology can: a) record differences in perceptual white point, b) present a stable stimulus across disparate environments, and c) be suitable for naive observers following minimal instruction. 
+The key concerns are whether such a methodology can: a) present a stable stimulus across disparate environments, b) record differences in perceptual white point, and c) be suitable for naive observers following minimal instruction. 
 
-On each point, the method is shown to be at least moderately successful, with caveats, and suggestions are provided for improvements upon the current design. Such a methodology could be used to investigate the effect of multiple cues, conflicting cues and cues which cannot easily be reproduced in a controlled in a lab environment.
+On each point, the method is shown to be at least moderately successful, with caveats, and suggestions are provided for improvements upon the current design. Such a methodology could be used to investigate the effect of multiple cues, conflicting cues and cues which cannot easily be reproduced in a lab environment.
+
+Code and data are provided: \url{https://github.com/da5nsy/SAPS/}.
 
 \newpage
 
@@ -19,13 +21,13 @@ To further our understanding of colour constancy, investigators have traditional
 
 For example, a common stimulus-type used in such experiments are `Mondrian' patterns, arrangements of flat and unmoving overlapping coloured paper rectangles, see Figure \ref{fig:mondrian} \citep{hurlbert_colour_1999}. Consider also the experiments of \citet{kraft_mechanisms_1999} where objects representing potential colour constancy cues such as a tin-foil covered cone (specular highlights) were removed from a neutrally coloured box one-by-one in order to probe their relative usefulness (see Figure \ref{fig:KraftBrainard}).
 
-\begin{figure}[hbtp]
+\begin{figure}[hbp]
 \includegraphics[max width=\textwidth]{figs/tablet/mondrian.png}
 \caption{An example `Mondrian', reproduced from \citet{land_recent_1986}.}
 \label{fig:mondrian}
 \end{figure}
 
-\begin{figure}[hbtp]
+\begin{figure}[hbp]
 \includegraphics[max width=\textwidth]{figs/tablet/KraftBrainard.png}
 \caption{A colour constancy experiment investigating the roles of different potential cues, reproduced from \citet{kraft_mechanisms_1999}. Objects within the scene were carefully selected such that the inclusion or removal or specific objects would allow or exclude the possibility of using a specific mechanism (local adaptation, spatial mean of the image, adaptation to the most intense region) to perform colour constancy.}
 \label{fig:KraftBrainard}
@@ -54,17 +56,17 @@ To be fit for performing colour constancy experiments, this method needs to:
 
 \begin{enumerate}[label=\Alph*.]
     \item \label{list:hyp1a} \emph{Provide a relatively environment-agnostic stimulus.} 
-    This experimental method relies on the assumption that the tablet display delivers a stimulus with identical physical properties to the observer independent of environment. In practical terms, this means that the tablet must not be affected by reflection, either at the glossy surface of the tablet display, or at reflection at any other level of the display architecture, to the extent that this has a non-negligible impact upon recorded data. If it is found that this is not the case, the tablet would need to be characterised separately for each environment.
+    This experimental method relies on the assumption that the tablet display delivers a stimulus with identical physical properties to the observer independent of environment. In practical terms, this means that the tablet must not be affected by reflection, either at the glossy surface of the tablet display, or at reflection at any other level of the display architecture, to the extent that this has a non-negligible impact upon recorded data. If it is found that this is not the case, the tablet would need to be characterised separately for each environment. This hypothesis is tested in \hyperref[sec:exp1a]{Experiment 1A}.
     \item \label{list:hyp1b} \emph{Collect meaningful data.} 
-    One would expect this to be indicated by small intra-observer variability (not recording a change where there is presumably none), and reasonable inter-environment change (recording a change where there is presumably a change). It would be expected that these changes would be in line with previously published results.
+    One would expect this to be indicated by small intra-observer variability (not recording a change where there is presumably none), and reasonable inter-environment change (recording a change where there is presumably a change). It would be expected that these changes would be in line with previously published results. This hypothesis is tested in \hyperref[sec:exp1b]{Experiment 1B}.
     \item \label{list:hyp1c} \emph{Additional aim - Be suitable for naive observers.}
     This would reduce the amount of time and effort required to run experiments, and allow for the collection of data from participants less likely to be biased through task expectation. It also means that the demographic group of observers is less likely to be 
-    WEIRD (`Western, Educated, Industrialized, Rich, and Democratic', \citep{henrich_weirdest_2010,brookshire_social_2013,justsaysinweird_just_nodate}), white, and undergraduate.
+    WEIRD (`Western, Educated, Industrialized, Rich, and Democratic', \citep{henrich_weirdest_2010,brookshire_social_2013,justsaysinweird_just_2019}), white, and undergraduate. This hypothesis is tested in \hyperref[sec:exp1c]{Experiment 1C}.
 \end{enumerate}
 
 \subsection*{Hypothesis 2: \gls{ipRGC} activation affects perceptual white point.}
 Primarily as a proof of concept for this methodology, but also to assist in answering other research questions posed within this thesis, an experiment was performed whereby observers made achromatic selections under a selection of colorimetrically metameric illuminants where there was a melanopic contrast between illuminants. %See section X. 
-If \gls{ipRGCs} play a role in colour constancy we would expect to see a distinction between the responses recorded under the different illuminants.
+If \gls{ipRGCs} play a role in colour constancy we would expect to see a distinction between the responses recorded under the different illuminants. This hypothesis is tested in \hyperref[sec:exp2]{Experiment 2}.
 
 \section{Experimental set-up and methodology}
 \subsection{Method \& Apparatus}
@@ -88,7 +90,7 @@ At this point the observer was told that there would be thirty trials. No traini
 \label{fig:finger}
 \end{figure}
 
-Following the thirty trials, a secondary task was presented to observers, designed to characterise their touch input. This task features a 2x2 checker board pattern upon a black background (See Figure \ref{fig:checker-board}). Observers were instructed to touch the centre of this checker board. Upon registering a touch, a new checker-board would be presented, of the same attributes but modulated in position in the same way as the main stimulus. This data was later used to calibrate touch input, and to ascertain the amount of measurement uncertainty derived from touch input. 
+Following the thirty trials, a secondary task was presented to observers, designed to characterise their touch input. This task features a 2x2 checker board pattern upon a black background (See Figure \ref{fig:checker-board}). Observers were instructed to touch the centre of this checker board. Upon registering a touch, a new checker-board would be presented, of the same attributes but modulated in position in the same way as the main stimulus. This stimulus is presented 10 times. This data was later used to calibrate touch input, and to ascertain the amount of measurement uncertainty derived from touch input. 
 
 \begin{figure}[hbp]
 \includegraphics[max width=\textwidth]{figs/tablet/checker_board.png} % E:\Pictures\2016\2016-10-18
@@ -98,13 +100,25 @@ Following the thirty trials, a secondary task was presented to observers, design
 
 %Doing this without incentive for participants meant that it was rushed (?)
 
+\subsubsection{Selection of participants}
+
+The participants for experiment 1 were the author, one of the author's academic supervisors (KC) and a technician at \acrshort{PAMELA} (TS).
+
+For experiment 2, observers were selected randomly from museum visitors. A visitor would be approached by the experimenter (the author) and asked whether `they would be interested in taking part in a colour vision experiment'. Those who replied positively were verbally informed of the ethics details for the study, the principal parts of which were: that no identifying information would be recorded, that the experiment carried no risks greater than those associated with normal use of a tablet computer, that observers were not paid or otherwise incentivised to take part, and that the task would take roughly ten minutes. A verbal description of the ethics details for this experiment was provided rather than the more normal paper version to avoid providing the observer with a white reference immediately prior to the experiment. In line with ethics approval, people under the age of 18 were only invited to participate under the supervision of a parent/carer. This study was approved by the \gls{UCL} Ethics committee (Project ID Number: 9357/001). %[Appendix X] !!!!!!!!!!!!!
+% number, age and sex here
+
+For experiment 3, nine participants (5 female, 4 male, ages not recorded) were recruited from the author's friends and family (including one academic supervisor), with the hope that this would assure attendance and motivation and to take advantage of short-notice availability of the experimental space. Participants were informed of the ethics details for the study in advance of attending. Ethics approval was provided following the amendment of the aforementioned ethics application (9357/001).
+% number, age and sex here
+
+%Chadwick
+
 \subsubsection{Specification of tablet PC}
 
-Participants undertook the experiment upon a Dell Latitude 10 ST2 tablet computer with `BROTECT' Matte Screen Protector (223x126mm active screen area, 1366x768 pixels). This tablet was chosen for its ability to run a Windows environment, and the matte screen protector was added to reduce the severity of specular reflections. The measured gamut of this device is shown in Figure \ref{fig:gamut}.
+Participants undertook the experiment upon a Dell Latitude 10 ST2 tablet computer with `BROTECT' Matte Screen Protector (223x126mm active screen area, 1366x768 pixels). This tablet was chosen for its ability to run a Windows environment, and the matte screen protector was added to reduce the severity of specular reflections. The measured gamut of this device is shown in Figure \ref{fig:gamut}, with the gamut of sRGB for comparison.
 
 \begin{figure}[hbp]
 \includegraphics[max width=\textwidth]{figs/tablet/gamut.pdf}
-\caption{The display gamut. Red, green and blue dots indicate chromaticities of single channels at different pixel values. The black dots are the chromaticities achieved when the pixel values are kept in line for each channel. This can be described as the native white point of the display.}
+\caption{The display gamut, plotted in CIE u'v' space. Red, green and blue dots indicate chromaticities of single channels at pixel values from 0 (central values) to 255 for each respective channel. The black dots are the chromaticities achieved when the pixel values are kept in line for each channel. This can be described as the native white point of the display, and can be seen to drift leftwards as pixel values increase.}
 \label{fig:gamut}
 \end{figure}
 % Generated using the 'Plot gamut' section of SAPS_TabletCharacterisation.m
@@ -123,13 +137,13 @@ value increments from 0 to 255 for each channel. The stimulus was then output as
 
 \begin{figure}[hbp]
 \includegraphics[max width=\textwidth]{figs/tablet/stimulus.png}
-\caption{Full stimulus image.}
+\caption{Full stimulus image, from which subsections were selected and presented as stimuli. Note that no effort has been made to correct this image for printing, and so it is best considered as only a rough approxmation.}
 \label{fig:Stimulus}
 \end{figure}
 % Copied and pasted from original psychopy folder. Could regenerate using stimulusGenerator002.m
 
 \subsubsection{Presenting the stimuli}
-A program was written in PsychoPy\footnote{\url{Code:  https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/SpatialAchromaticPointSetting_0940_Grant.py}} that presents the stimulus 30 times, with random rotation and random offset in the horizontal and vertical dimensions of between -1/6 and +1/6 of the respective dimension. Thus `objective grey', where [u*,v*] = (0,0), was always within the central third (in each dimension) of the screen. This program saved details of the stimulsu offset and rotation (`dpX', `dpY' and `ori'), co-ordinates of observer selected point (`x-co\_raw', `y-co\_raw', and also `direction\_raw', `magnitude\_raw'), and time taken to make selection, measured since last selection (`toc\_raw').
+A program was written in PsychoPy\footnote{\url{Code:  https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/SpatialAchromaticPointSetting_0940_Grant.py}} that presents the stimulus 30 times, with random rotation and random offset in the horizontal and vertical dimensions of between -1/6 and +1/6 of the respective dimension. Thus `objective grey', where [u*,v*] = (0,0), was always within the central third (in each dimension) of the screen. This program saved details of the stimulus offset and rotation (`dpX', `dpY' and `ori'), co-ordinates of observer selected point (`x-co\_raw', `y-co\_raw', and also `direction\_raw', `magnitude\_raw'), and time taken to make selection, measured since last selection (`toc\_raw').
 
 The effect of rotation and offset was that on each stimulus presentation the observer saw a stimulus that appeared somewhat different to the previous stimulus, but still hopefully included their preferred achromatic point. The rotation and offset can be illustrated by plotting the chromaticities present in any one stimulus presentation, as in figure X. %!!!!!!!!!!!!!!!!!!!
 Plotting the chromaticities present across a full run of 30 trials yields Figure \ref{fig:practical}, where it can be seen that the rotation results in a roughly circular spread of chromaticities, and the rotation and the offsetting together result in a gradient of likelihood of presentation which is high at the centre of the full stimulus and lowest at the edges of the full stimulus. This gamut distribution is referred to further in the text as the `practical gamut'.
@@ -151,71 +165,15 @@ Plotting the chromaticities present across a full run of 30 trials yields Figure
 \end{figure}
 
 
-\subsubsection{Touch input characterization} \label{sec:touch}
+\subsubsection{Touch input characterisation} \label{sec:touch}
 The checker-board stimuli (Figure \ref{fig:checker-board}), included to allow for fine spatial calibration for individual observers' touch input, was generated by running the main experimental script again but with the stimulus file path replaced with a simple pattern generated within PsychoPy.
 
-I hypothesize that any shifts in touch input would be the result of one or both of two potential influences: `fat fingers' and hardware calibration. By the former I refer to the fact that whilst a finger is considered to be a relatively discrete unit, controlled with presumed dexterity and accuracy, the specific part of the finger which touches the screen will vary from person to person. By the latter I refer to the fact that it is highly possible for there to be a `fairground gun effect', whereby the hardware introduces a reliable bias due to calibration misalignment.
+I hypothesise that any shifts in touch input would be the result of one or both of two potential influences: personal finger offset and general hardware calibration. By the former I refer to the fact that whilst a finger is considered to be a relatively discrete unit, controlled with presumed dexterity and accuracy, the specific part of the finger which touches the screen will vary from person to person, with each person exhibiting a reliable bias. By the latter I refer to the fact that it is highly possible for there to be a `fairground gun effect', whereby the hardware introduces a reliable bias due to calibration misalignment, which affects every observer equally.
+
+Performing a calibration of each observer's data based on this individual characterisation allows for offsetting of both of these types of variation. 
 
 \subsubsection{Limitations of the stimuli}
-
-\subsection{Environments}
-
-\subsubsection{\gls{UCL} Grant Museum of Zoology}
-
-The \gls{UCL} Grant Museum of Zoology is a natural history museum within \gls{UCL} with over 68,000 specimens, which is open to the public and also used as a teaching resource. It is lit with a mixture of daylight and \gls{LED} lighting, and a rarely used fluorescent lighting system (not used during any experiments).
-This space was used for preliminary experiments. 
-
-\begin{figure}[htb!]
-\includegraphics[max width=\textwidth]{figs/tablet/grant.jpg} 
-\caption{The central space at the \gls{UCL} Grant Museum of Zoology. Note the daylight on the left, the \gls{LED} lighting at mid-height and the fluorescent lighting at the very top of the image. Image copyright: \gls{UCL} and Matt Clayton.}
-\label{fig:grant}
-\end{figure}
-
-\subsubsection{The British Museum} \label{sec:BM}
-
-The British Museum is a large museum located close to the main \gls{UCL} campus, which exhibits artefacts of artistic, cultural and historical relevance. 
-
-Three spaces within the museum were used (with permission):
-
-\begin{itemize}
-    \item Rooms 77/78 (`Greek and Roman Architecture', `Classical Inscriptions'), lit with fluorescent lighting.
-    \item Room 25 (`Africa' - specifically the east section of the room), lit with tungsten  lighting.
-    \item The Queen Elizabeth II Great Court (referred to as `GC'), lit with filtered daylight \citep{foster_and_partners_london._great_2002} during daylight hours, with additional lighting at twilight and after sunset. All experiments were carried out during daylight hours, where additional artificial lighting was not employed.
-\end{itemize}
-
-% Photos of spaces
-% BM SPD figure
-
-\subsubsection{\gls{PAMELA}} \label{sec:PAMELA}
-
-\gls{UCL} \gls{PAMELA} consists of a large open space, enclosed within a light-proof warehouse, and is most often used for its customizable floor space, where small sections can be independently raised or lowered to recreate the spatial configurations of public spaces such as streets or railway platforms. It is of interest to this project since it also has a customizable lighting rig comprising 44 addressable fixtures, each with 6 independent channels, which is controlled via a PC interface. There is an additional high power white channel, which is on a separate control system. 
-
-% Photo(s) of space
-% PAMELA screenshot
-
-For experiments reported here three illumination settings were defined - `Cool White (`CW')', `Warm White (`WW')', and `Mel-High (`MH')'. `CW' and `WW' were system defaults, and `MH' was defined to be a colorimetric match (for the CIE 1931 observer) for `CW', but preferentially using an \gls{LED} band with a peak spectrally close to the peak spectral sensitivity of melanopsin (~480nm).
-
-It should be noted that luminance was not matched between the conditions. Therefore, `CW' and `MH' could be described as colorimetric matches, but not as metameric matches. Additionally, for chromatically distinct conditions (`CW' vs `WW'), there is a confound of luminance variation. The luminances of the three conditions were 235lx, 720lx and 840lx respectively. In the opinion of the author, it would be advisable that if further studies of this type were undertaken, that conditions be matched for luminance in order to discount this as a variable. 
-
-% SPD plots of CW, WW, and MH
-
-The chromaticities of the light sources, measured with a UPRtek MK350, were:
-`WW': 	u'v'(0.248,0.524) (averaged over 4 measurements)
-`CW': 	u'v'(0.200,0.465) (averaged over 3 measurements)
-`MH': 	u'v'(0.201,0.467) (averaged over 8 measurements)
-The chromaticity co-ordinates of `CW' and `MH' are close enough to be considered as colorimetrically matched for the CIE 1931 standard observer. %who says?
-
-% colorimetry plots
-
-\subsubsection{\gls{UCL} Chadwick Building}
-
-Additional testing was undertaken within the Chadwick Building of \gls{UCL} (home of the Department of Civil, Environmental and Geomatic Engineering), in light-tight basement rooms fitted with fluorescent lighting.
-
-\subsection{Participants}
-
-For studies conducted at The British Museum and The Grant Museum of Zoology, observers were selected randomly from visitors. A visitor would be approached by the experimenter (DG) and asked whether `they would be interested in taking part in a colour vision experiment'. Those who replied positively were verbally informed of the ethics details for the study, the principal parts of which were: that no identifying information would be recorded, that the experiment carried no risks greater than those associated with normal use of a tablet computer, that observers were not paid or otherwise incentivised to take part, and that the task would take roughly ten minutes. This study was approved by the \gls{UCL} Ethics committee: Project ID Number: 9357/001. %[Appendix X] !!!!!!!!!!!!!
-
-For trials at `\gls{UCL} \gls{PAMELA}', participants were recruited from the author's friends and family, with the hope that this would assure attendance and motivation and to take advantage of short-notice availability of the experimental space. Participants were informed of the ethics details for the study in advance of attending. Ethics approval was provided following the amendment of the aforementioned ethics application (9357/001).
+%!!!!!!!!!!!!!!!!!!
 
 \subsection{Data Analysis}
 \subsubsection{Processing Pipeline}
@@ -250,9 +208,9 @@ A further advantage of the first method is that a non-arbitrary threshold presen
 
 %figure
 
-In figure X `Mean SD' (SD from now on) is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. `Differences between unannounced repeats' (DBUR from now on) is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates for the two identical stimuli.
+In figure X `Mean SD' (SD from now on) is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates for the two identical stimuli.
 
-It can be seen that on both measures there are a small number of clear outliers; a group of three points with SD around 0.02 but very low DBUR, and two points with very high DBUR. Using only one of these two measures would fail to pick up some of these points, though as a single measure SD would be more effective in recognising these points.
+It can be seen that on both measures there are a small number of clear outliers; a group of three points with SD around 0.02 but very low \gls{DBUR}, and two points with very high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure SD would be more effective in recognising these points.
 
 A vertical line is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
 
@@ -266,162 +224,78 @@ Data was considered in comparison to a baseline dataset, consisting of the resul
 and a practical gamut which describes the frequency with which each chromaticity was presented to the observer. %!!!!!!!!!!! (See section 3.1 for further discussion of this).
 %Demo plots?
 
-\section{Experiments}
+\subsection{Environments}
 
-\subsection{Experiment 1A - To what extent is the stimulus environment-agnostic?}
-\label{sec:exp1a}
+\subsubsection{\gls{UCL} \acrshort{PAMELA}} \label{sec:PAMELA}
 
-A key requirement in this methodology is that the display device remains roughly colorimetrically stable across a range of lighting environments (see \hyperref[list:hyp1a]{Hypothesis 1A}). This would only be true if the device produced the entirety of the light emanating from it in normal use. In reality, a small amount of light will be reflected from the surrounding environment. This may be reflected either at the surface layer of the screen (specular reflections) or at a lower level of the screen architecture. Here we aim to quantify the amount of light reflected in this way, understand the impact that this has on this method, and seek to minimise this impact if possible.
+\gls{UCL}'s \gls{PAMELA} consists of a large open space, enclosed within a light-proof warehouse, and is most often used for its customizable floor space, where small sections can be independently raised or lowered to recreate the spatial configurations of public spaces such as streets or railway platforms (see \citet{cheng_effect_2018} for example). It is of interest to this project since it also has a customizable lighting rig comprising 44 addressable fixtures, each with 6 independent channels, which is controlled via a PC interface. There is an additional high power white channel, which is on a separate control system. 
 
-It is assumed that specular reflections are clearly distinguishable to most users, and that users will automatically hold the device in such a way as to minimise their interference with the task. It is also assumed that the spatial nature of such reflections and the fact that they are not locked to the geometry of the screen (but rather move as the screen or observer moves) would further allow an observer to visually discount them and not confuse them for an output of the screen.
+% Photo(s) of space
+% PAMELA screenshot
 
-The key concern then is reflection at other levels of the screen architecture. Using the screen calibration framework \cite{berns_crt_1993}, this may be considered as an environment-dependent `offset', that is, a figure which is added to the output of the screen at all levels. It is assumed that this level is constant in an unchanging environment, and independent of the output of the screen. It is therefore likely that this will have greatest impact on the chromaticity of the display at low luminances, where the amount of reflected light is high relative to the output of the display.
+For experiments reported here three illumination settings were defined - `Cool White (`CW')', `Warm White (`WW')', and `Mel-High (`MH')'. `CW' and `WW' were system defaults, and `MH' was defined to be a colorimetric match (for the CIE 1931 observer) for `CW', but preferentially using an \gls{LED} band with a peak spectrally close to the peak spectral sensitivity of melanopsin (~480nm).
 
-To consider whether such reflections exist for our specific set-up, telespectroradiometric measurements were taken of screen at varying pixel value levels (0 to 255, intervals of 15) under 3 different lighting conditions, as described in section X.%!!!!!!!
-One condition was repeated to assess measurement uncertainty. The measurement device used was a `Photo Research PR650'. 
+It should be noted that luminance was not matched between the conditions. Therefore, `CW' and `MH' could be described as colorimetric matches, but not as metameric matches. Additionally, for chromatically distinct conditions (`CW' vs `WW'), there is a confound of luminance variation. The luminances of the three conditions were 235lx, 720lx and 840lx respectively. In the opinion of the author, it would be advisable that if further studies of this type were undertaken, that conditions be matched for luminance in order to discount this as a variable. 
 
-% Photos of PAMELA calibration set-up
+% SPD plots of CW, WW, and MH
 
-% 'The measurement set-up. PR 650 on right, with control PC on left, and tablet in the centre.'
-% 'The tablet computer, showing the characterization routine (on the left of the screen). Note the specular highlight on the left of the tablet frame, reflecting the detail of one of the many \gls{LED} arrays overhead.'
+The chromaticities of the light sources, measured with a UPRtek MK350, were:
+`WW': 	u'v'(0.248,0.524) (averaged over 4 measurements)
+`CW': 	u'v'(0.200,0.465) (averaged over 3 measurements)
+`MH': 	u'v'(0.201,0.467) (averaged over 8 measurements)
+The chromaticity co-ordinates of `CW' and `MH' are close enough to be considered as colorimetrically matched for the CIE 1931 standard observer. %who says?
 
-% Additional data on measurements required
+\subsubsection{The British Museum} \label{sec:BM}
 
-It was found that for pixel values below 75 (the next lowest value recorded being 60) there was a considerable chromaticity variation between data from each lighting condition (where the screen was displaying darker colours, the ambient environment had a higher influence on the chromaticity of the display than when the screen was displaying lighter colours). This aligns with our prediction that the greatest effect would be seen at lower screen output levels.
+The British Museum is a large museum located close to the main \gls{UCL} campus, which exhibits artefacts of artistic, cultural and historical relevance. 
 
-% Figure - calibration
-
-% [Caption: chromaticties through pixel value (equal in each channel) showing greatest change for pixel values below 75]
-
-For values above 75 (inclusive), a conservative estimate for the maximum shifts in chromaticity due to variation between light sources (considering only those sources tested) would be roughly 0.004 in the u' axis, and 0.009 in the v' axis. These values are derived from visual inspection of the variation in values of chromaticity for readings taken of pixel values above 75. These figures could be considered baseline figures for classifying observed differences as likely to originate from genuine changes in observer state rather than lighting/stimulus artefacts.
-
-It is noted that the variation between the repeated measurements, denoted `WW' and `WW2', is larger than would be expected; at high pixel values the chromaticities recorded under `CW', `MH' and `WW2' converge very well, but `WW' seems offset by roughly 0.005 units in a roughly north-east direction in colour space. The cause of this is unclear, but if we assume that the convergence of the other data at high pixel values suggests that lighting has a minimal effect on recorded chromaticity, then it seems reasonable to think that any variation is recorded spectrum is likely to be the result of `warm up' (either in terms of an actual temperature dependency, or in terms of a device taking time to settle into a default operating mode after turn on) of either the screen or the spectroradiometer. Consulting the spectral data for `WW' and `WW2' we can see a systematic variation whereby for the initial `WW' run the recorded values for lower wavelengths are slightly lower, and the higher wavelengths record slightly higher values, when compared to the `WW2' data.
-
-% figure
-
-Another way of representing the above is to consider the effect that changing lighting has on the recorded spectral power distribution of light entering an aperture at the rough location of an observer's eye.
-
-% figure
-% [Caption: The recorded spectral power distributions, for each measured level of pixel value, under each of the 4 illuminations. Plots are limited to lower pixel values for attention.] Need to find a better way to present this
-
-Above, it can be seen that at lower levels of pixel value, the spectral power distributions are notably different between lighting conditions. Under `MH', for example, there is a noticeable difference in \gls{SPD} shape whereby at the lowest pixel values there is a peak around 470nm, which quickly fades from notice as pixel values increase. For `CW' in comparison, we can see that the 450nm peak is substantially higher at low pixel values than at either of the `WW' measurements, suggesting that this light source provides additional power at these wavelengths.
-
-In all the cases above, the impact of such perturbations can be seen to fade rapidly with increasing pixel value.
-
-Now that we have considered the effect of lighting upon the tablet in a general sense, we must consider what effect would be had upon the rendering of our specific stimulus.
-
-%figure
-
-Figure X %!!!!!!!!
-shows the histogram of each channel within the full stimulus. Note that only the red channel has a significant number of pixels with values below 75 (with the blue channel having some values which come close), and so following from our observation that chromaticity was most perturbed by variations in lighting where the pixel value was below 75, this is the channel most likely to be influenced by the ambient illumination (though only in specific spatial sections of the stimulus image).
-
-Note also that whilst the blue and green channels possess no pixels at either end of the pixel value range (0/255), the red channel possesses both, suggesting that a gamut boundary is reached at both extremes for the red channel. A large number of pixels in the red channel are at 0, with a small number at 255. From Figure 6 it can be seen the zero values are located on the far left of the stimulus, in the strongly blue/green area, and that the 255 values are located in the bottom right hand corner, in the strong red/pink area.
-
-% Figure 6 The full stimulus, and greyscale representations of the red (R), green (G) and blue (B) channels. Note: the RGB representation above should be considered an approximation for purposes of orientation rather than an exact colour representation.
-
-In summary, measurements taken lead us to conclude that influence of the ambient illumination, for the illuminations we have tested, has a minimal effect on the presentation of the stimulus as defined in this experiment. 
-
-The greatest effect will likely be on the sections of the stimulus where the pixel value falls below 75, as happens in specific areas of the red channel image. It is thought that these areas of the stimulus are unlikely to be ambiguous in colour appearance to an observer, and so any slight difference between the chromaticity ideally presented, and the chromaticity actually presented, is likely to have only a minimal impact. 
-
-It should be possible to create a stimulus which does not reach the gamut boundaries, and which does not include pixel values below a certain value for any channel. However, if using the same hardware, the trade-off would be that a smaller section of colour space would be presentable, and this would have two knock-on effects; the task would be harder (the stimulus would be less saturated), and the results would be more tightly bounded (the observer would not be able to select more chromatic points). For further discussion of `bounding' see section X. %!!!!!!!!!!
-
-The measurements taken here are limited in scope by the fact that the effect of ambient illumination is likely linked to the overall level of ambient illumination; it is likely that in much brighter conditions the illumination would have a greater effect on the chromaticity of the stimulus. This should be considered when assessing data collected in very bright conditions.
-
-It also seems noteworthy to explicitly consider that we have assumed a linearity of sorts in asserting that there is likely to be a colorimetric affect where pixel values in any one channel drop below a threshold value. In reality, our tests show that chromaticity is affected when pixel values of all three channels drop below a threshold value, and it is a conservative assumption to assert that there is a risk when a single channel drops below this threshold value. It is quite possible, for example, that where values in the red channel drop below the threshold, if the surrounding blue and green pixels are being driven at high values, that bleed may limit the practical impact upon overall chromaticity.
-
-% Is it additive?
-% LM recommendation: Go back to basics: consider the ambient lighting, and the lighting produced by the emissive display, Compute, predict, compare. Plot gamuts
-
-\subsection{Experiment 1B - Does this method detect differences in observer state of CA?}
-\subsubsection{Inter-environment Differences}
-
-Considering the standard theories of chromatic adaptation, and previous experimental results, we would assume a difference in the achromatic settings of observers in lighting conditions of different chromaticities (See the second part of \hyperref[list:hyp1b]{Hypothesis 1B}). We would also assume the chromaticity of selected achromatic points would follow the chromaticity of ambient illumination.
-
-Under the 3 lighting conditions used at \gls{PAMELA} (see section \ref{sec:PAMELA}) a single observer (the author) completed 13 full runs of the experiment; 4 under `WW', 6 under `CW', 3 under `MH'. During the same session, 2 additional observers undertook the experiment, but their data is not presented here since they undertook substantially fewer runs than the author. 
-% figure
-% Caption: red, green and blue lines are standard deviation ellipses representing the data from all 13runs of the experiment, with colours corresponding to the light settings that they were made under. Filled coloured dots represent the chromaticity of the light setting, with colours corresponding. Note the WW lighting chromaticity which is far outside the practical gamut, and the way that WW data is shifted in this direction relative to the CW and MH data.
-
-Figure X %!!!!!!!!!!!!
-shows standard deviation ellipses plotted for the total of 13 runs, colour coded for light source. It can be seen that the `WW' data does shift significantly towards where the chromaticity of the `WW' light source, as compared to the `CW' and `MH' data. The chromaticities for the `CW' and `MH' illuminants fall roughly in line with the respective data (green and blue ellipses above).
-The results seen here indicate that there is indeed a difference between recorded achromatic points under different illuminants, and so assuming that the stimulus remained stable between the two conditions (see Section X) %Experiment 1A
-, this indicates that we have successfully recorded a change in chromatic adaptation state. 
-
-If the change in ambient light source chromaticity were to affect the stimulus we would expect a shift in the data in the opposite direction to the chromaticity of the light source. An example: say the light source was blue, and made the stimulus blue-r in some way. Let's assume uniformity; blue areas become blue-r, achromatic areas become blue-r, yellow areas become blue-r etc. An area which was previously yellow (under `neutral' lighting), might now appear achromatic, and may well be picked as a neutral point. Thus, the introduction of a blue light which affects the chromaticity of the stimulus should result in the picking of a more yellow neutral point.
-
-The shift in the `WW' data is shifted roughly in the direction of the chromaticity of the light source, which is as would be expected if we were witnessing a shift in chromatic adaptation point.
-
-Note that the interpretation of these results are limited due to the bounding issue discussed in Section \ref{sec:bounding}.
-
-An experiment with a larger number of observers (n=58) was held at \hyperref[sec:BM]{The British Museum}. The experiment was held over five days, with participants making observations in one of three gallery spaces. The three galleries used were Room 77/78, Room 25 and The Queen Elizabeth II Great Court, as described in section \ref{sec:BM}. These three galleries were chosen since they are lit by three distinct lighting technologies. In hindsight this is not particularly meaningful, or able to advance my general argument, but at the time it seemed worthwhile. More significantly, they are distinct chromaticities, though Room 77/78 and Room 25 are both strongly yellow (see Figure X%!!!!!!!!!!
-).
-
-% Photos of DG in BM
-
-With this number of participants, when using naive participants, and considering that participants were not strongly incentivized to take part, it is reasonable to assume that the quality of responses may vary between observers.
-
-Therefore, exclusion criteria, as described in Section \ref{sec:exclusion} were applied.
-Following these exclusions, the data from the British Museum appears as is shown in Figure X. 
-% figure
-
-In figure X we see that the chromaticities of the ambient lighting in the first and second environments (77/78, and 25) are far outside the practical gamut. If we might have expected full chromatic adaptation in observers, then the results we see would represent the case where there is extreme smearing (similar to the `most yellow' dataset from figure X). Also possible however, is that the screen and presented stimuli appeared to observers as entirely distinct from the surrounding environment, and that decisions regarding achromacy may have been based upon this context, where observers instead decided on the greyest point in within the context of the stimuli they were presented, as opposed to the context of the surrounding environment. Either way, we see little distinction between these two sets of data.
-
-We do however see a distinction between these two datasets and the data for the `GC' data, which may have been expected from the distinct chromaticity of the lighting. It is worth noting however, that luminance in this environment was generally very high, and so there is an increased risk of the stimulus deviating from the desired colorimetry (as noted in Section \ref{sec:exp1a}).
-
-In summary, for the data collected at the British Museum, we see a distinction between the `GC' data and the data collected in the two other environments, and minimal distinction between those two other datasets. The tallies well with witnessing a distinction where lighting chromaticity is distinct, and minimal distinction where lighting chromaticities are similar. However, this method did not allow for the selection of chromaticities which would have represented a true non-spectrally-selective surface under two of these lighting conditions, and so the data for those conditions is unlikely to be a simple representation of an observer's chromatic adaptation state.
-
-The potential confounds in this experiment are, at minimum: observer (and associated variables), day and time, gallery space, luminance, and lighting technology.
-
-%-------------%
-
-% Swap intra and inter to mirror hyp? (Or swap in hyps?)
-
-\subsubsection{Intra-observer Variability}
-
-Our assumption is that observers would have a reasonably stable point of adaptation during their undertaking of the experiment, and that variability in the data would primarily be due a combination of fuzzy boundary of acceptability and input imprecision. The variability of data from individuals contributes to the statistical power of any investigation undertaken using this method, and so the nature of the variability within the data from this method is of interest. As discussed in the Section \ref{sec:exclusion}, the extent of variability can also be used as an exclusion criterion. This variability, as measured by standard deviation of responses and DBUR gives a clear indication of an observer's ability for the task relative to other participants but does not give much insight into the absolute nature of variability implicit in this method.
-
-We can gain something of an understanding of this by again looking at the data collected at \gls{UCL} \gls{PAMELA} with the author as participant. Here there are 13 runs under conditions which vary as follows:
+Three spaces within the museum were used (with permission):
 
 \begin{itemize}
-    \item 3 lighting conditions
-    \item 2 adaptation lengths (roughly 5 minutes, and roughly 30 minutes)
-    \item Time of day (the experiment took place over the course of the day, and so tiredness, boredom and changes in tactics could all play a role.
+    \item Rooms 77/78 (`Greek and Roman Architecture', `Classical Inscriptions'), lit with fluorescent lighting.
+    \item Room 25 (`Africa' - specifically the east section of the room), lit with tungsten  lighting.
+    \item The Queen Elizabeth II Great Court (referred to as `GC'), lit with filtered daylight \citep{foster_and_partners_london._great_2002} during daylight hours, with additional lighting at twilight and after sunset. All experiments were carried out during daylight hours, where additional artificial lighting was not employed.
 \end{itemize}
-	
-%Previous assessment found no discernible effect of adaptation length (should I write more fully about this?) and so if we assume that the time of day played a minimal role, then we can consider the lighting condition to be the only known variable, and thus those trials performed under like lighting can be considered equivalent.
-We can compare the means and distribution of the data under each lighting condition, and after differing lengths of adaptation. This information considered in tandem with the difference between overall means for each condition should give us an indication of the minimum effect sizes that we might hope to reliably detect with this method.
 
-Calculating means and standard deviations where the number of observations per group is rather low (4 under `WW', 6 under `CW', 3 under `MH') seems problematic; my confidence that averages, and measures of variance calculated thereafter, calculated from this data are going to be representative of population measures, is low. It doesn't seem farfetched, however, to operate on the assumption that variance might be comparable between the different groups (notwithstanding situations where there is data `smearing') and so it still seems valuable to consider the mean of the data collected for the condition under which we have the greatest number of data points (`CW', n=6).
+% Photos of spaces
+% BM SPD figure
 
-% figure
+% colorimetry plots
 
-The mean of all of the `CW' points is: (u'v' = [0.195, 0.468]), and the standard deviation is: (SDu', SDv' = [0.0012, 0.0019]). Compared to the offset between the means between the two sets which we think to be different (`CW' vs `WW'), offset: ($\Delta$u', $\Delta$v' = [0.0061, 0.0091]), there is shown to be roughly a factor of 5 (1./([0.0012, 0.00190]./[0.0061, 0.0091]) = [5.1, 4.8]), suggesting that if our estimate for standard deviation is correct, and if our effect size is correct and generalizable to other situations, this method should be able to reliably detect meaningful differences in response.
+These three galleries were chosen since they are lit by three distinct lighting technologies. In hindsight this is not particularly meaningful, or able to advance my general argument, but at the time it seemed worthwhile. More significantly, they are distinct chromaticities, though Room 77/78 and Room 25 are both strongly yellow (see Figure X%!!!!!!!!!!
+).
 
-Another insight into variability within this method can be taken by looking at the calibration data that each participant provides after the main part of each trail (Described in Section \ref{sec:touch}). Here they are asked to touch the centre of a checker-board, and this data is primarily used to offset any bias introduced by the difference between where an observer thinks they are touching, and where the tablet records having been touched. A secondary use of this data, albeit with caveats, is to estimate the amount of variation introduced simply by touch imprecision. Here the participant is given as-close-to an objective task as might be thought possible, and thus any variability in the results must stem not from perceptual indecision, but rather the process of pointing and touching. There is a clear caveat; it seems likely that an estimate of touch imprecision gleaned from this dataset will underestimate the amount of `real' touch imprecision, since observers have reliably (in my experience) modified their touching behaviour in this second part of the task, in the manner which might be expected of someone who is given a broad target to hit, and then immediately after is given a much smaller target to hit (they lean in, hold their finger more rigidly, and move more slowly).
+\subsubsection{\gls{UCL} Chadwick Building}
 
-To perform this analysis I shall return to the British Museum data, to get the largest possible sample and so as not to limit the analysis to those with a strong vested interest in this research. In figure X I show the standard deviations based on just the calibration (checker-board) data. Note that here the units are pixels, as opposed to a chromaticity space. 4 outliers are excluded. These outliers appear to occur due to an observer accidentally double touching the screen during the calibration phrase, and thus having one data point which is far outside the normal group. This does not affect (to a large extent) the actual calibration process, because here a median is taken, but it does have a rather strong effect when calculating the standard deviation of a set, which relies on the mean of a set.
+Additional testing was undertaken within the Chadwick Building of \gls{UCL} (home of the Department of Civil, Environmental and Geomatic Engineering), in light-tight basement rooms fitted with fluorescent lighting.
 
-%figure
+% \subsubsection{\gls{UCL} Grant Museum of Zoology}
 
-To consider the above information in practice, we need to perform a conversion into chromaticity space. For a simple analogy, let's consider a pixel shift of 6 pixels (the rough average standard deviation in each dimension, based on a visual analysis of figure X).
-This would equate to a shift of 0.2742 in u*v* space, or a shift of 0.0003 in u'v' space%shouldn't this be differennt values for u' and v'?
-, which is an order of magnitude smaller than the average standard deviations for the main datasets. I therefore conclude that touch imprecision will only have a minor influence on the data collected with this method, especially when any bias is accounted for through calibration of the data.
+% The \gls{UCL} Grant Museum of Zoology is a natural history museum within \gls{UCL} with over 68,000 specimens, which is open to the public and also used as a teaching resource. It is lit with a mixture of daylight and \gls{LED} lighting, and a rarely used fluorescent lighting system (not used during any experiments).
+% This space was used for preliminary experiments. 
 
-To summarise this section: I have considered the variation within data from a single individual (the author) who conducted a number of repeated measurements under controlled conditions. It was found that the variation between repeats was substantially lower than the difference between data from two different lighting conditions. It is unclear what the minimum threshold for different detection by this method is.
-I have also attempted to understand the extent to which the touch input introduces uncertainty, but considering variation in data where the task was considerably easier, and thus the principal source of variation could be assumed to be the touch input. It was found that this source of variation should only account for a very small proportion of the variation seen within the full experiment.
+% \begin{figure}[hbp]
+% \includegraphics[max width=\textwidth]{figs/tablet/grant.jpg} 
+% \caption{The central space at the \gls{UCL} Grant Museum of Zoology. Note the daylight on the left, the \gls{LED} lighting at mid-height and the fluorescent lighting at the very top of the image. Image copyright: \gls{UCL} and Matt Clayton.}
+% \label{fig:grant}
+% \end{figure}
 
-\subsection{Experiment 1C - Is this method suitable for naive observers?}
+\newpage
 
-%figure
+\section{Experiments}
 
-From the plot of standard deviations in figure X, it can be seen that whilst the participants with a large amount of experience performed well, a small number of naive participants actually performed better (assuming that SD is a valid measure of performance), whilst the remainder of participants' performance was not far behind. It is worth noting that whilst I have chosen this environment to examine (`Gallery 25: Africa Gallery') since it has the highest cross-over of individuals who can be classed as `experienced', this choice might not be ideal since the Africa Gallery represents a situation where a large amount of `smearing' may occur, since the chromaticity of the light source is far outside that selectable from the practical gamut.
+\subsection{Experiment 1}
+%PAMELA, DG, 13 runs
+With the goal of understanding both the intra/inter-observer variability and intra/inter-environment variability, 13 runs of the experiment were performed by the author under the 3 illumination settings defined at \gls{PAMELA} (see Section \ref{sec:PAMELA}), 4 under `WW', 6 under `CW', 3 under `MH', after 2 different lengths of adaptation (5 minutes and 30 minutes). No effect of length of adaptation was found, and so we group the data across these 2 conditions for analysis. Two other observers (TS and KC) also performed a number of observation (3 and 4 respectively) under a range of illumination settings.
 
-\section{Experiment 2: Achromatic settings, does melanopsin play a role?}
+\subsection{Experiment 2}
 
-In order to test this methodology, and to investigate the role of melanopic activation upon achromatic settings, an experiment was performed using the \gls{SAPS} method at the \gls{UCL} \gls{PAMELA} facility (see Section \ref{sec:PAMELA} for details). 
+Extending the above experiment, particularly to the inclusion of naive observers, an experiment with a 58 observers was performed at \hyperref[sec:BM]{The British Museum}. The experiment was performed over five days in October 2016, with participants making observations in one of three gallery spaces. The three galleries used were Room 77/78, Room 25 and The Queen Elizabeth II Great Court, as described in section \ref{sec:BM}. 
 
-Observers undertook the experimental task under two lighting conditions which were specified to be colorimetrically matched for the CIE 1931 observer, but which substantially differed in their computed melanopic flux. The conditions used have previously been referred to as `CW' (for `cool white') and `MH' (for `mel-high'); within this section the term `CW' shall be replaced with `ML' (for `mel-low'), in order to align with current literature and for clarity.
+\subsection{Experiment 3}
+In order to test this methodology, and to investigate the role of melanopic activation upon achromatic settings, an experiment was performed at \gls{PAMELA} (see Section \ref{sec:PAMELA} for details), under the 2 of the three lighting conditions previously defined at \gls{PAMELA} (`CW' and `MH'), with a repeat of `MH'. A reminder: these two lighting conditions which were specified to be colorimetrically matched for the CIE 1931 observer, but with substantially different melanopic flux. In this experiment, the condition previously referred to as `CW' shall be referred to as with `ML' (for `mel-low'), for clarity in order to align with current literature.
 
-For the purpose of this experiment, the null condition considered is that: achromatic settings are determined solely by retinal cone catches. A corollary of this is that melanopic flux plays no role. CIE 1931 chromaticity is used as a proxy for retinal cone catches.
+For the purpose of this experiment, the null hypothesis is: achromatic settings are determined solely by retinal cone catches. A corollary of this is that melanopic flux plays no role. CIE 1931 chromaticity is used as a proxy for retinal cone catches.
 
 %table
 
@@ -429,9 +303,13 @@ For the purpose of this experiment, the null condition considered is that: achro
 
 %figure
 
-\subsection{Method}
+After entering the main space at \gls{PAMELA}, the space being illuminated solely by the \gls{LED} rig in `MH' mode, and after a minimal adaptation period (5 minutes) during which introductions and instructions were given, individually performed the experimental task in succession. 
 
-9 participants (5 female, 4 male, not tested for colour-anomalous vision, mean age = X, sd = Y ), after entering the main space at \gls{PAMELA}, the space being illuminated solely by the \gls{LED} rig in `MH' mode, and after a minimal adaptation period (5 minutes) during which introductions and instructions were given, individually performed the experimental task in succession. 
+\begin{figure}[hbp]
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELAobs.jpg} 
+\caption{The experimental set-up at \gls{PAMELA}. Left: an observer performs the experiment. Right: other observers wait for their turn to perform the experiment.}
+\label{fig:PAMELAobs}
+\end{figure}
 
 Once each observer had performed the task once, the lighting was changed to `ML' lighting condition, and the observers again performed the task in succession. Finally, the lighting condition was returned to the initial state (`MH', referred to from now on as `MH2') and participants once again performed the task. Information about the nature of the lighting conditions was not provided to participants, though the change was noticeable, and observers were not informed that the third condition was a repeat of the first condition. 
 
@@ -443,11 +321,11 @@ The entire experiment took roughly 2 hours, with individual participants taking 
 
 The primary data collected was the spatial selections made by observers. For each observer, this amounted to 30 2-dimensional selection locations, followed by 10 calibration values. Over 9 observers, and 3 runs (`MH', `ML', `MH2'), a total of 1080 data points (where each datapoint consists of an x-coordinate and a y-coordinate) were collected (40 * 9 * 3 = 1080). Secondary data consisted of: the attributes of the stimulus on each presentation, the time taken between individual selections, an identifier for each participant, and the handed-ness of each observer.
 
-Exclusions were decided based upon calculations of the mean SD in the u' and v' axes. Where the mean SD was greater than that for the equivalent baseline data for one or more of a participant's runs, that observer's data was excluded for all of their runs. This resulted in the exclusion of data from participants 1-3.
+Exclusions were decided based upon calculations of the mean SD in the u' and v' axes. Where the mean SD was greater than that for the equivalent baseline data for one or more of a participant's runs, that observer's data was excluded for all of their runs. This resulted in the exclusion of data from 3 participants.
 
 %figure
 
-\subsection{Results}
+\subsubsection{Results}
 
 Following these exclusions, the remaining dataset can be presented using standard deviation ellipses, coloured for lighting condition, as presented in figure X. There is no clear distinction between datasets collected under different lighting conditions.
 
@@ -459,7 +337,7 @@ Plotting data for individual participants separately, it can be seen that each p
 %figure
 
 
-\subsection{Conclusions and Discussion}
+\subsubsection{Conclusions and Discussion}
 
 Considering the lack of discernibility between data collected under the two conditions, I conclude here that we are unable to reject the null hypothesis.
 There are multiple reasons worthy of consideration which could make the above finding a Type II error (false negative): 
@@ -482,6 +360,150 @@ Further improvements, which apply to the method rather than to this experiment s
 \section{Discussion}
 
 In the following section I shall discuss the proposed methodology is terms of its abilities and limitations, and areas that I consider worthy of further consideration or development.
+
+\subsection{To what extent is the stimulus environment-agnostic?}
+
+A key requirement in this methodology is that the display device remains roughly colorimetrically stable across a range of lighting environments (see \hyperref[list:hyp1a]{Hypothesis 1A}). This would only be true if the device produced the entirety of the light emanating from it in normal use. In reality, a small amount of light will be reflected from the surrounding environment. This may be reflected either at the surface layer of the screen (specular reflections) or at a lower level of the screen architecture. Here we aim to quantify the amount of light reflected in this way, understand the impact that this has on this method, and seek to minimise this impact if possible.
+
+It is assumed that specular reflections are clearly distinguishable to most users, and that users will automatically hold the device in such a way as to minimise their interference with the task. It is also assumed that the spatial nature of such reflections and the fact that they are not locked to the geometry of the screen (but rather move as the screen or observer moves) would further allow an observer to visually discount them and not confuse them for an output of the screen.
+
+The key concern then is reflection at other levels of the screen architecture. Using the screen calibration framework \cite{berns_crt_1993}, this may be considered as an environment-dependent `offset', that is, a figure which is added to the output of the screen at all levels. It is assumed that this level is constant in an unchanging environment, and independent of the output of the screen. It is therefore likely that this will have greatest impact on the chromaticity of the display at low luminances, where the amount of reflected light is high relative to the output of the display.
+
+To consider whether such reflections exist for our specific set-up, telespectroradiometric measurements were taken of screen at varying pixel value levels (0 to 255, intervals of 15) under 3 different lighting conditions, as described in Section \ref{sec:PAMELA}. One condition was repeated to assess measurement uncertainty. The measurement device used was a `Photo Research PR650'. 
+
+Broadly speaking, at a pixel value of 0 one would expect that the illumination reaching the position of the observer depends entirely upon the illumination, whereas at maximum output (pixel values of 255 in all channels) the illumination reaching the position of the observer would be almost entirely dependent upon the output of the device, with negligible influence of the illumination (so long as the illumination was below a certain threshold). The point of interest is therefore assumed to be the lowest pixel value where the shift resulting from differing illuminants ceases to be considered negligible for our purposes.
+
+% Photos of PAMELA calibration set-up
+
+% 'The measurement set-up. PR 650 on right, with control PC on left, and tablet in the centre.'
+% 'The tablet computer, showing the characterization routine (on the left of the screen). Note the specular highlight on the left of the tablet frame, reflecting the detail of one of the many \gls{LED} arrays overhead.'
+
+% Additional data on measurements required
+
+It was found that for pixel values of 60 and below there was a considerable chromaticity variation between data from each lighting condition. This aligns with our expectation that the greatest effect would be seen at lower screen output levels.
+
+% Figure - calibration
+
+% [Caption: chromaticties through pixel value (equal in each channel) showing greatest change for pixel values below 75]
+
+For values above 75 (inclusive), a conservative estimate for the maximum shifts in chromaticity due to variation between light sources (considering only those sources tested) would be roughly 0.004 in the u' axis, and 0.009 in the v' axis. These values are derived from visual inspection of the variation in values of chromaticity for readings taken of pixel values above 75. These figures could be considered baseline figures for classifying observed differences as likely to originate from genuine changes in observer state rather than lighting/stimulus artefacts.
+
+It is noted that the variation between the repeated measurements, denoted `WW' and `WW2', is larger than would be expected; at high pixel values the chromaticities recorded under `CW', `MH' and `WW2' converge very well, but `WW' seems offset by roughly 0.005 units in a roughly north-east direction in colour space. The cause of this is unclear, but if we assume that the convergence of the other data at high pixel values suggests that lighting has a minimal effect on recorded chromaticity, then it seems reasonable to think that any variation is recorded spectrum is likely to be the result of `warm up' (either in terms of an actual temperature dependency, or in terms of a device taking time to settle into a default operating mode after turn on) of either the screen or the spectroradiometer. Consulting the spectral data for `WW' and `WW2' (Figure X%!!!!!!!!!!!
+) we can see a systematic variation whereby for the initial `WW' run the recorded values for lower wavelengths are slightly lower, and the higher wavelengths record slightly higher values, when compared to the `WW2' data.
+
+% figure
+
+Another way of representing the above is to consider the effect that changing lighting has on the recorded spectral power distribution of light entering an aperture at the rough location of an observer's eye.
+
+% figure
+% [Caption: The recorded spectral power distributions, for each measured level of pixel value, under each of the 4 illuminations. Plots are limited to lower pixel values for attention.] Need to find a better way to present this
+
+Above, it can be seen that at lower levels of pixel value, the spectral power distributions are notably different between lighting conditions. Under `MH', for example, there is a noticeable difference in \gls{SPD} shape whereby at the lowest pixel values there is a peak around 470nm, which quickly fades from notice as pixel values increase. For `CW' in comparison, we can see that the 450nm peak is substantially higher at low pixel values than at either of the `WW' measurements, suggesting that this light source provides additional power at these wavelengths.
+
+In all the cases above, the impact of such perturbations can be seen to fade rapidly with increasing pixel value.
+
+Now that we have considered the effect of lighting upon the tablet in a general sense, we must consider what effect would be had upon the rendering of our specific stimulus.
+
+%figure
+
+Figure X %!!!!!!!!
+shows the histogram of each channel within the full stimulus. Note that only the red channel has a significant number of pixels with values below 75 (with the blue channel having some values which come close), and so following from our observation that chromaticity was most perturbed by variations in lighting where the pixel value was below 75, this is the channel most likely to be influenced by the ambient illumination (though only in specific spatial sections of the stimulus image).
+
+Note also that whilst the blue and green channels possess no pixels at either end of the pixel value range (0/255), the red channel possesses both, suggesting that a gamut boundary is reached at both extremes for the red channel. A large number of pixels in the red channel are at 0, with a small number at 255. From Figure 6 it can be seen the zero values are located on the far left of the stimulus, in the strongly blue/green area, and that the 255 values are located in the bottom right hand corner, in the strong red/pink area.
+
+% What about sub75 values?
+
+% Figure 6 The full stimulus, and greyscale representations of the red (R), green (G) and blue (B) channels. Note: the RGB representation above should be considered an approximation for purposes of orientation rather than an exact colour representation.
+
+In summary, measurements taken lead us to conclude that influence of the ambient illumination, for the illuminations we have tested, has a minimal effect on the presentation of the stimulus as defined in this experiment. 
+
+The greatest effect will likely be on the sections of the stimulus where the pixel value falls below 75, as happens in specific areas of the red channel image. It is thought that these areas of the stimulus are unlikely to be ambiguous in colour appearance to an observer, and so any slight difference between the chromaticity ideally presented, and the chromaticity actually presented, is likely to have only a minimal impact. 
+
+It should be possible to create a stimulus which does not reach the gamut boundaries, and which does not include pixel values below a certain value for any channel. However, if using the same hardware, the trade-off would be that a smaller section of colour space would be presentable, and this would have two knock-on effects; the task would be harder (the stimulus would be less saturated), and the results would be more tightly bounded (the observer would not be able to select more chromatic points). For further discussion of `bounding' see section X. %!!!!!!!!!!
+
+The measurements taken here are limited in scope by the fact that the effect of ambient illumination is likely linked to the overall level of ambient illumination; it is likely that in much brighter conditions the illumination would have a greater effect on the chromaticity of the stimulus. This should be considered when assessing data collected in very bright conditions.
+
+It also seems noteworthy to explicitly consider that we have assumed a linearity of sorts in asserting that there is likely to be a colorimetric affect where pixel values in any one channel drop below a threshold value. In reality, our tests show that chromaticity is affected when pixel values of all three channels drop below a threshold value, and it is a conservative assumption to assert that there is a risk when a single channel drops below this threshold value. It is quite possible, for example, that where values in the red channel drop below the threshold, if the surrounding blue and green pixels are being driven at high values, that bleed may limit the practical impact upon overall chromaticity.
+
+% Is it additive?
+% LM recommendation: Go back to basics: consider the ambient lighting, and the lighting produced by the emissive display, Compute, predict, compare. Plot gamuts
+
+\subsection{Does this method detect differences in observer state of CA?}
+
+\subsubsection{Intra- and inter-observer Variability}
+
+Our assumption is that observers would have a reasonably stable point of adaptation during their undertaking of the experiment, and that variability in the data would primarily be due a combination of fuzzy boundary of acceptability and input imprecision. The variability of data from individuals contributes to the statistical power of any investigation undertaken using this method, and so the nature of the variability within the data from this method is of interest. As discussed in the Section \ref{sec:exclusion}, the extent of variability can also be used as an exclusion criterion. This variability, as measured by standard deviation of responses and \gls{DBUR} gives a clear indication of an observer's ability for the task relative to other participants but does not give much insight into the absolute nature of variability implicit in this method.
+
+We can better understand this by looking again at the data collected at \gls{UCL} \gls{PAMELA} where the author was sole participant. Here there are 13 runs under conditions which vary as follows:
+
+\begin{itemize}
+    \item 3 lighting conditions
+    \item 2 adaptation lengths (roughly 5 minutes, and roughly 30 minutes)
+\end{itemize}
+	
+%Previous assessment found no discernible effect of adaptation length (should I write more fully about this?) and so if we assume that the time of day played a minimal role, then we can consider the lighting condition to be the only known variable, and thus those trials performed under like lighting can be considered equivalent.
+We can compare the means and distribution of the data under each lighting condition, and length of adaptation. This information considered in tandem with the difference between overall means for each condition should give us an indication of the minimum effect sizes that we might hope to reliably detect with this method.
+
+Calculating means and standard deviations where the number of observations per group is rather low (4 under `WW', 6 under `CW', 3 under `MH') seems problematic; my confidence that averages, and measures of variance calculated thereafter, calculated from this data are going to be representative of population measures, is low. It doesn't seem farfetched, however, to operate on the assumption that variance might be comparable between the different groups (notwithstanding situations where there is data `smearing') and so it still seems valuable to consider the mean of the data collected for the condition under which we have the greatest number of data points (`CW', n=6).
+
+% figure
+
+The mean of all of the `CW' points is: (u'v' = [0.195, 0.468]), and the standard deviation is: (SDu', SDv' = [0.0012, 0.0019]). Compared to the offset between the means between the two sets which we think to be different (`CW' vs `WW'), offset: ($\Delta$u', $\Delta$v' = [0.0061, 0.0091]), there is shown to be roughly a factor of 5 (1./([0.0012, 0.00190]./[0.0061, 0.0091]) = [5.1, 4.8]), suggesting that if our estimate for standard deviation is correct, and if our effect size is correct and generalizable to other situations, this method should be able to reliably detect meaningful differences in response.
+
+Another insight into variability within this method can be taken by looking at the calibration data that each participant provides after the main part of each trail (Described in Section \ref{sec:touch}). Here they are asked to touch the centre of a checker-board, and this data is primarily used to offset any bias introduced by the difference between where an observer thinks they are touching, and where the tablet records having been touched. A secondary use of this data, albeit with caveats, is to estimate the amount of variation introduced simply by touch imprecision. Here the participant is given as-close-to an objective task as might be thought possible, and thus any variability in the results must stem not from perceptual indecision, but rather the process of pointing and touching. There is a clear caveat; it seems likely that an estimate of touch imprecision gleaned from this dataset will underestimate the amount of `real' touch imprecision, since observers have reliably (in my experience) modified their touching behaviour in this second part of the task, in the manner which might be expected of someone who is given a broad target to hit, and then immediately after is given a much smaller target to hit (they lean in, hold their finger more rigidly, and move more slowly).
+
+To perform this analysis I shall return%!!!!!!!!!!!
+to the British Museum data, to get the largest possible sample and so as not to limit the analysis to those with a strong vested interest in this research. In figure X I show the standard deviations based on just the calibration (checker-board) data. Note that here the units are pixels, as opposed to a chromaticity space. 4 outliers are excluded. These outliers appear to occur due to an observer accidentally double touching the screen during the calibration phrase, and thus having one data point which is far outside the normal group. This does not affect (to a large extent) the actual calibration process, because here a median is taken, but it does have a rather strong effect when calculating the standard deviation of a set, which relies on the mean of a set.
+
+%figure
+
+To consider the above information in practice, we need to perform a conversion into chromaticity space. For a simple analogy, let's consider a pixel shift of 6 pixels (the rough average standard deviation in each dimension, based on a visual analysis of figure X).
+This would equate to a shift of 0.2742 in u*v* space, or a shift of 0.0003 in u'v' space%shouldn't this be differennt values for u' and v'?
+, which is an order of magnitude smaller than the average standard deviations for the main datasets. I therefore conclude that touch imprecision will only have a minor influence on the data collected with this method, especially when any bias is accounted for through calibration of the data.
+
+To summarise this section: I have considered the variation within data from a single individual (the author) who conducted a number of repeated measurements under controlled conditions. It was found that the variation between repeats was substantially lower than the difference between data from two different lighting conditions. It is unclear what the minimum threshold for detection by this method is.
+I have also attempted to understand the extent to which the touch input introduces uncertainty, by considering variation in data where the task was less subjective in nature , and thus the principal source of variation could be assumed to be the touch input. It was found that this source of variation should only account for a very small proportion of the variation seen within the full experiment.
+
+\subsubsection{Inter-environment Differences}
+
+Considering the standard theories of chromatic adaptation, and previous experimental results, we would assume a difference in the achromatic settings of observers in lighting conditions of different chromaticities (See the second part of \hyperref[list:hyp1b]{Hypothesis 1B}). We would also assume the chromaticity of selected achromatic points would follow the chromaticity of ambient illumination.
+
+Under the 3 lighting conditions used at \gls{PAMELA} (see section \ref{sec:PAMELA}) a single observer (the author) completed 13 full runs of the experiment; 4 under `WW', 6 under `CW', 3 under `MH'. During the same session, 2 additional observers undertook the experiment, but their data is not presented here since they undertook substantially fewer runs than the author. 
+% figure
+% Caption: red, green and blue lines are standard deviation ellipses representing the data from all 13runs of the experiment, with colours corresponding to the light settings that they were made under. Filled coloured dots represent the chromaticity of the light setting, with colours corresponding. Note the WW lighting chromaticity which is far outside the practical gamut, and the way that WW data is shifted in this direction relative to the CW and MH data.
+
+Figure X %!!!!!!!!!!!!
+shows standard deviation ellipses plotted for the total of 13 runs, colour coded for light source. It can be seen that the `WW' data does shift significantly towards where the chromaticity of the `WW' light source, as compared to the `CW' and `MH' data. The chromaticities for the `CW' and `MH' illuminants fall roughly in line with the respective data (green and blue ellipses above).
+The results seen here indicate that there is indeed a difference between recorded achromatic points under different illuminants, and so assuming that the stimulus remained stable between the two conditions (see Section X) %Experiment 1A
+, this indicates that we have successfully recorded a change in chromatic adaptation state. 
+
+If the change in ambient light source chromaticity were to affect the stimulus we would expect a shift in the data in the opposite direction to the chromaticity of the light source. An example: say the light source was blue, and made the stimulus blue-r in some way. Let's assume uniformity; blue areas become blue-r, achromatic areas become blue-r, yellow areas become blue-r etc. An area which was previously yellow (under `neutral' lighting), might now appear achromatic, and may well be picked as a neutral point. Thus, the introduction of a blue light which affects the chromaticity of the stimulus should result in the picking of a more yellow neutral point.
+
+The shift in the `WW' data is shifted roughly in the direction of the chromaticity of the light source, which is as would be expected if we were witnessing a shift in chromatic adaptation point.
+
+Note that the interpretation of these results are limited due to the bounding issue discussed in Section \ref{sec:bounding}.
+
+BM experiment
+
+% Photos of DG in BM
+
+With this number of participants, when using naive participants, and considering that participants were not strongly incentivized to take part, it is reasonable to assume that the quality of responses may vary between observers. Therefore, exclusion criteria, as described in Section \ref{sec:exclusion} were applied. Following these exclusions, the data from the British Museum appears as is shown in Figure X. 
+% figure
+%how many were excluded?
+
+In figure X we see that the chromaticities of the ambient lighting in the first and second environments (77/78, and 25) are far outside the practical gamut. If we might have expected full chromatic adaptation in observers in these environments, then the results we see would represent the case where there is extreme smearing (similar to the `most yellow' dataset from figure X). 
+
+We do however see a distinction between these two datasets and the data for the `GC' data, which may have been expected from the distinct chromaticity of the lighting. It is worth noting however, that luminance in this environment was generally very high, and so there is an increased risk of the stimulus deviating from the desired colorimetry (as noted in Section \ref{sec:exp1a}).
+
+In summary, for the data collected at the British Museum, we see a distinction between the `GC' data and the data collected in the two other environments and minimal distinction between those two other datasets. This tallies well with witnessing a distinction where lighting chromaticity is distinct, and minimal distinction where lighting chromaticities are similar. However, this method did not allow for the selection of chromaticities which would have represented a true non-spectrally-selective surface under two of these lighting conditions, and so the data for those conditions is unlikely to be a simple representation of an observer's chromatic adaptation state.
+
+The potential confounds in this experiment are, at minimum: observer (and associated variables), day and time, gallery space, luminance, and lighting technology.
+
+\subsection{Is this method suitable for naive observers?}
+
+%figure
+
+From the plot of standard deviations in figure X, it can be seen that whilst the participants with a large amount of experience performed well, a small number of naive participants actually performed better (assuming that SD is a valid measure of performance), whilst the remainder of participants performed almost as well with limited but notable exceptions. It is worth noting that whilst I have chosen this environment to examine (`Gallery 25: Africa Gallery') since it has the highest cross-over of individuals who can be classed as `experienced', this choice might not be ideal since the Africa Gallery represents a situation where a large amount of `smearing' may occur, since the chromaticity of the light source is far outside that selectable from the practical gamut.
 
 \subsection{Issues with interacting with a large visual angle}
 
@@ -542,7 +564,7 @@ The method also has the advantage that it is quick and easy to explain to naive 
 The key tests for this methodology were that it presented a stable stimulus which was relatively unaffected by the ambient environment, and that it was able to record differences between an observer's achromatic settings in situations where we would expect to see differences. Having explored both of these tests I conclude that this methodology broadly satisfies both (with some caveats); the colorimetry of the display was not affected in a way that would corrupt the stimuli under the conditions considered, and under conditions where we would have expected to see a distinction in response we have indeed seen one (and vice versa).
 
 An experiment, considering whether melanopsin activation has an influence upon white point selections, found no evidence for such. Consideration was given to the factors that could have led to a type II error in this case.
-The general limitations and recommendations for further development of the method were discussed.
+The general limitations and recommendations for further development of the method were discussed, with a particular focus on the limitations due to the static stimulus and the bounding issues that this created.
 
 
 
