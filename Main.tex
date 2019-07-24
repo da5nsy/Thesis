@@ -58,20 +58,6 @@
 
 \begin{document}
 
-\nobibliography*
-% ^-- This is a dumb trick that works with the bibentry package to let
-%  you put bibliography entries whereever you like.
-% I used this to put references to papers a chapter's work was 
-%  published in at the end of that chapter.
-% For more information, see: http://stefaanlippens.net/bibentry
-
-% If you haven't finished making your full BibTex file yet, you
-%  might find this useful -- it'll just replace all your
-%  citations with little superscript notes.
-% Uncomment to use.
-%\renewcommand{\cite}[1]{\emph{\textsuperscript{[#1]}}}
-
-
 \include{Preamble}
 \include{Introduction}
 \include{LitReview}
@@ -79,7 +65,6 @@
 \include{SmallSphere}
 \include{ComputationalStudy}
 \include{TabletMethod}
-
 
 % \include{General discussion}
 % \include{Contribution to vision science}
@@ -91,15 +76,15 @@
 % You could separate these out into different files if you have
 %  particularly large appendices.
 
-% This line manually adds the Bibliography to the table of contents.
-% The fact that \include is the last thing before this ensures that it
-% is on a clear page, and adding it like this means that it doesn't
-% get a chapter or appendix number.
+
+% Actually generates your bibliography. The fact that \include is 
+% the last thing before this ensures that it is on a clear page.
+\bibliography{example}
+% This line manually adds the Bibliography to the table of contents. 
+% Adding it like this means that it doesn't get a chapter or appendix number.
 \addcontentsline{toc}{chapter}{Bibliography}
 
-% Actually generates your bibliography.
-\bibliography{BIB} 
-% I need to fiddle something here so that it doesn't include the 'Extra' field.
+% I need to fiddle something here so that it doesn't include the 'Extra' field. %!!!!!!
 % And so that 'books' (e.g. ECVP conference) include URL if they have it.
 % And also 'magazine articles' - include URL and 'archive', see Foster and Partners.
 % Probably something similar for these as well - see Delahunt.

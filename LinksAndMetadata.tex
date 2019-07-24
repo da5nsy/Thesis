@@ -6,26 +6,30 @@
 
 % Some hacks are necessary to make bibentry and hyperref play nicely.
 % See: http://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv
-\usepackage{bibentry}
-\makeatletter\let\saved@bibitem\@bibitem\makeatother
+% See also: hyperref documentation section on bibentry, 9.1.7, p39
+% This is the first half of the bibentry/hyperref hack
+% The second half is just after begin{document} in Main.tex
+%\makeatletter
+%    \let\saved@bibitem\@bibitem
+%\makeatother
+%\usepackage{bibentry}
 
-\usepackage[pdftex,hidelinks]{hyperref} 
+% v-- this setup can be useful for checking links
+%\usepackage[bookmarks,colorlinks=true,backref,hyperindex,debug,pdftex]{hyperref}
+% v-- and this is the serious setup
 
-\makeatletter\let\@bibitem\saved@bibitem\makeatother
-\makeatletter
+\usepackage[bookmarks,pdftex,hidelinks]{hyperref} 
+
 \AtBeginDocument{
     \hypersetup{
+        anchorcolor=purple,
+        citecolor=green,
         pdfsubject={A thesis upon the subject of Museum Lighting, Colour Constancy and Melanopsin.},
         pdfkeywords={Museum Lighting, Colour Constancy, Chromatic Adaptation, Melanopsin},
         pdfauthor={Daniel Garside},
         pdftitle={Museum Lighting, Colour Constancy and Melanopsin},
     }
 }
-\makeatother
 
 % Creates hyperlinks automatically from DOIs, and allows for use of \doi{} rather than \url{} which means it can handle non-allowed characters in DOIs.
 \usepackage{doi}
-
-% uses standard font for URLs
-\urlstyle{same}
-    

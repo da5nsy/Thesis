@@ -157,7 +157,8 @@
 \ProcessOptions
 \LoadClass{book}
 %\RequirePackage{times}
-\RequirePackage{mathptmx}
+%%%%%%%%%%%\RequirePackage{mathptmx}
+%%%%%%%%%%% Temporary
 %    \end{macrocode}
 %
 %  \subsection{Page Layout}
@@ -310,11 +311,13 @@
         \twocolumn%
     \fi%
 }
+
 \renewenvironment{thebibliography}[1]{%
     \chapter*{%
         \bibname%
         \@mkboth{\bibname}{\bibname}%
     }%
+    \addcontentsline{toc}{chapter}{\bibname}
 %%%
 %%%  Julia Schnabel wanted the following line added since the
 %%%  \chapter* call does not put the bibliography into the table of
@@ -340,6 +343,7 @@
     \def \@noitemerr{\@latex@warning{Empty `thebibliography' environment}}%
     \endlist%
 }
+
 \renewenvironment{theindex}{%
     \if@twocolumn%
         \@restonecolfalse%
