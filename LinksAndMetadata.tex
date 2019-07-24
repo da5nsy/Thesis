@@ -15,10 +15,11 @@
 %\usepackage{bibentry}
 
 % v-- this setup can be useful for checking links
-%\usepackage[bookmarks,colorlinks=true,backref,hyperindex,debug,pdftex]{hyperref}
+%\usepackage[bookmarks,colorlinks=true,backref,,hyperindex,debug,pdftex]{hyperref}
 % v-- and this is the serious setup
 
-\usepackage[bookmarks,pdftex,hidelinks]{hyperref} 
+\usepackage[bookmarks,pagebackref,pdftex,hidelinks]{hyperref} 
+\renewcommand*\backref[1]{\ifx#1\relax \else (page #1) \fi}
 
 \AtBeginDocument{
     \hypersetup{
