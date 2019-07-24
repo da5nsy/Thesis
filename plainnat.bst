@@ -60,7 +60,6 @@ ENTRY
     journal
     key
     month
-    note
     number
     organization
     pages
