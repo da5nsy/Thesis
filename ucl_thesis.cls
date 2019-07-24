@@ -317,7 +317,6 @@
         \bibname%
         \@mkboth{\bibname}{\bibname}%
     }%
-    \addcontentsline{toc}{chapter}{\bibname}
 %%%
 %%%  Julia Schnabel wanted the following line added since the
 %%%  \chapter* call does not put the bibliography into the table of
