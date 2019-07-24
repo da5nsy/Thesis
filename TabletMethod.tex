@@ -33,7 +33,7 @@ For example, a common stimulus-type used in such experiments are `Mondrian' patt
 \label{fig:KraftBrainard}
 \end{figure}
 
-It is clear that these set-ups are much reduced in their complexity compared to a natural scene. Simple experimental stimuli allow for clear questions to be asked, and for those questions to be answered with statistical strength. Such research is valuable. However, the use of simplified stimuli risks overlooking unknown scene attributes, and the human behaviours which may be reliant on them. Experiments often find that colour constancy in lab environments is never `complete'; is this representative of real world behaviour or could this result be due a lab environment failing to deliver all the cues available to an observer in a natural environment? Recent technological advances have enabled experimenters to reproduce natural scenes with increasingly accuracy and comprehensiveness \citep{heasly_rendertoolbox3_2014}, but the number of variables in real scenes is practically infinite, and whilst our ability to reproduce a scene increases over time as technology develops, we only reproduce what we deem important at the time. Using a real-world environment would allow for processes to occur as they do naturally, in the environment for which these processes are presumably optimised (See \citet{kelly_chips_2018} and \citet{shepard_perceptual_1992}.)
+It is clear that these set-ups are much reduced in their complexity compared to a natural scene. Simple experimental stimuli allow for clear questions to be asked, and for those questions to be answered with statistical strength. Such research is valuable. However, the use of simplified stimuli risks overlooking unknown scene attributes, and the human behaviours which may be reliant on them. Experiments often find that colour constancy in lab environments is never `complete'; is this representative of real world behaviour or could this result be due a lab environment failing to deliver all the cues available to an observer in a natural environment? Recent technological advances have enabled experimenters to reproduce natural scenes with increasingly accuracy and comprehensiveness \citep{heasly_rendertoolbox3_2014}, but the number of variables in real scenes is practically infinite, and whilst our ability to reproduce a scene increases over time as technology develops, we only reproduce what we deem important at the time. Using a real-world environment would allow for processes to occur as they do naturally, in the environment for which these processes are presumably optimised (See \citet{kelly_chips_2018} and \citet{shepard_perceptual_1992}). The ability to move away from the lab environment also allows us to run experiments in specific locations of interest, such as museum spaces.
 
 There are two clear challenges to the use of natural environments for scientific study; the inability to control target variables, and the influence of uncontrollable or uncontrolled non-target variables. The first challenge may be surmountable; depending on the variable in question it might either be controlled by force, or over time natural variability may provide the required experimental range. The second may be insurmountable but, depending on the specific situation, it may be permissible to consider uncontrolled variations simply as sources of experimental noise. Further challenges arise where connections exist between target and non-target variables, or where the influence of the non-target variables dwarf the effect of the target variable.
 
@@ -56,10 +56,10 @@ To be fit for performing colour constancy experiments, this method needs to:
 
 \begin{enumerate}[label=\Alph*.]
     \item \label{list:hyp1a} \emph{Provide a relatively environment-agnostic stimulus.} 
-    This experimental method relies on the assumption that the tablet display delivers a stimulus with identical physical properties to the observer independent of environment. In practical terms, this means that the tablet must not be affected by reflection, either at the glossy surface of the tablet display, or at reflection at any other level of the display architecture, to the extent that this has a non-negligible impact upon recorded data. If it is found that this is not the case, the tablet would need to be characterised separately for each environment.
+    This experimental method relies on the assumption that the tablet display delivers a stimulus with identical physical properties to the observer independent of environment, with no effect of ambient illumination. In practical terms, this means that the tablet must not be affected by reflection, either at the glossy surface of the tablet display, or at reflection at any other level of the display architecture, to the extent that this has a non-negligible impact upon recorded data. If it is found that this is not the case, the tablet would need to be characterised separately for each environment.
     \item \label{list:hyp1b} \emph{Collect meaningful data.} 
     One would expect this to be indicated by small intra-observer variability (not recording a change where there is presumably none), and reasonable inter-environment change (recording a change where there is presumably a change). It would be expected that these changes would be in line with previously published results.
-    \item \label{list:hyp1c} \emph{Additional aim - Be suitable for naive observers.}
+    \item \label{list:hyp1c} \emph{Additional aim - Be suitable for naive\footnote{In this instance by `naive' I mean non-colour-scientist (a large number of colour vision experiments have been run only with colour scientists as observers and it is possible that this has biased results) and untrained (it is relatively common for this type of experiment to require extensive training upon a colour naming system such as The Munsell System of colour, by which participants are asked to report the appearance of a test object)} observers.}
     This would reduce the amount of time and effort required to run experiments, and allow for the collection of data from participants less likely to be biased through task expectation. It also means that the demographic group of observers is less likely to be 
     WEIRD (`Western, Educated, Industrialized, Rich, and Democratic', \citep{henrich_weirdest_2010,brookshire_social_2013,justsaysinweird_just_2019}), white, and undergraduate.
 \end{enumerate}
@@ -71,18 +71,28 @@ If \gls{ipRGCs} play a role in colour constancy we would expect to see a distinc
 \section{Experimental set-up and methodology}
 \subsection{Method \& Apparatus}
 
+\subsubsection{Selection of participants}
+
+The participants for experiment 1 were the author, one of the author's academic supervisors (KC) and a technician at the laboratory (TS).
+
+For experiment 2, 58 observers were selected randomly from museum visitors. A visitor would be approached by the experimenter (the author) and asked whether `they would be interested in taking part in a colour vision experiment'. Those who replied positively were verbally informed of the ethics details for the study, the principal parts of which were: that no identifying information would be recorded, that the experiment carried no risks greater than those associated with normal use of a tablet computer, that observers were not paid or otherwise incentivised to take part, and that the task would take roughly ten minutes. A verbal description of the ethics details for this experiment was provided rather than the more normal paper version to avoid providing the observer with a white reference immediately prior to the experiment. This study was approved by the \gls{UCL} Ethics committee (Project ID Number: 9357/001). In accordance with the ethics approval granted for this project, people under the age of 18 were only invited to participate under the supervision of a parent/carer. %[Appendix X] !!!!!!!!!!!!!
+% number, age and sex here
+
+For experiment 3, nine participants (5 female, 4 male, ages not recorded) were recruited from the author's friends and family (including one academic supervisor), with the hope that this would assure attendance and motivation and to take advantage of short-notice availability of the experimental space. Participants were informed of the ethics details for the study in advance of attending. Ethics approval was provided following the amendment of the aforementioned ethics application (9357/001).
+% number, age and sex here
+
 \subsubsection{Instructions to the participants}
 
 The observer was instructed to hold the tablet such as was comfortable for them to do so, upon which the first trial of the experiment was already visible. They were instructed to `touch the grey-est, or least colourful, point on the screen'. Upon touching the screen, the stimulus would be replaced with a new stimulus. This new stimulus was a new subsection of the full stimulus image (See Figure \ref{fig:Stimulus}) which had been randomly rotated and offset (further information provided in Section \ref{sec:stimuli}).
-
-Most observers seemed to find this task difficult for the first stimulus, but within the first few stimuli seemed to develop an increased comfort and ease with the task, which resulted in a decreased response time. %(Illustrate with graph of response time?)
-At this point the observer was told that there would be thirty trials. No training was provided, and no runs were excluded as training runs. One stimulus was forced to have identical rotation and offset to an earlier stimulus, in order to assess intra-observer variation (see Section \ref{sec:exclusion}).
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/MVI_3213-1.jpg} % E:\Pictures\2016\2016-10-14
 \caption{A participant (the author) holding the tablet with a stimulus on screen.}
 \label{fig:grant_demo}
 \end{figure}
+
+Most observers seemed to find this task difficult for the first stimulus (appearing confused and often verbally expressing difficulty), but within the first few stimuli seemed to develop an increased comfort and ease with the task, which resulted in a decreased response time. %(Illustrate with graph of response time?)
+At this point the observer was told that there would be thirty trials. No training was provided, and no runs were excluded as training runs. One stimulus was forced to have identical rotation and offset to an earlier stimulus, in order to assess intra-observer variation (see Section \ref{sec:exclusion}).
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/MVI_3889-4.jpg} % E:\Pictures\2016\2016-10-18
@@ -99,16 +109,6 @@ Following the thirty trials, a secondary task was presented to observers, design
 \end{figure}
 
 %Doing this without incentive for participants meant that it was rushed (?)
-
-\subsubsection{Selection of participants}
-
-The participants for experiment 1 were the author, one of the author's academic supervisors (KC) and a technician at \acrshort{PAMELA} (TS).
-
-For experiment 2, 58 observers were selected randomly from museum visitors. A visitor would be approached by the experimenter (the author) and asked whether `they would be interested in taking part in a colour vision experiment'. Those who replied positively were verbally informed of the ethics details for the study, the principal parts of which were: that no identifying information would be recorded, that the experiment carried no risks greater than those associated with normal use of a tablet computer, that observers were not paid or otherwise incentivised to take part, and that the task would take roughly ten minutes. A verbal description of the ethics details for this experiment was provided rather than the more normal paper version to avoid providing the observer with a white reference immediately prior to the experiment. This study was approved by the \gls{UCL} Ethics committee (Project ID Number: 9357/001). In accordance with the ethics approval granted for this project, people under the age of 18 were only invited to participate under the supervision of a parent/carer. %[Appendix X] !!!!!!!!!!!!!
-% number, age and sex here
-
-For experiment 3, nine participants (5 female, 4 male, ages not recorded) were recruited from the author's friends and family (including one academic supervisor), with the hope that this would assure attendance and motivation and to take advantage of short-notice availability of the experimental space. Participants were informed of the ethics details for the study in advance of attending. Ethics approval was provided following the amendment of the aforementioned ethics application (9357/001).
-% number, age and sex here
 
 \subsubsection{Specification of tablet PC}
 
@@ -261,7 +261,7 @@ Intuitive threshold: the SD of a `baseline' observer & No intuitive threshold \\
 \label{fig:PAMELAlights4}
 \end{figure}
 
-For experiments reported here three illumination settings were defined - `Cool White (`CW')', `Warm White (`WW')', and `Mel-High (`MH')'. \gls{SPD}s are shown for each in Figure \ref{fig:PAMELAlights5}. `CW' and `WW' were system defaults, and `MH' was defined to be a colorimetric match (for the CIE 1931 observer) for `CW', but preferentially using an \gls{LED} band with a peak spectrally close to the peak spectral sensitivity of melanopsin (~480nm).
+For experiments reported here three illumination settings were defined - `Cool White (`CW')', `Warm White (`WW')', and `Mel-High (`MH')'. \gls{SPD}s are shown for each in Figure \ref{fig:PAMELAlights5}, and chromaticities in \ref{fig:PAMELAlights6}. `CW' and `WW' were system defaults, and `MH' was defined to be a colorimetric match (for the CIE 1931 observer) for `CW', but preferentially using an \gls{LED} band with a peak spectrally close to the peak spectral sensitivity of melanopsin ($\sim$480nm).
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/PAMELA_SPD.png}
@@ -272,17 +272,21 @@ For experiments reported here three illumination settings were defined - `Cool W
 It should be noted that luminance was not matched between the conditions. Therefore, `CW' and `MH' could be described as colorimetric matches, but not as metameric matches. Additionally, for chromatically distinct conditions (`CW' vs `WW'), there is a confound of luminance variation. The luminances of the three conditions were 235lx, 720lx and 840lx respectively. In the opinion of the author, it would be advisable that if further studies of this type were undertaken, that conditions be matched for luminance in order to discount this as a variable. 
 
 The chromaticities of the light sources, measured with a UPRtek MK350, were:
-`WW': 	u'v'(0.248,0.524) (averaged over 4 measurements)
-`CW': 	u'v'(0.200,0.465) (averaged over 3 measurements)
-`MH': 	u'v'(0.201,0.467) (averaged over 8 measurements)
-The chromaticity co-ordinates of `CW' and `MH' are close enough to be considered as colorimetrically matched for the CIE 1931 standard observer. %who says?
+`WW': 	u'v'(0.248,0.524) (averaged over 4 measurements);
+`CW': 	u'v'(0.200,0.465) (averaged over 3 measurements);
+`MH': 	u'v'(0.201,0.467) (averaged over 8 measurements).
 
-% Colorimetric plots !!!!!!!!!
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_chromaticities.pdf}
+\caption{Chromaticities of defined lighting conditions at \gls{PAMELA}. Note that `CW' and `MH' overlap.}
+\label{fig:PAMELAlights6}
+\end{figure}
 
 \subsubsection{The British Museum} \label{sec:BM}
 
-The British Museum is a large museum located close to the main \gls{UCL} campus, which exhibits artefacts of artistic, cultural and historical relevance. 
+The British Museum is a large museum located close to the main \gls{UCL} campus, which exhibits artefacts of artistic, cultural and historical relevance. It is one of the UK's most visited tourist attractions, drawing over 5 million visitors yearly \citep{simon_calder_tate_2019}.
 
+\medskip \noindent
 Three spaces within the museum were used (with permission):
 
 \begin{itemize}
@@ -315,10 +319,13 @@ Three spaces within the museum were used (with permission):
 \label{fig:BM77}
 \end{figure}
 
-These three galleries were chosen since they are lit by three distinct lighting technologies. In hindsight this is not particularly meaningful, or able to advance my general argument, but at the time it seemed worthwhile. More significantly, they are distinct chromaticities, though Room 77/78 and Room 25 are both strongly yellow (see Figure X%!!!!!!!!!!
-).
-% Colorimetry plots
-\hl{Will add colorimetry plots} %!!!!!!!!!!!!!
+These three galleries are lit with different lighting technologies of distinct chromaticities, though Room 77/78 and Room 25 are both strongly yellow, as shown in Figure \ref{fig:BMchromaticities}.
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_chromaticities.pdf}
+\caption{Chromaticities of lighting conditions at The British Museum.}
+\label{fig:BMchromaticities}
+\end{figure}
 
 \subsubsection{\gls{UCL} Chadwick Building}
 
@@ -341,7 +348,7 @@ Additional testing was undertaken within the Chadwick Building of \gls{UCL} (hom
 
 \subsection{Experiment 1}
 %PAMELA, DG, 13 runs
-With the goal of understanding both the intra/inter-observer variability and intra/inter-environment variability, 13 runs of the experiment were performed by the author under the 3 illumination settings defined at \gls{PAMELA} (see Section \ref{sec:PAMELA}), 4 under `WW', 6 under `CW', 3 under `MH', after 2 different lengths of adaptation (5 minutes and 30 minutes). In initial analyses no effect of length of adaptation was found, and so we group the data across these 2 conditions for analysis. Two other observers (TS and KC) also performed a number of observation (3 and 4 respectively) under a range of illumination settings.
+With the goal of understanding both the intra/inter-observer variability and intra/inter-environment variability, 13 runs of the experiment were performed by the author under the 3 illumination settings defined at \gls{PAMELA} (see Section \ref{sec:PAMELA}), 4 under `WW', 6 under `CW', 3 under `MH', after 2 different lengths of adaptation (5 minutes and 30 minutes). In initial analyses no effect of length of adaptation was found, and so we group the data across these 2 conditions for analysis. Two other observers (KC and TS) also performed a number of observation (3 and 4 respectively) under a range of illumination settings.
 
 \subsection{Experiment 2}
 
@@ -388,6 +395,12 @@ Exclusions were decided based upon calculations of the mean SD in the u' and v' 
 %figure
 
 \section{Results}
+
+\subsection{Experiment 1}
+
+
+
+\subsection{Experiment 2}
 
 \subsection{Experiment 3}
 
