@@ -576,24 +576,35 @@ The potential confounds in this experiment are, at minimum: observer (and associ
 Exclusions were decided based upon calculations of the mean SD in the u' and v' axes. Where the mean SD was greater than that for the equivalent baseline data for one or more of a participant's runs, that observer's data was excluded for all of their runs. This resulted in the exclusion of data from 3 participants.
 
 \begin{figure}[hbtp] 
-\includegraphics[max width=\textwidth]{figs/tablet/exp3excl.png} 
+\includegraphics[max width=\textwidth]{figs/tablet/exp3excl.pdf} 
 \caption{Mean standard deviations for each observer, set against the two baseline datasets (one where a real human touched the centre of the screen with no regard for the stimuli, and one where such behavoir was computationally simulated.}
 \label{fig:exp3excl}
 \end{figure}
 
-% ------------ % !!!!!!!!!!
 
-Following exclusions, the remaining dataset can be presented using standard deviation ellipses, coloured for lighting condition, as presented in figure X%!!!!!!!
-. There is no clear distinction between datasets collected under different lighting conditions.
+Following exclusions, averages for the remaining dataset can be plotted, coloured for lighting condition, as shown in Figure \ref{fig:PAMELA_20180205_results}. There is no clear distinction between datasets collected under different lighting conditions.
 
-%figure
+\begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/blob/bb463ae303a800c6bcadb5295fa4c9db4562499f/SAPS_DataAnalysis.m
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_20180205_results.pdf} 
+\caption{Results summarised as means for the 2 different lighting conditions (MH2 is a repeat of MH1).}
+\label{fig:PAMELA_20180205_results}
+\end{figure}
 
-Plotting data for individual participants separately, it can be seen that each participant exhibits moderately strong self-correlation; in successive trials, despite changes in illumination, individuals provide data which appears to be similar across conditions, sometimes with a reliable bias per observer. See figures X and Y for examples of data from 2 participants, noting that the black ellipse (the baseline data) is the same for both observers and can be used as a visual anchor for comparison. Between these two observers it can be seen that the first reliably chooses points with a bias towards the lower left compared to the baseline data, whereas the second has a bias towards points on the right of the baseline data. 
+Plotting data for individual participants separately, it can be seen that each participant exhibits moderate self-correlation; in successive trials, despite changes in illumination, individuals provide data which appears to be similar across conditions, sometimes with a reliable bias per observer. See Figures \ref{fig:PAMELA_20180205_Individual} and \ref{fig:PAMELA_20180205_Individual2} for examples of data from 2 participants, noting that the black ellipse (the baseline data) is the same for both observers and can be used as a visual anchor for comparison. Between these two observers it can be seen that the first reliably chooses points with a bias towards the lower left compared to the baseline data, whereas the second has a bias towards points on the right of the baseline data. 
 
-%figure
-%figure
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_20180205_Individual.pdf} 
+\caption{Standard deviation ellipses for observer PK.}
+\label{fig:PAMELA_20180205_Individual}
+\end{figure}
 
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_20180205_Individual2.pdf} 
+\caption{Standard deviation ellipses for observer LM.}
+\label{fig:PAMELA_20180205_Individual2}
+\end{figure}
 
+\clearpage
 
 \section{Conclusions and Discussion}
 
