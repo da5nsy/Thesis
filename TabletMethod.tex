@@ -171,7 +171,7 @@ I hypothesise that any shifts in touch input would be the result of one or both 
 Performing a calibration of each observer's data based on this individual characterisation allows for offsetting of both of these types of variation. 
 
 \subsection{Data Analysis}
-\subsubsection{Processing Pipeline}
+\subsubsection{Processing Pipeline} \label{sec:processing}
 
 The data was analysed in \gls{MATLAB} using the following pipeline:
 \begin{enumerate}
@@ -215,21 +215,6 @@ Intuitive threshold: the SD of a `baseline' observer & No intuitive threshold \\
 \label{tab:exclusion}
 \end{table}
 
-%figure
-
-%Reinclude later: 
-
-% In figure X `Mean SD' (SD from now on) is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates for the two identical stimuli.
-
-% It can be seen that on both measures there are a small number of clear outliers; a group of three points with SD around 0.02 but very low \gls{DBUR}, and two points with very high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure SD would be more effective in recognising these points.
-
-% A vertical line is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
-
-% As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is theoretically rotationally symmetrical. It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
-
-%figure
-%--------%
-
 % I don't really do stats here...
 % \subsubsection{Statistical Analysis}
 
@@ -239,7 +224,7 @@ Intuitive threshold: the SD of a `baseline' observer & No intuitive threshold \\
 
 \subsection{Environments}
 
-\subsubsection{\gls{UCL} \acrshort{PAMELA}} \label{sec:PAMELA}
+\subsubsection{UCL PAMELA} \label{sec:PAMELA}
 
 \gls{UCL}'s \acrfull{PAMELA} consists of a large open space, enclosed within a light-proof warehouse, and is most often used for its customisable floor space, where small sections can be independently raised or lowered to recreate the spatial configurations of public spaces such as streets or railway platforms (see \citet{cheng_effect_2018} for example, and Figure \ref{fig:PAMELAobs1}). It is of interest to this project since it also has a customisable lighting rig comprising 44 addressable fixtures, each with 6 independent channels, which is controlled via a PC interface, and an additional high power white channel, which is on a separate control system. 
 
@@ -315,19 +300,19 @@ Three spaces within the museum were used (with permission):
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth,max height=0.7\textwidth]{figs/tablet/BM77.jpg}
-\caption{Gallery 77, with fluorescent tube illuminantion. Photo credit: \url{https://sites.google.com/site/jwmuseumbibletours/all-artefacts/037-temple-of-artemis-at-ephesus}}
+\caption{Gallery 77, with fluorescent tube illuminantion. \\ Photo credit: \url{https://sites.google.com/site/jwmuseumbibletours/all-artefacts/037-temple-of-artemis-at-ephesus}}
 \label{fig:BM77}
 \end{figure}
 
 These three galleries are lit with different lighting technologies of distinct chromaticities, though Room 77/78 and Room 25 are both strongly yellow, as shown in Figure \ref{fig:BMchromaticities}.
 
 \begin{figure}[hbtp]
-\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_chromaticities.pdf}
+\includegraphics[max width=\textwidth]{figs/tablet/BM_chromaticities.pdf}
 \caption{Chromaticities of lighting conditions at The British Museum.}
 \label{fig:BMchromaticities}
 \end{figure}
 
-\subsubsection{\gls{UCL} Chadwick Building}
+\subsubsection{UCL Chadwick Building}
 
 Additional testing was undertaken within the Chadwick Building of \gls{UCL} (home of the Department of Civil, Environmental and Geomatic Engineering), in light-tight basement rooms fitted with fluorescent lighting.
 
@@ -398,9 +383,40 @@ Exclusions were decided based upon calculations of the mean SD in the u' and v' 
 
 \subsection{Experiment 1}
 
+Following data processing as described in Section \ref{sec:processing} (with no exclusions applied), a summary of data for an individual (the author) is displayed in Figure \ref{fig:PAMELA_DG_results}.
+
+\begin{figure}[p] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 0
+\includegraphics[width=\textwidth]{figs/tablet/PAMELA_DG_results.pdf} 
+\caption{Results for observer DG for Experiment 1. Background dots are subsampled from the practical gamut, to indicate ability of the observer to select specific chromaticities, as shown in Figure \ref{fig:practical}. Translucent red, green and blue circles represent means of runs under different conditions. Red, green and blue stars represent illuminant chromaticities for different conditions.}
+\label{fig:PAMELA_DG_results}
+\end{figure}
+
+The principal result here is that there does seem to be a distinction between the results from `WW' and the other two conditions, with the results for `WW' being displaced northeast from those for `CW' and `MH'. %stats!!!!!!!!!!
+
+It can be seen that the chromaticity of the `WW' illuminant falls far outside the practical gamut; there would have been no opportunity throughout the entire set of runs where the observer would have been able to select a pixel of a chromaticity matching that illuminant. It might therefore be expected that we would see an extended smearing pattern in selections away from the centre of the practical gamut towards the chromaticity of this illuminant. This effect is indeed visible, see \ref{fig:PAMELA_DG_results_ellipses}.
+
+\begin{figure}[p] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 1
+\includegraphics[width=\textwidth]{figs/tablet/PAMELA_DG_results.pdf} 
+\caption{As per \ref{fig:PAMELA_DG_results}, but showing standard deviation ellipses to indicate spread of data. `BL' is a baseline dataset, representing an observer hitting the spatial centre of the screen for every stimulus. It can be seen that in comparison to this baseline, there is a trend whereby selections are elongated across the positive diagonal. The results for `WW' seem particularly elongated along this axis, which I assume to be the result of the chromaticity of `WW' laying outside of the practical gamut.
+\label{fig:PAMELA_DG_results}
+\end{figure}
+
+
 
 
 \subsection{Experiment 2}
+
+% Exclusion
+
+% In figure X `Mean SD' (SD from now on) is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates for the two identical stimuli.
+
+% It can be seen that on both measures there are a small number of clear outliers; a group of three points with SD around 0.02 but very low \gls{DBUR}, and two points with very high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure SD would be more effective in recognising these points.
+
+% A vertical line is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
+
+% As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is theoretically rotationally symmetrical. It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
+
+%figure
 
 \subsection{Experiment 3}
 
