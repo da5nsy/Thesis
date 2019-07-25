@@ -181,7 +181,7 @@ I hypothesise that any shifts in touch input would be the result of one or both 
 
 Performing a calibration of each observer's data based on this individual characterisation allows for offsetting of both of these types of variation. 
 
-\subsubsection{Specification of tablet PC}
+\subsection{Specification of tablet PC}
 
 Participants undertook the experiment upon a Dell Latitude 10 ST2 tablet computer with `BROTECT' Matte Screen Protector (223x126mm active screen area, 1366x768 pixels). This tablet was chosen for its ability to run a Windows environment, and the matte screen protector was added to reduce the severity of specular reflections. The measured gamut of this device is shown in Figure \ref{fig:gamut}, with the gamut of sRGB for comparison.
 
@@ -192,7 +192,7 @@ Participants undertook the experiment upon a Dell Latitude 10 ST2 tablet compute
 \end{figure}
 % Generated using the 'Plot gamut' section of SAPS_TabletCharacterisation.m
 
-\subsubsection{Impact of ambient illumination}
+\subsubsection{Impact of ambient illumination} \label{sec:ambient}
 
 A key requirement in this methodology is that the display device remains roughly colorimetrically stable across a range of lighting environments (see \hyperref[list:hyp1a]{Hypothesis 1A}). This would only be true if the device produced the entirety of the light emanating from it in normal use. In reality, a small amount of light will be reflected from the surrounding environment. This may be reflected either at the surface layer of the screen (specular reflections) or at a lower level of the screen architecture. Here we aim to quantify the amount of light reflected in this way, understand the impact that this has on this method, and seek to minimise this impact if possible.
 
@@ -200,7 +200,7 @@ It is assumed that specular reflections are clearly distinguishable to most user
 
 The key concern then is reflection at other levels of the screen architecture. Using the screen calibration framework \cite{berns_crt_1993}, this may be considered as an environment-dependent `offset', that is, a figure which is added to the output of the screen at all levels. It is assumed that this level is constant in an unchanging environment, and independent of the output of the screen. It therefore follows that this will have greatest impact on the chromaticity of the display at low luminances, where the amount of reflected light is high relative to the output of the display.
 
-To consider whether such reflections exist for our specific set-up, telespectroradiometric measurements were taken of screen at varying pixel value levels (0 to 255, intervals of 15) under 3 different lighting conditions, as described in Section \ref{sec:PAMELA}. One condition was repeated to assess measurement uncertainty. The measurement device used was a `Photo Research PR650'. 
+To consider whether such reflections exist for our specific set-up, telespectroradiometric measurements were taken of screen at varying pixel value levels (0 to 255, intervals of 15) under 3 different lighting conditions, as described in Section \ref{sec:PAMELA}. One condition was repeated to assess measurement uncertainty. The measurement device used was a \gls{PR650}. 
 
 Broadly speaking, at a pixel value of 0 one would expect that the illumination reaching the position of the observer depends entirely upon the illumination, whereas at maximum output (pixel values of 255 in all channels) the illumination reaching the position of the observer would be almost entirely dependent upon the output of the device, with negligible influence of the illumination (so long as the illumination was below a certain threshold). The point of interest is therefore assumed to be the lowest pixel value where the shift resulting from differing illuminants ceases to be considered negligible for our purposes.
 
@@ -220,7 +220,7 @@ It was found that for pixel values of 60 and below there was a considerable chro
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/pamela_pr6503.png}
-\caption{Chromaticity co-ordinates of measurements at different pixel values. It can be seen that the 0 values diverge greatly. They do not diverge in exactly the directions of the chromaticities of the light sources, which could either be due to measurement inaccuracy, or the base colour of the tablet may not be perfectly neutral. At higher pixel values the chromaticities start to converge at around [u',v'] = [0.193,0.47]}.
+\caption{Chromaticity co-ordinates of measurements at different pixel values. It can be seen that the 0 values diverge greatly. They do not diverge in exactly the directions of the chromaticities of the light sources, which could either be due to measurement inaccuracy, or the base colour of the tablet may not be perfectly neutral. At higher pixel values the chromaticities start to converge at around [u',v'] = [0.193,0.47]}. %would be nice to reproduce !!!!!!!!!!
 \label{fig:pr6503}
 \end{figure}
 
@@ -249,11 +249,11 @@ It is noted that the variation between the repeated measurements, denoted `WW' a
 
 % %figure
 
-Figure \ref{fig:fig:stimhist} shows the histogram of each channel within the full stimulus. Note that only the red channel has a significant number of pixels with values below 75 (with the blue channel having some values which come close), and so following from our observation that chromaticity was most perturbed by variations in lighting where the pixel value was below 75, this is the channel most likely to be influenced by the ambient illumination (though only in specific spatial sections of the stimulus image).
+Figure \ref{fig:stimhist} shows the histogram of each channel within the full stimulus. Note that only the red channel has a significant number of pixels with values below 75 (with the blue channel having some values which come close), and so following from our observation that chromaticity was most perturbed by variations in lighting where the pixel value was below 75, this is the channel most likely to be influenced by the ambient illumination (though only in specific spatial sections of the stimulus image).
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/stimhist.png}
-\caption{Histogram for the different channels in the full stimulus image}.
+\caption{Histogram for the different channels in the full stimulus image}. %would be nice to reproduce !!!!!!!!!!
 \label{fig:stimhist}
 \end{figure}
 
@@ -490,7 +490,11 @@ Exclusions were decided based upon calculations of the mean SD in the u' and v' 
 
 \subsection{Experiment 1}
 
-Following data processing as described in Section \ref{sec:processing} (with no exclusions applied), a summary of data for an individual (the author) is displayed in Figure \ref{fig:PAMELA_DG_results}. The primary result here is that there does seem to be a distinction between the results from `WW' and the other two conditions, with the results for `WW' being displaced northeast from those for `CW' and `MH'. %stats!!!!!!!!!!
+Following data processing as described in Section \ref{sec:processing} (with no exclusions applied), a summary of data for an individual (the author) is displayed in Figure \ref{fig:PAMELA_DG_results}. 
+
+The primary result here is that there does seem to be a distinction between the results from `WW' and the other two conditions, with the results for `WW' being displaced northeast from those for `CW' and `MH'. The means for the `WW' group and either the `CW' or `MH' groups seem to be offset by roughly 0.01 $\Delta$u'v'. If there were an effect of the ambient illumination, such as discussed in \ref{sec:ambient} this would move the recorded points in the opposite direction to that observed.
+
+A secondary result concerns the intra-observer variability. It can be seen in \ref{fig:PAMELA_DG_results_ellipses} that the standard deviation ellipses are large, but notably smaller than the basline data set, suggesting that the observer was actually making conscious selections. It can also be seen that there is a reliable trend of for the orientation of the ellipse, which could point to an elongation along the caerulean line as seen elsewhere \citep{bosten_what_2015}.
 
 \begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 0
 \includegraphics[width=\textwidth]{figs/tablet/PAMELA_DG_results.pdf} 
@@ -498,7 +502,7 @@ Following data processing as described in Section \ref{sec:processing} (with no 
 \label{fig:PAMELA_DG_results}
 \end{figure}
 
-It can be seen that the chromaticity of the `WW' illuminant falls far outside the practical gamut; there would have been no opportunity throughout the entire set of runs where the observer would have been able to select a pixel of a chromaticity matching that illuminant. It might therefore be expected that we would see an extended smearing pattern in selections away from the centre of the practical gamut towards the chromaticity of this illuminant, as discussed in Section \ref{sec:limitations}. This effect is indeed visible, see Figure \ref{fig:PAMELA_DG_results_ellipses}.
+It can be seen in Figure \ref{fig:PAMELA_DG_results} that the chromaticity of the `WW' illuminant falls far outside the practical gamut; there would have been no opportunity throughout the entire set of runs where the observer would have been able to select a pixel of a chromaticity matching that illuminant. It might therefore be expected that we would see an extended smearing pattern in selections away from the centre of the practical gamut towards the chromaticity of this illuminant, as discussed in Section \ref{sec:limitations}. This effect is indeed visible, see Figure \ref{fig:PAMELA_DG_results_ellipses}.
 
 \begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 1
 \includegraphics[width=\textwidth]{figs/tablet/PAMELA_DG_results_ellipses.pdf} 
@@ -506,23 +510,76 @@ It can be seen that the chromaticity of the `WW' illuminant falls far outside th
 \label{fig:PAMELA_DG_results_ellipses}
 \end{figure}
 
+% KC and Tatsuto? %!!!!!!!!!!!!!
+
 \clearpage
 
 \subsection{Experiment 2}
 
-% Exclusion
+\subsubsection{Exclusions}
 
-% In figure X `Mean SD' (SD from now on) is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates for the two identical stimuli.
+Considering that this experiment was performed with observers selected from the general public it seems reasonable to assume that we may need to use exclusion criterea. Now that we have real data we can consider the two options presented in Section \ref{sec:exclusion}.
 
-% It can be seen that on both measures there are a small number of clear outliers; a group of three points with SD around 0.02 but very low \gls{DBUR}, and two points with very high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure SD would be more effective in recognising these points.
+For Figure \ref{fig:excl1} `Mean SD' (SD from now on) is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates selected for the two identical stimuli.
 
-% A vertical line is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
+\begin{figure}[hbtp] 
+\includegraphics[width=\textwidth]{figs/tablet/excl1.png} 
+\caption{The two measures of variability set against eachother, for the data collected in Experiment 2.}
+\label{fig:excl1}
+\end{figure}
+%Redraw starting at 0
 
-% As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is theoretically rotationally symmetrical. It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
+It can be seen that on both measures there are a small number of clear outliers; a group of three points with SD around 0.02 but very low \gls{DBUR}, and two points with very high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure SD would be more effective in recognising these points.
 
-%figure
+A vertical line is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
+
+As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is nominally rotationally symmetric. It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
+
+\begin{figure}[hbtp] 
+\includegraphics[width=\textwidth]{figs/tablet/excl2.png} 
+\caption{As \ref{fig:excl1} but with minimum standard deviation (whichever is lesser between u' and v') plotted on the x-axis rather than the mean.}
+\label{fig:excl2}
+\end{figure}
+%Redraw starting at 0
+
+This test still seems overly severe, and this is likely due to several issues. Firstly, the theoretical data does not have any element of variability introduced from touch uncertainty. Secondly, since the hypothetical data is firmly centred on the spatial centre of the screen it avoids any element of aforementioned ‘smearing’ (where an observer might ideally select a point outside of the display gamut). Thirdly, in situations where there is a high variation across both the u’ and v’ axis, but a minimum is another dimension (in other words: strongly elliptical data orientated roughly diagonally in chromaticity space), which seems common for this type of data, the minimum between u’ and v’ is still going to be an overestimation of a truly representative SD.
+
+Whilst the second measure suggests no clear rationale for a threshold boundary, there is a greater spread in the variability of these differences between observers, and the relationship between this measure and an observer’s performance follows a strong and clear logic.
+
+In the absence of a clear logical framework from which to draw a specific cut-off value for DBUR, I shall propose 0.018 which aligns with an apparent divide in the data, since there is a possibility that this divide represents a functional divide between binary observer behaviours. It also seems reasonable to exclude data with a Min SD \textgreater 0.01.
+
+\begin{figure}[hbtp] 
+\includegraphics[width=\textwidth]{figs/tablet/excl2.png} 
+\caption{As \ref{fig:excl2} but with proposed boundaries}
+\label{fig:excl3}
+\end{figure}
+%Redraw starting at 0 !!!!!!!!!
+% Also, something weird is happening here, look at the two bottom right points !!!!!!!!!
+% Probably could combine some of the above graphs.
+
+\subsubsection{Data}
+
+In Figure \ref{fig:exp2} we see that the chromaticities of the ambient lighting in the first and second environments (77/78, and 25) are far outside the practical gamut. If we might have expected full chromatic adaptation in observers in these environments, then the results we see would represent the case where there is extreme smearing (similar to the `most yellow' dataset from figure X). 
+
+\begin{figure}[hbtp] 
+\includegraphics[width=\textwidth]{figs/tablet/exp2.png} 
+\caption{As \ref{fig:excl2} but with proposed boundaries}
+\label{fig:exp2}
+\end{figure}
+
+We do however see a distinction between these two datasets and the data for the `GC' data, which may have been expected from the distinct chromaticity of the lighting. It is worth noting however, that luminance in this environment was generally very high, and so there is an increased risk of the stimulus deviating from the desired colorimetry (as noted in Section X%!\ref{sec:exp1a}
+).
+
+In summary, for the data collected at the British Museum, we see a distinction between the `GC' data and the data collected in the two other environments and minimal distinction between those two other datasets. This tallies well with witnessing a distinction where lighting chromaticity is distinct, and minimal distinction where lighting chromaticities are similar. However, this method did not allow for the selection of chromaticities which would have represented a true non-spectrally-selective surface under two of these lighting conditions, and so the data for those conditions is unlikely to be a simple representation of an observer's chromatic adaptation state.
+
+The potential confounds in this experiment are, at minimum: observer (and associated variables), day and time, gallery space, luminance, and lighting technology.
+
+\clearpage
 
 \subsection{Experiment 3}
+
+\dots %!!!!!!!!
+
 
 Following these exclusions, the remaining dataset can be presented using standard deviation ellipses, coloured for lighting condition, as presented in figure X. There is no clear distinction between datasets collected under different lighting conditions.
 
@@ -532,6 +589,7 @@ Plotting data for individual participants separately, it can be seen that each p
 
 %figure
 %figure
+
 
 
 \section{Conclusions and Discussion}
@@ -596,22 +654,7 @@ The shift in the `WW' data is shifted roughly in the direction of the chromatici
 
 Note that the interpretation of these results are limited due to the bounding issue discussed in Section \ref{sec:bounding}.
 
-BM experiment
 
-% Photos of DG in BM
-
-With this number of participants, when using naive participants, and considering that participants were not strongly incentivized to take part, it is reasonable to assume that the quality of responses may vary between observers. Therefore, exclusion criteria, as described in Section \ref{sec:exclusion} were applied. Following these exclusions, the data from the British Museum appears as is shown in Figure X. 
-% figure
-%how many were excluded?
-
-In figure X we see that the chromaticities of the ambient lighting in the first and second environments (77/78, and 25) are far outside the practical gamut. If we might have expected full chromatic adaptation in observers in these environments, then the results we see would represent the case where there is extreme smearing (similar to the `most yellow' dataset from figure X). 
-
-We do however see a distinction between these two datasets and the data for the `GC' data, which may have been expected from the distinct chromaticity of the lighting. It is worth noting however, that luminance in this environment was generally very high, and so there is an increased risk of the stimulus deviating from the desired colorimetry (as noted in Section X%!\ref{sec:exp1a}
-).
-
-In summary, for the data collected at the British Museum, we see a distinction between the `GC' data and the data collected in the two other environments and minimal distinction between those two other datasets. This tallies well with witnessing a distinction where lighting chromaticity is distinct, and minimal distinction where lighting chromaticities are similar. However, this method did not allow for the selection of chromaticities which would have represented a true non-spectrally-selective surface under two of these lighting conditions, and so the data for those conditions is unlikely to be a simple representation of an observer's chromatic adaptation state.
-
-The potential confounds in this experiment are, at minimum: observer (and associated variables), day and time, gallery space, luminance, and lighting technology.
 
 \subsection{Is this method suitable for naive observers?}
 
