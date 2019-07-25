@@ -461,13 +461,13 @@ The null hypothesis for this experiment is: achromatic settings are determined s
 After entering the main space at \gls{PAMELA}, the space being illuminated solely by the \gls{LED} rig in `MH' mode, and after a minimal adaptation period (5 minutes) during which introductions and instructions were given, individually performed the experimental task in succession. 
 
 \begin{figure}[p]
-\includegraphics[width=\textwidth]{figs/tablet/PAMELAobs1.jpg} 
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELAobs1.jpg} 
 \caption{The experimental set-up at \acrshort{PAMELA}. Left: an observer performs the experiment. Right: other observers wait for their turn to perform the task.}
 \label{fig:PAMELAobs1}
 \end{figure}
 
 \begin{figure}[p]
-\includegraphics[width=\textwidth]{figs/tablet/PAMELAobs2.jpg} 
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELAobs2.jpg} 
 \caption{The experimental set-up at \gls{PAMELA}. An over the shoulder shot of an observer performing the task.}
 \label{fig:PAMELAobs2}
 \end{figure}
@@ -482,10 +482,6 @@ The entire experiment took roughly 2 hours, with individual participants taking 
 
 The primary data collected was the spatial selections made by observers. For each observer, this amounted to 30 2-dimensional selection locations, followed by 10 calibration values. Over 9 observers, and 3 runs (`MH', `ML', `MH2'), a total of 1080 data points (where each datapoint consists of an x-coordinate and a y-coordinate) were collected (40 * 9 * 3 = 1080). Secondary data consisted of: the attributes of the stimulus on each presentation, the time taken between individual selections, an identifier for each participant, and the handed-ness of each observer.
 
-Exclusions were decided based upon calculations of the mean SD in the u' and v' axes. Where the mean SD was greater than that for the equivalent baseline data for one or more of a participant's runs, that observer's data was excluded for all of their runs. This resulted in the exclusion of data from 3 participants.
-
-%figure
-
 \section{Results}
 
 \subsection{Experiment 1}
@@ -497,7 +493,7 @@ The primary result here is that there does seem to be a distinction between the 
 A secondary result concerns the intra-observer variability. It can be seen in \ref{fig:PAMELA_DG_results_ellipses} that the standard deviation ellipses are large, but notably smaller than the basline data set, suggesting that the observer was actually making conscious selections. It can also be seen that there is a reliable trend of for the orientation of the ellipse, which could point to an elongation along the caerulean line as seen elsewhere \citep{bosten_what_2015}.
 
 \begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 0
-\includegraphics[width=\textwidth]{figs/tablet/PAMELA_DG_results.pdf} 
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_DG_results.pdf} 
 \caption{Results for observer DG for Experiment 1. Background dots are subsampled from the practical gamut, to indicate ability of the observer to select specific chromaticities, as shown in Figure \ref{fig:practical}. Translucent red, green and blue circles represent mean chromaticity selections per run. Red, green and blue asterisks represent illuminant chromaticities for different conditions.}
 \label{fig:PAMELA_DG_results}
 \end{figure}
@@ -505,7 +501,7 @@ A secondary result concerns the intra-observer variability. It can be seen in \r
 It can be seen in Figure \ref{fig:PAMELA_DG_results} that the chromaticity of the `WW' illuminant falls far outside the practical gamut; there would have been no opportunity throughout the entire set of runs where the observer would have been able to select a pixel of a chromaticity matching that illuminant. It might therefore be expected that we would see an extended smearing pattern in selections away from the centre of the practical gamut towards the chromaticity of this illuminant, as discussed in Section \ref{sec:limitations}. This effect is indeed visible, see Figure \ref{fig:PAMELA_DG_results_ellipses}.
 
 \begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 1
-\includegraphics[width=\textwidth]{figs/tablet/PAMELA_DG_results_ellipses.pdf} 
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_DG_results_ellipses.pdf} 
 \caption{As per Figure \ref{fig:PAMELA_DG_results}, but rescaled and showing standard deviation ellipses to indicate spread of data. `BL' is a baseline dataset, representing an observer hitting the spatial centre of the screen for every stimulus. It can be seen that in comparison to this baseline, there is a trend whereby selections are elongated along the positive diagonal. The results for `WW' seem particularly elongated along this axis, which I assume to be the result of the chromaticity of `WW' laying outside of the practical gamut.}
 \label{fig:PAMELA_DG_results_ellipses}
 \end{figure}
@@ -523,7 +519,7 @@ Considering that this experiment was performed with observers selected from the 
 For Figure \ref{fig:excl1} `Mean SD' (SD from now on) is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates selected for the two identical stimuli.
 
 \begin{figure}[hbtp] 
-\includegraphics[width=\textwidth]{figs/tablet/excl1.png} 
+\includegraphics[max width=\textwidth]{figs/tablet/excl1.png} 
 \caption{The two measures of variability set against eachother, for the data collected in Experiment 2.}
 \label{fig:excl1}
 \end{figure}
@@ -536,7 +532,7 @@ A vertical line is plotted from the point representing baseline data. This data 
 As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is nominally rotationally symmetric. It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
 
 \begin{figure}[hbtp] 
-\includegraphics[width=\textwidth]{figs/tablet/excl2.png} 
+\includegraphics[max width=\textwidth]{figs/tablet/excl2.png} 
 \caption{As \ref{fig:excl1} but with minimum standard deviation (whichever is lesser between u' and v') plotted on the x-axis rather than the mean.}
 \label{fig:excl2}
 \end{figure}
@@ -549,7 +545,7 @@ Whilst the second measure suggests no clear rationale for a threshold boundary, 
 In the absence of a clear logical framework from which to draw a specific cut-off value for DBUR, I shall propose 0.018 which aligns with an apparent divide in the data, since there is a possibility that this divide represents a functional divide between binary observer behaviours. It also seems reasonable to exclude data with a Min SD \textgreater 0.01.
 
 \begin{figure}[hbtp] 
-\includegraphics[width=\textwidth]{figs/tablet/excl2.png} 
+\includegraphics[max width=\textwidth]{figs/tablet/excl2.png} 
 \caption{As \ref{fig:excl2} but with proposed boundaries}
 \label{fig:excl3}
 \end{figure}
@@ -559,16 +555,15 @@ In the absence of a clear logical framework from which to draw a specific cut-of
 
 \subsubsection{Data}
 
-In Figure \ref{fig:exp2} we see that the chromaticities of the ambient lighting in the first and second environments (77/78, and 25) are far outside the practical gamut. If we might have expected full chromatic adaptation in observers in these environments, then the results we see would represent the case where there is extreme smearing (similar to the `most yellow' dataset from figure X). 
+In Figure \ref{fig:exp2} we see that the chromaticities of the ambient lighting in the first and second environments (77/78, and 25) are far outside the practical gamut. If we might have expected full chromatic adaptation in observers in these environments, then the results we see would represent the case where there is extreme smearing (similar to the `most yellow' dataset from Figure \ref{fig:basement_rgby_test}). 
 
 \begin{figure}[hbtp] 
-\includegraphics[width=\textwidth]{figs/tablet/exp2.png} 
-\caption{As \ref{fig:excl2} but with proposed boundaries}
+\includegraphics[max width=\textwidth]{figs/tablet/exp2.png} 
+\caption{}
 \label{fig:exp2}
 \end{figure}
 
-We do however see a distinction between these two datasets and the data for the `GC' data, which may have been expected from the distinct chromaticity of the lighting. It is worth noting however, that luminance in this environment was generally very high, and so there is an increased risk of the stimulus deviating from the desired colorimetry (as noted in Section X%!\ref{sec:exp1a}
-).
+We do however see a distinction between these two datasets and the `GC' data, which may have been expected from the distinct chromaticity of the lighting. It is worth noting however, that luminance in this environment was generally very high, and so there is an increased risk of the stimulus deviating from the desired colorimetry (as noted at the end of Section \ref{sec:ambient}).
 
 In summary, for the data collected at the British Museum, we see a distinction between the `GC' data and the data collected in the two other environments and minimal distinction between those two other datasets. This tallies well with witnessing a distinction where lighting chromaticity is distinct, and minimal distinction where lighting chromaticities are similar. However, this method did not allow for the selection of chromaticities which would have represented a true non-spectrally-selective surface under two of these lighting conditions, and so the data for those conditions is unlikely to be a simple representation of an observer's chromatic adaptation state.
 
@@ -578,10 +573,18 @@ The potential confounds in this experiment are, at minimum: observer (and associ
 
 \subsection{Experiment 3}
 
-\dots %!!!!!!!!
+Exclusions were decided based upon calculations of the mean SD in the u' and v' axes. Where the mean SD was greater than that for the equivalent baseline data for one or more of a participant's runs, that observer's data was excluded for all of their runs. This resulted in the exclusion of data from 3 participants.
 
+\begin{figure}[hbtp] 
+\includegraphics[max width=\textwidth]{figs/tablet/exp3excl.png} 
+\caption{Mean standard deviations for each observer, set against the two baseline datasets (one where a real human touched the centre of the screen with no regard for the stimuli, and one where such behavoir was computationally simulated.}
+\label{fig:exp3excl}
+\end{figure}
 
-Following these exclusions, the remaining dataset can be presented using standard deviation ellipses, coloured for lighting condition, as presented in figure X. There is no clear distinction between datasets collected under different lighting conditions.
+% ------------ % !!!!!!!!!!
+
+Following exclusions, the remaining dataset can be presented using standard deviation ellipses, coloured for lighting condition, as presented in figure X%!!!!!!!
+. There is no clear distinction between datasets collected under different lighting conditions.
 
 %figure
 
@@ -594,7 +597,7 @@ Plotting data for individual participants separately, it can be seen that each p
 
 \section{Conclusions and Discussion}
 
-In the following section I shall discuss the proposed methodology is terms of its abilities and limitations, and areas that I consider worthy of further consideration or development. I shall also comment on the results of Experiment 3.
+In the following section I shall discuss the proposed methodology is terms of its abilities and limitations, with direct reference to the hypotheses stated at the start of this chapter (Section \ref{sec:qandhyp}), and areas that I consider worthy of further consideration or development. I shall also comment on the results of Experiment 3.
 
 \subsection{To what extent is the stimulus environment-agnostic?}
 
