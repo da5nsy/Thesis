@@ -69,7 +69,7 @@ Primarily as a proof of concept for this methodology, but also to assist in answ
 If \gls{ipRGCs} play a role in colour constancy we would expect to see a distinction between the responses recorded under the different illuminants. 
 
 \section{Experimental set-up and methodology}
-\subsection{Method \& Apparatus}
+\subsection{Participants}
 
 \subsubsection{Selection of participants}
 
@@ -108,24 +108,16 @@ Following the thirty trials, a secondary task was presented to observers, design
 \label{fig:checker-board}
 \end{figure}
 
+% \clearpage %currently ending up with a single line which looks dodgy, check later %!!!!!!!!!!!!!
+
 %Doing this without incentive for participants meant that it was rushed (?)
 
-\subsubsection{Specification of tablet PC}
-
-Participants undertook the experiment upon a Dell Latitude 10 ST2 tablet computer with `BROTECT' Matte Screen Protector (223x126mm active screen area, 1366x768 pixels). This tablet was chosen for its ability to run a Windows environment, and the matte screen protector was added to reduce the severity of specular reflections. The measured gamut of this device is shown in Figure \ref{fig:gamut}, with the gamut of sRGB for comparison.
-
-\begin{figure}[hbtp]
-\includegraphics[max width=\textwidth]{figs/tablet/gamut.pdf}
-\caption{The display gamut, plotted in CIE u'v' space. Red, green and blue dots indicate chromaticities of single channels at pixel values from 0 (central values) to 255 for each respective channel. The black dots are the chromaticities achieved when the pixel values are kept in line for each channel. This can be described as the native white point of the display, and can be seen to drift leftwards and then downwards as pixel values increase.}
-\label{fig:gamut}
-\end{figure}
-% Generated using the 'Plot gamut' section of SAPS_TabletCharacterisation.m
-
-\subsubsection{Selection of colour space for creating the stimuli}
-
-The stimulus presented to observers was an isoluminant plane (in CIE L*) through CIELUV colour space. CIELUV was chosen for having an associated object colour space, where comparisons between the chromaticity of light sources and the chromaticity of selections could be made. 
-
 \subsection{Stimuli} \label{sec:stimuli}
+
+\subsubsection{Selection of stimuli colour space}
+
+The stimulus presented to observers was an isoluminant plane (in CIE L*) through CIELUV colour space. CIELUV was chosen for having an associated object colour space, where comparisons between the chromaticity of light sources and the chromaticity of selections could be made\footnote{Some preliminary runs of the experiment, performed at The UCL Grant Museum, used a stimulus defined in CIELAB colour-space instead, before later changing to CIELUV for the reason above.}. 
+
 \subsubsection{Generating the stimuli}
 
 The stimulus was specified as: L*: 60 uniformly across field, u*: ranging linearly from -50 to 50 from one side of the field to the other, and v*: as for u*, but along the orthogonal axis, so that the stimulus was of uniform lightness and smoothly changing hue and chroma. The full stimulus image (Figure \ref{fig:Stimulus}) was 2188 pixels square; this is larger than the pixel dimensions of the screen to allow for the stimulus to be rotated freely and offset by up to a third of the image in any direction before the edge of the image is encountered. 
@@ -140,7 +132,7 @@ value increments from 0 to 255 for each channel. The stimulus was then output as
 \end{figure}
 % Copied and pasted from original psychopy folder. Could regenerate using stimulusGenerator002.m
 
-\subsubsection{Presenting the stimuli}
+\subsubsection{Presenting the stimuli} \label{sec:presenting_the_stimuli}
 A program was written in PsychoPy\footnote{\url{Code:  https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/SpatialAchromaticPointSetting_0940_Grant.py}} that presents the stimulus 30 times, with random rotation and random offset in the horizontal and vertical dimensions of between -1/6 and +1/6 of the respective dimension. Thus `objective grey', where [u*,v*] = (0,0), was always within the central third (in each dimension) of the screen. This program saved details of the stimulus offset and rotation (`dpX', `dpY' and `ori'), co-ordinates of observer selected point (`x-co\_raw', `y-co\_raw', and also `direction\_raw', `magnitude\_raw'), and time taken to make selection, measured since last selection (`toc\_raw').
 
 The effect of rotation and offset was such that on each stimulus presentation the observer saw a stimulus that appeared somewhat different to the previous stimulus, but still hopefully included their preferred achromatic point. The rotation and offset can be illustrated by plotting the chromaticities present in any one stimulus presentation, as in figure X. %!!!!!!!!!!!!!!!!!!!
@@ -157,11 +149,30 @@ Plotting the chromaticities present across a full run of 30 trials yields Figure
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/practical_gamut.pdf}
-\caption{The `practical gamut'. This plot shows the relative frequency that chromaticities are actually presented, within the boundary of the device gamut (as shown in Figure \ref{fig:gamut}). The highest number of times a particular chromaticity can be presented is 30, since there are 30 trials in a typical run. As described in the main text, chromaticities falling towards the specified objective white point of the stimulus are presented every stimulus, whereas those further away from the centre of the stimulus are presented less frequently. On the left-hand side of the cluster it can be seen that the gamut boundary is reached. This is discussed further in section X. %!!!!!!!!!!!
-}
+\caption{The `practical gamut'. This plot shows the relative frequency that chromaticities are actually presented, within the device gamut (more fully described in Figure \ref{fig:gamut}). The highest number of times a particular chromaticity can be presented is 30, since there are 30 trials in a typical run. Chromaticities falling towards the objective white point of the stimulus are presented every stimulus, whereas those further away from the centre of the stimulus are presented less frequently. On the left-hand side of the cluster it can be seen that the gamut boundary is reached.}
 \label{fig:practical}
 \end{figure}
 
+\subsubsection{Limitations of the stimuli} \label{sec:limitations}
+Under the current set-up the stimulus is to some extent fixed; each stimulus is a subsection of a single complete stimulus image (Figure \ref{fig:Stimulus}). This means that an observer can at no point select a chromaticity that is not present in the full stimulus, and they will less often have the option to select a chromaticity which falls towards the boundary of this stimulus space than they would be able to select one at the centre of this space, due to the nature of the rotation and offset described in Section \ref{sec:presenting_the_stimuli} (See Figure \ref{fig:practical}). 
+
+When designing the stimulus it was assumed that the stimulus would cover a large enough area of colour-space to allow for any selection that an observer would reasonably care to make. Later analysis (for example, see Figure \ref{fig:PAMELA_DG_results} where an illuminant falls far outside the practical gamut) showed that this was not the case, and that it was not unusual for an illuminant that appeared entirely neutral to in fact fall outside what I had considered to be an extensive coverage of colour-space. I had underestimated the power colour constancy.
+
+This limitation leads to a pattern in the data which I shall refer to as `smearing', so called because when the desired selection point is outside of the practical gamut, or even close to the edge of the gamut, the closest possible points which are available for an observer to select will fall upon a line between the objective white point (the white point of the display) and the true desired selection point, thus the data is smeared between the point which an observer actually wants to select, and the objective white point. This is discussed further is Section X %!!!!!!! 
+, where amendments to this experimental method are proposed which might limit or remove this effect.
+
+A visual example of this can be given by considering the results of an amended experiment where the same stimulus was presented but the question changed to `touch the X-est point on the screen' where X was red, green, blue or yellow. See figure \ref{fig:basement_rgby_test}. This is a more extreme case than a white-appearing light source outside of the practical gamut but it is thought that the effect upon the data would be similar.
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/basement_rgby_test.pdf}
+\caption{Results from an amended experimental paradigm to demonstrate `smearing'. The observer was asked to `touch the X-est point on the screen' where X was red, green, blue or yellow. A normal run of the experiment was conducted under the same conditions at the same time to provide a baseline condition.\\ 
+The experiment was performed in the basement of the Chadwick Building (Section \ref{sec:Chadwick}) with the author as observer.}
+\label{fig:basement_rgby_test}
+\end{figure}
+
+A broader limitation, which applies to all screen-based experiments, is that regardless of the gamut of the stimulus used (here `practical gamut') we are operating within a larger fixed gamut, shown within Figures \ref{fig:practical} an \ref{fig:gamut}. It can be seen in Figure \ref{fig:practical} that our chosen stimulus gently nudges the left-hand gamut boundary of the screen. This can be thought of as a request for colours which are less red than is possible using this display.
+
+The effect of this could be reduced by choosing a screen with a particularly large gamut. A drastic alternative might be to consider a reflective screen device (such as a Kindle or other e-reader/e-ink device) but this would immediately fail Hypothesis 1A (\emph{`Provide a relatively environment-agnostic stimulus'}) and so the device would need to be characterised within each new environment, which reduced the appeal of this method considerably.
 
 \subsubsection{Touch input characterisation} \label{sec:touch}
 The checker-board stimuli (Figure \ref{fig:checker-board}), included to allow for fine spatial calibration for individual observers' touch input, was generated by running the main experimental script again but with the stimulus file path replaced with a simple pattern generated within PsychoPy.
@@ -169,6 +180,101 @@ The checker-board stimuli (Figure \ref{fig:checker-board}), included to allow fo
 I hypothesise that any shifts in touch input would be the result of one or both of two potential influences: personal finger offset and general hardware calibration. By the former I refer to the fact that whilst a finger is considered to be a relatively discrete unit, controlled with presumed dexterity and accuracy, the specific part of the finger which touches the screen will vary from person to person, with each person exhibiting a reliable bias. By the latter I refer to the fact that it is highly possible for there to be a `fairground gun effect', whereby the hardware introduces a reliable bias due to calibration misalignment, which affects every observer equally.
 
 Performing a calibration of each observer's data based on this individual characterisation allows for offsetting of both of these types of variation. 
+
+\subsubsection{Specification of tablet PC}
+
+Participants undertook the experiment upon a Dell Latitude 10 ST2 tablet computer with `BROTECT' Matte Screen Protector (223x126mm active screen area, 1366x768 pixels). This tablet was chosen for its ability to run a Windows environment, and the matte screen protector was added to reduce the severity of specular reflections. The measured gamut of this device is shown in Figure \ref{fig:gamut}, with the gamut of sRGB for comparison.
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/gamut.pdf}
+\caption{The display gamut, plotted in CIE u'v' space. Red, green and blue dots indicate chromaticities of single channels at pixel values from 0 (central values) to 255 for each respective channel. The black dots are the chromaticities achieved when the pixel values are kept in line for each channel. This can be described as the native white point of the display, and can be seen to drift leftwards and then downwards as pixel values increase.}
+\label{fig:gamut}
+\end{figure}
+% Generated using the 'Plot gamut' section of SAPS_TabletCharacterisation.m
+
+\subsubsection{Impact of ambient illumination}
+
+A key requirement in this methodology is that the display device remains roughly colorimetrically stable across a range of lighting environments (see \hyperref[list:hyp1a]{Hypothesis 1A}). This would only be true if the device produced the entirety of the light emanating from it in normal use. In reality, a small amount of light will be reflected from the surrounding environment. This may be reflected either at the surface layer of the screen (specular reflections) or at a lower level of the screen architecture. Here we aim to quantify the amount of light reflected in this way, understand the impact that this has on this method, and seek to minimise this impact if possible.
+
+It is assumed that specular reflections are clearly distinguishable to most users, and that users will automatically hold the device in such a way as to minimise their interference with the task. It is also assumed that the spatial nature of such reflections and the fact that they are not locked to the geometry of the screen (but rather move as the screen or observer moves) would further allow an observer to visually discount them and not confuse them for an output of the screen.
+
+The key concern then is reflection at other levels of the screen architecture. Using the screen calibration framework \cite{berns_crt_1993}, this may be considered as an environment-dependent `offset', that is, a figure which is added to the output of the screen at all levels. It is assumed that this level is constant in an unchanging environment, and independent of the output of the screen. It therefore follows that this will have greatest impact on the chromaticity of the display at low luminances, where the amount of reflected light is high relative to the output of the display.
+
+To consider whether such reflections exist for our specific set-up, telespectroradiometric measurements were taken of screen at varying pixel value levels (0 to 255, intervals of 15) under 3 different lighting conditions, as described in Section \ref{sec:PAMELA}. One condition was repeated to assess measurement uncertainty. The measurement device used was a `Photo Research PR650'. 
+
+Broadly speaking, at a pixel value of 0 one would expect that the illumination reaching the position of the observer depends entirely upon the illumination, whereas at maximum output (pixel values of 255 in all channels) the illumination reaching the position of the observer would be almost entirely dependent upon the output of the device, with negligible influence of the illumination (so long as the illumination was below a certain threshold). The point of interest is therefore assumed to be the lowest pixel value where the shift resulting from differing illuminants ceases to be considered negligible for our purposes.
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/pamela_pr6501.jpg}
+\caption{The measurement set-up at \gls{PAMELA}. PR 650 on right, with control PC on left, and tablet in the centre.}
+\label{fig:pr6501}
+\end{figure}
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/pamela_pr6502.jpg}
+\caption{The measurement set-up at \gls{PAMELA}. The tablet computer, showing the characterisation routine (on the left of the screen). Note the specular highlight on the left of the tablet frame, reflecting the detail of one of the many \gls{LED} arrays overhead.}
+\label{fig:pr6502}
+\end{figure}
+
+It was found that for pixel values of 60 and below there was a considerable chromaticity variation between data from each lighting condition. This aligns with our expectation that the greatest effect would be seen at lower screen output levels.
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/pamela_pr6503.png}
+\caption{Chromaticity co-ordinates of measurements at different pixel values. It can be seen that the 0 values diverge greatly. They do not diverge in exactly the directions of the chromaticities of the light sources, which could either be due to measurement inaccuracy, or the base colour of the tablet may not be perfectly neutral. At higher pixel values the chromaticities start to converge at around [u',v'] = [0.193,0.47]}.
+\label{fig:pr6503}
+\end{figure}
+
+% [Caption: chromaticties through pixel value (equal in each channel) showing greatest change for pixel values below 75]
+
+For values above 75 (inclusive), a conservative estimate for the maximum shifts in chromaticity due to variation between light sources (considering only those sources tested) would be roughly 0.004 in the u' axis, and 0.009 in the v' axis. These values are derived from visual inspection of the variation in values of chromaticity for readings taken of pixel values above 75. These figures could be considered baseline figures for classifying observed differences as likely to originate from genuine changes in observer state rather than lighting/stimulus artefacts.
+
+It is noted that the variation between the repeated measurements, denoted `WW' and `WW2', is larger than would be expected; at high pixel values the chromaticities recorded under `CW', `MH' and `WW2' converge very well, but `WW' seems offset by roughly 0.005 units in a roughly north-east direction in colour space. The cause of this is unclear, but if we assume that the convergence of the other data at high pixel values suggests that lighting has a minimal effect on recorded chromaticity, then it seems reasonable to think that any variation is recorded spectrum is likely to be the result of `warm up' (either in terms of an actual temperature dependency, or in terms of a device taking time to settle into a default operating mode after turn on) of either the screen or the spectroradiometer. 
+
+% ----------% This is all well and good but not required. 
+% Consulting the spectral data for `WW' and `WW2' (Figure X%!!!!!!!!!!!
+% ) we can see a systematic variation whereby for the initial `WW' run the recorded values for lower wavelengths are slightly lower, and the higher wavelengths record slightly higher values, when compared to the `WW2' data.
+
+% % figure
+
+% Another way of representing the above is to consider the effect that changing lighting has on the recorded spectral power distribution of light entering an aperture at the rough location of an observer's eye.
+
+% % figure
+% % [Caption: The recorded spectral power distributions, for each measured level of pixel value, under each of the 4 illuminations. Plots are limited to lower pixel values for attention.] Need to find a better way to present this
+
+% Above, it can be seen that at lower levels of pixel value, the spectral power distributions are notably different between lighting conditions. Under `MH', for example, there is a noticeable difference in \gls{SPD} shape whereby at the lowest pixel values there is a peak around 470nm, which quickly fades from notice as pixel values increase. For `CW' in comparison, we can see that the 450nm peak is substantially higher at low pixel values than at either of the `WW' measurements, suggesting that this light source provides additional power at these wavelengths.
+
+% In all the cases above, the impact of such perturbations can be seen to fade rapidly with increasing pixel value.
+
+% Now that we have considered the effect of lighting upon the tablet in a general sense, we must consider what effect would be had upon the rendering of our specific stimulus.
+
+% %figure
+
+Figure \ref{fig:fig:stimhist} shows the histogram of each channel within the full stimulus. Note that only the red channel has a significant number of pixels with values below 75 (with the blue channel having some values which come close), and so following from our observation that chromaticity was most perturbed by variations in lighting where the pixel value was below 75, this is the channel most likely to be influenced by the ambient illumination (though only in specific spatial sections of the stimulus image).
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/stimhist.png}
+\caption{Histogram for the different channels in the full stimulus image}.
+\label{fig:stimhist}
+\end{figure}
+
+Note also that whilst the blue and green channels possess no pixels at either end of the pixel value range (0/255), the red channel possesses both, suggesting that a gamut boundary is reached at both extremes for the red channel. A large number of pixels in the red channel are at 0, with a small number at 255. From \ref{fig:stimchan} it can be seen the zero values are located on the far left of the stimulus, in the strongly blue/green area, and that the 255 values are located in the bottom right hand corner, in the strong red/pink area.
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/stimchan.png}
+\caption{A breakdown of the stimulus image by channel. Here it can be seen that for the red channel, we reach the edge of the range, with a black bar being visible vertically on the left and a white corner visible in the bottom right. This translates in the RGB image to a bar on the left which appears to only vary in blue/green and an area in the bottom right which does not vary in red-ness. Note that the reproduction here is blunt and only roughly estimates how the stimulus would be perceived during the experiment.}
+\label{fig:stimchan}
+\end{figure}
+
+In summary, measurements taken lead us to conclude that influence of the ambient illumination, for the illuminations we have tested, has a minimal effect on the presentation of the stimulus as defined in this experiment (up to 0.004u' and 0.009v'). The greatest effect will likely be on the sections of the stimulus where the pixel value falls below 75, as happens in specific areas of the red channel image. It is likely that these areas of the stimulus are unlikely to be ambiguous in colour appearance to an observer, and so any slight difference between the chromaticity ideally presented, and the chromaticity actually presented, is likely to have only a minimal impact. It is also the case that these chromaticities will not be often presented since they fall at the edge and corner of the full stimulus. %would be nice to add the full stimulus onto one of the gamut diagrams !!!!!!!!!
+
+It should be possible to create a stimulus which does not reach the gamut boundaries, and which does not include pixel values below a certain value for any channel. However, if using the same hardware, the trade-off would be that a smaller section of colour space would be presentable, and this would have two knock-on effects; the task would be harder (the stimulus would be less saturated), and the results would be more tightly bounded (the observer would not be able to select more chromatic points). For further discussion of `bounding' see section \ref{sec:limitations}.
+
+The measurements taken here are limited in scope by the fact that the effect of ambient illumination is likely linked to the overall level of ambient illumination; it is likely that in much brighter conditions the illumination would have a greater effect on the chromaticity of the stimulus. This should be considered when assessing data collected in very bright conditions.
+
+It also seems noteworthy to explicitly consider that we have assumed a linearity of sorts in asserting that there is likely to be a colorimetric affect where pixel values in any one channel drop below a threshold value. In reality, our tests show that chromaticity is affected when pixel values of all three channels drop below a threshold value, and it is a conservative assumption to assert that there is a risk when a single channel drops below this threshold value. It is quite possible, for example, that where values in the red channel drop below the threshold, if the surrounding blue and green pixels are being driven at high values, that bleed may limit the practical impact upon overall chromaticity.
+
+% Is it additive?
+% LM recommendation: Go back to basics: consider the ambient lighting, and the lighting produced by the emissive display, Compute, predict, compare. Plot gamuts
 
 \subsection{Data Analysis}
 \subsubsection{Processing Pipeline} \label{sec:processing}
@@ -250,7 +356,8 @@ For experiments reported here three illumination settings were defined - `Cool W
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/PAMELA_SPD.png}
-\caption{\gls{SPD}s for the different illumination settings at \gls{PAMELA}. \hl{Will reformat, add legend and add axis labels}}
+\caption{\gls{SPD}s for the different illumination settings at \gls{PAMELA}. %Will reformat, add legend and add axis labels} !!!!!!!!
+}
 \label{fig:PAMELAlights5}
 \end{figure}
 
@@ -312,7 +419,7 @@ These three galleries are lit with different lighting technologies of distinct c
 \label{fig:BMchromaticities}
 \end{figure}
 
-\subsubsection{UCL Chadwick Building}
+\subsubsection{UCL Chadwick Building} \label{sec:Chadwick}
 
 Additional testing was undertaken within the Chadwick Building of \gls{UCL} (home of the Department of Civil, Environmental and Geomatic Engineering), in light-tight basement rooms fitted with fluorescent lighting.
 
@@ -383,26 +490,23 @@ Exclusions were decided based upon calculations of the mean SD in the u' and v' 
 
 \subsection{Experiment 1}
 
-Following data processing as described in Section \ref{sec:processing} (with no exclusions applied), a summary of data for an individual (the author) is displayed in Figure \ref{fig:PAMELA_DG_results}.
+Following data processing as described in Section \ref{sec:processing} (with no exclusions applied), a summary of data for an individual (the author) is displayed in Figure \ref{fig:PAMELA_DG_results}. The primary result here is that there does seem to be a distinction between the results from `WW' and the other two conditions, with the results for `WW' being displaced northeast from those for `CW' and `MH'. %stats!!!!!!!!!!
 
-\begin{figure}[p] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 0
+\begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 0
 \includegraphics[width=\textwidth]{figs/tablet/PAMELA_DG_results.pdf} 
-\caption{Results for observer DG for Experiment 1. Background dots are subsampled from the practical gamut, to indicate ability of the observer to select specific chromaticities, as shown in Figure \ref{fig:practical}. Translucent red, green and blue circles represent means of runs under different conditions. Red, green and blue stars represent illuminant chromaticities for different conditions.}
+\caption{Results for observer DG for Experiment 1. Background dots are subsampled from the practical gamut, to indicate ability of the observer to select specific chromaticities, as shown in Figure \ref{fig:practical}. Translucent red, green and blue circles represent mean chromaticity selections per run. Red, green and blue asterisks represent illuminant chromaticities for different conditions.}
 \label{fig:PAMELA_DG_results}
 \end{figure}
 
-The principal result here is that there does seem to be a distinction between the results from `WW' and the other two conditions, with the results for `WW' being displaced northeast from those for `CW' and `MH'. %stats!!!!!!!!!!
+It can be seen that the chromaticity of the `WW' illuminant falls far outside the practical gamut; there would have been no opportunity throughout the entire set of runs where the observer would have been able to select a pixel of a chromaticity matching that illuminant. It might therefore be expected that we would see an extended smearing pattern in selections away from the centre of the practical gamut towards the chromaticity of this illuminant, as discussed in Section \ref{sec:limitations}. This effect is indeed visible, see Figure \ref{fig:PAMELA_DG_results_ellipses}.
 
-It can be seen that the chromaticity of the `WW' illuminant falls far outside the practical gamut; there would have been no opportunity throughout the entire set of runs where the observer would have been able to select a pixel of a chromaticity matching that illuminant. It might therefore be expected that we would see an extended smearing pattern in selections away from the centre of the practical gamut towards the chromaticity of this illuminant. This effect is indeed visible, see \ref{fig:PAMELA_DG_results_ellipses}.
-
-\begin{figure}[p] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 1
-\includegraphics[width=\textwidth]{figs/tablet/PAMELA_DG_results.pdf} 
-\caption{As per \ref{fig:PAMELA_DG_results}, but showing standard deviation ellipses to indicate spread of data. `BL' is a baseline dataset, representing an observer hitting the spatial centre of the screen for every stimulus. It can be seen that in comparison to this baseline, there is a trend whereby selections are elongated across the positive diagonal. The results for `WW' seem particularly elongated along this axis, which I assume to be the result of the chromaticity of `WW' laying outside of the practical gamut.
-\label{fig:PAMELA_DG_results}
+\begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 1
+\includegraphics[width=\textwidth]{figs/tablet/PAMELA_DG_results_ellipses.pdf} 
+\caption{As per Figure \ref{fig:PAMELA_DG_results}, but rescaled and showing standard deviation ellipses to indicate spread of data. `BL' is a baseline dataset, representing an observer hitting the spatial centre of the screen for every stimulus. It can be seen that in comparison to this baseline, there is a trend whereby selections are elongated along the positive diagonal. The results for `WW' seem particularly elongated along this axis, which I assume to be the result of the chromaticity of `WW' laying outside of the practical gamut.}
+\label{fig:PAMELA_DG_results_ellipses}
 \end{figure}
 
-
-
+\clearpage
 
 \subsection{Experiment 2}
 
@@ -436,70 +540,6 @@ In the following section I shall discuss the proposed methodology is terms of it
 
 \subsection{To what extent is the stimulus environment-agnostic?}
 
-A key requirement in this methodology is that the display device remains roughly colorimetrically stable across a range of lighting environments (see \hyperref[list:hyp1a]{Hypothesis 1A}). This would only be true if the device produced the entirety of the light emanating from it in normal use. In reality, a small amount of light will be reflected from the surrounding environment. This may be reflected either at the surface layer of the screen (specular reflections) or at a lower level of the screen architecture. Here we aim to quantify the amount of light reflected in this way, understand the impact that this has on this method, and seek to minimise this impact if possible.
-
-It is assumed that specular reflections are clearly distinguishable to most users, and that users will automatically hold the device in such a way as to minimise their interference with the task. It is also assumed that the spatial nature of such reflections and the fact that they are not locked to the geometry of the screen (but rather move as the screen or observer moves) would further allow an observer to visually discount them and not confuse them for an output of the screen.
-
-The key concern then is reflection at other levels of the screen architecture. Using the screen calibration framework \cite{berns_crt_1993}, this may be considered as an environment-dependent `offset', that is, a figure which is added to the output of the screen at all levels. It is assumed that this level is constant in an unchanging environment, and independent of the output of the screen. It is therefore likely that this will have greatest impact on the chromaticity of the display at low luminances, where the amount of reflected light is high relative to the output of the display.
-
-To consider whether such reflections exist for our specific set-up, telespectroradiometric measurements were taken of screen at varying pixel value levels (0 to 255, intervals of 15) under 3 different lighting conditions, as described in Section \ref{sec:PAMELA}. One condition was repeated to assess measurement uncertainty. The measurement device used was a `Photo Research PR650'. 
-
-Broadly speaking, at a pixel value of 0 one would expect that the illumination reaching the position of the observer depends entirely upon the illumination, whereas at maximum output (pixel values of 255 in all channels) the illumination reaching the position of the observer would be almost entirely dependent upon the output of the device, with negligible influence of the illumination (so long as the illumination was below a certain threshold). The point of interest is therefore assumed to be the lowest pixel value where the shift resulting from differing illuminants ceases to be considered negligible for our purposes.
-
-% Photos of PAMELA calibration set-up
-
-% 'The measurement set-up. PR 650 on right, with control PC on left, and tablet in the centre.'
-% 'The tablet computer, showing the characterization routine (on the left of the screen). Note the specular highlight on the left of the tablet frame, reflecting the detail of one of the many \gls{LED} arrays overhead.'
-
-% Additional data on measurements required
-
-It was found that for pixel values of 60 and below there was a considerable chromaticity variation between data from each lighting condition. This aligns with our expectation that the greatest effect would be seen at lower screen output levels.
-
-% Figure - calibration
-
-% [Caption: chromaticties through pixel value (equal in each channel) showing greatest change for pixel values below 75]
-
-For values above 75 (inclusive), a conservative estimate for the maximum shifts in chromaticity due to variation between light sources (considering only those sources tested) would be roughly 0.004 in the u' axis, and 0.009 in the v' axis. These values are derived from visual inspection of the variation in values of chromaticity for readings taken of pixel values above 75. These figures could be considered baseline figures for classifying observed differences as likely to originate from genuine changes in observer state rather than lighting/stimulus artefacts.
-
-It is noted that the variation between the repeated measurements, denoted `WW' and `WW2', is larger than would be expected; at high pixel values the chromaticities recorded under `CW', `MH' and `WW2' converge very well, but `WW' seems offset by roughly 0.005 units in a roughly north-east direction in colour space. The cause of this is unclear, but if we assume that the convergence of the other data at high pixel values suggests that lighting has a minimal effect on recorded chromaticity, then it seems reasonable to think that any variation is recorded spectrum is likely to be the result of `warm up' (either in terms of an actual temperature dependency, or in terms of a device taking time to settle into a default operating mode after turn on) of either the screen or the spectroradiometer. Consulting the spectral data for `WW' and `WW2' (Figure X%!!!!!!!!!!!
-) we can see a systematic variation whereby for the initial `WW' run the recorded values for lower wavelengths are slightly lower, and the higher wavelengths record slightly higher values, when compared to the `WW2' data.
-
-% figure
-
-Another way of representing the above is to consider the effect that changing lighting has on the recorded spectral power distribution of light entering an aperture at the rough location of an observer's eye.
-
-% figure
-% [Caption: The recorded spectral power distributions, for each measured level of pixel value, under each of the 4 illuminations. Plots are limited to lower pixel values for attention.] Need to find a better way to present this
-
-Above, it can be seen that at lower levels of pixel value, the spectral power distributions are notably different between lighting conditions. Under `MH', for example, there is a noticeable difference in \gls{SPD} shape whereby at the lowest pixel values there is a peak around 470nm, which quickly fades from notice as pixel values increase. For `CW' in comparison, we can see that the 450nm peak is substantially higher at low pixel values than at either of the `WW' measurements, suggesting that this light source provides additional power at these wavelengths.
-
-In all the cases above, the impact of such perturbations can be seen to fade rapidly with increasing pixel value.
-
-Now that we have considered the effect of lighting upon the tablet in a general sense, we must consider what effect would be had upon the rendering of our specific stimulus.
-
-%figure
-
-Figure X %!!!!!!!!
-shows the histogram of each channel within the full stimulus. Note that only the red channel has a significant number of pixels with values below 75 (with the blue channel having some values which come close), and so following from our observation that chromaticity was most perturbed by variations in lighting where the pixel value was below 75, this is the channel most likely to be influenced by the ambient illumination (though only in specific spatial sections of the stimulus image).
-
-Note also that whilst the blue and green channels possess no pixels at either end of the pixel value range (0/255), the red channel possesses both, suggesting that a gamut boundary is reached at both extremes for the red channel. A large number of pixels in the red channel are at 0, with a small number at 255. From Figure 6 it can be seen the zero values are located on the far left of the stimulus, in the strongly blue/green area, and that the 255 values are located in the bottom right hand corner, in the strong red/pink area.
-
-% What about sub75 values?
-
-% Figure 6 The full stimulus, and greyscale representations of the red (R), green (G) and blue (B) channels. Note: the RGB representation above should be considered an approximation for purposes of orientation rather than an exact colour representation.
-
-In summary, measurements taken lead us to conclude that influence of the ambient illumination, for the illuminations we have tested, has a minimal effect on the presentation of the stimulus as defined in this experiment. 
-
-The greatest effect will likely be on the sections of the stimulus where the pixel value falls below 75, as happens in specific areas of the red channel image. It is thought that these areas of the stimulus are unlikely to be ambiguous in colour appearance to an observer, and so any slight difference between the chromaticity ideally presented, and the chromaticity actually presented, is likely to have only a minimal impact. 
-
-It should be possible to create a stimulus which does not reach the gamut boundaries, and which does not include pixel values below a certain value for any channel. However, if using the same hardware, the trade-off would be that a smaller section of colour space would be presentable, and this would have two knock-on effects; the task would be harder (the stimulus would be less saturated), and the results would be more tightly bounded (the observer would not be able to select more chromatic points). For further discussion of `bounding' see section X. %!!!!!!!!!!
-
-The measurements taken here are limited in scope by the fact that the effect of ambient illumination is likely linked to the overall level of ambient illumination; it is likely that in much brighter conditions the illumination would have a greater effect on the chromaticity of the stimulus. This should be considered when assessing data collected in very bright conditions.
-
-It also seems noteworthy to explicitly consider that we have assumed a linearity of sorts in asserting that there is likely to be a colorimetric affect where pixel values in any one channel drop below a threshold value. In reality, our tests show that chromaticity is affected when pixel values of all three channels drop below a threshold value, and it is a conservative assumption to assert that there is a risk when a single channel drops below this threshold value. It is quite possible, for example, that where values in the red channel drop below the threshold, if the surrounding blue and green pixels are being driven at high values, that bleed may limit the practical impact upon overall chromaticity.
-
-% Is it additive?
-% LM recommendation: Go back to basics: consider the ambient lighting, and the lighting produced by the emissive display, Compute, predict, compare. Plot gamuts
 
 \subsection{Does this method detect differences in observer state of CA?}
 
