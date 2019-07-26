@@ -5,11 +5,11 @@
 
 \section{Summary}
 
-The principal aim of this piece of work is to explore a novel method for colour constancy experiments, which allows for experiments to be performed in real and complex environments, in order to better understand colour constancy outside of a lab environment. The \gls{SAPS} method uses a tablet computer to present a spatial version of an achromatic point setting task. 
+The principal aim of this piece of work is to explore a novel method for colour constancy experiments, which allows for experiments to be performed in real and complex environments, in order to better understand colour constancy outside of a laboratory environment. The \gls{SAPS} method uses a tablet computer to present a spatial version of an achromatic point setting task. 
 
-The key concerns are whether such a methodology can: a) present a stable stimulus across disparate environments, b) record differences in perceptual white point, and c) be suitable for naive observers following minimal instruction. 
+The key concerns are whether the proposed a methodology can: a) present a stable stimulus across disparate environments, b) record differences in perceptual white point, and c) be suitable for naive observers following minimal instruction. 
 
-On each point, the method is shown to be at least moderately successful, with caveats, and suggestions are provided for improvements upon the current design. Such a methodology could be used to investigate the effect of multiple cues, conflicting cues and cues which cannot easily be reproduced in a lab environment.
+On each point, the method is shown to be moderately successful, with caveats, and suggestions are provided for improvements upon the current design. Such a methodology could be used to investigate the effect of multiple cues, conflicting cues and cues which cannot easily be reproduced in a laboratory environment.
 
 Code and data are provided: \url{https://github.com/da5nsy/SAPS/}.
 
@@ -17,7 +17,7 @@ Code and data are provided: \url{https://github.com/da5nsy/SAPS/}.
 
 \section{Introduction}
 
-To further our understanding of colour constancy, investigators have traditionally designed experiments where the number of variables is greatly reduced compared to a real-world environment. This allows investigators to carefully query the impact of any individual variable, or the interplay of a small number of variables. 
+To further our understanding of colour constancy, investigators have traditionally designed well-controlled experiments where the number of variables is greatly reduced compared to a real-world environment. This allows investigators to carefully query the impact of any individual variable, or the interplay of a small number of variables. 
 
 For example, a common stimulus-type used in such experiments are `Mondrian' patterns, arrangements of flat and unmoving overlapping coloured paper rectangles, see Figure \ref{fig:mondrian} \citep{hurlbert_colour_1999}. Consider also the experiments of \citet{kraft_mechanisms_1999} where objects representing potential colour constancy cues such as a tin-foil covered cone (specular highlights) were removed from a neutrally coloured box one-by-one in order to probe their relative usefulness (see Figure \ref{fig:KraftBrainard}).
 
@@ -33,14 +33,16 @@ For example, a common stimulus-type used in such experiments are `Mondrian' patt
 \label{fig:KraftBrainard}
 \end{figure}
 
-It is clear that these set-ups are much reduced in their complexity compared to a natural scene. Simple experimental stimuli allow for clear questions to be asked, and for those questions to be answered with statistical strength. Such research is valuable. However, the use of simplified stimuli risks overlooking unknown scene attributes, and the human behaviours which may be reliant on them. Experiments often find that colour constancy in lab environments is never `complete'; is this representative of real world behaviour or could this result be due a lab environment failing to deliver all the cues available to an observer in a natural environment? Recent technological advances have enabled experimenters to reproduce natural scenes with increasingly accuracy and comprehensiveness \citep{heasly_rendertoolbox3_2014}, but the number of variables in real scenes is practically infinite, and whilst our ability to reproduce a scene increases over time as technology develops, we only reproduce what we deem important at the time. Using a real-world environment would allow for processes to occur as they do naturally, in the environment for which these processes are presumably optimised (See \citet{kelly_chips_2018} and \citet{shepard_perceptual_1992}). The ability to move away from the lab environment also allows us to run experiments in specific locations of interest, such as museum spaces.
+It is clear that these set-ups are much reduced in their complexity compared to a natural scene. Simple experimental stimuli allow for clear questions to be asked, and for those questions to be answered with statistical strength. Such research is valuable, but the results cannot always be extrapolated to other types of stimuli and different environments. The use of simplified stimuli risks overlooking unknown scene attributes, and the human behaviours which may be reliant on them. %LM: Ref Beau Lotto book
+Experiments often find that colour constancy in lab environments is never `complete'; is this representative of real world behaviour or could this result be due a lab environment failing to deliver all the cues available to an observer in a natural environment? Recent technological advances have enabled experimenters to reproduce natural scenes with increasingly accuracy and comprehensiveness \citep{heasly_rendertoolbox3_2014}, but the number of variables in real scenes is practically infinite, and whilst our ability to reproduce a scene increases over time as technology develops, we only reproduce what we deem important at the time. Using a real-world environment would allow for processes to occur as they do naturally, in the environment for which these processes are presumably optimised (See \citet{kelly_chips_2018} and \citet{shepard_perceptual_1992}). The ability to move away from the lab environment also allows us to run experiments in specific locations of interest, such as museum spaces.
 
-There are two clear challenges to the use of natural environments for scientific study; the inability to control target variables, and the influence of uncontrollable or uncontrolled non-target variables. The first challenge may be surmountable; depending on the variable in question it might either be controlled by force, or over time natural variability may provide the required experimental range. The second may be insurmountable but, depending on the specific situation, it may be permissible to consider uncontrolled variations simply as sources of experimental noise. Further challenges arise where connections exist between target and non-target variables, or where the influence of the non-target variables dwarf the effect of the target variable.
+There are at least two clear challenges to the use of natural environments for scientific study; the inability to control target variables, and the influence of uncontrollable or uncontrolled non-target variables. The first challenge may be surmountable; depending on the variable in question it might either be controlled by force, or over time natural variability may provide the required experimental range. The second may be insurmountable but, depending on the specific situation, it may be permissible to consider uncontrolled variations simply as sources of experimental noise. Further challenges arise where connections exist between target and non-target variables, or where the influence of the non-target variables dwarf the effect of the target variable.
 
-One further challenge: it is rare for an experiment in a real-world environment to not intrude onto that real-world scene and change it in some way. The only true solution to this problem would be to consider unannounced observation of a natural behaviour as the only acceptable scientific method. A pragmatic compromise is to design an experiment such that it modifies the environment of the observer minimally, and to carefully consider the impact that the experimental set-up may have upon observers.
+One further challenge: it is rare for an experiment in a real-world environment to not intrude onto that real-world scene and change it in some way. The only true solution to this problem would be to consider unannounced observation of a natural behaviour as the only acceptable scientific method. A pragmatic compromise is to design an experiment such that it modifies the environment of the observer minimally, and to consider carefully the impact that the experimental set-up may have upon observers.
 
 The method presented here is a variant of the `achromatic setting' method.\footnote{For overviews see %section X, or 
-the section on `achromatic adjustment' in \citet{foster_color_2011} and `Matching to an internal standard' or `achromatic setting' in \citet{smithson_sensory_2005}.} The achromatic setting method requires an observer, under specific conditions, to adjust the chromaticity of an item in their visual field such that this item appears achromatic. Changes in selected achromatic point (in colour space) are thought to represent general adaptive shifts. For example, an observer in an environment lit by a chromatic illuminant would be expected to pick an achromatic point which is shifted towards the chromaticity of the illuminant, compared to the achromatic point which they might select in a more neutral environment. This is often practically achieved by having the `object' be an area of a computer screen, and have it controllable in two or more chromatic dimensions (such as relative amounts of unique red/green and blue/yellow). 
+the section on `achromatic adjustment' in \citet{foster_color_2011} and `Matching to an internal standard' or `achromatic setting' in \citet{smithson_sensory_2005}.} The achromatic setting method requires an observer, under specific conditions, to adjust the chromaticity of an item in their visual field such that this item appears achromatic. Changes in selected achromatic point (in colour space) are thought to represent general adaptive shifts. For example, an observer in an environment lit by a chromatic illuminant would be expected to pick an achromatic point which is shifted towards the chromaticity of the illuminant, compared to the achromatic point which they might select in a more neutral environment. This is often practically achieved by having the `object' be an area of a computer screen, and have it controllable in two or more chromatic dimensions (such as relative amounts of unique red/green and blue/yellow) %LM: refernces
+. 
 
 In the \gls{SAPS} method, as presented here, a tablet computer is given to an observer to hold as is comfortable to them, and upon this computer an isoluminant slice through a nominally perceptually uniform colour space is presented, from which they are requested to select (by touching upon the screen with a finger) the point which they deem to be most achromatic (the specific phrase `grey-est or least colourful' is employed in order to make the task suitable for non-colour-scientist observers). The term `spatial' is used since the user provides information by making a spatial selection which directly corresponds to a colour choice, where in other methods abstract sliders or knobs may be used to alter the chromaticity of a static object.
 
@@ -65,7 +67,7 @@ To be fit for performing colour constancy experiments, this method needs to:
 \end{enumerate}
 
 \subsection*{Hypothesis 2: \gls{ipRGC} activation affects perceptual white point.}
-Primarily as a proof of concept for this methodology, but also to assist in answering other research questions posed within this thesis, an experiment was performed whereby observers made achromatic selections under a selection of colorimetrically metameric illuminants where there was a melanopic contrast between illuminants. %See section X. 
+Primarily as a proof of concept for this methodology, but also to assist in answering other research questions posed within this thesis, an experiment was performed whereby observers made achromatic selections under a selection of colorimetrically metameric illuminants where there was a melanopic contrast between illuminants.
 If \gls{ipRGCs} play a role in colour constancy we would expect to see a distinction between the responses recorded under the different illuminants. 
 
 \section{Experimental set-up and methodology}
@@ -120,22 +122,23 @@ The stimulus presented to observers was an isoluminant plane (in CIE L*) through
 
 \subsubsection{Generating the stimuli}
 
-The stimulus was specified as: L*: 60 uniformly across field, u*: ranging linearly from -50 to 50 from one side of the field to the other, and v*: as for u*, but along the orthogonal axis, so that the stimulus was of uniform lightness and smoothly changing hue and chroma. The full stimulus image (Figure \ref{fig:Stimulus}) was 2188 pixels square; this is larger than the pixel dimensions of the chosen screen (Section \ref{sec:spec}) to allow for the stimulus to be rotated freely and offset by up to a third of the image in any direction before the edge of the image is encountered. 
+The stimulus was specified as: L*: 60 uniformly across field, u*: ranging linearly from -50 to 50 from one side of the field to the other, and v*: as for u*, but along the orthogonal axis, so that the stimulus was of uniform lightness and smoothly changing hue and chroma. The full stimulus image (Figure \ref{fig:Stimulus}) was 2188 x 2188 pixels; this is larger than the pixel dimensions of the chosen screen (1366 x 768, Section \ref{sec:spec}) to allow for the stimulus to be rotated freely and offset by up to a third of the image in any direction before the edge of the image is encountered. 
 
 The stimulus was specified with the above attributes in a matrix within \gls{MATLAB}\footnote{Code: \url{https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/stimulusGenerator002.m}}. CIELUV values were converted to XYZ tristimulus values using built in functions, with reference white set as the XYZ tristimulus values of the display at maximum white (with screen protector), as measured with an Xrite i1 device (shown in Figure \ref{fig:gamut}). Linearisation was achieved through the use of a look-up table, computed by spline interpolation of the measured outputs at 15 pixel %(KT: pixel drive value?)
-value increments from 0 to 255 for each channel. The stimulus was then output as an 8-bit tiff image, which could be easily loaded and manipulated by the psychophysical stimulus presentation software PsychoPy \citep{peirce_psychopypsychophysics_2007}. %(Illustrate with flow diagram?)
+value increments from 0 to 255 for each channel. The stimulus was then output as an 24-bit RGB tiff, which could be easily loaded and manipulated by the psychophysical stimulus presentation software PsychoPy \citep{peirce_psychopypsychophysics_2007}. %(Illustrate with flow diagram?)
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/stimulus.png}
-\caption{Full stimulus image, from which subsections were selected and presented as stimuli. Note that no effort has been made to correct this image for printing, and so it is best considered as only a rough approxmation.}
+\caption{Full stimulus image, from which subsections were selected and presented as stimuli. Note that no effort has been made to correct this image for printing, and so it is best considered as only a rough approximation.}
 \label{fig:Stimulus}
 \end{figure}
 % Copied and pasted from original psychopy folder. Could regenerate using stimulusGenerator002.m
 
 \subsubsection{Presenting the stimuli} \label{sec:presenting_the_stimuli}
-A program was written in PsychoPy\footnote{\url{Code:  https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/SpatialAchromaticPointSetting_0940_Grant.py}} that presents the stimulus 30 times, with random rotation and random offset in the horizontal and vertical dimensions of between -1/6 and +1/6 of the respective dimension. Thus `objective grey', where [u*,v*] = (0,0), was always within the central third (in each dimension) of the screen. This program saved details of the stimulus offset and rotation (`dpX', `dpY' and `ori'), co-ordinates of observer selected point (`x-co\_raw', `y-co\_raw', and also `direction\_raw', `magnitude\_raw'), and time taken to make selection, measured since last selection (`toc\_raw').
+A program was written in PsychoPy\footnote{\url{Code:  https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/SpatialAchromaticPointSetting_0940_Grant.py}} that presents the stimulus 30 times %LM: need discussion of why 30 times
+, with random rotation and random offset in the horizontal and vertical dimensions of between -1/6 and +1/6 of the respective dimension. Thus `objective grey', where [u*,v*] = (0,0), was always within the central third (in each dimension) of the screen. This program saved details of the stimulus offset and rotation (`dpX', `dpY' and `ori'), co-ordinates of observer selected point (`x-co\_raw', `y-co\_raw', and also `direction\_raw', `magnitude\_raw'), and time taken to make selection, measured since last selection (`toc\_raw').
 
-The effect of rotation and offset was such that on each stimulus presentation the observer saw a stimulus that appeared somewhat different to the previous stimulus, but still hopefully included their preferred achromatic point. The rotation and offset can be illustrated by plotting the chromaticities present in any one stimulus presentation, as in figure X. %!!!!!!!!!!!!!!!!!!!
+The effect of rotation and offset was such that on each stimulus presentation the observer saw a stimulus that appeared somewhat different to the previous stimulus, but still hopefully included their preferred achromatic point. %The rotation and offset can be illustrated by plotting the chromaticities present in any one stimulus presentation, as in figure X. %!!!!!!!!!!!!!!!!!!!
 Plotting the chromaticities present across a full run of 30 trials yields Figure \ref{fig:practical}, where it can be seen that the rotation results in a roughly circular spread of chromaticities, and the rotation and the offsetting together result in a gradient of likelihood of presentation which is high at the centre of the full stimulus and lowest at the edges of the full stimulus. This gamut distribution is referred to further in the text as the `practical gamut'.
 
 % Single shot figure needed
@@ -201,7 +204,7 @@ The key concern then is reflection at other levels of the screen architecture. U
 
 To consider whether such reflections exist for our specific set-up, telespectroradiometric measurements were taken of screen at varying pixel value levels (0 to 255, intervals of 15)\footnote{Code: \url{https://github.com/da5nsy/SAPS/blob/master/auxiliary_functions/tablet\%20characterization/calibration.py}} under 3 different lighting conditions, as described in Section \ref{sec:PAMELA}. One condition was repeated to assess measurement uncertainty. The measurement device used was a \gls{PR650}. 
 
-Broadly speaking, at a pixel value of 0 one would expect that the illumination reaching the position of the observer depends almost entirely upon the illumination (entirely, if we assume that the black of the screen is uniformally spectrally reflective), whereas at maximum output (pixel values of 255 in all channels) the illumination reaching the position of the observer would be greatly more dependent upon the output of the device, hopefully with negligible influence of the illumination (so long as the illumination was below a certain threshold). The point of interest is therefore assumed to be the pixel value where the shift resulting from differing illuminants jumps from being non-negligible to negligible for our purposes.
+Broadly speaking, at a pixel value of 0 one would expect that the illumination reaching the position of the observer depends almost entirely upon the illumination (entirely, if we assume that the black of the screen is uniformly spectrally reflective), whereas at maximum output (pixel values of 255 in all channels) the illumination reaching the position of the observer would be greatly more dependent upon the output of the device, hopefully with negligible influence of the illumination (so long as the illumination was below a certain threshold). The point of interest is therefore assumed to be the pixel value where the shift resulting from differing illuminants jumps from being non-negligible to negligible for our purposes.
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/pamela_pr6501.jpg}
@@ -223,7 +226,7 @@ As shown in Figure \ref{fig:pr6503} it was found that for pixel values of 60 and
 \label{fig:pr6503}
 \end{figure}
 
-% [Caption: chromaticties through pixel value (equal in each channel) showing greatest change for pixel values below 75]
+%LM: plot measured luminance vs pixel value
 
 For values above 75 (inclusive), a conservative estimate for the maximum shifts in chromaticity due to variation between light sources (considering only those sources tested) would be roughly 0.004 in the u' axis, and 0.009 in the v' axis. These values are derived from visual inspection of the variation in values of chromaticity for readings taken of pixel values above 75. These figures could be considered baseline figures for classifying observed differences as likely to originate from genuine changes in observer state rather than lighting/stimulus artefacts.
 
@@ -264,7 +267,10 @@ Note also that whilst the blue and green channels possess no pixels at either en
 \label{fig:stimchan}
 \end{figure}
 
-In summary, measurements taken lead us to conclude that influence of the ambient illumination, for the illuminations we have tested, has a minimal effect on the presentation of the stimulus as defined in this experiment (up to 0.004u' and 0.009v'). The greatest effect will likely be upon the sections of the stimulus where the pixel value falls below 75, as happens in specific areas of the red channel image. It is likely that these areas of the stimulus are unlikely to be ambiguous in colour appearance to an observer, and so any slight difference between the chromaticity ideally presented, and the chromaticity actually presented, is likely to have only a minimal impact. It is also the case that these chromaticities will not be often presented since they fall at the edge and corner of the full stimulus. %would be nice to add the full stimulus onto one of the gamut diagrams !!!!!!!!!
+In summary, measurements taken lead us to conclude that influence of the ambient illumination, for the illuminations we have tested, has a minimal effect on the presentation of the stimulus as defined in this experiment (up to 0.004u' and 0.009v'). The greatest effect will likely be upon the sections of the stimulus where the pixel value falls below 75, as happens in specific areas of the red channel image. These chromaticities will not be often presented since they fall at the edge and corner of the full stimulus. %would be nice to add the full stimulus onto one of the gamut diagrams !!!!!!!!!
+
+%It is likely that these areas of the stimulus are unlikely to be ambiguous in colour appearance to an observer, and so any slight difference between the chromaticity ideally presented, and the chromaticity actually presented, is likely to have only a minimal impact.
+% They have variation in the other channels, just not red
 
 It would be possible to create a stimulus which did not reach the gamut boundaries, and which does not include pixel values below a certain value for any channel. However, if using the same hardware, the trade-off would be that a smaller section of colour space would be presentable, and this would have two knock-on effects; the task would be harder (the stimulus would be less saturated), and the results would be more tightly bounded (the observer would not be able to select more chromatic points). For further discussion of `bounding' see section \ref{sec:limitations}.
 
@@ -281,14 +287,14 @@ It also seems noteworthy to explicitly consider that we have assumed a linearity
 The data was analysed in \gls{MATLAB} using the following pipeline:
 \begin{enumerate}
 \item Data loaded into \gls{MATLAB} from an excel file
-\item Spatial touch points calibrated using touch characterization data
+\item Spatial touch points calibrated using touch characterisation data
 \item Spatial data converted into chromaticity data
 \item Data graded for performance and exclusions applied where appropriate (see Section \ref{sec:exclusion}) 
 \item Data plotted either as:
 \begin{enumerate}
-\item Full dataset scatter %!!!!!!!
-\item Standard deviation ellipse/line plotting\footnote{Based on code from: \url{https://stackoverflow.com/a/3419973}}.%!!!!!!!
-\item Dataset mean plotting (where number of participants was large)%!!!!!!!
+\item Full dataset scatter
+\item Standard deviation ellipse/line plotting\footnote{Based on code from: \url{https://stackoverflow.com/a/3419973}}.
+\item Dataset mean plotting (where number of participants was large)
 \end{enumerate}
 \end{enumerate}
 
@@ -302,7 +308,7 @@ Two simple methods for assessing this variability are readily available. The fir
 
 The first method has the advantage that it considers the entirety of each dataset; whereas the second method requires that general assumptions about the entirety of an observer's data be made from only two data points. One disadvantage of the first method however, is that this measure would give a high value in the situation that there was a moderate or higher level of `smearing', since increased spread could result from a situation where an observer was very good at selecting their chosen chromaticity, but was unable to do so since that chromaticity was not always displayed. In contrast, the second method should be unaffected by this.
 
-A further advantage of the first method is that a non-arbitrary threshold presents itself; that of the level of variability which would result from a run of the experiment where a hypothetical observer selected the exact same physical point on the screen for each stimulus. This would represent the best possible performance of an observer who was unable, or had no interest in, following a specific chromaticity, though of course it would not include any variability attributable to a touch input (though this could be artifically simulated). The second method presents no such intuitive definition for a threshold.
+A further advantage of the first method is that a non-arbitrary threshold presents itself; that of the level of variability which would result from a run of the experiment where a hypothetical observer selected the exact same physical point on the screen for each stimulus. This would represent the best possible performance of an observer who was unable, or had no interest in, following a specific chromaticity, though of course it would not include any variability attributable to a touch input (though this could be artificially simulated). The second method presents no such intuitive definition for a threshold.
 
 Both assume that an observer's state of chromatic adaptation remains stable across a run, which is not certain.
 
@@ -361,9 +367,9 @@ For experiments reported here three illumination settings were defined - `Cool W
 \label{fig:PAMELAlights5}
 \end{figure}
 
-It should be noted that luminance was not matched between the conditions. Therefore, `CW' and `MH' could be described as colorimetric matches, but not as metameric matches. Additionally, for chromatically distinct conditions (`CW' vs `WW'), there is a confound of luminance variation. The luminances of the three conditions were 235lx, 720lx and 840lx respectively. In the opinion of the author, it would be advisable that if further studies of this type were undertaken, that conditions be matched for luminance in order to discount this as a variable. 
+It should be noted that luminance was not matched between the conditions. Therefore, `CW' and `MH' could be described as colorimetric matches, but not as metameric matches. Additionally, for chromatically distinct conditions (`CW' vs `WW'), there is a confound of luminance variation. The illuminances of the three conditions, measured on a horizontal plane in the centre of the experimental space, were 235lx, 720lx and 840lx respectively. In the opinion of the author, it would be advisable that if further studies of this type were undertaken, that conditions be matched for luminance in order to discount this as a variable. 
 
-The chromaticities of the light sources, measured with a UPRtek MK350, were:
+The chromaticities of the light sources, measured with a UPRtek MK350 (a handheld spectrometer), were:
 `WW': 	u'v'(0.248,0.524) (averaged over 4 measurements);
 `CW': 	u'v'(0.200,0.465) (averaged over 3 measurements);
 `MH': 	u'v'(0.201,0.467) (averaged over 8 measurements).
@@ -407,7 +413,7 @@ Three spaces within the museum were used (with permission):
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth,max height=0.7\textwidth]{figs/tablet/BM77.jpg}
-\caption{Gallery 77, with fluorescent tube illuminantion. \\ Photo credit: \url{https://sites.google.com/site/jwmuseumbibletours/all-artefacts/037-temple-of-artemis-at-ephesus}}
+\caption{Gallery 77, with fluorescent tube illumination. \\ Photo credit: \url{https://sites.google.com/site/jwmuseumbibletours/all-artefacts/037-temple-of-artemis-at-ephesus}}
 \label{fig:BM77}
 \end{figure}
 
@@ -439,8 +445,8 @@ Additional testing was undertaken within the Chadwick Building of \gls{UCL} (hom
 \section{Experiments}
 
 \subsection{Experiment 1}
-%PAMELA, DG, 13 runs
-With the goal of understanding both the intra/inter-observer variability and intra/inter-environment variability, 13 runs of the experiment were performed by the author under the 3 illumination settings defined at \gls{PAMELA} (see Section \ref{sec:PAMELA}), 4 under `WW', 6 under `CW', 3 under `MH', after 2 different lengths of adaptation (5 minutes and 30 minutes). In initial analyses no effect of length of adaptation was found, and so we group the data across these 2 conditions for analysis. Two other observers (KC and TS) also performed a number of observation (3 and 4 respectively) under a range of illumination settings.
+With the goal of understanding both the intra/inter-observer variability and intra/inter-environment variability, 13 runs of the experiment were performed by the author under the 3 illumination settings defined at \gls{PAMELA} (see Section \ref{sec:PAMELA}), 4 under `WW', 6 under `CW', 3 under `MH', after 2 different lengths of adaptation (5 minutes and 30 minutes). In initial analyses no effect of length of adaptation was found% write about this
+, and so we group the data across these 2 conditions for analysis. Two other observers (KC and TS) also performed a number of observation (3 and 4 respectively) under a range of illumination settings.
 
 \subsection{Experiment 2}
 
@@ -452,11 +458,23 @@ In order to provide a case study for this methodology, and to investigate the ro
 
 The null hypothesis for this experiment is: achromatic settings are determined solely by retinal cone catches. A corollary of this is that melanopic flux plays no role. CIE 1931 chromaticity is used as a proxy for retinal cone catches.
 
-%table
+\begin{table}[hbtp]
 
-%figure
-
-%figure
+\begin{tabular}{|p{0.3\textwidth}|p{0.3\textwidth}|p{0.3\textwidth}|}
+\hline
+ & \emph{`ML' (`CW')} & \emph{`MH'} \\ \hline
+Photopic lux & 689.14 & 806.25 (117.0\% of ML) \\ \hline
+Melanopic lux & 694.53 & 1207.61 (173.9\% of ML) \\ \hline
+CIE 1931 x & 0.312 & 0.315 \\ \hline
+CIE 1931 y & 0.324 & 0.324 \\ \hline
+CIE 1964 x & 0.318 & 0.317 \\ \hline
+CIE 1964 y & 0.317 & 0.337 \\ \hline
+CIE u' & 0.200 & 0.201 \\ \hline
+CIE v' & 0.465 & 0.466 \\ \hline
+\end{tabular}
+\caption{Specifications of lighting at \gls{PAMELA}.}
+\label{tab:PAMELAspecs}
+\end{table}
 
 After entering the main space at \gls{PAMELA}, the space being illuminated solely by the \gls{LED} rig in `MH' mode, and after a minimal adaptation period (5 minutes) during which introductions and instructions were given, individually performed the experimental task in succession. 
 
@@ -502,7 +520,7 @@ It can be seen in Figure \ref{fig:PAMELA_DG_results} that the chromaticity of th
 
 \begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 1
 \includegraphics[max width=\textwidth]{figs/tablet/PAMELA_DG_results_ellipses.pdf} 
-\caption{As per Figure \ref{fig:PAMELA_DG_results}, but rescaled and showing standard deviation ellipses to indicate spread of data. `BL' is a baseline dataset, representing an observer hitting the spatial centre of the screen for every stimulus. It can be seen that in comparison to this baseline, there is a trend whereby selections are elongated along the positive diagonal. The results for `WW' seem particularly elongated along this axis, which I assume to be the result of the chromaticity of `WW' laying outside of the practical gamut.}
+\caption{As per Figure \ref{fig:PAMELA_DG_results}, but re-scaled and showing standard deviation ellipses to indicate spread of data. `BL' is a baseline dataset, representing an observer hitting the spatial centre of the screen for every stimulus. It can be seen that in comparison to this baseline, there is a trend whereby selections are elongated along the positive diagonal. The results for `WW' seem particularly elongated along this axis, which I assume to be the result of the chromaticity of `WW' laying outside of the practical gamut.}
 \label{fig:PAMELA_DG_results_ellipses}
 \end{figure}
 
@@ -514,43 +532,39 @@ It can be seen in Figure \ref{fig:PAMELA_DG_results} that the chromaticity of th
 
 \subsubsection{Exclusions}
 
-Considering that this experiment was performed with observers selected from the general public it seems reasonable to assume that we may need to use exclusion criterea. Now that we have real data we can consider the two options presented in Section \ref{sec:exclusion}.
+Considering that this experiment was performed with observers selected from the general public it seems reasonable to assume that we may need to use exclusion criteria. Now that we have real data we can consider the two options presented in Section \ref{sec:exclusion}.
 
 For Figure \ref{fig:excl1} `Mean SD' is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates selected for the two identical stimuli.
 
-\begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/commit/71a0bd0c4e9d983b49b48d6eb8ad38a152260498
+\begin{figure}[hbtp] 
 \includegraphics[max width=\textwidth]{figs/tablet/excl1.pdf} 
-\caption{The two measures of variability set against eachother, for the data collected in Experiment 2.}
+\caption{The two measures of variability set against each-other, for the data collected in Experiment 2.}
 \label{fig:excl1}
 \end{figure}
-%Redraw starting at 0
 
 It can be seen that on both measures there are a small number of clear outliers; a group of three points with mean SD around 0.02 but very low \gls{DBUR}, and two points with very high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure mean SD would be more effective in recognising these points.
 
-A vertical line is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
+A vertical line (the `logical threshold') is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
 
 As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is nominally rotationally symmetric (see Figure \ref{fig:PAMELA_DG_results_ellipses}). It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
 
-\begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/commit/ca27707d1fc4e2026fd700a9468592c14af24690
+\begin{figure}[hbtp] 
 \includegraphics[max width=\textwidth]{figs/tablet/excl2.pdf} 
 \caption{As \ref{fig:excl1} but with minimum standard deviation (whichever is lesser between u' and v') plotted on the x-axis rather than the mean.}
 \label{fig:excl2}
 \end{figure}
-%Redraw starting at 0
 
-This test still seems overly severe, and this is likely due to several issues. Firstly, the theoretical data does not have any element of variability introduced from touch uncertainty. Secondly, since the hypothetical data is firmly centred on the spatial centre of the screen it avoids any element of aforementioned ‘smearing’ (where an observer might ideally select a point outside of the display gamut). Thirdly, in situations where there is a high variation across both the u’ and v’ axis, but a minimum is another dimension (in other words: strongly elliptical data orientated roughly diagonally in chromaticity space), which seems common for this type of data, the minimum between u’ and v’ is still going to be an overestimation of a truly representative SD.
+This test still seems overly severe, in fact it appears more severe, and this is likely due to several issues. Firstly, the theoretical data does not have any element of variability introduced from touch uncertainty. Secondly, since the hypothetical data is firmly centred on the spatial centre of the screen it avoids any element of aforementioned `smearing' (where an observer might ideally select a point outside of the display gamut). Thirdly, in situations where there is a high variation across both the u' and v' axis, but a minimum is another dimension (in other words: strongly elliptical data orientated roughly diagonally in chromaticity space), which seems common for this type of data, the minimum between u' and v' is still going to be an overestimation of a truly representative SD.
 
 Whilst the second measure suggests no clear rationale for a threshold boundary, there is a greater spread in the variability of these differences between observers, and the relationship between this measure and an observer’s performance follows a strong and clear logic.
 
 In the absence of a clear logical framework from which to draw a specific cut-off value for DBUR, I shall propose 0.018 which aligns with an apparent divide in the data, since there is a possibility that this divide represents a functional divide between binary observer behaviours. It also seems reasonable to exclude data with a Min SD \textgreater 0.01.
 
-\begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/blob/c03152d610a5469f293068c6e8ec2258f4842c94/SAPS_DataAnalysis.m
+\begin{figure}[hbtp] 
 \includegraphics[max width=\textwidth]{figs/tablet/excl3.pdf} 
 \caption{As \ref{fig:excl2} but with proposed boundaries}
 \label{fig:excl3}
 \end{figure}
-%Redraw starting at 0 !!!!!!!!!
-% Also, something weird is happening here, look at the two bottom right points !!!!!!!!!
 % Probably could combine some of the above graphs.
 
 \subsubsection{Data}
@@ -582,7 +596,7 @@ Exclusions were decided based upon calculations of the mean SD in the u' and v' 
 
 \begin{figure}[hbtp] 
 \includegraphics[max width=\textwidth]{figs/tablet/exp3excl.pdf} 
-\caption{Mean standard deviations for each observer, set against the two baseline datasets (one where a real human touched the centre of the screen with no regard for the stimuli, and one where such behavoir was computationally simulated.}
+\caption{Mean standard deviations for each observer, set against the two baseline datasets (one where a real human touched the centre of the screen with no regard for the stimuli, and one where such behaviour was computationally simulated.}
 \label{fig:exp3excl}
 \end{figure}
 
@@ -609,6 +623,8 @@ Plotting data for individual participants separately, it can be seen that each p
 \label{fig:PAMELA_20180205_Individual2}
 \end{figure}
 
+From these two figures it can be seen that, at least in this case, there is moderately large inter-observer variation. It is possible that when using a large number of observers an additional processing step may be required to offset for observer bias. In this case inter-observer variation does not seem to be masking a distinction between the conditions.
+
 \clearpage
 
 \section{Conclusions and Discussion}
@@ -617,7 +633,7 @@ In the following section I shall discuss the proposed methodology is terms of it
 
 \subsection{Environment-agnostic stimulus}
 
-As discussed in Section \ref{sec:ambient}, this specific stimulus, under the lighting conditions defined at \gls{PAMELA} should only be minimally affected by changes in illuminant.
+As discussed in Section \ref{sec:ambient}, this specific stimulus, under the lighting conditions defined at \gls{PAMELA} is only minimally affected by changes in illuminant, and that any effect would principally affect the outer edges of the stimulus space.
 
 It is also worth noting that the effect upon collected data of an illuminant induced shift in display colorimetry, would actually be opposite to the effect that one would expect to see from a change in observer adaptation state. For example, under a hypothetical blue light, which affected the stimulus by making it more blue, an observer would be inclined to select something more towards the yellow side of objective white. 
 
@@ -629,7 +645,7 @@ It should be noted that this result is expected to break down under illumination
 
 One insight into variability within this method can be taken by looking at the calibration data that each participant provides after the main part of each trail (Described in Section \ref{sec:touch}). Here they are asked to touch the centre of a checker-board, and this data is primarily used to offset any bias introduced by the difference between where an observer thinks they are touching, and where the tablet records having been touched. A secondary use of this data, albeit with caveats, is to estimate the amount of variation introduced simply by touch imprecision; here the participant is given as-close-to an objective task as might be thought possible, and thus any variability in the results must stem not from perceptual indecision, but rather the process of pointing and touching. There is a clear caveat; it seems likely that an estimate of touch imprecision gleaned from this dataset will underestimate the amount of `real' touch imprecision, since observers have reliably (in my experience) modified their touching behaviour in this second part of the task, in the manner which might be expected of someone who is given a broad target to hit, and then immediately after is given a much smaller target to hit (they lean in, hold their finger more rigidly, and move more slowly).
 
-To perform this analysis I shall return to the data from Experiment 2, to get the largest possible sample and so as not to limit the analysis to those with a strong vested interest in this research. In Figure \ref{fig:BMtouch} I show the standard deviations based on just the calibration (checker-board) data. Note that here the units are pixels, as opposed to a chromaticity space. 4 outliers are excluded. These outliers appear to occur due to an observer accidentally double touching the screen during the calibration phrase, and thus having one data point which is far outside the normal group. This does not affect (to a large extent) the actual calibration process, because there a median is taken, but it does have a rather strong effect when calculating the standard deviation of a set.
+To perform this analysis I shall use the data from Experiment 2, to get the largest possible sample and so as not to limit the analysis to those with a strong vested interest in this research. In Figure \ref{fig:BMtouch} I show the standard deviations based on just the calibration (checker-board) data. Note that here the units are pixels, as opposed to a chromaticity space. 4 outliers are excluded. These outliers appear to occur due to an observer accidentally double touching the screen during the calibration phrase, and thus having one data point which is far outside the normal group. This does not affect (to a large extent) the actual calibration process, because there a median is taken, but it does have a rather strong effect when calculating the standard deviation of a set.
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/BMtouch.pdf} 
@@ -650,12 +666,11 @@ The data available with the largest number of repeats by a single observer is th
 
 \subsubsection{Inter-environment Differences}
 
-Considering the standard theories of chromatic adaptation, and previous experimental results, we would assume a difference in the achromatic settings of observers in lighting conditions of different chromaticities. We would also assume the chromaticity of selected achromatic points would follow the chromaticity of ambient illumination. In both Experiments 1 and 2 we see a distinction between environments where we might expect one to be seen. In Experiment 1 we see selected chromaticities in the direction of the illuminant chromaticity. In Experiment 2 this possibly present, but less clear.
+Considering the standard theories of chromatic adaptation, and previous experimental results, we would assume a difference in the achromatic settings of observers in lighting conditions of different chromaticities. We would also assume the chromaticity of selected achromatic points would follow the chromaticity of ambient illumination. In both Experiments 1 and 2 we see a distinction between environments where we might expect one to be seen. In Experiment 1 we see selected chromaticities in the direction of the illuminant chromaticity. In Experiment 2 this is possibly also present, but less clear.
 
 In Experiment 1 (see Figure \ref{fig:PAMELA_DG_results}/\ref{fig:PAMELA_DG_results_ellipses}) we see a distinction between `WW' and either `CW'/`MH', but no distinction between the colorimetric metamers `CW' and `MH' (with this lack of distinction being repeated in Experiment 3). This distinction would likely have been larger if the practical gamut allowed for chromaticities closer to that of `WW' to be selected. 
 
-%In Experiment 2 a large number of participants were excluded... 
-% Come back and write this once I've redone the figure plot, maybe I shouldn't exclude so many. Check ECVP poster.
+In Experiment 2 we see a clear distinction between results for trials performed in the Great Court and those performed in either of the other environments. All sets (except perhaps the group towards the centre of the practical gamut) exhibit some drag towards the chromaticity of the lighting in the environment.
 
 \subsection{Naive observers}
 
@@ -673,13 +688,7 @@ At the start of this chapter I noted the potential for the experiment to intrude
 
 Regarding high level estimates of white point, observers are aware that they are looking at a screen which they know implicty to be an emmissive device, with a white point not primarily determined by the ambient illumination. The ambiguity of the colour of the stimuli goes some way to masking the white point of the screen. If there was a clear white reference displayed on the screen I doubt we would see any distinction between environments. This is why the spatial calibration routine is run after the main trial and not before. It is possible however, that over multiple presentations of the stimuli an observer may begin to build up a representation of white which is based upon the white point of the screen. This seems particularly likely to occur when the illuminant chromaticity is far outside the practical gamut, as in Experiment 2 under the either of the strongly yellow illuminants. Under such a condition, an observer may be more likely to interpret the investigator's question as `touch the grey-est, or least colourful, point on the screen \emph{within the context of what appears on the screen over time}' rather than relating to the screen in the context of the surrounding environment.
 
-It is possible that this effect is seen in some of our data. % Experiment 2 (BM) data, come back !!!!!!!
-
-%The experimental method attempts to sidestep this problem by providing no clear white point (instead presenting a smooth gradient through an equiluminant slice of a nominally perceptually-uniform colour-space) but it is possible that the stimulus took up such a large space of visual angle that it itself became a driver for chromatic adaptation, and that observers became adapted to the time-averaged output of the display during the course of the experiment. I estimate that held at arms-length (estimate: 600mm), the tablet (223x126mm active screen area) occupied a visual angle of 20° by 12°.
-
-%Measurements presented in figure X provide an estimate of the impact of the screen stimulus on the net amount of light received by the observer. It can be seen that the stimulus provides a substantial additional contribution to the light received at the point of the observer's eye. Considering that these measurements were nominally non-directional, whereas the eye is somewhat more directional (especially so if we consider foveal preference rather than simple ocular geometry), it is likely that these measurements suggest an underestimation compared to the true impact of the stimulus upon the observer's state of adaptation.
-
-%fig
+It is possible that this effect is visible in some of our data. Looking at the results from Experiment 2 in Figure \ref{fig:exp2} it seems as though the data for 77/78 and 25 may be split into two groups (a lower and a higher group). Looking at where these fall with respect to the practical gamut, with the lower one falling centrally and the upper one falling on the slope of the practical gamut, it is possible that this distinction represents two distinct observer approaches, with the lower group tracking the white point of the screen and the upper group attempting to select the white point of the illuminant.
 
 To mitigate this issue, some potential solutions present themselves, though most introduce new problems or exacerbate existing issues. 
 
@@ -697,7 +706,7 @@ As previously discussed \ref{sec:limitations}, chromaticities that lie outside t
 
 It is therefore not entirely correct to say that an observer's selected chromaticities will dutifully represent the observer's achromatic point. Rather, it can be said that their achromatic point is likely to fall in the direction of the vector between some objective neutral and the observed mean. There are several issues which result from this methodological limitation.
 
-Firstly, the definition of an objective neutral point, from which such a vector could be anchored, is not a simple task. The most sensible option might be the chromaticity of the geometric centre of the stimulus (which I have referred to previously as `objective white'), which on average will be presented in the centre of the screen and most frequently. This choice is particularly tempting since this chromaticity, following our definition of the stimulus, is also the native white point of the display. However, as neat this may sound, this decision is still arbitrary to an extent however, as no true objective white point can reasonably be posited, and the white point of the display bears no relation to anything other than a manufacturer decision. 
+Firstly, the definition of an objective neutral point, from which such a vector could be anchored, is not a simple task. The most sensible option might be the chromaticity of the geometric centre of the stimulus (which I have referred to previously as `objective white'), which on average will be presented in the centre of the screen and most frequently. This choice is particularly tempting since this chromaticity, following our definition of the stimulus, is also the native white point of the display. However, as neat this may sound, this decision is still arbitrary to an extent however, as no true objective white point can reasonably be posited, and the white point of the display in this case bears no relation to anything other than a manufacturer decision. 
 
 Secondly, this issue makes the results, and therefore the method, difficult to compare to previous methods. Previous comparisons between different experiments and experimental methods in this area have been achieved through comparison of `constancy indices' which describe in some way the geometrical relationship between an initial achromatic point, an adapting stimulus, and the posterior achromatic point\footnote{See \citet{foster_color_2011} for both a description of the various constancy indices in use, and a comparison across a number of studies of recorded values of constancy index.}. 
 
@@ -749,6 +758,6 @@ An experiment, considering whether melanopsin activation has an influence upon w
 
 The general limitations and recommendations for further development of the method were discussed, with a particular focus on the limitations due to the static stimulus and the bounding issues that this created.
 
-
+%LM: effect of handedness? Gender?
 
 
