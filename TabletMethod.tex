@@ -490,7 +490,7 @@ Following data processing as described in Section \ref{sec:processing} (with no 
 
 The primary result here is that there does seem to be a distinction between the results from `WW' and the other two conditions, with the results for `WW' being displaced northeast from those for `CW' and `MH'. The means for the `WW' group and either the `CW' or `MH' groups seem to be offset by roughly 0.01 $\Delta$u'v'. If there were an effect of the ambient illumination, such as discussed in \ref{sec:ambient} this would move the recorded points in the opposite direction to that observed.
 
-A secondary result concerns the intra-observer variability. It can be seen in \ref{fig:PAMELA_DG_results_ellipses} that the standard deviation ellipses are large, but notably smaller than the basline data set, suggesting that the observer was actually making conscious selections. It can also be seen that there is a reliable trend of for the orientation of the ellipse, which could point to an elongation along the caerulean line as seen elsewhere \citep{bosten_what_2015}.
+A secondary result concerns the intra-observer variability. It can be seen in \ref{fig:PAMELA_DG_results_ellipses} that the standard deviation ellipses are large, but notably smaller than the basline data set, suggesting that the observer was actually making conscious selections. It can also be seen that there is a reliable trend of the orientation of the ellipse, which could point to an elongation along the caerulean line as seen by other researchers \citep{bosten_what_2015}.
 
 \begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 0
 \includegraphics[max width=\textwidth]{figs/tablet/PAMELA_DG_results.pdf} 
@@ -498,7 +498,7 @@ A secondary result concerns the intra-observer variability. It can be seen in \r
 \label{fig:PAMELA_DG_results}
 \end{figure}
 
-It can be seen in Figure \ref{fig:PAMELA_DG_results} that the chromaticity of the `WW' illuminant falls far outside the practical gamut; there would have been no opportunity throughout the entire set of runs where the observer would have been able to select a pixel of a chromaticity matching that illuminant. It might therefore be expected that we would see an extended smearing pattern in selections away from the centre of the practical gamut towards the chromaticity of this illuminant, as discussed in Section \ref{sec:limitations}. This effect is indeed visible, see Figure \ref{fig:PAMELA_DG_results_ellipses}.
+It can be seen in Figure \ref{fig:PAMELA_DG_results} that the chromaticity of the `WW' illuminant falls far outside the practical gamut; there would have been no opportunity throughout the entire set of runs where the observer would have been able to select a pixel of a chromaticity matching that illuminant. It might therefore be expected that we would see an extended smearing pattern in selections away from the centre of the practical gamut towards the chromaticity of this illuminant, as discussed in Section \ref{sec:limitations}. This effect is indeed visible, see the extended nature of the blue ellipses in Figure \ref{fig:PAMELA_DG_results_ellipses}.
 
 \begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 1
 \includegraphics[max width=\textwidth]{figs/tablet/PAMELA_DG_results_ellipses.pdf} 
@@ -516,7 +516,7 @@ It can be seen in Figure \ref{fig:PAMELA_DG_results} that the chromaticity of th
 
 Considering that this experiment was performed with observers selected from the general public it seems reasonable to assume that we may need to use exclusion criterea. Now that we have real data we can consider the two options presented in Section \ref{sec:exclusion}.
 
-For Figure \ref{fig:excl1} `Mean SD' (SD from now on) is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates selected for the two identical stimuli.
+For Figure \ref{fig:excl1} `Mean SD' is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates selected for the two identical stimuli.
 
 \begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/commit/71a0bd0c4e9d983b49b48d6eb8ad38a152260498
 \includegraphics[max width=\textwidth]{figs/tablet/excl1.pdf} 
@@ -525,11 +525,11 @@ For Figure \ref{fig:excl1} `Mean SD' (SD from now on) is calculated for each obs
 \end{figure}
 %Redraw starting at 0
 
-It can be seen that on both measures there are a small number of clear outliers; a group of three points with SD around 0.02 but very low \gls{DBUR}, and two points with very high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure SD would be more effective in recognising these points.
+It can be seen that on both measures there are a small number of clear outliers; a group of three points with mean SD around 0.02 but very low \gls{DBUR}, and two points with very high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure mean SD would be more effective in recognising these points.
 
 A vertical line is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
 
-As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is nominally rotationally symmetric. It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
+As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is nominally rotationally symmetric (see Figure \ref{fig:PAMELA_DG_results_ellipses}). It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
 
 \begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/commit/ca27707d1fc4e2026fd700a9468592c14af24690
 \includegraphics[max width=\textwidth]{figs/tablet/excl2.pdf} 
