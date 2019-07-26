@@ -75,11 +75,11 @@ If \gls{ipRGCs} play a role in colour constancy we would expect to see a distinc
 
 The participants for experiment 1 were the author, one of the author's academic supervisors (KC) and a technician at the laboratory (TS).
 
-For experiment 2, 58 observers were selected randomly from museum visitors. A visitor would be approached by the experimenter (the author) and asked whether `they would be interested in taking part in a colour vision experiment'. Those who replied positively were verbally informed of the ethics details for the study, the principal parts of which were: that no identifying information would be recorded, that the experiment carried no risks greater than those associated with normal use of a tablet computer, that observers were not paid or otherwise incentivised to take part, and that the task would take roughly ten minutes. A verbal description of the ethics details for this experiment was provided rather than the more traditional paper version to avoid providing the observer with a white reference immediately prior to the experiment. This study was approved by the \gls{UCL} Ethics committee (Project ID Number: 9357/001). In accordance with the ethics approval granted for this project, people under the age of 18 were only invited to participate under the supervision of a parent/carer. %[Appendix X] !!!!!!!!!!!!!
-% number, age and sex here
+For experiment 2, 58 observers were selected randomly from museum visitors. A visitor would be approached by the experimenter (the author) and asked whether `they would be interested in taking part in a colour vision experiment'. Those who replied positively were verbally informed of the ethics details for the study, the principal parts of which were: that no identifying information would be recorded, that the experiment carried no risks greater than those associated with normal use of a tablet computer, that observers were not paid or otherwise incentivised to take part, and that the task would take roughly ten minutes. A verbal description of the ethics details for this experiment was provided rather than the more traditional paper version to avoid providing the observer with a white reference immediately prior to the experiment. This study was approved by the \gls{UCL} Ethics committee (Project ID Number: 9357/001), application attached as Appendix \ref{app:ethics1}. In accordance with the ethics approval granted for this project, people under the age of 18 were only invited to participate under the supervision of a parent/carer.
+% number, age and sex here? !!!!!!!!!
 
-For experiment 3, nine participants (5 female, 4 male, ages not recorded) were recruited from the author's friends and family (including one academic supervisor, LM), with the hope that this would assure attendance and motivation and to take advantage of short-notice availability of the experimental space. Participants were informed of the ethics details for the study in advance of attending. Ethics approval was provided following the amendment of the aforementioned ethics application (9357/001).
-% number, age and sex here
+For experiment 3, nine participants (5 female, 4 male, ages not recorded) were recruited from the author's friends and family (including one academic supervisor, LM), with the hope that this would assure attendance and motivation and to take advantage of short-notice availability of the experimental space. Participants were informed of the ethics details for the study in advance of attending. Ethics approval was provided following the amendment of the aforementioned ethics application (9357/001), attached as Appendix \ref{app:ethics2}.
+% number, age and sex here? !!!!!!!!!
 
 \subsubsection{Instructions to the participants}
 
@@ -356,9 +356,8 @@ Intuitive threshold: the SD of a `baseline' observer & No intuitive threshold \\
 For experiments reported here three illumination settings were defined - `Cool White (`CW')', `Warm White (`WW')', and `Mel-High (`MH')'. \gls{SPD}s are shown for each in Figure \ref{fig:PAMELAlights5}, and chromaticities in \ref{fig:PAMELAlights6}. `CW' and `WW' were system defaults, and `MH' was defined to be a colorimetric match (for the CIE 1931 observer) for `CW', but preferentially using an \gls{LED} band with a peak spectrally close to the peak spectral sensitivity of melanopsin ($\sim$480nm).
 
 \begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/tree/master/data/PAMELA/20180205%20Spectra
-\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_SPD.png}
-\caption{\gls{SPD}s for the different illumination settings at \gls{PAMELA}. %Will reformat, add legend and add axis labels} !!!!!!!!
-}
+\includegraphics[max width=\textwidth]{figs/tablet/PAMELA_SPD2.pdf}
+\caption{\gls{SPD}s for the different illumination settings at \gls{PAMELA}.}
 \label{fig:PAMELAlights5}
 \end{figure}
 
@@ -519,8 +518,8 @@ Considering that this experiment was performed with observers selected from the 
 
 For Figure \ref{fig:excl1} `Mean SD' (SD from now on) is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates selected for the two identical stimuli.
 
-\begin{figure}[hbtp] 
-\includegraphics[max width=\textwidth]{figs/tablet/excl1.png} 
+\begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/commit/71a0bd0c4e9d983b49b48d6eb8ad38a152260498
+\includegraphics[max width=\textwidth]{figs/tablet/excl1.pdf} 
 \caption{The two measures of variability set against eachother, for the data collected in Experiment 2.}
 \label{fig:excl1}
 \end{figure}
@@ -532,8 +531,8 @@ A vertical line is plotted from the point representing baseline data. This data 
 
 As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is nominally rotationally symmetric. It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
 
-\begin{figure}[hbtp] 
-\includegraphics[max width=\textwidth]{figs/tablet/excl2.png} 
+\begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/commit/ca27707d1fc4e2026fd700a9468592c14af24690
+\includegraphics[max width=\textwidth]{figs/tablet/excl2.pdf} 
 \caption{As \ref{fig:excl1} but with minimum standard deviation (whichever is lesser between u' and v') plotted on the x-axis rather than the mean.}
 \label{fig:excl2}
 \end{figure}
@@ -545,8 +544,8 @@ Whilst the second measure suggests no clear rationale for a threshold boundary, 
 
 In the absence of a clear logical framework from which to draw a specific cut-off value for DBUR, I shall propose 0.018 which aligns with an apparent divide in the data, since there is a possibility that this divide represents a functional divide between binary observer behaviours. It also seems reasonable to exclude data with a Min SD \textgreater 0.01.
 
-\begin{figure}[hbtp] 
-\includegraphics[max width=\textwidth]{figs/tablet/excl2.png} 
+\begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/blob/c03152d610a5469f293068c6e8ec2258f4842c94/SAPS_DataAnalysis.m
+\includegraphics[max width=\textwidth]{figs/tablet/excl3.png} 
 \caption{As \ref{fig:excl2} but with proposed boundaries}
 \label{fig:excl3}
 \end{figure}
@@ -556,11 +555,18 @@ In the absence of a clear logical framework from which to draw a specific cut-of
 
 \subsubsection{Data}
 
+Data without exclusions is presented in Figure \ref{fig:exp2wo}
+
 Following exclusions, data is presented in Figure \ref{fig:exp2}. Here, we see that the chromaticities of the ambient lighting in the first and second environments (77/78, and 25) are far outside the practical gamut. If we might have expected full chromatic adaptation in observers in these environments, then the results we see would represent the case where there is extreme smearing (similar to the `most yellow' dataset from Figure \ref{fig:basement_rgby_test}). 
+\begin{figure}[hbtp] 
+\includegraphics[max width=\textwidth]{figs/tablet/exp2_withoutExclusion.pdf} 
+\caption{The mean settings of all observers from Experiment 2, with illuminant chromaticities for the 3 different spaces.}
+\label{fig:exp2wo}
+\end{figure}
 
 \begin{figure}[hbtp] 
-\includegraphics[max width=\textwidth]{figs/tablet/exp2.png} 
-\caption{}
+\includegraphics[max width=\textwidth]{figs/tablet/exp2.pdf} 
+\caption{As \ref{fig:exp2wo} but with exclusions applied. Note the reduction in black points (Gallery 25) around [0.19,0.47], and the reduction the blue points (GC).}
 \label{fig:exp2}
 \end{figure}
 
@@ -625,15 +631,15 @@ It should be noted that this result is expected to break down under illumination
 
 One insight into variability within this method can be taken by looking at the calibration data that each participant provides after the main part of each trail (Described in Section \ref{sec:touch}). Here they are asked to touch the centre of a checker-board, and this data is primarily used to offset any bias introduced by the difference between where an observer thinks they are touching, and where the tablet records having been touched. A secondary use of this data, albeit with caveats, is to estimate the amount of variation introduced simply by touch imprecision; here the participant is given as-close-to an objective task as might be thought possible, and thus any variability in the results must stem not from perceptual indecision, but rather the process of pointing and touching. There is a clear caveat; it seems likely that an estimate of touch imprecision gleaned from this dataset will underestimate the amount of `real' touch imprecision, since observers have reliably (in my experience) modified their touching behaviour in this second part of the task, in the manner which might be expected of someone who is given a broad target to hit, and then immediately after is given a much smaller target to hit (they lean in, hold their finger more rigidly, and move more slowly).
 
-To perform this analysis I shall return to the data from Experiment 2, to get the largest possible sample and so as not to limit the analysis to those with a strong vested interest in this research. In Figure \ref{BMtouch} I show the standard deviations based on just the calibration (checker-board) data. Note that here the units are pixels, as opposed to a chromaticity space. 4 outliers are excluded. These outliers appear to occur due to an observer accidentally double touching the screen during the calibration phrase, and thus having one data point which is far outside the normal group. This does not affect (to a large extent) the actual calibration process, because there a median is taken, but it does have a rather strong effect when calculating the standard deviation of a set.
+To perform this analysis I shall return to the data from Experiment 2, to get the largest possible sample and so as not to limit the analysis to those with a strong vested interest in this research. In Figure \ref{fig:BMtouch} I show the standard deviations based on just the calibration (checker-board) data. Note that here the units are pixels, as opposed to a chromaticity space. 4 outliers are excluded. These outliers appear to occur due to an observer accidentally double touching the screen during the calibration phrase, and thus having one data point which is far outside the normal group. This does not affect (to a large extent) the actual calibration process, because there a median is taken, but it does have a rather strong effect when calculating the standard deviation of a set.
 
 \begin{figure}[hbtp]
-\includegraphics[max width=\textwidth]{figs/tablet/BMtouch.png} 
+\includegraphics[max width=\textwidth]{figs/tablet/BMtouch.pdf} 
 \caption{Standard deviations for the calibration datasets from the Experiment 2 data. Added for additional interest is the line of unity, which makes clearer the imbalance between SD in the x axis and the y axis - on this task an observer seems more likely to be have worse vertical discrimination. It is unclear whether this is a task specific result or a general phenomenon.}
 \label{fig:BMtouch}
 \end{figure}
 
-To consider the above information in practice, we need to perform a conversion into chromaticity space. For a simple analogy, let's consider a pixel shift of 6 pixels (the rough average standard deviation in each dimension, based on a visual analysis of Figure \ref{BMtouch}). This would equate to a shift of 0.2742 in u*v* space, or a shift of 0.0003 in u'v' space %shouldn't this be differennt values for u' and v'? !!!!!!!!!
+To consider the above information in practice, we need to perform a conversion into chromaticity space. For a simple analogy, let's consider a pixel shift of 6 pixels (the rough average standard deviation in each dimension, based on a visual analysis of Figure \ref{fig:BMtouch}). This would equate to a shift of 0.2742 in u*v* space, or a shift of 0.0003 in u'v' space %shouldn't this be differennt values for u' and v'? !!!!!!!!!
 , which is an order of magnitude smaller than the average standard deviations for the main datasets. I therefore conclude that touch imprecision will only have a minor influence on the data collected with this method, especially when an effort is made to calibrate out this bias. Further investigation may conclude that this element of measurement imprecision is not worth the effort required to correct for.
 
 \subsubsection{Intra-observer Variability: Test-retest}
@@ -653,17 +659,17 @@ In Experiment 1 (see Figure \ref{fig:PAMELA_DG_results}/\ref{fig:PAMELA_DG_resul
 %In Experiment 2 a large number of participants were excluded... 
 % Come back and write this once I've redone the figure plot, maybe I shouldn't exclude so many. Check ECVP poster.
 
-\subsection{Is this method suitable for naive observers?}
+\subsection{Naive observers}
 
 From the plot of standard deviations in Figure \ref{fig:naive}, it can be seen that whilst the participants with a large amount of experience performed well, a small number of naive participants actually performed better (assuming that SD is a valid measure of performance), whilst the remainder of participants performed almost as well with limited but notable exceptions. It is worth noting that whilst I have chosen this environment to examine (`Gallery 25: Africa Gallery') since it has the highest cross-over of individuals who can be classed as `experienced', this choice might not be ideal since the Africa Gallery represents a situation where a large amount of `smearing' may occur, since the chromaticity of the light source is far outside that selectable from the practical gamut (Figure \ref{fig:exp2}). 
 
 \begin{figure}[hbtp]
-\includegraphics[max width=\textwidth]{figs/tablet/naive.png} 
+\includegraphics[max width=\textwidth]{figs/tablet/naive.pdf} 
 \caption{Standard deviation in chromaticity for a subset of observers from Experiment 2 (Those from Gallery 25), highlighting data from the author and one academic supervisor (LM).}
 \label{fig:naive}
 \end{figure}
 
-\subsection{Issues with interacting with a large visual angle}
+\subsection{Interacting with a large visual angle}
 
 At the start of this chapter I noted the potential for the experiment to intrude upon the observer's visual world. When performing this experiment, the tablet occupies a large portion of an observer's central field of view. It should therefore be assumed that any low-level short term visual adaptation will incorporate an element of adaptation to the stimuli rather than being a pure measure of an observer's adaptational state in a particular environment. 
 
@@ -685,11 +691,11 @@ The second potential solution suggested is to reduce the size of the stimulus, e
 
 An alternative approach might be to modify the task in some way such that the observer answered as if the tablet was a reflective device. This might be achieved by physical modifications, such that the tablet-ness of the device was obscured, or possibly through a careful modification of the question posed to the observer, à la \citet{arend_simultaneous_1986}, such that the participant was explicitly asked to pretend that they were viewing a reflective surface.
 
-\subsection{Limitations of screen based experiments}
+\subsection{Limitations of screen based experiments} \label{sec:bounding}
 
 Trichromatic display devices are unable to reproduce the entire gamut of visible colour. In the case of the specific display device used here, the gamut of producible chromaticities is visually described in Figure \ref{fig:gamut}. The gamut of chromaticities actually displayed to observers, under this version of this method, is shown in Figure \ref{fig:practical}, and has been referred to using the term `practical gamut'.
 
-As previously discussed \ref{sec:limitations}, chromaticities that lie outside this gamut are consequently not available as options for a participant to select, and in the current set-up which employs random rotation and offset, the colours towards the edge of the practical gamut are displayed less frequently than those at the centre of the practical gamut, which has the practical consequence that where observers may prefer to make an achromatic selection outside this gamut, or close to the edge of it, data may exhibit `smearing' (again, as previously discussed in section 5.2.1). It would be possible to see, from the analysis of data, whether an observer was constantly selecting a chromaticity on the physical edge of the display, which might be a marker of such activity. This analysis has not been completed at this time.
+As previously discussed \ref{sec:limitations}, chromaticities that lie outside this gamut are consequently not available as options for a participant to select, and in the current set-up which employs random rotation and offset, the colours towards the edge of the practical gamut are displayed less frequently than those at the centre of the practical gamut, which has the practical consequence that where observers may prefer to make an achromatic selection outside this gamut, or close to the edge of it, data may exhibit `smearing'. It would be possible to see, from the analysis of data, whether an observer was constantly selecting a chromaticity on the physical edge of the display, which might be a marker of such activity. This analysis has not been completed at this time.
 
 It is therefore not entirely correct to say that an observer's selected chromaticities will dutifully represent the observer's achromatic point. Rather, it can be said that their achromatic point is likely to fall in the direction of the vector between some objective neutral and the observed mean. There are several issues which result from this methodological limitation.
 
