@@ -219,7 +219,7 @@ As shown in Figure \ref{fig:pr6503} it was found that for pixel values of 60 and
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/pamela_pr6503.png}
-\caption{Chromaticity co-ordinates of measurements at different pixel values. It can be seen that the 0 values diverge greatly. They do not diverge in exactly the directions of the chromaticities of the light sources, which could either be due to measurement inaccuracy, or the base colour of the tablet may not be perfectly neutral. At higher pixel values the chromaticities start to converge at around [u',v'] = [0.193,0.47]}. %would be nice to reproduce !!!!!!!!!!
+\caption{Chromaticity co-ordinates of measurements at different pixel values. It can be seen that the 0 values diverge greatly. They do not diverge in exactly the directions of the chromaticities of the light sources, which could either be due to measurement inaccuracy, or the base colour of the tablet may not be perfectly neutral. At higher pixel values the chromaticities start to converge at around [u',v'] = [0.193,0.47].} %would be nice to reproduce !!!!!!!!!!
 \label{fig:pr6503}
 \end{figure}
 
@@ -252,7 +252,7 @@ Now I shall consider the impact of the above finding upon our specific stimulus.
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/stimhist.png}
-\caption{Histogram for the different channels in the full stimulus image}. %would be nice to reproduce !!!!!!!!!!
+\caption{Histogram for the different channels in the full stimulus image.} %would be nice to reproduce !!!!!!!!!!
 \label{fig:stimhist}
 \end{figure}
 
@@ -545,7 +545,7 @@ Whilst the second measure suggests no clear rationale for a threshold boundary, 
 In the absence of a clear logical framework from which to draw a specific cut-off value for DBUR, I shall propose 0.018 which aligns with an apparent divide in the data, since there is a possibility that this divide represents a functional divide between binary observer behaviours. It also seems reasonable to exclude data with a Min SD \textgreater 0.01.
 
 \begin{figure}[hbtp] %https://github.com/da5nsy/SAPS/blob/c03152d610a5469f293068c6e8ec2258f4842c94/SAPS_DataAnalysis.m
-\includegraphics[max width=\textwidth]{figs/tablet/excl3.png} 
+\includegraphics[max width=\textwidth]{figs/tablet/excl3.pdf} 
 \caption{As \ref{fig:excl2} but with proposed boundaries}
 \label{fig:excl3}
 \end{figure}
@@ -555,9 +555,7 @@ In the absence of a clear logical framework from which to draw a specific cut-of
 
 \subsubsection{Data}
 
-Data without exclusions is presented in Figure \ref{fig:exp2wo}
-
-Following exclusions, data is presented in Figure \ref{fig:exp2}. Here, we see that the chromaticities of the ambient lighting in the first and second environments (77/78, and 25) are far outside the practical gamut. If we might have expected full chromatic adaptation in observers in these environments, then the results we see would represent the case where there is extreme smearing (similar to the `most yellow' dataset from Figure \ref{fig:basement_rgby_test}). 
+Data without exclusions is presented in Figure \ref{fig:exp2wo}. Following exclusions, data is presented in Figure \ref{fig:exp2}. Here, we see that the chromaticities of the ambient lighting in the first and second environments (77/78, and 25) are far outside the practical gamut. If we might have expected full chromatic adaptation in observers in these environments, then the results we see would represent the case where there is extreme smearing (similar to the `most yellow' dataset from Figure \ref{fig:basement_rgby_test}). 
 \begin{figure}[hbtp] 
 \includegraphics[max width=\textwidth]{figs/tablet/exp2_withoutExclusion.pdf} 
 \caption{The mean settings of all observers from Experiment 2, with illuminant chromaticities for the 3 different spaces.}
@@ -576,7 +574,7 @@ In summary, for the data collected at the British Museum, we see a distinction b
 
 The potential confounds in this experiment are, at minimum: observer (and associated variables), day and time, gallery space, luminance, and lighting technology.
 
-%\clearpage
+\clearpage
 
 \subsection{Experiment 3}
 
@@ -723,7 +721,7 @@ Considering the lack of discernibility between data collected under the two cond
 
 Our experimental power may be too low; considering that we have no estimate for effect size, experimental power is undetermined. However, if melanopic flux was a considerable contributor to the process of chromatic adaptation, even if I hadn't seen a distinction in the group data I may have expected to see a distinction in the individual observer data (Figures \ref{fig:PAMELA_20180205_Individual} and \ref{fig:PAMELA_20180205_Individual2}).
 
-It is possible, considering we only ran this experiment at our chosen levels of photopic and melanopic luminances, that melanopsin may only play an active role at other luminances. If further experiments of this type were undertaken, it would be wise to match for cone catches instead of relying on chromaticity as a proxy. This would also ensure matching for luminance.
+It is possible, considering we only ran this experiment at our chosen levels of photopic and melanopic luminances, that melanopsin may only play an active role at other luminances. If further experiments of this type were undertaken, it would be wise to match for cone catches instead of relying on chromaticity as a proxy. This would also ensure matching for luminance. Considering current knowledge regarding chromatic adaptation differing lux levels shouldn't be a concern, however it would be normal experimental procedure to equate luminance across conditions.
 
 Future experimenters should also consider the introduction of a third condition which was colorimetrically different, but matched for melanopic flux, in order to improve the ability to predict expected effect size. One method to decide the amount of colorimetric difference, might be to follow the `splatter' logic of \citet{spitschan_human_2016}, whereby the chromatic difference is calculated to correspond with the maximum chromatic difference resultant between two nominally metameric conditions introduced by differences between a real observer and a standard observer.
 
