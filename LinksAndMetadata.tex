@@ -4,21 +4,9 @@
 %%  the pages.
 %%
 
-% Some hacks are necessary to make bibentry and hyperref play nicely.
-% See: http://tex.stackexchange.com/questions/65348/clash-between-bibentry-and-hyperref-with-bibstyle-elsart-harv
-% See also: hyperref documentation section on bibentry, 9.1.7, p39
-% This is the first half of the bibentry/hyperref hack
-% The second half is just after begin{document} in Main.tex
-%\makeatletter
-%    \let\saved@bibitem\@bibitem
-%\makeatother
-%\usepackage{bibentry}
+\usepackage[bookmarks,pagebackref,hidelinks]{hyperref}
 
-% v-- this setup can be useful for checking links
-%\usepackage[bookmarks,colorlinks=true,backref,,hyperindex,debug,pdftex]{hyperref}
-% v-- and this is the serious setup
-
-\usepackage[bookmarks,pagebackref,pdftex,hidelinks]{hyperref} 
+%This (in combo with pagebackred in hyperref) adds 'cited: p. X' after each bibliography entry
 \renewcommand*\backref[1]{\ifx#1\relax \else (cited: p. #1) \fi}
 
 \AtBeginDocument{
@@ -32,6 +20,11 @@
     }
 }
 
+% Gives you the ability to add comments to pdfs
+% This must be loaded after hyperref
+%\usepackage[author={Danny Garside}]{pdfcomment}
+
+%
 % Creates hyperlinks automatically from DOIs, and allows for use of \doi{} rather than \url{} which means it can handle non-allowed characters in DOIs.
 \usepackage{doi}
 
