@@ -2,15 +2,7 @@
 % To do after feedback from KC 
 % ----------------------------
 %
-% Expand the results section for Experiment 2 by including a subplot (2 x 2) showing a) no exclusions, b)/c)/d) different exclusions applied, and assess the effect of applying such exclusions.
-%
 % Change the exclusion parameter for Exp 3 based on this (if needed after above)
-%
-% Mention naive will come later
-%
-% More info on naive - "how difficult did people seem to find it, how long did they take roughly would be nice."
-
-
 
 \chapter{The Spatial Achromatic Point Setting (SAPS) Method}
 \label{TabletMethodChapter}
@@ -62,7 +54,7 @@ In the \gls{SAPS} method, as presented here, a tablet computer is given to an ob
 
 To minimise the effect of the presentation of chromatic scenes upon the viewer, which may influence an observer's state of chromatic adaptation, this process is repeated a number of times with the area of colour space which is presented varying, through random rotation about the luminance axis, and random offsetting through both dimensions of the chromatic plane.
 
-In the rest of this chapter I will describe the method in more detail, and describe some experiments performed to explore the potential abilities and limitations of such a method.
+The rest of this chapter shall describe the method in more detail, and some experiments performed to explore the potential abilities and limitations of this method.
 
 \section{Research Questions and Hypotheses} \label{sec:qandhyp}
 
@@ -107,8 +99,7 @@ The observer was instructed to hold the tablet such as was comfortable for them 
 \label{fig:grant_demo}
 \end{figure}
 
-Most observers seemed to find this task difficult for the first stimulus (appearing confused and often verbally expressing difficulty), but within the first few stimuli seemed to develop an increased comfort and ease with the task, resulting in a decreased response time. %(Illustrate with graph of response time?)
-At this point the observer was told that there would be thirty trials. No training was provided, and no runs were excluded as training runs. One stimulus was forced to have identical rotation and offset to an earlier stimulus, in order to assess intra-observer variation (see Section \ref{sec:exclusion}).
+Most observers seemed to find this task difficult for the first stimulus (appearing confused and often verbally expressing difficulty), but within the first few stimuli seemed to develop an increased comfort and ease with the task, resulting in a decreased response time (Figure \ref{fig:mediantime}). At this point the observer was told that there would be thirty trials. No training was provided, and no runs were excluded as training runs. One stimulus was forced to have identical rotation and offset to an earlier stimulus, in order to assess intra-observer variation (see Section \ref{sec:exclusion}).
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/MVI_3889-4.jpg} % E:\Pictures\2016\2016-10-18
@@ -549,7 +540,7 @@ It can be seen in Figure \ref{fig:PAMELA_DG_results} that the chromaticity of th
 
 Considering that this experiment was performed with observers selected from the general public it seems reasonable to assume that we may need to use exclusion criteria. Now that we have real data we can consider the two options presented in Section \ref{sec:exclusion}.
 
-For Figure \ref{fig:excl1} `Mean SD' is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the two-dimensional Euclidean distance between the two chromaticity coordinates selected for the two identical stimuli.
+For Figure \ref{fig:excl1} `Mean SD' is calculated for each observer's data by taking the mean of the standard deviation in the u' and v' chromatic dimensions. \gls{DBUR} is calculated as the Euclidean distance between the two chromaticity coordinates selected for the two identical stimuli.
 
 \begin{figure}[hbtp] 
 \includegraphics[max width=\textwidth]{figs/tablet/excl1.pdf} 
@@ -557,7 +548,7 @@ For Figure \ref{fig:excl1} `Mean SD' is calculated for each observer's data by t
 \label{fig:excl1}
 \end{figure}
 
-It can be seen that on both measures there are a small number of clear outliers; a group of three points with mean SD around 0.02 but very low \gls{DBUR}, and two points with very high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure mean SD would be more effective in recognising these points.
+It can be seen that on both measures there are a small number of clear outliers; three points with high mean SD but low \gls{DBUR}, and two points with both high mean SD and high \gls{DBUR}. Using only one of these two measures would fail to pick up some of these points, though as a single measure mean SD seems as though it would be more effective in recognising these points.
 
 A vertical line (the `logical threshold') is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
 
@@ -569,11 +560,11 @@ As can be seen from this line, a threshold based on this measure would exclude a
 \label{fig:excl2}
 \end{figure}
 
-This test still seems overly severe (Figure \ref{fig:excl2}), in fact it appears more severe than the previous test, and this is likely due to several issues. Firstly, the theoretical data does not have any element of variability introduced from touch uncertainty. Secondly, since the hypothetical data is firmly centred on the spatial centre of the screen it avoids any element of aforementioned `smearing' (where an observer might ideally select a point outside of the display gamut). Thirdly, in situations where there is a high variation across both the u' and v' axis, but a minimum is another dimension (in other words: strongly elliptical data orientated roughly diagonally in chromaticity space), which seems common for this type of data, the minimum between u' and v' is still going to be an overestimation of a truly representative SD.
+This test still seems rather severe (Figure \ref{fig:excl2}), and this is likely due to several issues. Firstly, the theoretical data does not have any element of variability introduced from touch uncertainty. Secondly, since the hypothetical data is firmly centred on the spatial centre of the screen it avoids any element of aforementioned `smearing' (where an observer might ideally select a point outside of the display gamut). Thirdly, in situations where there is a high variation across both the u' and v' axis, but a minimum is another dimension (in other words: strongly elliptical data orientated roughly diagonally in chromaticity space), which seems common for this type of data, the minimum between u' and v' is still going to be an overestimation of a truly representative SD.
 
 Whilst the second measure suggests no clear rationale for a threshold boundary, there is a greater spread in the variability of these differences between observers, and the relationship between this measure and an observer's performance follows a strong and clear logic.
 
-In the absence of a clear logical framework from which to draw a specific cut-off value for DBUR, I shall propose 0.018 which aligns with an apparent divide in the data, since there is a possibility that this divide represents a functional divide between binary observer behaviours. It also seems reasonable to exclude data with a Min SD \textgreater 0.01. These two cut-offs are visualised in Figure \ref{fig:excl3}. %KC: why 0.01?
+In the absence of a clear logical framework from which to draw a specific cut-off value for DBUR, I shall propose 0.04 which aligns with an apparent divide in the data, since there is a possibility that this divide represents a functional divide between observer behaviours. It also seems reasonable to exclude data with a Min SD \textgreater 0.01, again with the rationale that for this specific dataset points above this boundary appear to be outliers from the rest of the group. These two cut-offs are visualised in Figure \ref{fig:excl3}.
 
 \begin{figure}[hbtp] 
 \includegraphics[max width=\textwidth]{figs/tablet/excl3.pdf} 
@@ -602,6 +593,8 @@ We do however see a distinction between these two datasets and the `GC' data, wh
 In summary, for the data collected at the British Museum, we see a distinction between the `GC' data and the data collected in the two other environments and minimal distinction between those two other datasets. This tallies well with witnessing a distinction where lighting chromaticity is distinct, and minimal distinction where lighting chromaticities are similar. However, this method did not allow for the selection of chromaticities which would have represented a true non-spectrally-selective surface under two of these lighting conditions, and so the data for those conditions is unlikely to be a simple representation of an observer's chromatic adaptation state.
 
 The potential confounds in this experiment are, at minimum: observer (and associated variables), day and time, gallery space, luminance, and lighting technology.
+
+A subset of this data will be used in the \nameref{sec:tablet_Discussion} section to comment upon the applicability of this method to naive observers (Section \ref{sec:naive}).
 
 \clearpage
 
@@ -642,7 +635,7 @@ From these two figures it can be seen that, at least in this case, there is mode
 
 \clearpage
 
-\section{Discussion}
+\section{Discussion} \label{sec:tablet_Discussion}
 
 In the following section I shall discuss the proposed methodology in terms of its abilities and limitations, referring in turn to the hypotheses stated at the start of this chapter (Section \ref{sec:qandhyp}), and areas that I consider worthy of further consideration or development. I shall also comment on the results of Experiment 3.
 
@@ -686,9 +679,23 @@ In Experiment 1 (see Figure \ref{fig:PAMELA_DG_results}/\ref{fig:PAMELA_DG_resul
 
 In Experiment 2 we see a clear distinction between results for trials performed in the Great Court and those performed in either of the other environments. All sets (except perhaps the group towards the centre of the practical gamut) exhibit some drag towards the chromaticity of the lighting in the environment.
 
-\subsection{Naive observers}
+\subsection{Naive observers} \label{sec:naive}
 
-From the plot of standard deviations in Figure \ref{fig:naive}, it can be seen that whilst the participants with a large amount of experience performed well, a small number of naive participants actually performed better (assuming that SD is a valid measure of performance), whilst the remainder of participants performed almost as well with limited but notable exceptions. It is worth noting that whilst I have chosen this environment to examine (`Gallery 25: Africa Gallery') since it has the highest cross-over of individuals who can be classed as `experienced', this choice might not be ideal since the Africa Gallery represents a situation where a large amount of `smearing' may occur, since the chromaticity of the light source is far outside that selectable from the practical gamut (Figure \ref{fig:exp2}). 
+Naive observers (non-colour-scientists, who have only had a very short briefing and have undergone no training) generally seemed confident and able to perform the task once they had completed a couple of trials, but a moderate number of observers responded with hesitation when presented with the first stimulus. The response `but there isn't anything grey here' was not uncommon, and observers often ummed and ahhed for 20 seconds or so before committing to that first selection. The following selections seemed to flow a great deal more freely, with participants generally taking on average 3 or 4 seconds per stimulus (Figure \ref{fig:mediantime}), and about 2 minutes total (Figure \ref{fig:timeHistogram}).
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/mediantime.pdf} 
+\caption{Median time taken per stimulus across stimuli. Data is for all observers from Experiment 2. The point for stimulus 1 is not shown since this datapoint does not truly represent the amount of time taken by an observer. This is due to the fact that I often started the script running before approaching a participant, in order that I could start the observations without an observer seeing a white code screen on the tablet, and so in the case that the first potential participant I approached declined, this time could run into several minutes before a participant was even holding the device.}
+\label{fig:mediantime}
+\end{figure}
+
+\begin{figure}[hbtp]
+\includegraphics[max width=\textwidth]{figs/tablet/mediantime.pdf} 
+\caption{Total time taken by observers. Data is for all observers from Experiment 2. }
+\label{fig:timeHistogram}
+\end{figure}
+
+From a plot of standard deviations (Figure \ref{fig:naive}), it can be seen that whilst the participants with a large amount of experience performed well, a small number of naive participants actually performed better (assuming that SD is a valid measure of performance), whilst the remainder of participants performed almost as well with limited but notable exceptions. It is worth noting that whilst I have chosen this environment to examine (`Gallery 25: Africa Gallery') since it has the highest cross-over of individuals who can be classed as `experienced', this choice might not be ideal since the Africa Gallery represents a situation where a large amount of `smearing' may occur, since the chromaticity of the light source is far outside that selectable from the practical gamut (Figure \ref{fig:exp2}). 
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/naive.pdf} 
