@@ -45,11 +45,56 @@ be useful for colour constancy?
 This chapter shall give an overview of the main scripts which have been written, going through the logic and results of each. By doing this, a roughly chronological path of the thought processes involved will be presented.
 
 %\input{melcomp1}
-\input{melcomp2}
-\input{melcomp3}
+%\input{melcomp2}
+%\input{melcomp3}
+
+\section{melcomp\_4 and 5}
+These two short scripts are minor tests which are not worth going into.
+
+\section{melcomp\_6}
+This script produced figures for presentation to Hannah Smithson's group in Oxford, which was predominantly based upon the logic of melcomp\_1 and 2. The key figure was a presentation of how a set of clusters could be drawn together into a rough illuminant-independent space, such as is shown in Figure \ref{fig:corrected}.
+
+It also introduced a measure of non-planarity, calculated by performing a principal components analysis on the cloud of points $[l,s,i]_{\text{MB}}$, and looking at how much variance was unaccounted for by the first two principal components. It was found that there were two parts of the spectrum where an effective corrective signal (in terms of non-planarity); firstly at around and just higher than the peak spectral sensitivity of melanopsin, and secondly with a melanopsin shift of about positive 75nm (see `Standard' in Figure \ref{fig:PC3}). It was found that minor changes in parameters used to make these calculations, such as surface set used or observer used, could have moderate effects on the optimal sensitivity for a sensor whose task was to provide a signal for transforming cone signals (see others in Figure \ref{fig:PC3}).
+
+\begin{figure}[htbp]
+    %\includegraphics[max width=\textwidth]{figs/comp/melcomp_6/PC3.pdf}
+    \caption{}
+    \label{fig:PC3}
+\end{figure} 
+
+One final element introduced here was the explicit comparison to other colour constancy algorithms, though discussion of this shall be saved for a later section.
+
+\section{melcomp\_7 and 8}
+Melcomp 7 is very minor.
+Melcomp 8 is an exploration into how to measure the effectiveness of a colour constancy algorithm (before K-means is introduced in melcomp\_9).
+
+\input{melcomp9}
+
+\section{Further work}
+
+\begin{itemize}
+\item Further investigate \emph{why} a melanopic transform might work
+\begin{itemize}
+\item Surface spectral regularities?
+\item Test with artificial surfaces and illuminants
+\end{itemize}
+\item Work out how much of the optimality function is noise
+\begin{itemize}
+\item Re-run test with random number generators un-set or set with different seeds to understand their influence
+\item Consider different observers, daylight data and surface data
+\end{itemize}
+\item Simplify the grading mechanism (K-means is over the top)
+\item Try more complex melanopsin-based transforms
+\item Compare and combine with other colour constancy algorithms
+\item Don't keep it limited to colorimetry, consider luminance/PC1 also (e.g. \citet{chakrabarti_color_2015}). 
+\item Would such a system explain the unexpected results of \citet{cao_evidence_2018}? (LM modulation but not S)
+\item If we do use this signal in natural environments, does the degradation of this signal in artificial environments impact our preference ratings? Could evidence of this mechanism show up in lighting preference indices used in the lighting engineering world?
+\end{itemize}
 
 
-% In melcomp\_3 I dove I approached the problem with a linear models approach, drawing on the work of Maloney \hl{refs!}. This is so far a bit of a bust, but I'm hoping that as I bring it all together it might click into place.
+
+
+% I've got figs but I'd need to reprocess them.
 
 
 %\begin{figure}

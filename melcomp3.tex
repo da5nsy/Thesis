@@ -32,26 +32,32 @@ The ability of any of these signals to predict second or higher principal compon
 
 \begin{figure}[htbp]
  \includegraphics[max width=\textwidth]{figs/comp/melcomp_3/19.png}
- \caption{\hl{Caption}}
+ \caption{Correlation coefficients between a range of signals and the first three principal component scores. On the left of a raw representation, and on the right each column is normalised between 0 and 1.}
  \label{fig:19}
 \end{figure} 
 
-Looking more closely at the data underlying these correlations it can be seen that whereas the relationships for \gls{PC1} is simple (Figure \ref{fig:L-PC1}), the relationship between `$S/I$' and the \gls{PC2} is rather less simple (Figure \ref{fig:S/I-PC2}). Further examination showed that this relationship was dependent upon the PC1 value, and that by including a component of $L$ value (considered a biologically accessible correlate to \gls{PC1} score), a much more robust relationship could be produced. This is demonstrated in Figure \ref{fig:}
+Looking more closely at the data underlying these correlations it can be seen that whereas the relationships for \gls{PC1} is simple (Figure \ref{fig:L-PC1}), the relationship between `$S/I$' and the \gls{PC2} is rather less simple (Figure \ref{fig:S/I-PC2}). Further examination showed that this relationship was dependent upon the PC1 value, and that by including an $L$ component (considered a biologically accessible correlate to \gls{PC1} score), a much more robust relationship could be produced. This is demonstrated in Figure \ref{fig:withPC1}. The additional value need not be $L$, and could be any other primary signal. Using each primary signal in turn instead of $L$ yields correlation coefficients of 0.916, 0.922, 0.929, 0.921 and 0.924 respectively (all high, $S$ highest).
 
 \begin{figure}[htbp]
  \includegraphics[max width=\textwidth]{figs/comp/melcomp_3/20.png}
- \caption{\hl{Caption}}
+ \caption{The relationship between $L$ and \gls{PC1}, showing strong correlation.}
  \label{fig:L-PC1}
 \end{figure} 
 
 \begin{figure}[htbp]
  \includegraphics[max width=\textwidth]{figs/comp/melcomp_3/21.png}
- \caption{\hl{Caption}}
+ \caption{The relationship between $S/I$ and \gls{PC2}, showing weak correlation, but a clear pattern.}
  \label{fig:S/I-PC2}
 \end{figure} 
 
+\begin{figure}[htbp]
+ \includegraphics[max width=\textwidth]{figs/comp/melcomp_3/24.png}
+ \caption{The $S/I$ signal as in Figure \ref{fig:S/I-PC2} but with a component of $L$.}
+ \label{fig:withPC1}
+\end{figure} 
 
+At this point an unfortunate discrepancy between the desired function of the code and the actual function of the code was noted: whilst the desire had been to study colour signals for all surfaces under all illuminants, an averaging stage had unexpectedly averaged the signals such that computations were being performed using the average colour signal under each illuminant. 
 
+The impact of this distinction was that the game posed by Laurence Maloney was no longer directly being queried. Instead, the question had morphed into ``Given cone catches from \emph{a single stable surface} under an unknown illuminant, guess the illuminant.'' It is still interesting to note that '$S/I$' performs very well at recovering this information however.
 
-
-
+% Maybe I'll come back to this and maybe I won't.

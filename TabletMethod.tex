@@ -1,3 +1,17 @@
+%
+% To do after feedback from KC 
+% ----------------------------
+%
+% Expand the results section for Experiment 2 by including a subplot (2 x 2) showing a) no exclusions, b)/c)/d) different exclusions applied, and assess the effect of applying such exclusions.
+%
+% Change the exclusion parameter for Exp 3 based on this (if needed after above)
+%
+% Mention naive will come later
+%
+% More info on naive - "how difficult did people seem to find it, how long did they take roughly would be nice."
+
+
+
 \chapter{The Spatial Achromatic Point Setting (SAPS) Method}
 \label{TabletMethodChapter}
 
@@ -230,7 +244,8 @@ As shown in Figure \ref{fig:pr6503} it was found that for pixel values of 60 and
 
 For values above 75 (inclusive), a conservative estimate for the maximum shifts in chromaticity due to variation between light sources (considering only those sources tested) would be roughly 0.004 in the u' axis, and 0.009 in the v' axis. These values are derived from visual inspection of the variation in values of chromaticity for readings taken of pixel values above 75. These figures could be considered baseline figures for classifying observed differences as likely to originate from genuine changes in observer state rather than lighting/stimulus artefacts.
 
-It is noted that the variation between the repeated measurements, denoted `WW' and `WW2', is larger than might be expected; at high pixel values the chromaticities recorded under `CW', `MH' and `WW2' converge very well, but `WW' seems offset by roughly 0.005 units in a roughly north-east direction in colour space. The cause of this is unclear, but if we assume that the convergence of the other data at high pixel values suggests that lighting has a minimal effect on recorded chromaticity, then it seems reasonable to think that any variation is recorded spectrum is likely to be the result of `warm up' (either in terms of an actual temperature dependency, or in terms of a device taking time to settle into a default operating mode after turn on) of either the screen or the spectroradiometer. 
+It is noted that the variation between the repeated measurements, denoted `WW' and `WW2', is larger than might be expected; at high pixel values the chromaticities recorded under `CW', `MH' and `WW2' converge very well, but `WW' seems offset by roughly 0.005 units in a roughly north-east direction% KC wasn't keen on this, see what others say
+in colour space. The cause of this is unclear, but if we assume that the convergence of the other data at high pixel values suggests that lighting has a minimal effect on recorded chromaticity, then it seems reasonable to think that any variation is recorded spectrum is likely to be the result of `warm up' (either in terms of an actual temperature dependency, or in terms of a device taking time to settle into a default operating mode after turn on) of either the screen or the spectroradiometer. 
 
 % ----------% This is all well and good but not required. 
 % Consulting the spectral data for `WW' and `WW2' (Figure X%!!!!!!!!!!!
@@ -508,7 +523,7 @@ Following data processing as described in Section \ref{sec:processing} (with no 
 
 The primary result here is that there does seem to be a distinction between the results from `WW' and the other two conditions, with the results for `WW' being displaced northeast from those for `CW' and `MH'. The means for the `WW' group and either the `CW' or `MH' groups seem to be offset by roughly 0.01 $\Delta$u'v'. If there were an effect of the ambient illumination, such as discussed in \ref{sec:ambient} this would move the recorded points in the opposite direction to that observed.
 
-A secondary result concerns the intra-observer variability. It can be seen in \ref{fig:PAMELA_DG_results_ellipses} that the standard deviation ellipses are large, but notably smaller than the basline data set, suggesting that the observer was actually making conscious selections. It can also be seen that there is a reliable trend of the orientation of the ellipse, which could point to an elongation along the caerulean line as seen by other researchers \citep{bosten_what_2015}.
+A secondary result concerns the intra-observer variability. It can be seen in \ref{fig:PAMELA_DG_results_ellipses} that the standard deviation ellipses are large, but notably smaller than the baseline data set, suggesting that the observer was actually making conscious selections. It can also be seen that there is a reliable trend of the orientation of the ellipse, which could point to an elongation along the caerulean line as seen by other researchers \citep{bosten_what_2015}. %add link to lit review
 
 \begin{figure}[hbtp] %SAPS_DataAnalysis.m with location as 'PAMELA' and OM = 0
 \includegraphics[max width=\textwidth]{figs/tablet/PAMELA_DG_results.pdf} 
@@ -546,7 +561,7 @@ It can be seen that on both measures there are a small number of clear outliers;
 
 A vertical line (the `logical threshold') is plotted from the point representing baseline data. This data is calculated by computing the results for a hypothetical observer who pressed the precise centre of the screen for each stimulus, and the precise centre of the checker-board on the touch characterisation phase. 
 
-As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the cerulean line, whereas the hypothetical data is nominally rotationally symmetric (see Figure \ref{fig:PAMELA_DG_results_ellipses}). It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
+As can be seen from this line, a threshold based on this measure would exclude a very large number of datasets. This is partly due to the fact that most real observer's exhibit orientation-dependent variability, with the greatest axis of variability generally being in line with the caerulean line, whereas the hypothetical data is nominally rotationally symmetric (see Figure \ref{fig:PAMELA_DG_results_ellipses}). It may be more appropriate then to compare the SD of the hypothetical dataset to the SD of the axis of least variability for real data. However, this could be seen as being overly lenient towards the real data. As a compromise, and for simplicity, let's consider the minimum value between u' SD and v' SD (rather than the mean) as the representative for real data, which shifts relative positions of the data and the threshold such that more datasets pass this test. 
 
 \begin{figure}[hbtp] 
 \includegraphics[max width=\textwidth]{figs/tablet/excl2.pdf} 
@@ -554,11 +569,11 @@ As can be seen from this line, a threshold based on this measure would exclude a
 \label{fig:excl2}
 \end{figure}
 
-This test still seems overly severe, in fact it appears more severe, and this is likely due to several issues. Firstly, the theoretical data does not have any element of variability introduced from touch uncertainty. Secondly, since the hypothetical data is firmly centred on the spatial centre of the screen it avoids any element of aforementioned `smearing' (where an observer might ideally select a point outside of the display gamut). Thirdly, in situations where there is a high variation across both the u' and v' axis, but a minimum is another dimension (in other words: strongly elliptical data orientated roughly diagonally in chromaticity space), which seems common for this type of data, the minimum between u' and v' is still going to be an overestimation of a truly representative SD.
+This test still seems overly severe (Figure \ref{fig:excl2}), in fact it appears more severe than the previous test, and this is likely due to several issues. Firstly, the theoretical data does not have any element of variability introduced from touch uncertainty. Secondly, since the hypothetical data is firmly centred on the spatial centre of the screen it avoids any element of aforementioned `smearing' (where an observer might ideally select a point outside of the display gamut). Thirdly, in situations where there is a high variation across both the u' and v' axis, but a minimum is another dimension (in other words: strongly elliptical data orientated roughly diagonally in chromaticity space), which seems common for this type of data, the minimum between u' and v' is still going to be an overestimation of a truly representative SD.
 
-Whilst the second measure suggests no clear rationale for a threshold boundary, there is a greater spread in the variability of these differences between observers, and the relationship between this measure and an observer’s performance follows a strong and clear logic.
+Whilst the second measure suggests no clear rationale for a threshold boundary, there is a greater spread in the variability of these differences between observers, and the relationship between this measure and an observer's performance follows a strong and clear logic.
 
-In the absence of a clear logical framework from which to draw a specific cut-off value for DBUR, I shall propose 0.018 which aligns with an apparent divide in the data, since there is a possibility that this divide represents a functional divide between binary observer behaviours. It also seems reasonable to exclude data with a Min SD \textgreater 0.01.
+In the absence of a clear logical framework from which to draw a specific cut-off value for DBUR, I shall propose 0.018 which aligns with an apparent divide in the data, since there is a possibility that this divide represents a functional divide between binary observer behaviours. It also seems reasonable to exclude data with a Min SD \textgreater 0.01. These two cut-offs are visualised in Figure \ref{fig:excl3}. %KC: why 0.01?
 
 \begin{figure}[hbtp] 
 \includegraphics[max width=\textwidth]{figs/tablet/excl3.pdf} 
@@ -627,9 +642,9 @@ From these two figures it can be seen that, at least in this case, there is mode
 
 \clearpage
 
-\section{Conclusions and Discussion}
+\section{Discussion}
 
-In the following section I shall discuss the proposed methodology is terms of its abilities and limitations, referring in turn to the hypotheses stated at the start of this chapter (Section \ref{sec:qandhyp}), and areas that I consider worthy of further consideration or development. I shall also comment on the results of Experiment 3.
+In the following section I shall discuss the proposed methodology in terms of its abilities and limitations, referring in turn to the hypotheses stated at the start of this chapter (Section \ref{sec:qandhyp}), and areas that I consider worthy of further consideration or development. I shall also comment on the results of Experiment 3.
 
 \subsection{Environment-agnostic stimulus}
 
@@ -645,7 +660,7 @@ It should be noted that this result is expected to break down under illumination
 
 One insight into variability within this method can be taken by looking at the calibration data that each participant provides after the main part of each trail (Described in Section \ref{sec:touch}). Here they are asked to touch the centre of a checker-board, and this data is primarily used to offset any bias introduced by the difference between where an observer thinks they are touching, and where the tablet records having been touched. A secondary use of this data, albeit with caveats, is to estimate the amount of variation introduced simply by touch imprecision; here the participant is given as-close-to an objective task as might be thought possible, and thus any variability in the results must stem not from perceptual indecision, but rather the process of pointing and touching. There is a clear caveat; it seems likely that an estimate of touch imprecision gleaned from this dataset will underestimate the amount of `real' touch imprecision, since observers have reliably (in my experience) modified their touching behaviour in this second part of the task, in the manner which might be expected of someone who is given a broad target to hit, and then immediately after is given a much smaller target to hit (they lean in, hold their finger more rigidly, and move more slowly).
 
-To perform this analysis I shall use the data from Experiment 2, to get the largest possible sample and so as not to limit the analysis to those with a strong vested interest in this research. In Figure \ref{fig:BMtouch} I show the standard deviations based on just the calibration (checker-board) data. Note that here the units are pixels, as opposed to a chromaticity space. 4 outliers are excluded. These outliers appear to occur due to an observer accidentally double touching the screen during the calibration phrase, and thus having one data point which is far outside the normal group. This does not affect (to a large extent) the actual calibration process, because there a median is taken, but it does have a rather strong effect when calculating the standard deviation of a set.
+To perform this analysis I shall use the data from Experiment 2, to get the largest possible sample and so as not to limit the analysis to those with a strong vested interest in this research. In Figure \ref{fig:BMtouch} I show the standard deviations based on just the calibration (checker-board) data. Note that here the units are pixels, as opposed to a chromaticity space. 4 outliers are excluded. These outliers appear to occur due to an observer accidentally double-touching the screen during the calibration phrase, and thus having one data point which is far outside the normal group. This does not affect (to a large extent) the actual calibration process, because there a median is taken, but it does have a rather strong effect when calculating the standard deviation of a set.
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/BMtouch.pdf} 
@@ -653,8 +668,7 @@ To perform this analysis I shall use the data from Experiment 2, to get the larg
 \label{fig:BMtouch}
 \end{figure}
 
-To consider the above information in practice, we need to perform a conversion into chromaticity space. For a simple analogy, let's consider a pixel shift of 6 pixels (the rough average standard deviation in each dimension, based on a visual analysis of Figure \ref{fig:BMtouch}). This would equate to a shift of 0.2742 in u*v* space, or a shift of 0.0003 in u'v' space %shouldn't this be differennt values for u' and v'? !!!!!!!!!
-, which is an order of magnitude smaller than the average standard deviations for the main datasets. I therefore conclude that touch imprecision will only have a minor influence on the data collected with this method, especially when an effort is made to calibrate out this bias. Further investigation may conclude that this element of measurement imprecision is not worth the effort required to correct for.
+To consider the above information in practice, we need to perform a conversion into chromaticity space. For a simple analogy, let's consider a pixel shift of 6 pixels (the rough average standard deviation in each dimension, based on a visual analysis of Figure \ref{fig:BMtouch}). This would equate to a shift of 0.2742 in u*v* space, or a shift of 0.0003 in u'v' space, which is an order of magnitude smaller than the average standard deviations for the main datasets. I therefore conclude that touch imprecision will only have a minor influence on the data collected with this method, especially when an effort is made to calibrate out this bias. Further investigation may conclude that this element of measurement imprecision is not worth the effort required to correct for.
 
 \subsubsection{Intra-observer Variability: Test-retest}
 
@@ -686,7 +700,7 @@ From the plot of standard deviations in Figure \ref{fig:naive}, it can be seen t
 
 At the start of this chapter I noted the potential for the experiment to intrude upon the observer's visual world. When performing this experiment, the tablet occupies a large portion of an observer's central field of view. It should therefore be assumed that any low-level short term visual adaptation will incorporate an element of adaptation to the stimuli rather than being a pure measure of an observer's adaptational state in a particular environment. 
 
-Regarding high level estimates of white point, observers are aware that they are looking at a screen which they know implicty to be an emmissive device, with a white point not primarily determined by the ambient illumination. The ambiguity of the colour of the stimuli goes some way to masking the white point of the screen. If there was a clear white reference displayed on the screen I doubt we would see any distinction between environments. This is why the spatial calibration routine is run after the main trial and not before. It is possible however, that over multiple presentations of the stimuli an observer may begin to build up a representation of white which is based upon the white point of the screen. This seems particularly likely to occur when the illuminant chromaticity is far outside the practical gamut, as in Experiment 2 under the either of the strongly yellow illuminants. Under such a condition, an observer may be more likely to interpret the investigator's question as `touch the grey-est, or least colourful, point on the screen \emph{within the context of what appears on the screen over time}' rather than relating to the screen in the context of the surrounding environment.
+Regarding high level estimates of white point, observers are aware that they are looking at a screen which they know implictly to be an emmissive device, with a white point not primarily determined by the ambient illumination. The ambiguity of the colour of the stimuli goes some way to masking the white point of the screen. If there was a clear white reference displayed on the screen I doubt we would see any distinction between environments. This is why the spatial calibration routine is run after the main trial and not before. It is possible however, that over multiple presentations of the stimuli an observer may begin to build up a representation of white which is based upon the white point of the screen. This seems particularly likely to occur when the illuminant chromaticity is far outside the practical gamut, as in Experiment 2 under the either of the strongly yellow illuminants. Under such a condition, an observer may be more likely to interpret the investigator's question as `touch the grey-est, or least colourful, point on the screen \emph{within the context of what appears on the screen over time}' rather than relating to the screen in the context of the surrounding environment.
 
 It is possible that this effect is visible in some of our data. Looking at the results from Experiment 2 in Figure \ref{fig:exp2} it seems as though the data for 77/78 and 25 may be split into two groups (a lower and a higher group). Looking at where these fall with respect to the practical gamut, with the lower one falling centrally and the upper one falling on the slope of the practical gamut, it is possible that this distinction represents two distinct observer approaches, with the lower group tracking the white point of the screen and the upper group attempting to select the white point of the illuminant.
 
@@ -744,7 +758,7 @@ Other potential improvements to the above experimental methodology include:
 
 \subsection{Coding language}
 
-One further recommendation, for a future investigator wishing to build upon this method, or for myself should I return to it, would be to address the current situation of a split across \gls{MATLAB} and Python. The current situation arose because, having started building the software in Python (specifically PsychoPy), due to the open-source nature of that project (and the implication that those outside of academia could more easily adopt and adapt the method, as well as the fact that this program would have to run on a small tablet, which I was unsure of whether it would run \gls{MATLAB}) I found that my skills within Python were critically lacking when it came to generating colorimetrically defined imagery, and that my skills and the skills of those around me were much further advanced in \gls{MATLAB}. I mention this primarily so that any future user might not attach any false significance to the split across languages.
+One further recommendation, for a future investigator wishing to build upon this method, or for myself should I return to it, would be to address the current situation of a split across \gls{MATLAB} and Python. The current situation arose because, having started building the software in Python (specifically PsychoPy), due to the open-source nature of that project (and the implication that those outside of academia could more easily adopt and adapt the method, as well as the fact that this program would have to run on a small tablet, which I was unsure would run \gls{MATLAB}) I found that my skills within Python were critically lacking when it came to generating colorimetrically defined imagery, and that my skills and the skills of those around me were much further advanced in \gls{MATLAB}. I mention this primarily so that any future user might not attach any false significance to the split across languages.
 
 \section{Conclusions}
 
