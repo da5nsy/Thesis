@@ -143,18 +143,18 @@ y=\frac{Y}{X+Y+Z}
 \end{align}
 \end{subequations}
 
-% Explain\dots \\
-% Here's a \gls{MATLAB} example, using \gls{PTB} for data:
+Explain\dots \\
+Here's a \gls{MATLAB} example, using \gls{PTB} for data:
 
-% \begin{lstlisting}[language=MATLAB]
-% load spd_D65 % SPD: CIE D-series illuminant D65
-% load sur_macbeth % SRF: macbeth colour checker
-% load T_xyz1931 % CMF: CIE 1931
+\begin{lstlisting}[language=MATLAB]
+load spd_D65 % SPD: CIE D-series illuminant D65
+load sur_macbeth % SRF: macbeth colour checker
+load T_xyz1931 % CMF: CIE 1931
 
-% colourSignals = sur_macbeth.*spd_D65;
-% XYZ = T_xyz1931*colourSignals;
-% xy = [XYZ(1,:)./sum(XYZ);XYZ(2,:)./sum(XYZ)];
-% \end{lstlisting}
+colourSignals = sur_macbeth.*spd_D65;
+XYZ = T_xyz1931*colourSignals;
+xy = [XYZ(1,:)./sum(XYZ);XYZ(2,:)./sum(XYZ)];
+\end{lstlisting}
 
 Plotting: 
 
@@ -227,7 +227,7 @@ Alternative propositions which offer fundamentally different approaches to the e
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/criflow.png}
-\caption{The stages of calculation for the computation of the CIE General Colour Rendering Index. Notes: Reference illuminant: the same or nearly the same CCT. Below 5000K reference spectrum will be that of a black body radiator, and from 5000K `one of a series of spectral power distributions of phases of daylight'.}
+\caption{The stages of calculation for the computation of the CIE General Colour Rendering Index. Notes: Reference illuminant: the same or nearly the same \gls{CCT}. Below 5000K reference spectrum will be that of a black body radiator, and from 5000K `one of a series of spectral power distributions of phases of daylight'.}
 \label{fig:criflow}
 \end{figure}
 
@@ -235,9 +235,10 @@ Alternative propositions which offer fundamentally different approaches to the e
 \section{Museum Lighting}
 
 \begin{quote}
-`Museums and art galleries collect, preserve, and display natural artifacts and/or examples of human achievement and analyze their impact on the world and the universe around us. Effective exhibit lighting must balance exhibition and conservation needs and enrich the museum experience.' \\
-\begin{flushright}IES RP-30-96 Museum and Art Gallery Lighting: \\A Recommended Practice \citep{ies_ies_1996}\end{flushright}
+`Museums and art galleries collect, preserve, and display natural artifacts and/or examples of human achievement and analyze their impact on the world and the universe around us. Effective exhibit lighting must balance exhibition and conservation needs and enrich the museum experience.'
 \end{quote}
+
+\begin{flushright}IES RP-30-96 Museum and Art Gallery Lighting: \\A Recommended Practice \citep{ies_ies_1996}\end{flushright}
 
 Lighting in museums is required to satisfy multiple criteria; perhaps the least contestable requirement being that the lighting illuminate objects such that they are suitably visible to museum visitors. Also of upmost importance in most museum settings is that the lighting does not have an unreasonably deleterious effect upon the objects or environment, be this through direct photodegradation or as a result of heat transfer. Further to these requirements, an increased or optimal visual quality is generally desirable, although what this represents or how to achieve it is generally ambiguous.
 Museum guidance documents provide advice on how to manage lighting to best address the above requirements and many other additional specific requirements through the recommendation of procedure and provision of target figures for quantitative variables. An overview of Museum Lighting Guidance Documents is presented in a later section of this document (3.1 Overview of Museum Lighting Specification Guidance Documents).
@@ -248,7 +249,7 @@ Extending the question of visibility is the subject of appearance. It is a gener
 \subsection{Lighting at The British Museum}
 
 Lighting at the British Museum has developed in a somewhat organic manner, from the early days of the museum before the introduction of artificial lighting. This leaves the museum with more than sufficient daylight in most spaces during daylight hours, where the increased modern knowledge regarding the deleterious effect of lighting now means that conservators must find ways in which to limit this natural resource so that objects are not unduly exposed. 
-The gallery lighting is replaced when a gallery is refurbished, and the latest technology is installed when a new gallery is created, where viable in terms of suitability and considering financial limitations. Other than this, lighting technologies tend to not be updated other than to replace individual lamps. This coupled with the grand scope of the museum, which means that it is rare for multiple galleries to be refurbished simultaneously, has led to a vast array of lighting designs and technologies. It in fact appears to represent a rather special example of `museum lighting through the ages', with daylight, tungsten, fluorescent and metal halide lamps all seemingly represented, as well as various illumination geometries reminiscent of the times of their fitting. It should be noted that these assertions are made following empirical observation with spectrophotometers and not from conversations with museum staff, see section 3.3 Collection of SPD Data at British Museum.
+The gallery lighting is replaced when a gallery is refurbished, and the latest technology is installed when a new gallery is created, where viable in terms of suitability and considering financial limitations. Other than this, lighting technologies tend to not be updated other than to replace individual lamps. This coupled with the grand scope of the museum, which means that it is rare for multiple galleries to be refurbished simultaneously, has led to a vast array of lighting designs and technologies. It in fact appears to represent a rather special example of `museum lighting through the ages', with daylight, tungsten, fluorescent and metal halide lamps all seemingly represented, as well as various illumination geometries reminiscent of the times of their fitting. It should be noted that these assertions are made following empirical observation with spectrophotometers and not from conversations with museum staff, see section 3.3 Collection of \gls{SPD} Data at British Museum.
 There also seems to be a great range of lighting quality within the British Museum, with some spaces feeling bright and others comparatively gloomy. There is a range of colour temperatures and chromaticities of light at the museum, as shown in Figure 1.
 
 Multiple methods are currently employed to limit the exposure of objects in the museum. UV absorbing film or glazing which incorporates UV reduction is used throughout the museum and in certain galleries there are automatic blinds which limit the intrusion of direct sunlight at specific times of the day and year. For particularly sensitive objects, rooms are lit artificially at very low levels, and some objects are selectively lit in order to further limit their accumulative exposure.
@@ -270,7 +271,7 @@ o	There appears to be an issue with the data for this question however, with the
 o	First question: The first priority is identified as `limiting damage' with other priorities broadly equal.
 o	Second question: Joint first priorities are identified as `colour and spectral power distribution' and `damage potential' with others broadly similar (though dimming, input power and warranty lagging behind others)
 -	91\% of respondents reported using `Color Rendering Index (CRI)' which is assumed to refer to CIE Ra. 6\% state that they refer to other Ri values, and 20\% report using CQS.
--	60\% of respondents report that they consider CCT.
+-	60\% of respondents report that they consider \gls{CCT}.
 
 
 
@@ -285,11 +286,11 @@ An overview was written of five of the most prominent and referred to museum lig
 •	SLL LG8: Lighting for museums and art galleries7
 •	IES RP-30-96 Museum and Art Gallery Lighting: A Recommended Practice1
 The main conclusions were:
--	Most recommend following values for CRI/CCT but also suggested visual inspection 
+-	Most recommend following values for CRI/\gls{CCT} but also suggested visual inspection 
 -	Recommended values were provided for:
 o	Lux (various, dependent on sensitivity, generally based on figures from the study of Loe et al.68)
 o	CRI (various, most frequently <80, with no experimental basis referenced)
-o	CCT (various, based implicitly on Kruithof67 or on such ideas found empirically)
+o	\gls{CCT} (various, based implicitly on Kruithof67 or on such ideas found empirically)
 -	There was often blurring between recommendations concerned with visual appearance and those concerned with conservation. 
 
 \subsubsection{Interviews with Museum Professionals}
@@ -302,22 +303,22 @@ Whilst a small number considered themselves active in the area of lighting resea
 `This is not my science, my job is pulling it out and presenting it to others'.
 Asked what each considered to be `good lighting', responses included `safe', `invisible' (you don't notice it), and `lighting which is appropriate for your objects and your exhibition' (noting the variability of requirements dependent on the particular object(s) being presented). Asked to present a list or range of priorities, many focused on the safety requirements of lighting. The principal safety concern for lighting was that it fell below specific illuminance criteria, dependent on the assumed sensitivity category of the object in question. The specific target values were generally those provided by Thomson8 of 50lx for sensitive items and 200lx for less sensitive items, which are based on the visual preference work of Loe68.
 Considering a scale of other priorities, following the requirement for appropriate lux levels, considerations included: limiting/excluding UV, obtaining an acceptable CRI value, and time and capital costs associating with fitting and maintenance. Energy efficiency was also a driver, but this did not seem to be a factor within technology category, rather it was noted that many institutions are switching to LED because of increased efficiency, but that the difference in efficiency between one LED type and another was negligible compared to the saving in contrast to lighting technology which LED was replacing, which was often tungsten.
-The range of roles played in the procurement of lighting varied amongst those interviewed. Whilst some created guidance documents which would then be passed on to estates teams and exhibition designers or lighting designers specifically, others had a much more hands-on role, testing specific lighting before installation or making recommendations on a case-by-case basis. It was noted that whilst relamping and retrofitting was generally handled by `in house' teams, where new galleries or large temporary exhibitions were created it was common for an external lighting design company to be contracted to perform the work. When asked whether recommendations were normally followed, the general reply was that recommendations for lux exposure and UV content were almost always followed, but other recommendations (such as for CRI or CCT) were more loosely interpreted. In many cases recommendations for CCT were not made.
+The range of roles played in the procurement of lighting varied amongst those interviewed. Whilst some created guidance documents which would then be passed on to estates teams and exhibition designers or lighting designers specifically, others had a much more hands-on role, testing specific lighting before installation or making recommendations on a case-by-case basis. It was noted that whilst relamping and retrofitting was generally handled by `in house' teams, where new galleries or large temporary exhibitions were created it was common for an external lighting design company to be contracted to perform the work. When asked whether recommendations were normally followed, the general reply was that recommendations for lux exposure and UV content were almost always followed, but other recommendations (such as for CRI or \gls{CCT}) were more loosely interpreted. In many cases recommendations for \gls{CCT} were not made.
 When asked about the tools used to make such recommendations and choices, responses included references to guidelines and reference sources (most often 8, though also 6 and 69), references to specific units such as `lux' used in tandem with recommendations from guidelines such as above, indices such as CIE Ra (referred ubiquitously to as `CRI') and notes of specific conferences which were attended in order to stay up to date with the research on the subject. There was a general feeling that the current climate was one of swift technological change in lighting, which created an increased difficulty in staying up to date with developments. It was noted that attending conferences and industry workshops were very beneficial in assisting professionals to stay up to date. 
 `Things are moving so quickly that to rely on books which have taken two years to produce [does not suffice, because] things have moved on. Books (plus journals) used to be the main reference. Now things are moving at such a rapid pace.'
 A range of techniques were used to qualify whether specific lighting was `safe' or not. The most common practical technique was spot metering of lux values incident on specific objects, and selective dimming to drop incident lighting to the desired lux level in response to this. Some larger institutions with access to microfading equipment were able to use this in the determination of sensitivity of specific objects. One interviewee provided details of a spectral power distribution based method for considering the safety specifically of phosphor based LED illumination, whereby the height of the blue peak was compared to the height of the peak of the broader peak above 500nm, and if the former was more than three times the height of the latter, that lighting was singled out as potentially not safe. Other interviewees had heard of this criteria, and some used it as a rough guide, but one remarked that it was `fairly arbitrary'. One of the most succinct and perhaps astute responses was `what is safe?'. One interviewee referred to the website of Padfield70 where considerations for the `RE%' (`relative spectral sensitivity normalised exposure values'), using the damage functions described in 71 are used.
 The interviewees generally did not consider characteristics of the displayed objects such as geometry of illumination, broadly considering this to be the remit of a lighting designer or exhibition designer rather than a conservator.
 One of the most interesting, and perhaps surprising findings was the ubiquity of visual testing of lighting, generally performed prior to any large installation. For relamping, manufacturer supplied attribute values were generally relied upon as this required less time/effort and was cheaper. The most common procedure for new installations (regards quoted figures vs. visual testing) seemed to be for an informal and minimal visual test to occur before widespread installation. In a single case however, visual testing was actively avoided (on the basis that visual testing could not deliver meaningful insights where the aim was accurate rendering as opposed to visually pleasing rendering) and in another case large scale visual testing was performed, including many different types/brands of lamp and a large number of museum staff, and a final decision was made almost entirely on the results of this testing.
 LEDs are now used, at least in part, in all the institutions involved in this survey. In several they are the primary lighting technology but in a small number they are used sparingly, only in applications such as the lighting of text information panels. In one they are used in a particularly minimal fashion, although this was attributed to the fact that the museum is moving location in the near future and thus capital investments in building infrastructure were being avoided for the present time. There was no one specific brand or type which seemed to be ubiquitous across institutions, rather each institution appeared to have relationships with different manufacturers and suppliers.
-Most interviewees were aware of warnings which had been issued and well publicised in the mainstream press72 regards the potential of LED sources to be especially degrading for specific objects. Interviewees saw these warnings as controversial and likely unwarranted, and were confident that research had been conducted which cleared LEDs of causing an unacceptable level of damage in comparison with alternative technologies. When asked how they might assess a light source for safety, most replied that safety was assessed solely through use of an illuminance meter and lux targets, not through analysis of the SPD or any other lighting attribute. Those who did critically assess the SPD generally used no specific tools to do so, focusing attention on the wavelength of the spectral emission peak.
+Most interviewees were aware of warnings which had been issued and well publicised in the mainstream press72 regards the potential of LED sources to be especially degrading for specific objects. Interviewees saw these warnings as controversial and likely unwarranted, and were confident that research had been conducted which cleared LEDs of causing an unacceptable level of damage in comparison with alternative technologies. When asked how they might assess a light source for safety, most replied that safety was assessed solely through use of an illuminance meter and lux targets, not through analysis of the \gls{SPD} or any other lighting attribute. Those who did critically assess the \gls{SPD} generally used no specific tools to do so, focusing attention on the wavelength of the spectral emission peak.
 `We never normally adjust the lighting type for a given artwork, we adjust the intensity'
-`All lighting we measure the SPD, and check it is reasonable'
+`All lighting we measure the \gls{SPD}, and check it is reasonable'
 They key driver behind the adoption of LEDs appears to be energy efficiency increases and energy use reductions, as required by institution wide directives, or as part of applications for planning permission. Secondary to this consideration, benefits noted include: decreased maintenance costs from extended lifetime of products, and a lack of availability of traditional bulbs, sometimes due to specific legislation which has in effect phased out some traditional technologies. One element holding back some interviewees from further investment was a residual feeling that this new technology was not yet fully proven. Many pointed out that the claims made regards extended lifetime of LEDs were yet to be proven in real world environments due to the relatively new nature of the technology. Some also noted the high costs associated with having to change the underlying lighting infrastructure, where retrofitting wasn't possible or appropriate. A final note on this section – some interviewees were unsure about the ability of LEDs to remain colour stable over the long expected lifetime of the products.
 Interviewees reported that visitors had not generally responded to any changes in lighting technology, and this was taken to mean that any switch to LED had not been negatively received. It was inconclusive whether or not the technology was well received however. This could be a meaningful avenue for future work. In terms of the professionals own opinions of LED lighting, all seemed favourable, though it was unclear how much of this effect was caused by extraneous or related effects such as a placebo effect due to the excitement of new technology, or different chromaticities or brightnesses of replacement technologies.  
 I like what I've seen. The galleries where we have just LED spots, I feel happier. I went to [another institution, with abundant LED lighting], I really like the galleries where they had LED lighting, and it was more of a gut feeling rather than something which I could put my finger on, but actually, it felt cleaner to me.
 Whilst all interviewees were interested in the idea of making objects appear brighter whilst reducing the level of damage caused, the point was made that whilst spectral tuning might benefit a prototypical object, it will not necessarily benefit real objects in real environments. It was also noted that the use of lux in making decisions was particularly problematic here, where varying the location of a blue peak could easily increase the level of damage but reduce the lux value.
 Most interviewees had a basic understanding of colour temperature, and a limited understanding of chromatic adaptation. The colour temperature of lighting was generally not seen as a conservation issue (though there were exceptions to this), and rather as a creative consideration. One interviewee noted that it was manipulated to great effect by external lighting designers in order to create specific effects or atmosphere.
-The justification for CCT specification values generally appears to stem from two routes. Firstly, from guidance documents such as those provided by The Getty and the GCI6, and secondly from a desire to match existing lighting, either daylight or more commonly tungsten (at around 3000K). It was rarely considered as a means to control damage, or as a way to enhance visual appearance, by those interviewed. One interviewee referred to the work of Kruithof60 and Scuello et al.63,64 as justification for choosing low CCT illumination similar to tungsten. No specific issues relating to colour temperature were raised by interviewees.
+The justification for \gls{CCT} specification values generally appears to stem from two routes. Firstly, from guidance documents such as those provided by The Getty and the GCI6, and secondly from a desire to match existing lighting, either daylight or more commonly tungsten (at around 3000K). It was rarely considered as a means to control damage, or as a way to enhance visual appearance, by those interviewed. One interviewee referred to the work of Kruithof60 and Scuello et al.63,64 as justification for choosing low \gls{CCT} illumination similar to tungsten. No specific issues relating to colour temperature were raised by interviewees.
 The interviewees were very interested in the subject of accurate representation, and almost all seemed to regard accurate object representation as a key priority. The figures for Ra quoted in internal documents at each institution were either 80, 85 or 90, as a minimum figure. In one institution, an Rw value was calculated for each proposed light source (the R value of the TCS with the colour shift of greatest magnitude) and a cut-off of 80 imposed. However, most interviewees seemed unsure of the practical relevance of Ra, with many considering it a rough guideline which would be considered secondarily to a visual inspection of lighting.
 Those who were particularly interested in the subject gave the impression that whilst the subject was considered philosophically in great detail, the tool which was actually used to analyse the colour rendering of a light source was still generally just Ra. A few interviewees were aware of TM-30-15, and whilst it was respected, it was questioned whether it represented a real improvement over Ra.
 On the subject of lighting philosophy, the opinions encountered generally aligned with the mechanics of Ra. That is to say; given a choice between illuminating an object such that it was beautified, visually restored (to a previous condition) or simply presented as it would appear under daylight/tungsten illumination, most opted for the final option. Whilst there was clear interest in the other options, and other creative ways in which to consider colour rendering, it was generally believed that the role of the museum should be to represent objects in an un-biased manner, and thus a fidelity index was an appropriate tool for discussing a light source's colour rendering properties. In the case where specialist lighting was used to special effect, the opinion was noted that 'you have to be very clear about what you are doing and why' in order to maintain the reputation of the museum as an arena for honest and unbiased representation.
@@ -348,8 +349,72 @@ In conclusion, no one metric exists that would satisfy the divergent aims and ph
 
 \subsubsection{CCT in museums}
 
-Correlated Colour Temperature (CCT) describes the chromaticity of a light source on a one dimensional axis roughly from blue to yellow, based on the apparent chromaticity of a black bosy radiator at differing temperatures. It is often described as an important variable in museum lighting but definite recommendations, in the rare cases that they are given, are generally based on very general rules that predict that damage potential will be decreased if CCT is minimised59, nostalgia for the appearance of tungsten lighting or questionable research on human preference60. Whilst some research appears to have found optimal colour temperatures for viewing artwork61,62,63,64,65, results often have large inter-observer variability, context dependency and it is not uncommon for the headline findings of separate studies to be in contradiction. 
+\acrfull{CCT} describes the chromaticity of a light source on a one dimensional axis roughly from blue to yellow, based on the apparent chromaticity of a black body radiator at differing temperatures. It is often described as an important variable in museum lighting but definite recommendations, in the rare cases that they are given, are generally based on very general rules that predict that damage potential will be decreased if \gls{CCT} is minimised59, nostalgia for the appearance of tungsten lighting or questionable research on human preference60. Whilst some research appears to have found optimal colour temperatures for viewing artwork61,62,63,64,65, results often have large inter-observer variability, context dependency and it is not uncommon for the headline findings of separate studies to be in contradiction. 
+
 Specifications often refer implicitly or explicitly to the findings of Kruithof60, who found that at lower levels of illumination, lower colour temperatures were preferred, and that at higher levels of illumination higher colour temperatures were preferred. Whilst this general trend seems to have empirical support, I suspect that there may be lighting technology based confounds, and recent researchers66 (including a meta-study of multiple other examinations67) found there to be no provable correlation between preference and colour temperature.
+
+The CIE however, published a report showing the varying the \gls{CCT} of museum lighting could have a profound impact on the potential damage undergone by museum objects. 
+
+%fig
+
+This research relies heavily upon the applicability of damage functions to the specific materials in question. Many (my supervisors) think that damage functions are no good because they're too general, but I would be cautious about throwing the baby out with the bathwater.
+
+\begin{enumerate}
+    \item They're the best that we have.
+    \item We need something with general applicability anyway - I don't see anyone providing tailored lighting for every object which exists.
+    \item The physics checks out.
+    \item They're definitely applicable to at least some objects.
+\end{enumerate}
+
+To verify the findings of the CIE, to extend their findings to \glspl{LED}, and to provide code for others to do similar research or even test their own lights/materials, I wrote some code which would calculate a \gls{DI} in \gls{MATLAB}:
+
+% \begin{lstlisting}
+% function DI = CalcDI(SPD,S_SPD)
+
+% % Function to calculate damage index, as defined by "CIE 157:2004 Control of damage to museum objects by optical radiation"
+% % Currently required PsychToolbox for SToWls, T_CIE_Y2.mat, SplineCmf
+
+% %%
+
+% % Set damage function
+% b = 0.0115;
+% S_dm_rel = exp(-b*(SToWls(S_SPD)-300)); % eq 2.5 from CIE 157:2004
+
+% % Set photopic luminance function
+% load T_CIE_Y2.mat T_CIE_Y2 S_CIE_Y2 %2 degree observer
+% if S_CIE_Y2 ~= S_SPD
+%     T_CIE_Y2 = SplineCmf(S_CIE_Y2,T_CIE_Y2,S_SPD); %set to same wavelength range and sampling interval
+%     S_CIE_Y2 = S_SPD;
+% end
+
+% %% Compute DI
+
+% F_dm_rel = SPD' * S_dm_rel;  %Eq. 1.3 from CIE 157:2004
+% F_v_rel  = SPD' * T_CIE_Y2'; %Eq. 1.4 from CIE 157:2004
+% DI = F_dm_rel./F_v_rel;      %Eq. 1.5 from CIE 157:2004
+
+% %% Normalise
+
+% % Load reference illuminant (CIE Illuminant A)
+% load spd_CIEA.mat spd_CIEA S_CIEA
+% if S_CIEA ~= S_CIE_Y2
+%     spd_CIEA = SplineCmf(S_CIEA,spd_CIEA,S_CIE_Y2); %set to same wavelength range and sampling interval
+%     S_CIEA = S_CIE_Y2;
+% end
+
+% % Calc DI for reference illuminant
+% F_dm_rel_ref = spd_CIEA' * S_dm_rel;  %Eq. 1.3 from CIE 157:2004
+% F_v_rel_ref  = spd_CIEA' * T_CIE_Y2'; %Eq. 1.4 from CIE 157:2004
+% DI_ref = F_dm_rel_ref./F_v_rel_ref;   %Eq. 1.5 from CIE 157:2004
+
+% % Normalise by DI_ref
+% DI = DI/DI_ref;
+% \end{lstlisting}
+
+\footnote{\url{https://github.com/da5nsy/DamageIndex/blob/c7851e27ca1b0915013d8723db04704b49b4085e/CalcDI.m}}
+% Need to work out where to put this
+
+% Figure
 
 
 \subsection{Balancing conservation with observation}
@@ -360,12 +425,17 @@ Specifications often refer implicitly or explicitly to the findings of Kruithof6
 
 \section{Intrinsically Photosensitive Retinal Ganglion Cells}
 Retinal rod and cone cells (of three types, l/m/s) are well established as the primary receptors for human vision, and their connections and properties are relatively well understood. Two distinct signalling pathways originate from the retina, one which is associated with image formation and the other which is considered to be non-image-forming (NIF), and which influences systems such as circadian rhythm entrancement, pupillary reflex and melatonin release. It was originally thought that rods and cones were the sole inputs to both of these pathways22.
-Retinal ganglion cells (RGCs) combine signals from groups of cones and rods and relay these signals via the optic nerve to the lateral geniculate nucleus, which in turn processes and relays them further to the cortex for additional processing, allowing for classical vision of objects, movement and colour. Intrinsically photosensitive retinal ganglion cells (ipRGCs) are a sub-class of retinal ganglion cells, which in addition to combining and relaying signals exhibit some intrinsic photosensitivity of their own. 
-This intrinsic photosenstivity was only confirmed recently23 relative to our knowledge of other retinal cell types, following a search for a retinal cell type or combination of cell types which would fit the spectral sensitivity properties found to influence entraining the circadian rhythm in humans and other animals24,25, which was dissimilar to all of the spectral sensitivities of the cell classes known at the time. Additionally, it was found that animals and humans with no functioning cones or rods were still able to have a correctly functioning circadian system26,27, further suggesting that that the circadian rhythm was influenced by a novel receptor with a distinct photoreceptor. It is now believed to be these cells which provide input to the second of the signalling pathways originating in the retina, that which controls the NIF response to illumination.
 
-ipRGCs were found to express a photopigment fitting such attributes, named melanopsin. The spectral sensitivity of melanopsin is around 480nm23,30,31,32,33 which places it between the s-cone (cyanolabe photopsin) and rod cell (rhodopic rhodopsin) peak spectral sensitivities, see Figure 9. In humans, preceptral filtering leads to a functional peak sensitivity of closer to 490nm29. There is uncertainty regarding the potential bistable nature of melanopsin, and whether this would have a functional effect on the spectral sensitivity of melanopsin. See29, page 12 for further detail on this subject.
-ipRGCs are sparse in the retina; discounting input from other cell types, they operate at a much lower resolution that as would be required for meaningful spatial vision. They also operate much more slowly compared to other cell types, taking several seconds to respond, but are able to sustain a response in contrast to other retinal cell types which are able to respond quickly but only for short periods.
-It has been proposed that ipRGCs may allow an observer to sense a level of absolute irradiance34. This is clearly important for entrainment of the circadian rhythm, but could also have profound effects for image forming vision. Studies are now beginning to explore this influence 27,34 and the functional diversity within the relatively small group of ipRGCs is becoming apparent35,36. 
+\Glspl{RGC} combine signals from groups of cones and rods and relay these signals via the optic nerve to the lateral geniculate nucleus, which in turn processes and relays them further to the cortex for additional processing, allowing for classical vision of objects, movement and colour. \Glspl{ipRGC} are a sub-class of retinal ganglion cells, which in addition to combining and relaying signals exhibit some intrinsic photosensitivity of their own. 
+
+This intrinsic photosenstivity was only confirmed recently23 relative to our knowledge of other retinal cell types, following a search for a retinal cell type or combination of cell types which would fit the spectral sensitivity properties found to influence entraining the circadian rhythm in humans and other animals24,25, which was dissimilar to all of the spectral sensitivities of the cell classes known at the time.
+
+Additionally, it was found that animals and humans with no functioning cones or rods were still able to have a correctly functioning circadian system26,27, further suggesting that that the circadian rhythm was influenced by a novel receptor with a distinct photoreceptor. It is now believed to be these cells which provide input to the second of the signalling pathways originating in the retina, that which controls the NIF response to illumination.
+
+\Glspl{ipRGC} were found to express a photopigment fitting such attributes, named melanopsin. The spectral sensitivity of melanopsin is around 480nm23,30,31,32,33 which places it between the s-cone (cyanolabe photopsin) and rod cell (rhodopic rhodopsin) peak spectral sensitivities, see Figure 9. In humans, preceptral filtering leads to a functional peak sensitivity of closer to 490nm29. There is uncertainty regarding the potential bistable nature of melanopsin, and whether this would have a functional effect on the spectral sensitivity of melanopsin. See29, page 12 for further detail on this subject.
+
+\Glspl{ipRGC} are sparse in the retina; discounting input from other cell types, they operate at a much lower resolution that as would be required for meaningful spatial vision. They also operate much more slowly compared to other cell types, taking several seconds to respond, but are able to sustain a response in contrast to other retinal cell types which are able to respond quickly but only for short periods.
+It has been proposed that \glspl{ipRGC} may allow an observer to sense a level of absolute irradiance34. This is clearly important for entrainment of the circadian rhythm, but could also have profound effects for image forming vision. Studies are now beginning to explore this influence 27,34 and the functional diversity within the relatively small group of \glspl{ipRGC} is becoming apparent35,36. 
 
 
 
