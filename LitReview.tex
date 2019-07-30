@@ -48,8 +48,8 @@ The classic standard observer was defined by the CIE in 1931, following experime
 An illuminant is defined by its \gls{SPD}, a surface as it's \gls{SRF}, and a the sensitivity of a sensor (such as a photosensitive cell in the retina, or a pixel in a camera) by its \gls{CMF} (or in the case that biologically based measurements are used - the \gls{SSF}).
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/litReview/???.png}
-\caption{A \gls{SPD}, a \gls{SRF} and three \glspl{CMF}.}
+\includegraphics[max width=\textwidth]{figs/LitRev/SPDetc.pdf}
+\caption{A \gls{SPD}, a set of \glspl{SRF} and three \glspl{CMF}.}
 \label{fig:specFun}
 \end{figure}
 
@@ -97,7 +97,7 @@ Plotting:
 
 \begin{lstlisting}[language=MATLAB]
 spectralLocus = [T_xyz1931(1,:)./sum(T_xyz1931);T_xyz1931(2,:)./sum(T_xyz1931)];
-sRGBSpectralLocus = XYZToSRGBPrimary(T_xyz1931); %These values go considerably out of gamut, but we only want rough values to orient ourselves
+sRGBSpectralLocus = XYZToSRGBPrimary(T_xyz1931);
 
 figure, hold on, 
 scatter(spectralLocus(1,1:70),spectralLocus(2,1:70),[],sRGBSpectralLocus(:,1:70)','filled')
@@ -108,8 +108,8 @@ xlabel('x'), ylabel('y')
 \end{lstlisting}
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/litReview/???.png}
-\caption{The CIE 1931 chromaticity diagram, with the chromaticity of a lime green macbeth colour checker patch under D65}
+\includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo1.pdf}
+\caption{The CIE 1931 chromaticity diagram, with the chromaticity of the macbeth colour checker patches under D65}
 \label{fig:1931}
 \end{figure}
 
