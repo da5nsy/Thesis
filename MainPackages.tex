@@ -162,6 +162,13 @@
 
 %for code chunks
 \usepackage{listings} 
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
 
 % Required for pdfcomment
 %\usepackage[rgb]{xcolor}
