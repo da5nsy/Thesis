@@ -1,6 +1,7 @@
 clc, clear, close all
 
-% base
+% based on a stripped down version of:
+%https://github.com/da5nsy/PTBColorimetryDemo/tree/5070c25dac1fef3342fa26546be440ebb2977133
 
 %%
 load spd_D65     % SPD: CIE D-series illuminant D65
@@ -23,4 +24,10 @@ xticks([0 1]), yticks([0 1])
 xlabel('x'), ylabel('y')
 
 %%
-save2pdf('litRev_demo1.pdf')
+save2pdf('C:\Users\cege-user\Dropbox\UCL\Ongoing Work\Thesis\figs\LitRev\ColorimetryDemo1.pdf')
+
+%%
+
+figure,
+subplot(3,1,1)
+plot(SToWls(S_D65)

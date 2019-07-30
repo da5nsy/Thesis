@@ -25,3 +25,26 @@ xlabel('x'), ylabel('y')
 
 %%
 save2pdf('C:\Users\cege-user\Dropbox\UCL\Ongoing Work\Thesis\figs\LitRev\ColorimetryDemo1.pdf')
+
+%%
+
+%figure('Position',[100 100 500 700]) 
+figure
+
+subplot(3,1,1)
+plot(SToWls(S_D65),spd_D65)
+xlim([380,730]),xticks([])
+
+subplot(3,1,2)
+plot(SToWls(S_macbeth),sur_macbeth)
+xlim([380,730]),xticks([])
+yticks(ylim)
+
+subplot(3,1,3)
+plot(SToWls(S_xyz1931),T_xyz1931)
+xlim([380,730])
+yticks(ylim)
+xlabel('Wavelength (nm')
+
+save2pdf('C:\Users\cege-user\Dropbox\UCL\Ongoing Work\Thesis\figs\LitRev\SPDetc.pdf')
+
