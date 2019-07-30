@@ -28,7 +28,8 @@ save2pdf('C:\Users\cege-user\Dropbox\UCL\Ongoing Work\Thesis\figs\LitRev\Colorim
 
 %%
 
-figure('Position',[100 100 500 700]) 
+%figure('Position',[100 100 500 700]) 
+figure
 
 subplot(3,1,1)
 plot(SToWls(S_D65),spd_D65)
