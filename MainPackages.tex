@@ -160,6 +160,9 @@
 % for insering full pdf pages (used by me for making ethhics applications into appendices
 \usepackage{pdfpages} 
 
+% Required for pdfcomment and matlab prettifier
+\usepackage[rgb]{xcolor}
+
 %for code chunks
 \usepackage{listings} 
 \lstset{
@@ -169,9 +172,7 @@
   breaklines=true,
   postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
 }
-
-% Required for pdfcomment
-%\usepackage[rgb]{xcolor}
+%\usepackage{matlab-prettifier}
 
 % for getting things to happen after the next page is finished
 % used in combo as \afterpage{\clearpage}
