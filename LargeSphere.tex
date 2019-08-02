@@ -1,4 +1,4 @@
-\chapter{The Large Sphere Experiment} %new name?
+\chapter{Large Sphere Experiment} %new name?
 \label{chap:LargeSphere}
 
 \textit{The work presented here has been presented previously as an oral presentation at AIC 2013 \citep[p. 623]{macdonald_chromatic_2013} \textbf{prior to the author's involvement}, and as an oral presentation at ICVS 2017 \citep[p. 35/58]{jan_kremers_24th_2017} by the author.}
@@ -14,7 +14,7 @@ Code and data??????? %%%%%
 Results:
 
 This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the authors academic supervisors), who initiated the experiment, and TR who \dots %%%
-The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it became clear that there had been a technical fault during this run of data collection, and my data was deemed correupted. This data is discussed further in Appendix X. %%%%%%%%
+The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it became clear that there had been a technical fault during this run of data collection, and my data was deemed corrupted. This data is discussed further in Appendix X. %%%%%%%%
 Thus, my only contribution to this work is an extension to the data analysis started by LM, upon which I shall focus on in this chapter.
 
 \section{Methodology}
@@ -56,25 +56,27 @@ Two distinct approaches were taken to data processing. The first attempted to pr
 
 The second approach took advantage of the fact that measurements were taken at samples across the wavelength spectrum. Here the logic was that if the null condition were true, we should be able to fit a model to observer responses which only used cone-based inputs, and we could carefully consider the (presumed) benefit of including rods and \glspl{ipRGC} in the model. If either rod input of \gls{ipRGC} input were found to dramatically improve the model then this could be considered as evidence against the null hypothesis.
 
-\subsubsection{Chromaticity-based analysis}
+\section{Results}
+
+\subsection{Chromaticity-based analysis}
 
 \hl{As presented at ICVS.}
 
-\subsubsection{Spectrum-based analysis}
+\subsection{Spectrum-based analysis}
 
 The first stage of this analysis was to generate simulated data which represented the situation whereby there was only simple Von Kries adaptation, with no bounds on selections considered. This was accomplished by multiplying the individual \glspl{SPD} (Figure \ref{fig:LSillum} by the CIE 2006 10$^{\circ}$ observer fundamentals (not in the manner in which this is usually done, resulting in tristimulus values, but rather retaining a spectral nature to the data).
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/LargeSphere/LSsimdata.png}
+\includegraphics[max width=\textwidth]{figs/LargeSphere/LSsimdata.pdf}
 \caption{Simulated data for a basic Von Kries observer. In this figure white represents a high response. For example, with 560nm peripheral stimulation we would expect an observer to pick a colour with high L-cone activation as achromatic, assuming that the sensitivity of L-cones had been suppressed and thus higher activation was required to reach a neutral point.}
 \label{fig:LSsimdata}
 \end{figure}
 
 A comparison was then made between this data and a set of real data (Obs = TR, averaged over time (entire run, no exclusions), averaged over L* = 35:60\footnote{Values outside of this range exhibited gamut boundary issues.}). This real data had been transformed from the recorded blablabla %!!!!!! 
-values into L,M,S values analagous to the simulated data. It can be seen however that there is a considerable difference between the simulated data and the real data (Figure \ref{fig:simVreal}. S-cone data shows the closest match, with the predicted peak at 480 being mirrored in the real data. This peak appears to bleed into the M-cone data, and the simulated data for L and M-cone data shows very little correspondance to the collected data. Correlations are:
+values into L,M,S values analogous to the simulated data. It can be seen however that there is a considerable difference between the simulated data and the real data (Figure \ref{fig:simVreal}. S-cone data shows the closest match, with the predicted peak at 480 being mirrored in the real data. This peak appears to bleed into the M-cone data, and the simulated data for L and M-cone data shows very little correspondence to the collected data. Correlations are:
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/LargeSphere/simVreal.png}
+\includegraphics[max width=\textwidth]{figs/LargeSphere/simVreal.pdf}
 \caption{A comparison of simulated data (top row) and real data (bottom row).}
 \label{fig:simVreal}
 \end{figure}
@@ -82,6 +84,12 @@ values into L,M,S values analagous to the simulated data. It can be seen however
 In order to understand the way in which adaptation may be crossing between channels, or the way in which we may have not properly isolated our channels (it is unclear exactly how much freedom an observer truly has to move around the response space) a brute-force method was used to find combinations of the above simulated data which would best fit the real data.
 
 X random sets of weightings (X total) between X and X were generated. These weightings were applied to the simulated responses and the responses were additively combined. The correlation between this new data and the real data was calculated. The top performing randomly generated datasets were selected and are presented in X. These correlated with the data at X,Y,Z. These are much improved over X.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/maxsimVreal.pdf}
+\caption{A comparison of simulated data following a brute force recombination (top row) whereby channels were freely mixed to best correlate with real data, and real data (bottom row).}
+\label{fig:maxs (asimVreal}
+\end{figure}
 
 The top X\% of generated data are presented in terms of their components in figure X.
 
@@ -104,6 +112,5 @@ Consider different time points.
 
 %Simplifications were made to consider only an average L* value (between and one timepoint 
 
-\section{Results}
 \section{Discussion}
 \section{Conclusion}
