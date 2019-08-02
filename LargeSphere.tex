@@ -73,7 +73,7 @@ The first stage of this analysis was to generate simulated data which represente
 \end{figure}
 
 A comparison was then made between this data and a set of real data (Obs = TR, averaged over time (entire run, no exclusions), averaged over L* = 35:60\footnote{Values outside of this range exhibited gamut boundary issues.}). This real data had been transformed from the recorded blablabla %!!!!!! 
-values into L,M,S values analogous to the simulated data. It can be seen however that there is a considerable difference between the simulated data and the real data (Figure \ref{fig:simVreal}. S-cone data shows the closest match, with the predicted peak at 480 being mirrored in the real data. This peak appears to bleed into the M-cone data, and the simulated data for L and M-cone data shows very little correspondence to the collected data. Correlations are:
+values into L,M,S values analogous to the simulated data. It can be seen however that there is a considerable difference between the simulated data and the real data (Figure \ref{fig:simVreal}. S-cone data shows the closest match, with the predicted peak at 480 being mirrored in the real data. This peak appears to bleed into the M-cone data, and the simulated data for L and M-cone data shows very little correspondence to the collected data. Correlations are: %%%%
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/simVreal.pdf}
@@ -83,15 +83,40 @@ values into L,M,S values analogous to the simulated data. It can be seen however
 
 In order to understand the way in which adaptation may be crossing between channels, or the way in which we may have not properly isolated our channels (it is unclear exactly how much freedom an observer truly has to move around the response space) a brute-force method was used to find combinations of the above simulated data which would best fit the real data.
 
-X random sets of weightings (X total) between X and X were generated. These weightings were applied to the simulated responses and the responses were additively combined. The correlation between this new data and the real data was calculated. The top performing randomly generated datasets were selected and are presented in X. These correlated with the data at X,Y,Z. These are much improved over X.
+10000 random sets of weightings (30000 values total) between -25 and 25\footnote{An analysis showed that the absolute range of these figures was unimportant, since we were looking for correlation with the real data rather than absolute correspondence. Thus they are listed here only to assist the reader in understanding graphs such as Figure \ref{fig:contributions}.} were generated. These weightings were applied to the simulated responses and the results were additively combined\footnote{(X amount of simulated L) + (Y amount of simulated M) + (Z amount of simulated S)}. The correlation between this new random combination and each channel of the real data was calculated. The top performing randomly generated combinations were selected and are presented in \ref{fig:maxsimVreal}. These particular combinations were created through cross-combining the original simulated data (top row of Figure \ref{fig:simVreal}), in the ratios shown in Table \ref{tab:crosscomb} and correlated with the real data to extent of the following coefficients: 0.9126, 0.8861, and 0.7726 for L, M and S respectively. These are much improved over the coefficients for the original simulated data.
+
+
+\begin{table}[hbtp]
+\begin{tabular}{|r|r|r|r|}
+\hline
+ & L & M & S \\ \hline
+L & 18.4069 & -23.2578 & -10.9817 \\ \hline
+M & -13.0477 & 9.8327 & 10.6844 \\ \hline
+S & -2.7633 & -17.6798 & 8.3036 \\ \hline
+\end{tabular} % Would be nice to format with textttt and to fit page width
+\caption{Optimal weights to fit the specific real dataset used. \\ Example: Image in top left of Figure \ref{fig:maxsimVreal} (L) was created by combining 18.4069 * the original simulated L (Top left of Figure \ref{fig:simVreal}), -23.2578 * the original simulated M and -10.9817 * the original simulated S.}
+\label{tab:crosscomb}
+\end{table}
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/maxsimVreal.pdf}
 \caption{A comparison of simulated data following a brute force recombination (top row) whereby channels were freely mixed to best correlate with real data, and real data (bottom row).}
-\label{fig:maxs (asimVreal}
+\label{fig:maxsimVreal}
 \end{figure}
 
-The top X\% of generated data are presented in terms of their components in figure X.
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/contributions.pdf}
+\caption{}
+\label{fig:contributions}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/contributions_all.pdf}
+\caption{}
+\label{fig:contributions_all}
+\end{figure}
+
+The top 0.2\% of generated data are presented in terms of their components in Figure \ref{fig:contributions}, and the entirity of the results for the randomised sampling presented in Figure \ref{fig:contributions_all}.
 
 Adding in rods gave maximal correlations of: 
 Adding in melanopsin gave maximal correlations of:
