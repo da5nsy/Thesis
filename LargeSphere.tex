@@ -64,63 +64,99 @@ The second approach took advantage of the fact that measurements were taken at s
 
 \subsection{Spectrum-based analysis}
 
-The first stage of this analysis was to generate simulated data which represented the situation whereby there was only simple Von Kries adaptation, with no bounds on selections considered. This was accomplished by multiplying the individual \glspl{SPD} (Figure \ref{fig:LSillum} by the CIE 2006 10$^{\circ}$ observer fundamentals (not in the manner in which this is usually done, resulting in tristimulus values, but rather retaining a spectral nature to the data).
+Code:
+
+The first stage of this analysis was to generate simulated data which represented the situation whereby there was only simple Von Kries adaptation. This was accomplished by multiplying the individual \glspl{SPD} (Figure \ref{fig:LSillum}) by the CIE 2006 10$^{\circ}$ observer fundamentals (not in the manner in which this is usually done, resulting in tristimulus values, but rather retaining a spectral nature to the data). See Figure \ref{fig:LSsimdata}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/LSsimdata.pdf}
-\caption{Simulated data for a basic Von Kries observer. In this figure white represents a high response. For example, with 560nm peripheral stimulation we would expect an observer to pick a colour with high L-cone activation as achromatic, assuming that the sensitivity of L-cones had been suppressed and thus higher activation was required to reach a neutral point.}
+\caption{Simulated data for a basic Von Kries observer. In this figure white represents a high response. For example, with 560nm peripheral stimulation we would expect an observer to pick a colour with high L-cone activation as achromatic, assuming that the sensitivity of L-cones had been suppressed and thus higher activation was required to reach a neutral point (see peak roughly in the centre of the top bar).}
 \label{fig:LSsimdata}
 \end{figure}
 
-A comparison was then made between this data and a set of real data (Obs = TR, averaged over time (entire run, no exclusions), averaged over L* = 35:60\footnote{Values outside of this range exhibited gamut boundary issues.}). This real data had been transformed from the recorded blablabla %!!!!!! 
-values into L,M,S values analogous to the simulated data. It can be seen however that there is a considerable difference between the simulated data and the real data (Figure \ref{fig:simVreal}. S-cone data shows the closest match, with the predicted peak at 480 being mirrored in the real data. This peak appears to bleed into the M-cone data, and the simulated data for L and M-cone data shows very little correspondence to the collected data. Correlations are: %%%%
+A comparison was then made between this data and a set of real data (Obs = TR, averaged over time (entire run, no exclusions), averaged over L* = 35:60\footnote{Values outside of this range exhibited gamut boundary issues.}). This real data had been transformed from the recorded RGB values of achromatic matches into LMS values. It can be seen that there is a considerable difference between the simulated data and the real data (Figure \ref{fig:simVreal}). S-cone data shows the closest match, with the predicted peak at 460nm\footnote{Note that this is not at the peak sensitivity of s-cones (which would appear at 440nm for this dataset at 20nm intervals) but rather at the peak of the s-cone sensitivity function multiplied by the \gls{SPD}, as plotted in Figure \ref{fig:LSsimdata}.} being mirrored in the real data. This peak appears to bleed into the M-cone data, and the simulated data for L and M-cone data shows very little correspondence to the collected data. Correlation coefficients between the simulated and this specific real dataset are 0.1399, -0.2509, 0.3164 for L, M and S respectively.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/simVreal.pdf}
-\caption{A comparison of simulated data (top row) and real data (bottom row).}
+\caption{A comparison of simulated data (top row) and real data (bottom row). Data from the top row is as per the top three bars of Figure \ref{fig:LSsimdata}.}
 \label{fig:simVreal}
 \end{figure}
 
 In order to understand the way in which adaptation may be crossing between channels, or the way in which we may have not properly isolated our channels (it is unclear exactly how much freedom an observer truly has to move around the response space) a brute-force method was used to find combinations of the above simulated data which would best fit the real data.
 
-10000 random sets of weightings (30000 values total) between -25 and 25\footnote{An analysis showed that the absolute range of these figures was unimportant, since we were looking for correlation with the real data rather than absolute correspondence. Thus they are listed here only to assist the reader in understanding graphs such as Figure \ref{fig:contributions}.} were generated. These weightings were applied to the simulated responses and the results were additively combined\footnote{(X amount of simulated L) + (Y amount of simulated M) + (Z amount of simulated S)}. The correlation between this new random combination and each channel of the real data was calculated. The top performing randomly generated combinations were selected and are presented in \ref{fig:maxsimVreal}. These particular combinations were created through cross-combining the original simulated data (top row of Figure \ref{fig:simVreal}), in the ratios shown in Table \ref{tab:crosscomb} and correlated with the real data to extent of the following coefficients: 0.9126, 0.8861, and 0.7726 for L, M and S respectively. These are much improved over the coefficients for the original simulated data.
+10000 random sets of weighting values (30000 values total) between -25 and 25\footnote{An analysis showed that the absolute range of these figures was unimportant, since we were looking for correlation with the real data rather than absolute correspondence. Thus they are listed here only to assist the reader in understanding graphs such as Figure \ref{fig:contributions}.} were generated. These weightings were applied to the simulated responses and the results were additively combined\footnote{(X amount of simulated L) + (Y amount of simulated M) + (Z amount of simulated S)}. The correlation between this new random combination and each channel of the real data was computed. The top performing randomly generated combinations were selected and are presented in Figure \ref{fig:maxsimVreal}. These particular combinations were created through cross-combining the original simulated data (top row of Figure \ref{fig:simVreal}), in the ratios shown in Table \ref{tab:crosscomb} and correlated with the real data to extent of the following coefficients: 0.9126, 0.8861, and 0.7726 for L, M and S respectively. These are much improved over the coefficients for the original simulated data.
 
 
 \begin{table}[hbtp]
+\centering
 \begin{tabular}{|r|r|r|r|}
 \hline
  & L & M & S \\ \hline
-L & 18.4069 & -23.2578 & -10.9817 \\ \hline
-M & -13.0477 & 9.8327 & 10.6844 \\ \hline
-S & -2.7633 & -17.6798 & 8.3036 \\ \hline
-\end{tabular} % Would be nice to format with textttt and to fit page width
-\caption{Optimal weights to fit the specific real dataset used. \\ Example: Image in top left of Figure \ref{fig:maxsimVreal} (L) was created by combining 18.4069 * the original simulated L (Top left of Figure \ref{fig:simVreal}), -23.2578 * the original simulated M and -10.9817 * the original simulated S.}
+L & $18.4069$ & $-23.2578$ & $-10.9817$ \\ \hline
+M & $-13.0477$ & $9.8327$ & $10.6844$ \\ \hline
+S & $-2.7633$ & $-17.6798$ & $8.3036$ \\ \hline
+\end{tabular} % Would be nice to format to fit page width
+\caption{Optimal weights to fit the specific real dataset used. \\ \emph{Example: Image in top left of Figure \ref{fig:maxsimVreal} (L) was created by combining 18.4069 * the original simulated L (Top left of Figure \ref{fig:simVreal}), -23.2578 * the original simulated M and -10.9817 * the original simulated S.}}
 \label{tab:crosscomb}
 \end{table}
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/maxsimVreal.pdf}
-\caption{A comparison of simulated data following a brute force recombination (top row) whereby channels were freely mixed to best correlate with real data, and real data (bottom row).}
+\caption{A comparison of randomly generated combinations (top row) whereby channels were freely mixed from basic Von Kries simulated data (top row of Figure \ref{fig:simVreal}) to best correlate with real data, and real data (bottom row) (repeated from Figure \ref{fig:simVreal}).}
 \label{fig:maxsimVreal}
 \end{figure}
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/contributions.pdf}
-\caption{}
+\caption{Top 0.2\% performing randomly generated combinations, presented in terms of the weights of the original simulated data that they use. The subfigure on the left represents the weights needed to reconstruct the real data for L, the middle - M, and the right - S. Colour coded such that dark blue is the highest performing and yellow is the worst performing (of this highly performing subset).}
 \label{fig:contributions}
 \end{figure}
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/contributions_all.pdf}
-\caption{}
+\caption{As per Figure \ref{fig:contributions} but for all randomly generated combinations. The trends seen in Figure \ref{fig:contributions} are visible, and the range of these trends (extending into the poorer performing randomly generated combinations) can be seen. The colours are rescaled such that yellow now represents the worst performing randomly generated combinations of the entire set. Plots are plotted ordered by success and so lines representing successful randomly generated combinations will overlay lines representing poorer performing ones.}
 \label{fig:contributions_all}
 \end{figure}
 
-The top 0.2\% of generated data are presented in terms of their components in Figure \ref{fig:contributions}, and the entirity of the results for the randomised sampling presented in Figure \ref{fig:contributions_all}.
+The top performing 0.2\% of the randomly generated combinations are presented in terms of their components (analogous to plotting the values in \ref{tab:crosscomb}) in Figure \ref{fig:contributions}, and the entirety of the results for the randomised sampling presented in Figure \ref{fig:contributions_all}. 
 
-Adding in rods gave maximal correlations of: 
-Adding in melanopsin gave maximal correlations of:
-Adding both gave:
+It can be seen that to reconstruct the real data for L, a high amount of simulated L, and a low amount of both simulated M and S are required, though from Figure \ref{fig:contributions_all} it can be seen that the requirement for low S is less stringent. It can also be seen that the amount of L required seems related to the amount of M required (from the way in which the lines cross at a point).
+
+A similar but opposite trend is visible for M.
+
+For S, there is a narrow range of successful values for L (negative but close to 0), a larger range of strongly negative values for M, and a range of positive values for S. The reciprocal relationship between L and M seen in the reconstructions of L and M is no longer visible, but instead there is a new reciprocal relationship visible between M and S, though examination of Figure \ref{fig:contributions_all} suggests that this is not as important as in the case of L and M.
+
+It is reassuring that in each case, successful random combinations used high positive levels of the target signal. For both L and S the target signal was the only positive weighting, with M taking positive weights of both M and S. 
+
+\subsubsection{Adding rods and ipRGCs}
+
+In order to investigate whether rods or \glspl{ipRGC} were playing a role in adaptation as measured by this dataset, the analysis was re-run with the additional rod input, additional \gls{ipRGC} input, and both rods and \glspl{ipRGC} as additional inputs. See Figure \ref{fig:LSsimdata} for a visualisation of these channels. The results of re-running the computations following the addition of these inputs is shown in Table \ref{tab:plusres}. Minor increases in correlation are exhibited. However, it should be noted that one would expect to see at least a minor increase in ability from practically any additional signal, so long as it differed from the already accessible signals.
+
+\begin{table}[hbtp]
+\centering
+\begin{tabular}{|r|r|r|r|}
+\hline
+Just cones: & $0.9126$ & $0.8861$ & $0.7726$ \\ \hline
++ rods: & $0.9156$ & $0.8881$ & $0.7987$ \\ \hline
++ ipRGCs: & $0.9218$ & $0.8867$ & $0.8055$ \\ \hline
++ rods + ipRGCs: & $0.9326$ & $0.8933$ &$0.8100$ \\ \hline
+\end{tabular} % Would be nice to format to fit page width
+\caption{Correlation coefficients for various conditions incorporating additional signals.}
+\label{tab:plusres}
+\end{table}
+
+Further, it is not clear to what extent the gains exhibited in Table \ref{tab:plusres} are due to noise within the computations; the randomly generated combinations are set via a random number generator which is re-set each time the script is run for reproducibility, however there is nothing to stop the randomly generated values for the additional input runs performing better purely by chance alone. In order to investigate this, the above extensions were re-run 100 times each, and the top performance for each skimmed and saved. The results of this are presented in Figure \ref{fig:relcontributions}. 
+
+
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/relcontributions.pdf}
+\caption{Raincloud plot \cite{allen_raincloud_2019} showing the results of re-running the extended analyses 100 times and skimming the best performer from each. Red points and probability density function represent `just cones', green - `+ rods', blue - `+ \glspl{ipRGC}', black - `+ rods + \glspl{ipRGC}'.}
+\label{fig:relcontributions}
+\end{figure}
+
+
+
 
 This is a minimal improvement. Therefore, I do not reject the null hypothesis in this case.
 
@@ -129,7 +165,7 @@ Further investigations might add time dependency
 Try the other datasets we have //
 \dots possibly with more precise observer models for each.
 
-I’d also like to try having a different observer for central and peripheral.
+I'd also like to try having a different observer for central and peripheral.
 
 Consider different time points.	
 
@@ -138,4 +174,6 @@ Consider different time points.
 %Simplifications were made to consider only an average L* value (between and one timepoint 
 
 \section{Discussion}
+% Strong self correlation. Unsure whether the results are because of self correlation or because of genuine responses (sharpened cone spectra?)
+
 \section{Conclusion}
