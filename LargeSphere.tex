@@ -187,8 +187,50 @@ It is likely that any additional signal at a different wavelength (or even with 
 
 Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods} appear somewhat similar. Considering the similar spectral characteristics of rods and melanopsin, it should be expected that the model would use the signals in somewhat similar fashions. It appears as though neither have a particularly strong role to play in the L and M adaptation, however both seem to reliably be used as a negative weighting for S. It is unclear whether this is simply a response to a single high datapoint in this dataset (the peak at 460nm) or whether this integration serves a broader purpose. This peak at 460nm also seems to be the cause for the stubbornly low correlation coefficients for the S channel (compared to L and M), which max out at around 0.81 (see Figure \ref{fig:relcontributions}). 
 
+\clearpage
+
 \section{Conclusion}
 
+Two methods of analysis for the \citet{macdonald_chromatic_2013} data are presented here.
+
+The first analysis \dots
+
+The second analysis showed that the results for one observer could not be well fitted by a simple model of Von-Kries-type observer, but that simple linear combinations of the responses of such an observer could be made to fit the recorded data very well. Though the ability of these fits is to be expected from this type of post-hoc fitting, the types of models which are predicted by the fitting align well with our understanding of post-receptoral signals, which gives us confidence that we may be measuring adaptation at these levels. It would be particularly valuable to see whether the temporal nature of responses also aligned with our understanding of the timecourses of these different signals. 
+The second analysis further showed that integration of the simulated rod and melanopic signals provide additional value in fitting the data. Again, this is to be expected from this type of fitting. The minimal improvement delivered by the inclusion of rod and melanopic signals does not furnish me with strong enough evidence to reject the null hypothesis that chromatic adaptation can be fully accounted for by cone and rod mechanisms. 
+
+
+\subsection{Limitations}
+
+Several limitations have been identified with this experimental design which should be borne in mind when analysing this dataset, or planning similar experiments.
+
+\begin{itemize}
+\item How much noise? Repeat sessions.
+\item Input imprecision - limits detectable effect sizes.
+\item Difficult to say what is biological and what is mechanical.
+\item Only trichromatic control, unclear when two effects seems correlated whether it is biological or mechanical.
+\item Assumptions about cross-retinal adaptation.
+\item Masked by correlation within sessions - difficult to separate. Self - correlation. DG data - following red.
+\item Low spectral resolution.
+\item Gamut boundary issues.
+\end{itemize}
+
+
+\subsection{Further Work}
+
+The dataset collected by \citet{macdonald_chromatic_2013} may only comprise data from two observers, but it is vastly broad and interesting data which may serve valuable to those interested in chromatic adaptation and colour constancy. Various further analyses are envisioned:
+\begin{itemize}
+    \item As previously mentioned, there would likely to value in the modelling of the potential response space of an observer on this task, and the interaction the types of analyses performed here.
+    \item It would be interesting to consider non-linear adaptation responses. This may better account for the data at the extremes of the wavelength range where luminance was very low.
+    \item The temporal dimension of the data is not considered either of the analyses presented here, but the code for the second analysis has been written in such a way that it should be relatively easy to implement. Considering the different expected time courses for adaptation for cones/rods/\glspl{ipRGC} this may serve to be a fruitful avenue.
+    \item other observer %%
+    \item correct for luminance dependent effects to be able to reduce noise / relax bounds on included data. %%
+    \item observers %%
+    \begin{itemize}
+    \item better observer models incorporating age %%
+    \item different observer for central and peripheral %%
+    \item sharpened cone spectra - but, careful
+    \end{itemize}
+\end{itemize}
 
 
 
@@ -199,28 +241,3 @@ Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods} appear 
 
 
 
-
-There are a number of possibilities for why this is not possible; non-linear, other mechanisms, noise (there is reason to believe that the data should be highly self-correlated over a single session but less so between sessions/conditions)
-
-
-
-%Simplifications were made to consider only an average L* value (between and one timepoint 
-
-
-
-Further investigations might add time dependency
-
-Try the other datasets we have //
-\dots possibly with more precise observer models for each.
-
-I'd also like to try having a different observer for central and peripheral.
-
-Consider different time points.	
-
-Trichromatic display - 
-It is unclear what the nature of the display, regards limiting the ability of the respondant to freely 
-
-% Strong self correlation. Unsure whether the results are because of self correlation or because of genuine responses (sharpened cone spectra?)
-
-
-This is a minimal improvement. Therefore, I do not reject the null hypothesis in this case.
