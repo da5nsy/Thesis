@@ -20,20 +20,20 @@ Our perception of colour generally correlates with the way in which objects pref
 
 \subsection{Colorimetry and Colour Measurement}
 
-\textit{The current recommended source for colorimetry is CIE 015:2018 \citep{cie_cie_2018}\footnote{Though as \citet{fairchild_cie_2019} notes, this document is `expensive and somewhat difficult to find', and as such I have been using a draft of the now superseded \citet{cie_cie_2004-2}.}. My personal opinion is that an understanding of colorimetry of CIE colorimetry is best gained from an understanding of it's history, and for this I recommend Janos Schanda's book `Colorimetry: Understanding the CIE System'\citep{schanda_colorimetry_2007}.}
+\textit{The current recommended source for colorimetry is \gls{CIE} document `\gls{CIE} 015:2018'\citep{cie_cie_2018}\footnote{Though as \citet{fairchild_cie_2019} notes, this document is `expensive and somewhat difficult to find', and as such I have been using a draft of the now superseded `\gls{CIE} 15.3:2004'\citep{cie_cie_2004-2} as my personal guide.}. Whlist this is the authoritative reference, my personal opinion is that an understanding of colorimetry of \gls{CIE} colorimetry is best gained from an understanding of it's history, and for this I recommend Janos Schanda's book `Colorimetry: Understanding the \gls{CIE} System'\citep{schanda_colorimetry_2007}. This section shall provide a quick overview of the core concepts of colorimetry, and define the spaces which are used in the rest of this thesis.}
 
 Colorimetry is the study of the quantitative specification of colour. As a subjective, internal and anthropocentric concept, in order to measure anything meaningful and comparable, we use a standard observer, or more precisely, one of a number of defined standard observers \cite{cie_bs_2011}.
 
-The classic standard observer was defined by the CIE in 1931, following experiments by Wright and Guild \cite{wright_re-determination_1929, guild_colorimetric_1931}. Despite several more recently published standard observers, the 1931 observer is still much used, and I shall use it in the following example of how a basic colorimetric computation is performed.
+The classic standard observer was defined by the \gls{CIE} in 1931, following experiments by Wright and Guild \cite{wright_re-determination_1929, guild_colorimetric_1931}. Despite several more recently published standard observers, the 1931 observer is still much used, and I shall use it in the following example of how a basic colorimetric computation is performed.
 
 An illuminant is defined by its \gls{SPD}, a surface as it's \gls{SRF}, and a the sensitivity of a sensor (such as a photosensitive cell in the retina, or a pixel in a camera) by its \gls{CMF} (or in the case that biologically based measurements are used - the \gls{SSF}).
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/SPDetc.pdf}
-\caption{An \gls{SPD} (D65), a set of \glspl{SRF} (from a Macbeth Colour Checker) and three \glspl{CMF} (CIE 1931).}
+\caption{An \gls{SPD} (D65), a set of \glspl{SRF} (from a Macbeth Colour Checker) and three \glspl{CMF} (\gls{CIE} 1931).}
 \label{fig:specFun}
 \end{figure}
-% How is D65 normalised here?
+% % How is D65 normalised here?
 
 The light reaching the eye for a given reflecting surface under a given illuminant (termed the `colour signal') can be computed by multiplying the \gls{SPD} by the \gls{SRF} at each sampled interval.
 
@@ -41,67 +41,130 @@ The light reaching the eye for a given reflecting surface under a given illumina
 \phi(\lambda)=R(\lambda) \cdot S(\lambda)
 \end{equation}
 
-Explain\dots \\
-From this tristimulus values can then be computed.
+where $R(\lambda)$ is the \gls{SRF}, $R(\lambda)$ is the \gls{SPD} and $\phi(\lambda)$ is the resulting colour signal. From this a set of values termed `tristimulus values' may be computed. Tristimulus values are computed by multiplying the colour signal by the \glspl{CMF} or \glspl{SSF}, and following the principle of univariance (that each cone type cannot alone distinguish between different wavelengths) the tristimulus values can, to some extent, be thought of as containing the entirety of the chromatic information about a surface (excluding high level colour appearance phenomena predicted by \Glspl{CAM}, and properties such as gloss).
 
 \begin{subequations}
 \begin{align}
-X=k \sum_{\lambda} \phi_{\lambda}(\lambda) \overline{x}(\lambda) \Delta \lambda \\ 
-Y=k \sum_{\lambda} \phi_{\lambda}(\lambda) \overline{y}(\lambda) \Delta \lambda \\ 
-Z=k \sum_{\lambda} \phi_{\lambda}(\lambda) \overline{z}(\lambda) \Delta \lambda
+X=k \sum_{\lambda} \phi(\lambda) \overline{x}(\lambda) \Delta \lambda \\ 
+Y=k \sum_{\lambda} \phi(\lambda) \overline{y}(\lambda) \Delta \lambda \\ 
+Z=k \sum_{\lambda} \phi(\lambda) \overline{z}(\lambda) \Delta \lambda
 \end{align}
+\label{eq:XYZ}
 \end{subequations}
 
-Explain\dots \\
-Following this chromaticity co-ordinates can be computed.
+where $\overline{x}(\lambda)$ (said `x bar'), $\overline{y}(\lambda)$ and $\overline{z}(\lambda)$ are the \glspl{CMF} of the 1931 observer (or are replaced by the \Glspl{CMF}/\Glspl{SSF} or the chosen observer), $\phi(\lambda)$ is as defined above, $k$ is a normalising factor, and it is recommended that $\Delta\lambda$ be 1nm. It is traditional to set $k$ such that $Y=100$, though in the case of relative colorimetry (most cases) is often ignored since the following equation renders it superfluous.
+
+From the tristimulus values chromaticity co-ordinates ($x$ and $y$) can be computed. These can then be plotted on a 1931 chromaticity diagram, shown as Figure \ref{fig:1931}.
 
 \begin{subequations}
 \begin{align}
 x=\frac{X}{X+Y+Z} \\
 y=\frac{Y}{X+Y+Z} 
 \end{align}
+\label{eq:1931chrom}
 \end{subequations}
 
-Explain\dots \\
-Here's a \gls{MATLAB} example, using \gls{PTB} for data:
+% Here's a \gls{MATLAB} example, using \gls{PTB} for data:
 
-\begin{lstlisting}[language=MATLAB]
-load spd_D65 % SPD: CIE D-series illuminant D65
-load sur_macbeth % SRF: macbeth colour checker
-load T_xyz1931 % CMF: CIE 1931
+% \begin{lstlisting}[language=MATLAB]
+% load spd_D65 % SPD: CIE D-series illuminant D65
+% load sur_macbeth % SRF: macbeth colour checker
+% load T_xyz1931 % CMF: CIE 1931
 
-colourSignals = sur_macbeth.*spd_D65;
-XYZ = T_xyz1931*colourSignals;
-xy = [XYZ(1,:)./sum(XYZ);XYZ(2,:)./sum(XYZ)];
-\end{lstlisting}
+% colourSignals = sur_macbeth.*spd_D65;
+% XYZ = T_xyz1931*colourSignals;
+% xy = [XYZ(1,:)./sum(XYZ);XYZ(2,:)./sum(XYZ)];
+% \end{lstlisting}
 
-Plotting: 
+% Plotting: 
 
-\begin{lstlisting}[language=MATLAB]
-spectralLocus = [T_xyz1931(1,:)./sum(T_xyz1931);T_xyz1931(2,:)./sum(T_xyz1931)];
-sRGBSpectralLocus = XYZToSRGBPrimary(T_xyz1931);
+% \begin{lstlisting}[language=MATLAB]
+% spectralLocus = [T_xyz1931(1,:)./sum(T_xyz1931);T_xyz1931(2,:)./sum(T_xyz1931)];
+% sRGBSpectralLocus = XYZToSRGBPrimary(T_xyz1931);
 
-figure, hold on, 
-scatter(spectralLocus(1,1:70),spectralLocus(2,1:70),[],sRGBSpectralLocus(:,1:70)','filled')
-scatter(xy(1,:),xy(2,:),'k')
-axis equal, axis([0 1 0 1])
-xticks([0 1]), yticks([0 1])
-xlabel('x'), ylabel('y')
-\end{lstlisting}
+% figure, hold on, 
+% scatter(spectralLocus(1,1:70),spectralLocus(2,1:70),[],sRGBSpectralLocus(:,1:70)','filled')
+% scatter(xy(1,:),xy(2,:),'k')
+% axis equal, axis([0 1 0 1])
+% xticks([0 1]), yticks([0 1])
+% xlabel('x'), ylabel('y')
+% \end{lstlisting}
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo1.pdf}
-\caption{The CIE 1931 chromaticity diagram, showing the chromaticity of the macbeth colour checker patches under D65.}
+\caption{The \gls{CIE} 1931 chromaticity diagram, showing the chromaticity of the macbeth colour checker patches under D65.}
 \label{fig:1931}
 \end{figure}
 
-\subsubsection{Other Colour Spaces}
+\subsubsection{Specific Colour Spaces}
 
-u'v' 
+Over time various other colour spaces have been proposed and formally accepted by the \gls{CIE}, each aiming to improve upon a prior space in one or more ways. One of the most frequently sought characteristics for a colour space is perceptual uniformity, whereby a set distance in one part of the space is comparable in terms of apparent colour difference to that same distance in another part of the space.
 
-\gls{MB}
+One such chromaticity space which shall be used extensively in this thesis is the \gls{CIE} 1976 UCS (uniform chromaticity scale) diagram, which is a relatively simple transformation of the 1931 chromaticity diagram. The conversion can be accomplished in a number of analogous fashions, one of which is shown below.
 
-CIELAB and CIELUV
+\begin{subequations}
+\begin{align}
+u' &= 4x / (-2x + 12y + 3) \\
+v' &= 9y / (-2x + 12y + 3)
+\end{align}
+\end{subequations}
+
+where $x$ and $y$ are the 1931 chromaticity co-ordinates as defined in Equation \ref{eq:1931chrom}. The data presented in Figure \ref{fig:1931} are re-plotted in this new space in Figure \ref{fig:UCS}.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo3.pdf}
+\caption{\gls{CIE} 1976 UCS (uniform chromaticity scale) diagram, showing the chromaticity of the macbeth colour checker patches under D65 (as in Figure \ref{fig:1931}).}
+\label{fig:UCS}
+\end{figure}
+
+A three-dimensional extension to the CIE 1976 UCS diagram is the \gls{CIE} 1976 L*u*v* colour space, often abbreviated to CIELUV, which aims to provide perceptual uniformity in a space that includes both chromaticity and lightness (relative to a white object under the same illumination). It is defined as follows:
+
+\begin{subequations}
+\begin{align}
+L^{*} &= 116 f(Y/Y_{n})-16 \\
+\textrm{where} f(Y/Y_{n}) &= (Y/Y_{n})^{1/3} &\textrm{ if } (Y/Y_{n}) > (24/116)^{3} \\
+\textrm{where} f(Y/Y_{n}) &= (841/108)(Y/Y_{n})+16/116 &\textrm{ if } (Y/Y_{n}) \leq (24/116)^{3} \\
+u^{*} &= 13L^{*}(u'-u'_{n}) \\ 
+v^{*} &= 13L^{*}(v'-v'_{n})
+\end{align}
+\end{subequations}
+
+where $Y_{n}$, $u'_{n}$ and $v'_{n}$ refer to the colour stimulus of a perfect reflector. The same data presented in Figures \ref{fig:1931} and \ref{fig:UCS} is presented in CIELUV in Figure \ref{fig:CIELUV} (though of course the three-dimensional quality of the data is somewhat lost).
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo4.pdf}
+\caption{A representation of CIELUV, showing the values for the macbeth colour checker patches under D65 (as in Figure \ref{fig:1931} and \ref{fig:UCS}).}
+\label{fig:CIELUV}
+\end{figure}
+
+The final colour space presented here is the \acrfull{MB} colour space. This space does not aspire to be perceptually uniform\footnote{This can be clearly noted by comparing Figure \ref{fig:lrMB} with previous figures. Where this set of chromaticities previously spanned the spaces fairly broadly, here all the chromaticities inhabit only a small portion of the chromaticity space.}. Instead, it aspires to provide a colour space which has a physiological underpinning. As such, the observer used consists of nominal \glspl{SSF} (rather than \glspl{CMF}), and the conversion from tristimulus values to chromaticity space attempts to mirror the way in which this actually occurs physiologically.
+
+It was originally proposed by \citet{macleod_chromaticity_1979}, but was recently revised and endorsed by the \gls{CIE}, in documents `CIE 170:2006'\citep{cie_cie_2006} and `CIE 170:2015'\citep{cie_cie_2015}. The revisions included the definition of a new observer, based on the work of \citet{stockman_spectral_1999} and \citet{stockman_spectral_2000}, and the introduction of a new normalising term, such that it is now calculated as follows.
+
+\begin{subequations}
+\begin{align}
+L_{\text{MB}}&=k_{l} \sum_{\lambda} \phi(\lambda) \overline{l}(\lambda) \Delta \lambda \\ 
+M_{\text{MB}}&=k_{m} \sum_{\lambda} \phi(\lambda) \overline{m}(\lambda) \Delta \lambda \\ 
+S_{\text{MB}}&=k_{s} \sum_{\lambda} \phi(\lambda) \overline{s}(\lambda) \Delta \lambda
+\end{align}
+\end{subequations}
+
+where $k_{l}$ = 0.68990272, $k_{m}$ = 0.34832189, $k_{s}$ = 0.03715971. This set differs minimally but purposefully from Equation \ref{eq:XYZ}; in the choice of observer ($\overline{lms}$), and in the use of different scaling factors for each tristimulus value. \gls{MB} chromaticity values are then calculated as follows:
+
+\begin{subequations}
+\begin{align}
+l_{\text{MB}}&= \frac{L_{\text{MB}}}{L_{\text{MB}}+M_{\text{MB}}} \\ 
+s_{\text{MB}}&= \frac{S_{\text{MB}}}{L_{\text{MB}}+M_{\text{MB}}} 
+\end{align}
+\end{subequations}
+
+Whereas the relationship between the axes of previous colour spaces was important, here the axes are nominally independent (representing different post-receptoral mechanisms) and so the scaling between the axes is arbitrary. 
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo5.pdf}
+\caption{A \gls{MB} chromaticity diagram (as per \gls{CIE} 170-2:2015\citep{cie_cie_2015}) showing the values for the macbeth colour checker patches under D65, as in previous figures.}
+\label{fig:lrMB}
+\end{figure}
 
 \clearpage
 
@@ -199,8 +262,8 @@ He suggested for consideration the idea of the human visual system recording thr
 A large range of experimental methods have been used to investigate the problem of colour constancy, partly because different experimenters were approaching the problem from different angles aiming to accomplish subtly separate goals.
 Those approaching from a mathematical angle (perhaps with the mind-set `if we find the algorithm which predicts corresponding colours a- this is very useful for industry and b- we can then work backwards to explain how human colour constancy may occur') are concerned primarily with producing chromatic adaptation transforms.
 Those approaching colour constancy with a basic interest in the physiology and general function of colour constancy have adopted/created a rather wider set of experimental techniques, owing to the fact that this direction of study is much less well defined than the former, and is at a more exploratory stage of its development.
-The CIE TC 1-52 report (CIE 160:200442) includes an interesting note on the distinction between these two broad approaches; an appendix discusses the reasons why a concerted recommendation was not reached by the group lists the principal factor being a distinction between perspectives as described above. 
-CIE TC 1-5242 and Luo44 provide a comprehensive overview of the different methods which have been used by the CAT group:
+The \gls{CIE} TC 1-52 report (\gls{CIE} 160:200442) includes an interesting note on the distinction between these two broad approaches; an appendix discusses the reasons why a concerted recommendation was not reached by the group lists the principal factor being a distinction between perspectives as described above. 
+\gls{CIE} TC 1-5242 and Luo44 provide a comprehensive overview of the different methods which have been used by the CAT group:
 1.	Haploscopic matching
 2.	Local Adaptation Matching
 3.	Memory Matching
@@ -216,7 +279,7 @@ Away from the development of CATs, a subtly different set of experimental techni
 2.	Colour Naming
 3.	Achromatic Adjustment
 4.	Discriminating Illuminant Changes from Reflectance Changes
-Asymmetric matching is in many ways synonymous to the haploscopic matching described above and by in CIE 160:200442, in that it describes an experimental set-up whereby one stimuli is compared with another, generally where each stimuli exists within a distinct adapting field and attributes of one stimuli can be either adjusted or responded to by an observer. The term asymmetric matching might be thought to be inclusive of a wider range of experimental set-ups, where haploscopic (Greek roots: haploieides, single and skopeo, to view) is necessarily concerned with each individual eye receiving distinct input. Asymmetric matching may refer to experiments where stimuli are viewed simultaneously, successively, or in an alternating fashion, binocularly or haploscopically.
+Asymmetric matching is in many ways synonymous to the haploscopic matching described above and by in \gls{CIE} 160:200442, in that it describes an experimental set-up whereby one stimuli is compared with another, generally where each stimuli exists within a distinct adapting field and attributes of one stimuli can be either adjusted or responded to by an observer. The term asymmetric matching might be thought to be inclusive of a wider range of experimental set-ups, where haploscopic (Greek roots: haploieides, single and skopeo, to view) is necessarily concerned with each individual eye receiving distinct input. Asymmetric matching may refer to experiments where stimuli are viewed simultaneously, successively, or in an alternating fashion, binocularly or haploscopically.
 Colour Naming is a technique employed with the aim being a more natural task than  asymmetric matching, and removing some of the `instruction effects' probed by Arend and Reeves40. Foster argues37 that colour naming represents a task apt to measure colour constancy more directly, as opposed to the `relational colour constancy' often studied in asymmetric matching experiments, since it concerns identification rather than equivalence. One clear benefit seems to be that the observer needn't be aware of the equivalence; it is expected that in such experiments there will be only one stimulus, perhaps with a temporally variant adapting field. An observer is simply asked to name colours, and this should theoretically result in a measure of adaptational colour constancy as opposed to inferential colour constancy, so long as the stimuli is suitably abstract . Colour names may be of a fixed set, or an observer may be given free choice. Analysis of results can employ a naming centroid based approach or a boundary focused approach. Speigle and Brainard58 proposed a novel approach combining magnitude estimation and colour naming with the aim to improve precision of response.
 Achromatic Adjustment experiments ask an observer to in some way set a stimulus to a neutral achromatic tone, on the assumption that the internal grey point of an observer shifts in response to different adapting fields. These adjustments are generally easy for an observer to make, but the extrapolation of the results makes various assumptions about conceptual colour space and the nature of achromacy. Experiments are easily confounded by complex or real stimuli where there exists a close-to-neutral object in the scene which could consciously or unconsciously be used as a reference.
 Discriminating illuminant changes from reflectance changes provides a key way to examine colour constancy in an operational manner. Following the assumption that chromatic adaptation allows an observer to discount the illuminant in some manner, an experimental set up where observers are requested to distinguish between an illuminant change and a reflectance change represents a situation which very closely mirrors the natural process of colour constancy. This experimental technique is well placed to examine whether or not colour constancy in this form is active and efficient, but it provides little way of probing the underlying mechanisms of colour constancy.
@@ -228,7 +291,7 @@ Discriminating illuminant changes from reflectance changes provides a key way to
 
 \subsection{Colour rendering and light quality specification}
 
-Colour rendering indices provide an indication of the colour appearance of objects under a test illumination. Colour fidelity indices (properly a subset of colour rendering indices, however the most commonly used colour rendering index is in fact a colour fidelity index) are designed to describe how well a light source will produce a faithful appearance in terms of corresponding colorimetry to an appearance under CIE D-series illuminant (daylight proxy) or a black body radiator. Target values are generally provided in museum lighting guidelines \citep{ies_ies_1996,druzik_guidelines_2012,cibse_lighting_2015,thomson_museum_1986}. The recommended value for the ubiquitously used CIE R\textsubscript{a} (As defined in CIE 13.3:1995 \citep{cie_cie_1995}), often informally referred to as `CRI', varies from publication to publication, but is generally CIE R\textsubscript{a}$>$80, but with no experimental work referenced to support this figure. Research in colour rendering is at a point of change and development, with the recognition that a single figure might never be enough to describe the complex, multidimensional, subjective and context dependent qualia of colour rendering\citep{rea_color_2008}. Thus new indices, and modifications and addenda to long-established indices are being proposed \citep{smet_memory_2012,davis_color_2010,rea_practical_2010,color_metric_task_group_of_the_ies_ies_2015,teunissen_characterising_2016}.
+Colour rendering indices provide an indication of the colour appearance of objects under a test illumination. Colour fidelity indices (properly a subset of colour rendering indices, however the most commonly used colour rendering index is in fact a colour fidelity index) are designed to describe how well a light source will produce a faithful appearance in terms of corresponding colorimetry to an appearance under \gls{CIE} D-series illuminant (daylight proxy) or a black body radiator. Target values are generally provided in museum lighting guidelines \citep{ies_ies_1996,druzik_guidelines_2012,cibse_lighting_2015,thomson_museum_1986}. The recommended value for the ubiquitously used \gls{CIE} R\textsubscript{a} (As defined in \gls{CIE} 13.3:1995 \citep{cie_cie_1995}), often informally referred to as `CRI', varies from publication to publication, but is generally \gls{CIE} R\textsubscript{a}$>$80, but with no experimental work referenced to support this figure. Research in colour rendering is at a point of change and development, with the recognition that a single figure might never be enough to describe the complex, multidimensional, subjective and context dependent qualia of colour rendering\citep{rea_color_2008}. Thus new indices, and modifications and addenda to long-established indices are being proposed \citep{smet_memory_2012,davis_color_2010,rea_practical_2010,color_metric_task_group_of_the_ies_ies_2015,teunissen_characterising_2016}.
 
 To discuss the colour rendering of a light source is to discuss the colour appearance of objects which the light source's illumination may facilitate. 
 
@@ -236,7 +299,7 @@ If we were to take a bunch of balloons (or any objects, but balloons provide a s
 
 If the balloons stayed the same colour what we'd be seeing specifically is a high level of colour fidelity, fidelity meaning faithfulness or truthfulness. If fidelity aligns well with the priorities of the user, then high levels of fidelity are desirable. It is assumed when discussing colour fidelity generally, that we're actually discussing fidelity to appearance under daylight or sometimes a Planckian radiator, aka a black body radiator. This is a fine comparison, but one which should be consciously considered; fidelity is not a measure of a light source per se, it is a comparison of that light source to a reference illuminant.
 
-Fidelity has long been considered semi-analogous for colour rendering as a whole, but it should be remembered that it is really only one element of colour rendering, albeit one with useful correlation to others. Here I should point out that the CIE definition of colour rendering, from the publication CIE S 017/E:2011 ILV: International Lighting Vocabulary \citep{cie_cie_2011} reads: ``Effect of an illuminant on the colour appearance of objects by conscious or subconscious comparison with their colour appearance under a reference illuminant.'' You'll notice the similarities to the definition I have ascribed to colour fidelity, and specifically not colour rendering. This is an unfortunate clash of nomenclature which I see as inappropriate usage on the part of CIE, and at some point I hope this official definition will be updated to match the modern vernacular.
+Fidelity has long been considered semi-analogous for colour rendering as a whole, but it should be remembered that it is really only one element of colour rendering, albeit one with useful correlation to others. Here I should point out that the \gls{CIE} definition of colour rendering, from the publication \gls{CIE} S 017/E:2011 ILV: International Lighting Vocabulary \citep{cie_cie_2011} reads: ``Effect of an illuminant on the colour appearance of objects by conscious or subconscious comparison with their colour appearance under a reference illuminant.'' You'll notice the similarities to the definition I have ascribed to colour fidelity, and specifically not colour rendering. This is an unfortunate clash of nomenclature which I see as inappropriate usage on the part of \gls{CIE}, and at some point I hope this official definition will be updated to match the modern vernacular.
 
 When considering how `good' a light source is at facilitating colour with the objects which it illuminates, we might consider different measures alongside or in place of fidelity.
 
@@ -248,15 +311,15 @@ When considering how `good' a light source is at facilitating colour with the ob
 
 These areas overlap, and often exhibit correlation. For example, if a light source has properties which allow for high fidelity rendering, quite often that light source might also allow for good colour discrimination and also facilitate colours which might appear natural and/or pleasing. These are not reliable correlations however; it is quite possible to have a light source with very dissimilar properties to daylight that could score highly on discrimination and/or preference, or vice versa.
 
-The index in widest use currently for quantifying colour rendering is CIE R\textsubscript{a} (The General Colour Rendering Index). At start of my studies, this metric almost exclusively to generate the figure listed as `CRI' or similar on the packaging for bulbs available commercially. %In the intervening time, IES RP-30-15\cite{color_metric_task_group_of_the_ies_ies_2015}, and more recently IES RP-30-18\cite{ies_ies_2018}, have been published. %and...
+The index in widest use currently for quantifying colour rendering is \gls{CIE} R\textsubscript{a} (The General Colour Rendering Index). At start of my studies, this metric almost exclusively to generate the figure listed as `CRI' or similar on the packaging for bulbs available commercially. %In the intervening time, IES RP-30-15\cite{color_metric_task_group_of_the_ies_ies_2015}, and more recently IES RP-30-18\cite{ies_ies_2018}, have been published. %and...
 
-CIE R\textsubscript{a} is a colour fidelity metric, produced by computing the colour differences of 8 specified test colour samples (TCSs), between the situation where illumination is provided by the test source and that where it is provided by a reference illuminant with the same \gls{CCT} as the test source, and taking the arithmetic mean of these colour differences. The index is scaled such that the highest score is 100, for light sources which reproduce the TCSs under the reference illuminant exactly, with any light source which induces a colour shift receiving a value less than 100, descending below 0 if the magnitude of the shifts are great enough.
+\gls{CIE} R\textsubscript{a} is a colour fidelity metric, produced by computing the colour differences of 8 specified test colour samples (TCSs), between the situation where illumination is provided by the test source and that where it is provided by a reference illuminant with the same \gls{CCT} as the test source, and taking the arithmetic mean of these colour differences. The index is scaled such that the highest score is 100, for light sources which reproduce the TCSs under the reference illuminant exactly, with any light source which induces a colour shift receiving a value less than 100, descending below 0 if the magnitude of the shifts are great enough.
 
-The most recent version of the standard specifying this metric is `CIE 13.3-1995 Method of Measuring and Specifying Colour Rendering Properties of Light Sources' \citep{cie_cie_1995}. This document briefly overviews the history of, and necessity for, a colour rendering index and highlights areas of the procedure which vary compared to previous recommendations, and clearly details the recommended procedure. The process is summarised in the flow chart of Figure \ref{fig:criflow}. For a worked example see \citet[p.388]{hunt_measuring_2011}.
+The most recent version of the standard specifying this metric is `\gls{CIE} 13.3-1995 Method of Measuring and Specifying Colour Rendering Properties of Light Sources' \citep{cie_cie_1995}. This document briefly overviews the history of, and necessity for, a colour rendering index and highlights areas of the procedure which vary compared to previous recommendations, and clearly details the recommended procedure. The process is summarised in the flow chart of Figure \ref{fig:criflow}. For a worked example see \citet[p.388]{hunt_measuring_2011}.
 
-In response to a lack of confidence that CIE R\textsubscript{a} delivered meaningful values for LED illumination, a considerable amount of research and discussion has revolved around the subject of a colour rendering index to supersede CIE R\textsubscript{a}. This is commonly complicated by the assumption that the values obtained from a fidelity index in some way correlate with a visual appearance; CIE R\textsubscript{a} does not predict preference between two light sources. A more valid criticism of CIE R\textsubscript{a} is that it comprises deprecated methods and data sets for computing intermediary stages within the process of calculation, and thus this theoretically limits the `correctness' of any values produced by it.
+In response to a lack of confidence that \gls{CIE} R\textsubscript{a} delivered meaningful values for LED illumination, a considerable amount of research and discussion has revolved around the subject of a colour rendering index to supersede \gls{CIE} R\textsubscript{a}. This is commonly complicated by the assumption that the values obtained from a fidelity index in some way correlate with a visual appearance; \gls{CIE} R\textsubscript{a} does not predict preference between two light sources. A more valid criticism of \gls{CIE} R\textsubscript{a} is that it comprises deprecated methods and data sets for computing intermediary stages within the process of calculation, and thus this theoretically limits the `correctness' of any values produced by it.
 
-Following many years where multiple CIE technical committees aimed to deliver updated colour rendering indices, but subsequently didn't make any firm recommendations, an IES group was formed with the aim of examining the issue. The output of this IES group was the production of IES TM-30-15\cite{color_metric_task_group_of_the_ies_ies_2015}, which follows the same philosophy as CIE R\textsubscript{a} but with more modern colour science. It is still a contentious issue whether this updated index genuinely offers advantages over CIE R\textsubscript{a}. 
+Following many years where multiple \gls{CIE} technical committees aimed to deliver updated colour rendering indices, but subsequently didn't make any firm recommendations, an IES group was formed with the aim of examining the issue. The output of this IES group was the production of IES TM-30-15\cite{color_metric_task_group_of_the_ies_ies_2015}, which follows the same philosophy as \gls{CIE} R\textsubscript{a} but with more modern colour science. It is still a contentious issue whether this updated index genuinely offers advantages over \gls{CIE} R\textsubscript{a}. 
 % it also includes a bunch of other things...
 % and IES TM-30-18?
 
@@ -269,7 +332,7 @@ Alternative propositions which offer fundamentally different approaches to the e
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/criflow.png}
-\caption{The stages of calculation for the computation of the CIE General Colour Rendering Index. Notes: Reference illuminant: the same or nearly the same \gls{CCT}. Below 5000K reference spectrum will be that of a black body radiator, and from 5000K `one of a series of spectral power distributions of phases of daylight'.}
+\caption{The stages of calculation for the computation of the \gls{CIE} General Colour Rendering Index. Notes: Reference illuminant: the same or nearly the same \gls{CCT}. Below 5000K reference spectrum will be that of a black body radiator, and from 5000K `one of a series of spectral power distributions of phases of daylight'.}
 \label{fig:criflow}
 \end{figure}
 
@@ -312,7 +375,7 @@ o	There appears to be an issue with the data for this question however, with the
 -	The results of two priority ranking questions  are broadly similar:
 o	First question: The first priority is identified as `limiting damage' with other priorities broadly equal.
 o	Second question: Joint first priorities are identified as `colour and spectral power distribution' and `damage potential' with others broadly similar (though dimming, input power and warranty lagging behind others)
--	91\% of respondents reported using `Color Rendering Index (CRI)' which is assumed to refer to CIE Ra. 6\% state that they refer to other Ri values, and 20\% report using CQS.
+-	91\% of respondents reported using `Color Rendering Index (CRI)' which is assumed to refer to \gls{CIE} Ra. 6\% state that they refer to other Ri values, and 20\% report using CQS.
 -	60\% of respondents report that they consider \gls{CCT}.
 
 
@@ -323,7 +386,7 @@ o	Second question: Joint first priorities are identified as `colour and spectral
 
 An overview was written of five of the most prominent and referred to museum lighting guidance documents:
 •	The Museum Environment8
-•	CIE 157:2004 Control of Damage to Museum Objects by Optical Radiation59
+•	\gls{CIE} 157:2004 Control of Damage to Museum Objects by Optical Radiation59
 •	Guidelines for Selecting Solid-State Lighting for Museums6
 •	SLL LG8: Lighting for museums and art galleries7
 •	IES RP-30-96 Museum and Art Gallery Lighting: A Recommended Practice1
@@ -346,7 +409,7 @@ Whilst a small number considered themselves active in the area of lighting resea
 Asked what each considered to be `good lighting', responses included `safe', `invisible' (you don't notice it), and `lighting which is appropriate for your objects and your exhibition' (noting the variability of requirements dependent on the particular object(s) being presented). Asked to present a list or range of priorities, many focused on the safety requirements of lighting. The principal safety concern for lighting was that it fell below specific illuminance criteria, dependent on the assumed sensitivity category of the object in question. The specific target values were generally those provided by Thomson8 of 50lx for sensitive items and 200lx for less sensitive items, which are based on the visual preference work of Loe68.
 Considering a scale of other priorities, following the requirement for appropriate lux levels, considerations included: limiting/excluding UV, obtaining an acceptable CRI value, and time and capital costs associating with fitting and maintenance. Energy efficiency was also a driver, but this did not seem to be a factor within technology category, rather it was noted that many institutions are switching to LED because of increased efficiency, but that the difference in efficiency between one LED type and another was negligible compared to the saving in contrast to lighting technology which LED was replacing, which was often tungsten.
 The range of roles played in the procurement of lighting varied amongst those interviewed. Whilst some created guidance documents which would then be passed on to estates teams and exhibition designers or lighting designers specifically, others had a much more hands-on role, testing specific lighting before installation or making recommendations on a case-by-case basis. It was noted that whilst relamping and retrofitting was generally handled by `in house' teams, where new galleries or large temporary exhibitions were created it was common for an external lighting design company to be contracted to perform the work. When asked whether recommendations were normally followed, the general reply was that recommendations for lux exposure and UV content were almost always followed, but other recommendations (such as for CRI or \gls{CCT}) were more loosely interpreted. In many cases recommendations for \gls{CCT} were not made.
-When asked about the tools used to make such recommendations and choices, responses included references to guidelines and reference sources (most often 8, though also 6 and 69), references to specific units such as `lux' used in tandem with recommendations from guidelines such as above, indices such as CIE Ra (referred ubiquitously to as `CRI') and notes of specific conferences which were attended in order to stay up to date with the research on the subject. There was a general feeling that the current climate was one of swift technological change in lighting, which created an increased difficulty in staying up to date with developments. It was noted that attending conferences and industry workshops were very beneficial in assisting professionals to stay up to date. 
+When asked about the tools used to make such recommendations and choices, responses included references to guidelines and reference sources (most often 8, though also 6 and 69), references to specific units such as `lux' used in tandem with recommendations from guidelines such as above, indices such as \gls{CIE} Ra (referred ubiquitously to as `CRI') and notes of specific conferences which were attended in order to stay up to date with the research on the subject. There was a general feeling that the current climate was one of swift technological change in lighting, which created an increased difficulty in staying up to date with developments. It was noted that attending conferences and industry workshops were very beneficial in assisting professionals to stay up to date. 
 `Things are moving so quickly that to rely on books which have taken two years to produce [does not suffice, because] things have moved on. Books (plus journals) used to be the main reference. Now things are moving at such a rapid pace.'
 A range of techniques were used to qualify whether specific lighting was `safe' or not. The most common practical technique was spot metering of lux values incident on specific objects, and selective dimming to drop incident lighting to the desired lux level in response to this. Some larger institutions with access to microfading equipment were able to use this in the determination of sensitivity of specific objects. One interviewee provided details of a spectral power distribution based method for considering the safety specifically of phosphor based LED illumination, whereby the height of the blue peak was compared to the height of the peak of the broader peak above 500nm, and if the former was more than three times the height of the latter, that lighting was singled out as potentially not safe. Other interviewees had heard of this criteria, and some used it as a rough guide, but one remarked that it was `fairly arbitrary'. One of the most succinct and perhaps astute responses was `what is safe?'. One interviewee referred to the website of Padfield70 where considerations for the `RE%' (`relative spectral sensitivity normalised exposure values'), using the damage functions described in 71 are used.
 The interviewees generally did not consider characteristics of the displayed objects such as geometry of illumination, broadly considering this to be the remit of a lighting designer or exhibition designer rather than a conservator.
@@ -386,7 +449,7 @@ Whilst Cuttle's propositions make for interesting discussions and enjoyable exte
 Traditionally, colour rendering indices aim to offer a standardized method for calculating the colour differences induced by the substitution of a reference illuminant with a specific test source, and for comparing the relative merit of different test light sources on their ability to induce minimum change. In modern parlance this type of index should be referred to as a colour fidelity index, that is- one which is conceptually concerned with colorimetric reproduction. The term `colour rendering' has come to encompass much more than just fidelity.
 Diametrically opposed in some ways to fidelity are the indices which aim to quantify `preference'. In the simplest case, a preference index will aim to provide a value that is predictive of how an observer would rate a light source it against other light sources. 
 Within, and on the spectrum between these two groups there exist a range of different indices with subtly different aims and mechanisms for achieving these aims. For a thorough overview, albeit one which omits some more recent developments, see Guo and Houser21.
-In practice, both of these philosophical approaches are mandated in current lighting guidance. For the most part, advice for lighting specification6,7 on the subject of colour rendering can be simplified to read `use lamps of above CRI 80 (referring tacitly to CIE Ra) but always test them visually before you buy in bulk'. Whilst this may at first seem like sensible advice, upon further inspection it in fact represents a serious contradiction, unless considered with heavy caveats. The problem rests in the fact that CIE Ra is a fidelity index, whereas any visual inspection is likely to be performed by observing the appearance of an object under the test illumination without a reference. Fidelity aims to describe accuracy of reproduction, but this is a quality which is arguably not testable by visual inspection. This contradiction seems to perpetuate unnoticed in museum practice, with lighting specifiers often abstractly declaring to target a faithful/accurate/honest/impartial representation of objects, but practically choosing light sources based on visual inspection where preference is the only criteria. There is of course a range of approaches, ranging from pure reliance on indices to almost entire reliance on visual testing.
+In practice, both of these philosophical approaches are mandated in current lighting guidance. For the most part, advice for lighting specification6,7 on the subject of colour rendering can be simplified to read `use lamps of above CRI 80 (referring tacitly to \gls{CIE} Ra) but always test them visually before you buy in bulk'. Whilst this may at first seem like sensible advice, upon further inspection it in fact represents a serious contradiction, unless considered with heavy caveats. The problem rests in the fact that \gls{CIE} Ra is a fidelity index, whereas any visual inspection is likely to be performed by observing the appearance of an object under the test illumination without a reference. Fidelity aims to describe accuracy of reproduction, but this is a quality which is arguably not testable by visual inspection. This contradiction seems to perpetuate unnoticed in museum practice, with lighting specifiers often abstractly declaring to target a faithful/accurate/honest/impartial representation of objects, but practically choosing light sources based on visual inspection where preference is the only criteria. There is of course a range of approaches, ranging from pure reliance on indices to almost entire reliance on visual testing.
 In conclusion, no one metric exists that would satisfy the divergent aims and philosophies of museum lighting. Several distinct types of colour rendering index exist, but the existing range fall into the broad categories of `fidelity' or `preference', with the latter being particularly poorly definable due to its variability in different environments, with different user functional requirements and different intrinsic preferences between different observers. Progress could be made by breaking these broad categories into smaller more manageable specific objectives.
 
 \subsubsection{CCT in museums}
@@ -395,7 +458,7 @@ In conclusion, no one metric exists that would satisfy the divergent aims and ph
 
 Specifications often refer implicitly or explicitly to the findings of Kruithof60, who found that at lower levels of illumination, lower colour temperatures were preferred, and that at higher levels of illumination higher colour temperatures were preferred. Whilst this general trend seems to have empirical support, I suspect that there may be lighting technology based confounds, and recent researchers66 (including a meta-study of multiple other examinations67) found there to be no provable correlation between preference and colour temperature.
 
-The CIE however, published a report showing the varying the \gls{CCT} of museum lighting could have a profound impact on the potential damage undergone by museum objects. 
+The \gls{CIE} however, published a report showing the varying the \gls{CCT} of museum lighting could have a profound impact on the potential damage undergone by museum objects. 
 
 %fig
 
@@ -408,7 +471,7 @@ This research relies heavily upon the applicability of damage functions to the s
     \item They're definitely applicable to at least some objects.
 \end{enumerate}
 
-To verify the findings of the CIE, to extend their findings to \glspl{LED}, and to provide code for others to do similar research or even test their own lights/materials, I wrote some code which would calculate a \gls{DI} in \gls{MATLAB}:
+To verify the findings of the \gls{CIE}, to extend their findings to \glspl{LED}, and to provide code for others to do similar research or even test their own lights/materials, I wrote some code which would calculate a \gls{DI} in \gls{MATLAB}:
 
 % \begin{lstlisting}
 % function DI = CalcDI(SPD,S_SPD)
