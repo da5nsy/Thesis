@@ -111,8 +111,3 @@ ylabel('{\its}_{MB}');
 
 save2pdf('C:\Users\cege-user\Dropbox\UCL\Ongoing Work\Thesis\figs\LitRev\ColorimetryDemo5.pdf')
 
-%
-
-%figure, hold on
-
-
