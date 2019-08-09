@@ -16,13 +16,13 @@ In sweeping terms, all electromagnetic radiation (visible and non-visible) damag
 
 Industry guidance documents provide advice on how to manage lighting to best address the above requirements and many other additional specific requirements through the recommendation of procedure and provision of target figures for quantitative variables. Non-visible electro-magnetic radiation, being of no visual benefit but having potential to harm, is now excluded from gallery spaces as an industry standard.
 
-\subsection{Damage factors}
+\subsection{Damage factors} \label{sec:DamageIndex}
 
 \hl{How do I not just copy pages 5-7 of CIE 2004?. THAT's what I want to say.}
 
-\subsection{Interviews with Museum Professionals}
+\subsection{Interviews with Museum Professionals} \label{sec:Interviews}
 
-\textit{The following work has been published as \textbf{`How is museum lighting selected? An insight into current practice in UK museums'} \citep{garside_how_2017}. An overview is presented here, focusing on the elements relevant to the rest of the thesis.}
+\textit{The following work has been published as \textbf{`How is museum lighting selected? An insight into current practice in UK museums'} \citep{garside_how_2017}. An overview is presented here, focusing on the elements relevant to the rest of the thesis, rather than as an independent chapter.}
 
 \medskip
 
@@ -50,7 +50,7 @@ When asked about the tools used to make such recommendations and choices, respon
 `   Things are moving so quickly that to rely on books which have taken two years to produce [does not suffice, because] things have moved on. Books (plus journals) used to be the main reference. Now things are moving at such a rapid pace.''
 \end{quote}
 
-A range of techniques were used to qualify whether specific lighting was `safe' or not. The most common practical technique was spot metering of lux values incident on specific objects, and selective dimming to drop incident lighting to the desired lux level in response to this. Some larger institutions with access to microfading equipment were able to use this in the determination of sensitivity of specific objects. One interviewee provided details of a spectral power distribution based method for considering the safety specifically of phosphor based \gls{LED} illumination, whereby the height of the blue peak was compared to the height of the peak of the broader peak above 500nm, and if the former was more than three times the height of the latter, that lighting was singled out as potentially not safe. Other interviewees had heard of this criteria, and some used it as a rough guide, but one remarked that it was `fairly arbitrary'. One of the most succinct and perhaps astute responses was ``what is `safe'?''. One interviewee referred to the website of \citet{padfield_relative_nodate} where considerations for the `RE\%' (`relative spectral sensitivity normalised exposure values'), using the damage functions described by \citet{s._aydinli_deterioration_1990} are used\footnote{The subject of damage functions is covered in a later section.}.
+A range of techniques were used to qualify whether specific lighting was `safe' or not. The most common practical technique was spot metering of lux values incident on specific objects, and selective dimming to drop incident lighting to the desired lux level in response to this. Some larger institutions with access to microfading equipment were able to use this in the determination of sensitivity of specific objects. One interviewee provided details of a spectral power distribution based method for considering the safety specifically of phosphor based \gls{LED} illumination, whereby the height of the blue peak was compared to the height of the peak of the broader peak above 500nm, and if the former was more than three times the height of the latter, that lighting was singled out as potentially not safe. Other interviewees had heard of this criteria, and some used it as a rough guide, but one remarked that it was `fairly arbitrary'. One of the most succinct and perhaps astute responses was ``what is `safe'?''. One interviewee referred to the website of \citet{padfield_relative_nodate} where considerations for the `RE\%' (`relative spectral sensitivity normalised exposure values'), using the damage functions described by \citet{s._aydinli_deterioration_1990} are used.
 
 The interviewees generally did not consider characteristics of the displayed objects such as geometry of illumination, broadly considering this to be the remit of a lighting designer or exhibition designer rather than a conservator.
 
@@ -142,12 +142,18 @@ This research relies heavily upon the applicability of damage functions to the s
 
 To verify the findings of the \gls{CIE}, to extend their findings to \glspl{LED}, and to provide code for others to do similar research or even test their own lights/materials, I wrote some code\footnote{\url{https://github.com/da5nsy/DamageIndex/blob/c7851e27ca1b0915013d8723db04704b49b4085e/CalcDI.m}} which would calculate a \gls{DI}. Then I used that code to compute a new version of the \gls{CIE} plot.
 
-\clearpage
-\includepdf[pages=-,rotate=90, offset=75 -75]{figs/LitRev/CCTvsDI.pdf}
-\begin{figure}[h!]
-    \caption{The \glspl{CCT} and \glspl{DI} of the \glspl{SPD} used by \citet{houser_review_2013} [provided via personal communication, but now partially available via \gls{PTB} as `spd\_houser'].}
-    \label{fig:CCTvsDI}
-\end{figure} 
+%\afterpage{\clearpage}
+%\includepdf[pages=-,rotate=90, offset=75 -75]{figs/LitRev/CCTvsDI.pdf}
+% \begin{figure}[t]
+%     \caption{The \glspl{CCT} and \glspl{DI} of the \glspl{SPD} used by \citet{houser_review_2013} [provided via personal communication, but now partially available via \gls{PTB} as `spd\_houser'].}
+%     \label{fig:CCTvsDI}
+% \end{figure} 
+
+\begin{fullpagefigure}
+\figpdf[pages=-,rotate=90, offset=75 -75]{figs/LitRev/CCTvsDI.pdf}
+\caption{The \glspl{CCT} and \glspl{DI} of the \glspl{SPD} used by \citet{houser_review_2013} [provided via personal communication, but now partially available via \gls{PTB} as `spd\_houser'].}
+\label{fig:CCTvsDI}
+\end{fullpagefigure}
 
 The results of these computations show a clear relationship between \gls{CCT} and \gls{DI}. Considering that this is not currently taken advantage of in museum lighting, it seems as though there is a great potential for reducing damage whilst maintaining visitor visual satisfaction.
 

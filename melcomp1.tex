@@ -49,7 +49,7 @@ The answer to the first question set out for the script then, is that a melanopi
 
 It should be noted that there was very high correlation between each signal. This is shown in Figure \ref{fig:tristimCorrelation} and the correlation table below. This can be considered as corresponding to the high importance of the first principal component of the spectral measurements in this dataset. Put another way, a sensor with almost any spectral sensitivity could be used to estimate the general magnitude of the daylight. The discussion of principal components shall be returned to under melcomp\_3.
 
-\begin{minipage}{\linewidth}
+%\begin{minipage}{\linewidth}
 \begin{lstlisting}
 corr(LMSI)
     1.0000    1.0000    0.9993    0.9998
@@ -57,33 +57,49 @@ corr(LMSI)
     0.9993    0.9995    1.0000    0.9999
     0.9998    0.9999    0.9999    1.0000
 \end{lstlisting}
-\end{minipage}
+%\end{minipage}
 
 \bigskip
 
 Following this, similar plots were made which plotted $l_{\text{MB}}$ against $s_{\text{MB}}$ as before, but now plotted the various combinations of $[L,M,S,I]$, created by considering one signal over another (e.g. $L/M$), on the z-axis. These plots are shown in Figure \ref{fig:allComboSignals}. Following the terminology of \citet{barrionuevo_contributions_2014} $[L,M,S,I]$ shall be referred to as `first level signals' and these derived signals as `second level signals'. The twelve plots created all showed clear and relatively simple relationships between chromaticity and these new derived signals, at least for the illuminant-only values. Again, a similar trend was seen for each individual surface, but once surfaces were included any overall trend broke down into small replicants of the overall trend.
 % This might end up putting a single line on a page. Check before submitting
 
-\clearpage
-\includepdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals.pdf}
-\begin{figure}[h!]
-    \caption{Relationship between chromaticity and second level signals. Plotted on the x-axis here is $l_{\text{MB}}$, with second level signals on the apparent y-axis. During analysis these plots were three dimensional, with the apparent y-axis being a z-axis and the x-axis joined by a y-axis of $s_{\text{MB}}$. As before, red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants. It can be seen that on a per object basis (incl. no object) there is good correlation between all of the above signals (though often it is non-linear).}
-    % See gifs online at...
-    \label{fig:allComboSignals}
-\end{figure} 
-%\clearpage
-% does it look weird if this doesn't spread over a double?
+% \clearpage
+% \includepdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals.pdf}
+% \begin{figure}[h!]
+%     \caption{Relationship between chromaticity and second level signals. Plotted on the x-axis here is $l_{\text{MB}}$, with second level signals on the apparent y-axis. During analysis these plots were three dimensional, with the apparent y-axis being a z-axis and the x-axis joined by a y-axis of $s_{\text{MB}}$. As before, red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants. It can be seen that on a per object basis (incl. no object) there is good correlation between all of the above signals (though often it is non-linear).}
+%     % See gifs online at...
+%     \label{fig:allComboSignals}
+% \end{figure} 
+% %\clearpage
+% % does it look weird if this doesn't spread over a double?
+
+
+\begin{fullpagefigure}
+\figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals.pdf}
+\caption{Relationship between chromaticity and second level signals. Plotted on the x-axis here is $l_{\text{MB}}$, with second level signals on the apparent y-axis. During analysis these plots were three dimensional, with the apparent y-axis being a z-axis and the x-axis joined by a y-axis of $s_{\text{MB}}$. As before, red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants. It can be seen that on a per object basis (incl. no object) there is good correlation between all of the above signals (though often it is non-linear).}
+% See gifs online at...
+\label{fig:allComboSignals}
+\end{fullpagefigure}
 
 For many of these signals however, such relationships are to be expected\footnote{My thanks go to Manuel Spitschan for convincing me of this point.}. For example, a relationship between $l_{\text{MB}}$ and $L/M$ should be expected, since $l_{\text{MB}}$ is defined as the sum of weighted components of $L$ and $M$. To confirm this, a null condition was performed, where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated as before. The results can be seen in Figure \ref{fig:allComboSignals_rand}. Relationships between secondary signals derived from $L$, $M$ or $S$ signals still showed correlations with chromaticity (albeit now points fell on a plane, instead of a line), whereas signals with a $I$ component showed only minimal coherence, forming a noisy cloud in three-dimensional space. This implies that should the melanopic signals correlate with chromaticity, that this is not simply a computational artefact of the way in which chromaticity is calculated.
 
-\clearpage
-\includepdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals_rand.pdf}
-\begin{figure}[h!]
-    \caption{As per \ref{fig:allComboSignals} but where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated from these instead of real values. Where relationships still exist, this implies that they are computational artefacts rather than underlying relationships. Blue is used to distinguish this random data from previous real data. Note that different rotations have been applied to some of the subplots to best display the correlations.}
-    \label{fig:allComboSignals_rand}
-\end{figure} 
-%\clearpage
-% does it look weird if this doesn't spread over a double?
+% \clearpage
+% \includepdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals_rand.pdf}
+% \begin{figure}[h!]
+%     \caption{As per \ref{fig:allComboSignals} but where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated from these instead of real values. Where relationships still exist, this implies that they are computational artefacts rather than underlying relationships. Blue is used to distinguish this random data from previous real data. Note that different rotations have been applied to some of the subplots to best display the correlations.}
+%     \label{fig:allComboSignals_rand}
+% \end{figure} 
+% %\clearpage
+% % does it look weird if this doesn't spread over a double?
+
+
+
+\begin{fullpagefigure}
+\figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals_rand.pdf}
+\caption{As per \ref{fig:allComboSignals} but where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated from these instead of real values. Where relationships still exist, this implies that they are computational artefacts rather than underlying relationships. Blue is used to distinguish this random data from previous real data. Note that different rotations have been applied to some of the subplots to best display the correlations.}
+\label{fig:allComboSignals_rand}
+\end{fullpagefigure}
 
 This example shows that if a melanopic signal exhibits correlation with a chromatic signal \emph{not} due to the underlying mathematics of how chromaticity is calculated, and that any relationship must follow from a genuine regularity in the data.
 

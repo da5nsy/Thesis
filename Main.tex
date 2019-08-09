@@ -39,7 +39,7 @@
 %
 
 %\documentclass[12pt,phd,draft,a4paper,oneside]{ucl_thesis}
-\documentclass[12pt,phd,a4paper,oneside]{ucl_thesis}
+\documentclass[12pt,phd,a4paper,twoside]{ucl_thesis}
 
 \input{MainPackages}
 
@@ -57,17 +57,15 @@
 \begin{document}
 
 \include{Preamble}
-%\include{Introduction}
+\include{Introduction}
 \include{LitReview}
-\include{ResearchQuestions}
+
 %\include{LargeSphere}
 %\include{SmallSphere}
 %\include{TabletMethod}
 %\include{melcomp}
-%\include{General discussion}
-%\include{Contribution to vision science}
-%\include{Recommendations for museum lighting}
-%\include{Future work}
+
+%\include{GeneralDiscussion}
 %\include{Conclusions}
 %\include{Appendices} 
 
@@ -76,10 +74,20 @@
 \bibliography{BIB}
 % This line manually adds the Bibliography to the table of contents. 
 % Adding it like this means that it doesn't get a chapter or appendix number.
-\addcontentsline{toc}{chapter}{Bibliography}
+\addcontentsline{toc}{chapter}{References}
 % And so that 'books' (e.g. ECVP conference) include URL if they have it.
 % And also 'magazine articles' - include URL and 'archive', see Foster and Partners.
 % Probably something similar for these as well - see Delahunt.
 % https://latex.org/forum/viewtopic.php?f=50&t=5686 ?
 
 \end{document}
+
+%% TO DO
+
+% melcomp meaningful names
+% align acronyms (add XYZ, CRI, RGB)
+% add back in lit review sections on colour rendering, in general and museums, and visitor needs
+% images for interviews section?
+% add more to museum guilines summary
+% add image for cct in museums
+%add cri to end of colorimetry

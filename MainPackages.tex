@@ -157,8 +157,11 @@
 \definecolor{lightgray}{gray}{0.85}
 \sethlcolor{lightgray}
 
-% for insering full pdf pages (used by me for making ethhics applications into appendices
+% for insering full pdf pages (used by me for making ethics applications into appendices
 \usepackage{pdfpages} 
+
+% For full page figures with the caption on the previous page
+\usepackage{phffullpagefigure}
 
 %for code chunks
 \usepackage{listings} 
@@ -182,10 +185,6 @@
     emph=[1]{for,end,break},emphstyle=[1]\color{red}, %some words to emphasise
     %emph=[2]{word1,word2}, emphstyle=[2]{style},    
 }
-
-% for getting things to happen after the next page is finished
-% used in combo as \afterpage{\clearpage}
-\usepackage{afterpage}
 
 %for multi-line equations
 \usepackage{amsmath} 
