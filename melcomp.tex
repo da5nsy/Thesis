@@ -4,7 +4,7 @@
 \epigraph{You don't really understand what you've got until you do a comprehensive model of it.}
 {\textit{Christopher Tyler} \\ (Q\&A session at VSS 2019)}
 
-\textit{The work presented here has been presented previously as a poster presentation at VSS 2018 \citep{garside_does_2018}\footnote{Poster available: \doi{10.6084/m9.figshare.6280865.v1}} and as an oral presentation at ICVS 2019 \footnote{Slides and abstract available: \doi{10.6084/m9.figshare.8832395.v1}}}.
+\textit{The work presented here has been presented previously as a poster presentation at VSS 2018 \citep{garside_does_2018}\footnote{Poster available: \doi{10.6084/m9.figshare.6280865.v1}}, a poster presentation at the Visual Neuroscience Summer School (Rauischholzhausen 2018), and as an oral presentation at ICVS 2019 \footnote{Slides and abstract available: \doi{10.6084/m9.figshare.8832395.v1}}}.
 
 \section{Summary}
 
@@ -20,7 +20,7 @@ Code is provided: \url{https://github.com/da5nsy/Melanopsin_Computational}
 
 \section{Introduction}
 
-In the other chapters of this thesis the approach taken to study the effect of melanopsin has mirrored standard practice: we think that melanopsin \emph{might} be involved in a specific process and so we run an experiment where we vary the amount of melanopsin activation within a stimulus and measure something to see if there is an associated change, with the hope of understanding \emph{how} melanopsin might be involved, but at no point do we really drill down on the questions of \emph{why} melanopsin might be involved.
+In the other chapters of this thesis the approach taken to study the effect of melanopsin has mirrored standard practice: we think that melanopsin \emph{might} be involved in a specific process and so we run an experiment where we vary the amount of melanopsin activation within a stimulus (our independent variable) and measure something to see if there is an associated change in the target dependent variable, with the hope of understanding \emph{how} melanopsin might be involved in the target process, but at no point do we really drill down on the questions of \emph{why} melanopsin might be involved in this process.
 
 This has meant that it is unclear whether our results (positive or negative) can be taken at face value - perhaps our baseline assumptions about how or why melanopsin is involved were wrong, and we were consequently looking in the wrong place.
 
@@ -28,9 +28,9 @@ This chapter shall describe an exploratory computational study which took an eco
 
 \noindent The proposed benefits of this approach are: 
 \begin{enumerate}
-    \item It may be possible to answer the question of whether it is sensible in any way for melanopsin to be involved in colour constancy in any form whatsoever - is there any benefit to be gained from involving melanopsin?
+    \item It may be possible to answer the question of whether it is sensible for melanopsin to be involved in colour constancy in any form whatsoever - is there any benefit to be gained from involving melanopsin?
     \item We may be able to suggest or rule out specific computational structures - one computation might be beneficial whilst others might not be.
-    \item It may be assits to narrow the search area for future psychophysical experimentation - in previous experiments there have been lots of assumptions about the luminance range that melanopsin is active over, the spatial distribution (both in terms of receptive fields and influence over signals from distant parts of the retina), the temporal dynamics of the signals involved (and many other assumptions but conscious and unconscious). This is an opportunity to test whether a melanopsin-based signal is useful for specific ranges of the stimulus space over others. Based on the assumption that an interaction is more likely to exist in a manner which is advantageous to the host, these would be good places for future studies to target.
+    \item It may be assist to narrow the search area for future psychophysical experimentation - in previous experiments there have been lots of assumptions about the luminance range that melanopsin is active over, the spatial distribution (both in terms of receptive fields and influence over signals from distant parts of the retina), the temporal dynamics of the signals involved (and many other assumptions but conscious and unconscious). This is an opportunity to test whether a melanopsin-based signal is useful for specific ranges of the stimulus space over others. Based on the assumption that an interaction is more likely to exist in a manner which is advantageous to the host, these would be good places for future studies to target.
 \end{enumerate}
 
 \noindent The key research question for this section can be posed such:
@@ -43,16 +43,18 @@ would a signal from a melanopsin-expressing cell \\
 be useful for colour constancy?
 \end{quote}
 
-This chapter shall describe in roughly chronological order the computational investigation and accompanying thought process.
+This chapter shall describe the computational investigation and accompanying thought process in roughly chronological order.
 
-\subsection{Predicting chromaticity}
+\section{Predicting chromaticity}
 
-\hl{Intro. GKeep notes.}
+The simplest computational method to achieve rough colour constancy is through normalisation of input signals by the input signals to the illuminant. It is the implicit assumption in previous experiments that a melanopic signal could act as a cue to the chromaticity of the illuminant.
+
+%Maloney -RGB fallacy
 
 Initially, two questions were proposed:
 \begin{enumerate}
 \item Considering only daylight spectra (excluding reflective surfaces), can a melanopic signal predict the chromaticity of daylight? 
-\item Now considering also object reflectances, can a melanopic signal predict the chromaticity of the surfaces or the daylight? 
+\item Now considering also object reflectances, can a melanopic signal predict the chromaticity of the daylight, or the surfaces? 
 \end{enumerate}
 
 Foundational data consisting of 
@@ -67,25 +69,25 @@ of the reflectances of \citet{vrhel_measurement_1994}\footnote{Available as `sur
 were used.
 % Many MANY other things were considered, but I think perhaps I'll summarise those elsewhere
 
-Initial computations considered the illuminants alone, without considering the interaction with surface reflectances (as per question 1). However, to avoid repeating text and figures here both approaches (with and without reflectances) shall be considered alongside. Figures in this section use red to indicate `illuminant only' and grey for `illuminant with surfaces'. 
+Initial computations considered the illuminants alone, without considering the interaction with surface reflectances (as per question 1). However, to avoid repeating text and figures here both approaches (with and without reflectances) shall be considered alongside. Figures in this section use black points to indicate `illuminant only' and coloured points for `illuminant with surfaces'. 
 
-Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ (as per standard tristumulus values but using the melanopsin fundamental) were computed as per eq X %
-for each illuminant within the Granada dataset, and for each surface under each illuminant. A real-world version of the first set of values would be to measure a spectralon tile (or other uniformally reflective surface) under each daylight condition. \gls{MB} chromaticity co-ordinates were calculated, again for both illuminant alone and for each surface under each illuminant, as per equation X. %
-The \gls{MB} chromaticities are plotted in Figure \ref{fig:MB}. Three-dimensional plots were made to display $l_{\text{MB}}$ against $s_{\text{MB}}$ against $[L,M,S,I]$ in turn. Each plot is shown in Figure \ref{fig:level1}. 
+Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ (as per standard tristumulus values but using the melanopsin fundamental) were computed as per Equation \ref{eq:MBTristim} for each illuminant within the Granada dataset. A real-world version of this would be to measure a spectralon tile (or other uniformally reflective surface) under each daylight condition. Tristimulus values were then computed for each surface under each illuminant.
+
+\gls{MB} chromaticity co-ordinates were calculated, for both illuminant alone and for each surface under each illuminant, as per Equation \ref{eq:MB}\footnote{Note to assist in the reading of associated code: the normalising factors $k$ were applied during the Equation \ref{eq:MB} rather than Equation \ref{eq:MBTristim}.} The \gls{MB} chromaticities are plotted in Figure \ref{fig:MB}. 
 
 \begin{figure}[htbp]
-    \includegraphics[max width=\textwidth]{figs/comp/melcomp_1/BasicMB.pdf}
-    \caption{\gls{MB} chromaticities for 12 reflectances under 2600 daylight illuminants (grey-centred circles with colours denoting different surfaces, colours not linked to real colours, solely for visualisation), and chromaticities for illuminants alone (red-centred, black bordered circled).}
+    \includegraphics[max width=\textwidth]{figs/comp/predictingChromaticity/BasicMB_2.pdf}
+    \caption{\gls{MB} chromaticities of 130 daylight illuminants (black points), and for 10 reflectances under each illuminant (coloured points. Colours not linked to real colours, solely for visualisation).}
     \label{fig:MB}
 \end{figure} 
+
+Three-dimensional plots were made to display $l_{\text{MB}}$ against $s_{\text{MB}}$ against $[L,M,S,I]$ in turn. The plot for $I$ is shown in Figure \ref{fig:level1}. Other plots closely resembled this one. It can be seen that although there exists some relationship between the chromaticity values of the illuminants and the $[L,M,S,I]$ values, it does not appear as though one could be used to reliably predict the other. All that can be gained from this relationship is the understanding that if the $[L,M,S,I]$ value is above a certain threshold, it is likely to be in a group with a low $s_{\text{MB}}$ and high $l_{\text{MB}}$ value. The real-world correlate of this is - \textit{if the daylight is bright enough, I can be fairly confident that the chromaticity of light will be relatively warm in colour.} This is as expected, since the brightest daylight conditions are likely to be those with unobstructed direct sunlight, which is warmer in \gls{CCT} than illumination provided by the blue sky. This relationship seems relatively weak however, and could not be used to accurately predict the chromaticity of an illuminant. 
 
 \begin{figure}[htbp]
     \includegraphics[max width=\textwidth]{figs/comp/melcomp_1/level1sigspredictingColorimetry.pdf}
     \caption{\gls{MB} chromaticity diagram on the horizontal plane ($l_{\text{MB}}$ against $s_{\text{MB}}$), with $[L,M,S,I]$ plotted in turn on the z-axis, for the illuminants of the Granada dataset, and a subset of the Vrhel reflectances. Red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants. Note - vertical axes rescaled per plot. For the red (illuminant only) points, in each graph the trend from left-to-right above is to start low with a gradual increase before fairly rapidly going vertical. Though hard to see here, the grey points follow the same trend, but on a surface-by-surface level.}
     \label{fig:level1}
 \end{figure} 
-
-From Figure \ref{fig:level1}, it can be seen that although there exists some relationship between the chromaticity values of the illuminants and the $[L,M,S,I]$ values, it does not appear as though one could be used to reliably predict the other. All that can be gained from this relationship is the understanding that if the $[L,M,S,I]$ value is above a certain threshold, it is likely to be in a group with a low $s_{\text{MB}}$ and high $l_{\text{MB}}$ value. The real-world correlate of this is - \textit{if the daylight is bright enough, I can be fairly confident that the chromaticity of light will be relatively warm in colour.} This is as expected, since the brightest daylight conditions are likely to be those with unobstructed direct sunlight, which is warmer in \gls{CCT} than illumination provided by the blue sky. This relationship seems relatively weak however, and could not be used to accurately predict the chromaticity of an illuminant. 
 
 The answer to the first question set out for the script then, is that a melanopic signal cannot predict chromaticity (though neither can any other single signal). In regard to the second question, whilst a similar relationship is seen, it is on a surface-by-surface level (each group of points representing a single surface shows a similar trend to that highlighted in red for the illuminant-only points, but each group is distinct, though often overlapping, from others). The effect of this would be that for a random surface under a random illuminant, any of the $[L,M,S,I]$ values would do a poor job of predicting the chromaticity of the illuminant. The melanopsin-based value ($I$) certainly does not do a markedly better job than other values.
 
@@ -159,7 +161,7 @@ This example shows that if a melanopic signal exhibits correlation with a chroma
 \end{enumerate}
 
 % -----------------------------------------%
-\subsection{Transformation to an illuminant-independent space}
+\section{Transformation to an illuminant-independent space}
 
 Considering question 2 more closely, rather than just looking for a correlation with chromaticity, it was considered whether it was possible to perform a conversion of the computed surface chromaticities into an abstract illuminant-independent space, using a melanopic value as a corrective signal. Considering that the absolute melanopic values seemed to offer little predictive benefit (see Figure \ref{fig:level1}) the choice was made to create a normalised melanopic value similar in nature to the MB values. Following equation X % 
 but with a melanopic value in place of the $S$ value allowed for the creation of what shall be termed the $i_{\text{MB}}$ values.
@@ -214,13 +216,13 @@ The actual desired behaviour would be to minimise internal variance for each ref
 
 The issue in melcomp\_2 whereby the transform was optimised to minimise the variance of the entire set rather than the variance within each surface-group was corrected.
 
-\subsection{Optimality of the melanopsin spectral sensitivity}
+\section{Optimality of the melanopsin spectral sensitivity}
 
 An additional test, whereby surfaces were randomly removed from a selection was introduced, in order to better parallel the unpredictability of surfaces in natural scenes.
 
 % ----------------------------%
 
-\subsection{A melanopic signal as a third dimension}
+\section{A melanopic signal as a third dimension}
 
 Following VSS a slight alteration in approach occurred. Consideration was given to the $i_{\text{MB}}$ signal as a third dimension upon the already two-dimensional \gls{MB} chromaticity space, such as shown in figure \ref{fig:ZL}. This allowed the consideration what properties a signal upon this third dimension would need to provide to the overall three-dimensional point cloud in order for a transformation to occur which would transform the values into a two-dimensional illuminant-independent space.
 
@@ -266,7 +268,7 @@ The desirable property is that it should be \emph{roughly monotonic} with respec
 % ------------------------------%
 
 
-\subsubsection{Planarity}
+\subsection{Planarity}
 
 It also introduced a measure of non-planarity, calculated by performing a principal components analysis on the cloud of points $[l,s,i]_{\text{MB}}$, and looking at how much variance was unaccounted for by the first two principal components. It was found that there were two parts of the spectrum where an effective corrective signal (in terms of non-planarity); firstly at around and just higher than the peak spectral sensitivity of melanopsin, and secondly with a melanopsin shift of about positive 75nm (see `Standard' in Figure \ref{fig:PC3}). It was found that minor changes in parameters used to make these calculations, such as surface set used or observer used, could have moderate effects on the optimal sensitivity for a sensor whose task was to provide a signal for transforming cone signals (see others in Figure \ref{fig:PC3}).
 
@@ -278,12 +280,12 @@ It also introduced a measure of non-planarity, calculated by performing a princi
 
 
 % -----------------------------------%
-\subsection{A framework to compare performance across algorithms}
+\section{A framework to compare performance across algorithms}
 
 A more extensive framework of testing a melanopic correction against other colour constancy algorithms was introduced, following the framework of \citet{barnard_comparison_2002} (later used by \citet{hordley_reevaluation_2006} and \citet{gijsenij_computational_2011}) A \gls{GW}, a \gls{BiW}, and a \gls{DN} algorithm were used as benchmarks.
 
 % ---------------------------------- %
-\subsection{K-means clustering as an assessment tool}
+\section{K-means clustering as an assessment tool}
 
 Melcomp 8 is an exploration into how to measure the effectiveness of a colour constancy algorithm (before K-means is introduced in melcomp\_9).
 
@@ -291,7 +293,7 @@ K-means clustering was introduced as an objective measure with which to test the
 
 % ---------------------------------- %
 
-\subsection{A more naturalistic test case}
+\section{A more naturalistic test case}
 
 \begin{figure}[htbp]
  \includegraphics[max width=\textwidth]{figs/comp/melcomp_9/4a_summary.png}
@@ -348,9 +350,9 @@ Summary: The underlying reason for the relative success of the investigated tran
 
 % --------------------------------------%
 
-\subsection{Conclusion}
+\section{Conclusion}
 
-\subsubsection{Further work}
+\subsection{Further work}
 
 \begin{itemize}
 \item Further investigate \emph{why} a melanopic transform might work
