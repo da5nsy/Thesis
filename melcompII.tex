@@ -1,0 +1,45 @@
+\chapter{Computational Study}
+\label{chap:Melcomp}
+
+\epigraph{You don't really understand what you've got until you do a comprehensive model of it.}
+{\textit{Christopher Tyler} \\ (Q\&A session at VSS 2019)}
+
+\textit{The work presented here has been presented previously as a poster presentation at VSS 2018 \citep{garside_does_2018}\footnote{Poster available: \doi{10.6084/m9.figshare.6280865.v1}} and as an oral presentation at ICVS 2019 \footnote{Slides and abstract available: \doi{10.6084/m9.figshare.8832395.v1}}}.
+
+\section{Summary}
+
+% I am interested in the question of whether a melanopic signal might be useful for either estimating the illuminant(s) in a scene, or more directly transforming visual signals into an illuminant-independent space.
+
+% Following initial psychophysical experiments, where results did not indicate a strong or simple relationship, I chose to take a step back and examine the problem that the HVS is faced with in a natural environment, which colour constancy solves. Through this route I hoped to answer the questions:
+% \begin{enumerate}
+% 	\item Would it be sensible for the HVS to use a melanopic signal to help solve this problem?
+% 	\item If so, in what way would it be used?
+% \end{enumerate}
+
+Code is provided: \url{https://github.com/da5nsy/Melanopsin_Computational}
+
+\section{Introduction}
+
+In the other chapters of this thesis the approach taken to study the effect of melanopsin has mirrored standard practice: we think that melanopsin \emph{might} be involved in a specific process (for reasons that seem sensible enough) and so we run an experiment where we vary the amount of melanopsin activation within a stimuli and measure something to see if there is an associated change with the hope of understanding \emph{how} melanopsin might be involved, but at no point do we really drill down on the questions of \emph{why} melanopsin might be involved.
+
+This has meant that it is unclear whether our results (positive or negative) can be taken at face value - perhaps our assumptions about what the benefits of a melanopsin-based signal were wrong, and we were consequently looking in the wrong place.
+
+This chapter shall describe an exploratory computational study which took an ecological modelling approach to try and further our understanding of what, if any, benefits may arise by the use of a melanopsin-based signal for colour constancy.
+
+\noindent The proposed benefits of this approach are: 
+\begin{enumerate}
+    \item It may be possible to answer the question of whether it is sensible in any way for melanopsin to be involved in colour constancy in any form whatsoever - is there any benefit to be had from involving melanopsin?
+    \item We may be able to suggest or rule out specific computational structures - one computation might be beneficial whilst others might not be.
+    \item It may be able to narrow the search area for future psychophysical experimentation - in previous experiments there have been lots of assumptions about the luminance range that melanopsin is active over, the spatial distribution (both in terms of receptive fields and influence over signals from distant parts of the retina), the temporal dynamics of the signals involved (and many other assumptions but conscious and unconscious). This is an opportunity to test whether a melanopsin-based signal is useful for specific ranges of the stimulus space over others, with the assumption that an interaction is more likely to exist in a manner which is advantageous to the host.
+\end{enumerate}
+
+\noindent The key research question for this section can be posed such:
+
+\begin{quote}
+Considering the conditions on our planet, \\
+and the ecological requirements of vision, \\
+would a signal from a melanopsin-expressing cell \\
+be useful for colour constancy?
+\end{quote}
+
+This chapter shall give an overview of the main scripts which have been written, going through the logic and results of each. By doing this, a roughly chronological path of the thought processes involved will be presented.
