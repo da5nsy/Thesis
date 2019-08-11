@@ -57,7 +57,6 @@ the melanopsin fundamental of \citet{lucas_measuring_2014}\footnote{Available as
 and a subset\footnote{10 surfaces were chosen from the Vrhel dataset, with a roughly even representation of skin tones, fruit, and vegetable/greenery.} 
 of the reflectances of \citet{vrhel_measurement_1994}\footnote{Available as `sur\_vrhel' in \gls{PTB}.}
 were used.
-% Many MANY other things were considered, but I think perhaps I'll summarise those elsewhere
 
 Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ (as per standard tristumulus values but using the melanopsin fundamental) were computed as per Equation \ref{eq:MBTristim} for each illuminant. A real-world version of this would be to measure a spectralon tile (or other uniformally reflective surface) under each daylight condition. Tristimulus values were then computed for each surface under each illuminant.
 
@@ -116,7 +115,7 @@ There is an almost bimodal relationship; all that can be gained from this relati
 Following this, similar plots were made which plotted $l_{\text{MB}}$ against $s_{\text{MB}}$ as before, but now plotted the various second level combinations of $[L,M,S,I]$, created by considering one signal divided by another (e.g. $L/M$), on the z-axis. These plots are shown in Figure \ref{fig:allComboSignals}. The plots created all showed clear and relatively simple relationships between chromaticity and these new derived signals, at least for the illuminant-only values. 
 
 \begin{fullpagefigure}
-\figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals.pdf}
+\figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/predictingChromaticity/allComboSignals.pdf}
 \caption{Relationship between chromaticity and second level signals. Plotted on the x-axis here is $l_{\text{MB}}$, with second level signals on the apparent y-axis. During analysis these plots were three dimensional, with the apparent y-axis being a z-axis and the x-axis joined by a y-axis of $s_{\text{MB}}$. As before, red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants. It can be seen that on a per object basis (incl. no object) there is good correlation between all of the above signals (though often it is non-linear).}
 % See gifs online at...
 \label{fig:allComboSignals}
@@ -151,13 +150,15 @@ Each surface meanwhile, will differentially reflect different parts of the spect
 For many of these signals however, such relationships are to be expected\footnote{My thanks go to Manuel Spitschan for convincing me of this point.}. For example, a relationship between $l_{\text{MB}}$ and $L/M$ should be expected, since $l_{\text{MB}}$ is defined as the sum of weighted components of $L$ and $M$. To confirm this, a control condition was performed, where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated as before. The results can be seen in Figure \ref{fig:allComboSignals_rand}. Relationships between secondary signals derived from $L$, $M$ or $S$ signals still showed correlations with chromaticity (albeit now points fell on a plane, instead of a line), whereas signals with a $I$ component showed only minimal coherence, forming a noisy cloud in three-dimensional space. This implies that should the melanopic signals correlate with chromaticity, that this is not simply a computational artefact of the way in which chromaticity is calculated.
 
 \begin{fullpagefigure}
-\figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals_rand.pdf}
+\figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/predictingChromaticity/allComboSignals_rand.pdf}
+\figpageside{}
 \caption{As per \ref{fig:allComboSignals} but where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated from these instead of real values. Blue is used to distinguish this random data from previous real data. Note that different rotations have been applied to some of the subplots to best display the correlations.}
 \label{fig:allComboSignals_rand}
 \end{fullpagefigure}
 
 This example shows that if a melanopic signal exhibits correlation with a chromatic signal \emph{not} due to the underlying mathematics of how chromaticity is calculated, and that any relationship must follow from a genuine regularity in the data.
 
+\bigskip
 \noindent
 To summarise this section:
 
@@ -170,65 +171,71 @@ To summarise this section:
     \item Some of these correlations appear to be nothing more than computational artefacts (\emph{Figure \ref{fig:allComboSignals_rand}}). Notably, the melanopic second level signals did not seem to be such artefacts.
 \end{enumerate}
 
+\clearpage
+
+
 % -----------------------------------------%
 \section{Transformation to an illuminant-independent space}
 
-Considering question 2 more closely, rather than just looking for a correlation with chromaticity, it was considered whether it was possible to perform a conversion of the computed surface chromaticities into an abstract illuminant-independent space, using a melanopic value as a corrective signal. Considering that the absolute melanopic values seemed to offer little predictive benefit (see Figure \ref{fig:level1}) the choice was made to create a normalised melanopic value similar in nature to the MB values. Following equation X % 
-but with a melanopic value in place of the $S$ value allowed for the creation of what shall be termed the $i_{\text{MB}}$ values.
+Whilst estimating the chromaticity of the illuminat is one way in which colour constancy might be acheived, it is also possible that some transformation might exist which delivers signals into an illuminant-independent space but which doesn't critically depend upon an explicit estimate of the chromaticity of the illuminant.
 
-It was found through an optimisation procedure that through addition and subtraction of weighted $i_{\text{MB}}$ values, using the scaling factors shown in equation \ref{eq:correction} such a conversion could approximately be performed. The optimisation sought optimal weights for the scaling factors with the goal of minimising the overall spread of chromaticities (measured as standard deviation of the entire set\footnote{Spoiler: this was a bad idea.}). The effect of different weights can be seen in Figure \ref{fig:minSD}. The results of applying equation \ref{eq:correction} can be seen in figure \ref{fig:corrected}.
+Considering that the absolute melanopic values seemed to offer little predictive benefit (see Figure \ref{fig:level1}) the choice was made to create a normalised melanopic value similar in nature to the MB values. Following Equation \ref{eq:MB}, but with a melanopic value in place of the $S$ value allowed for the creation of what shall be termed the $i_{\text{MB}}$ values.
+
+Various hypothetical transformations were performed, using the new $i_{\text{MB}}$ values to try to reduce the amount of illuminant-based spread in \gls{MB} chromaticity space.
+
+It was found through an optimisation procedure that through addition or subtraction of weighted $i_{\text{MB}}$ values, as per equation \ref{eq:correction} such a conversion could approximately be performed. The optimisation initially sought optimal weights for the scaling factors with the goal of minimising the overall spread of chromaticities (measured as standard deviation of the entire set)\footnote{This was later amended to the intra-group spread of chromaticities (measured as standard deviation of within each group. See Section X%
+)}. The results of applying Equation \ref{eq:correction} can be seen in figure \ref{fig:corrected}. The effect of different weights can be seen in Figure \ref{fig:minSD}. 
 
 \begin{subequations} \label{eq:correction}
 \begin{align}
-l_{\text{MB}}* &= l_{\text{MB}} + 0.30i_{\text{MB}}\\ %these will have changed
-s_{\text{MB}}* &= s_{\text{MB}} - 0.21i_{\text{MB}}
+l_{\text{MB}}* &= l_{\text{MB}} + k_{1}i_{\text{MB}}\\ %these will have changed
+s_{\text{MB}}* &= s_{\text{MB}} + k_{2}i_{\text{MB}}
 \end{align}
 \end{subequations}
 
+where $k_{1}$ = 0.51, and $k_{2}$ = -0.22.
+
 \begin{figure}[htbp]
-    \includegraphics[max width=\textwidth]{figs/comp/melcomp_1/correctedChromaticities.pdf}
-    \caption{\gls{MB} chromaticities for 12 reflectances under 2600 daylight illuminants, corrected by the corresponding $i_{\text{MB}}$ value.}
+    \includegraphics[max width=\textwidth]{figs/comp/transformToIllIndSpace/correctedChromaticities.pdf}
+    \caption{\gls{MB} chromaticities for 10 reflectances under 130 daylight illuminants, corrected by the corresponding $i_{\text{MB}}$ value as per Equation \ref{eq:correction}.}
     \label{fig:corrected}
 \end{figure} 
 
 It can be seen that the points now roughly cluster together by object, with less smearing induced by changes in illuminant (compared to Figure \ref{fig:MB}).
 
-It was unclear however, whether any additional signal would provide such an advantage. With this in mind, a further optimisation procedure was performed, to consider whether shifting the sensitivity of the melanopsin function along the wavelength spectrum affected the performance of such a signal. Each new sensitivity function was allowed the benefit of the first type of optimisation, allowing different scaling factor weights. The results of this optimisation can be seen in figure \ref{fig:opt}. It can be seen that minima for $l_{\text{MB}}$* occur at around 530nm and just under 600nm, and minima for $s_{\text{MB}}$* occur at around 450nm and 580nm. On first appearance this seems to suggest that the optimal spectral sensitivity for a cone type employed to correct the signals from the various cones might be around these points in the spectrum. However, the reader might note the correspondence between the figures above and the peak spectral sensitivities of the cones themselves (S-448nm, M-541nm, L-569nm). Indeed we see that the optimal performance occurs when the nominal melanopsin sensitivity overlaps most well with the spectral sensitivity of the cones. It is understandable why this occurs - each signal is then normalised by a near-duplicate of itself, rendering each value in the set being close to zero. Since we set the goal of the optimisation procedure to be the reduction of the standard deviation of the \emph{entire set}, the optimisation finds these near-duplicate values to be very effective.
-
 \begin{figure}[htbp]
-    \includegraphics[max width=\textwidth]{figs/comp/melcomp_1/minimiseSD.pdf}
-    \caption{A plot showing the optimal minima for the factor weights.}
+    \includegraphics[max width=\textwidth]{figs/comp/transforToIllIndSpace/kvsSD.pdf}
+    \caption{The effect on whole-set SD of differently weighted additions/subtractions of the $i_{\text{MB}}$ values.}
     \label{fig:minSD}
 \end{figure} 
 
-\begin{figure}[ht]
+It was unclear however, whether this possibility was due to the addition of a new signal, or whether the melanopsin signal was in any way special. With this in mind, the peak spectral sensitivity of the melanopsin function was parameterized, to consider whether shifting the sensitivity of the melanopsin function along the wavelength spectrum affected the performance of such a signal. Each new sensitivity function was allowed the benefit of the weighting optimisation, allowing different scaling factor weights. The results of this computation can be seen in figure \ref{fig:opt}. 
+
+\begin{figure}[htbp]
     \includegraphics[max width=\textwidth]{figs/comp/melcomp_1_caller/opt.pdf}
     \caption{The results of an optimization where the spectral sensitivity of the nominal melanopsin fundamental was shifted along the spectrum. Generated using melcomp\_1\_caller.m for iteration.}
     \label{fig:opt}
 \end{figure} 
 
-Using these values had the unexpected and unfortunate effect of simply crushing all the chromaticties down onto a single line, without preserving any inter-object chromatic differences. We witness perfect colour constancy, at the expense of any chromatic discrimination\footnote{At my poster at VSS David Brainard referred to this as the 'Ford Model of Colour Constancy' - you can have any colour, so long as it's black}. This is obviously not ideal.
+It can be seen that minima for $l_{\text{MB}}$* occur at 532nm and just under 592nm, and minima for $s_{\text{MB}}$* occur at 472nm and 568nm. This would suggest that the optimal spectral sensitivity for a cone type employed to correct the signals from the various cones might be around these points in the spectrum. However, if we plot the transformed chromaticities computed using hypothetical signals at these wavelengths, we see that the results are not as were desired. In Figure \ref{fig:472} the results of using a nominal melanopic signal with a peak spectral sensitivity of 472nm are shown. It can be seen that group SD is low, but that different surfaces are not well distinguished from each other. We witness good colour constancy, at the expense of any chromatic discrimination\footnote{At my poster at VSS David Brainard referred to this as the `Ford Model of Colour Constancy' - you can have any colour, so long as it's black}. This is obviously not ideal.
 
 \begin{figure}[htbp]
-    \includegraphics[max width=\textwidth]{figs/comp/melcomp_1_caller/sdmeans.pdf}
-    \caption{Normalised average distance between points in the set of the mean chromaticities for the different reflectances. It can be seen that inter-reflectance variation drops to zero at the same minima as seen in figure \ref{fig:opt}, showing that these distinct points are undesirably corrected to the same point. Generated using melcomp\_1\_caller.m for iteration.}
-    \label{fig:sdmeans}
+    \includegraphics[max width=\textwidth]{figs/comp/correctedChromaticities_range472.pdf}
+    \caption{The `corrected' values using a nominal melanopic signal with a peak spectral sensitivity of 472nm.}
+    \label{fig:472}
 \end{figure} 
 
-\textit{The work was presented at this stage as a poster at the \emph{Vision Science Society Conference (VSS)} in 2018.}
+This result made it very clear that more though was required regarding how `success' was measured.
 
-The actual desired behaviour would be to minimise internal variance for each reflectance group, whilst maintaining at least some distinction between inter-reflectance groups. A comprehensive approach to this question would need to consider the relative importance of the two separate requirements, and apply appropriate weightings. This idea is returned to in melcomp\_X. %!!!!!!!!
+The actual desired behaviour would be to minimise internal variance for each reflectance group, whilst maintaining at least some distinction between inter-reflectance groups. There are various ways to implement this, which shall be covered in the following sections. %
 
+\bigskip
+\noindent
+To summarise this section:
 \begin{enumerate}
     \item A basic corrective procedure was applied, which seemed to reduce the spread of chromaticities. \emph{Figure \ref{fig:corrected}} 
-    \item It was found that when the melanopic value was replaced by signals generated from different spectral sensitivities, and passed through the same optimisation procedure, the best performing signals were near-duplicates of existing signals. These signals performed very well judged by our metric of entire set standard deviation, but in practice would make very poor corrective signals. \emph{Figure \ref{fig:sdmeans}}
+    \item It was found that when the melanopic value was replaced by signals generated from different spectral sensitivities, some hypothetical signals appeared to be more successful than a melanopic value. These signals performed very well by the metric of whole-set standard deviation, but in practice would make very poor corrective signals due to the reduced discriminability between surfaces. \emph{Figure \ref{fig:472}}
 \end{enumerate}
-
-The issue in melcomp\_2 whereby the transform was optimised to minimise the variance of the entire set rather than the variance within each surface-group was corrected.
-
-\section{Optimality of the melanopsin spectral sensitivity}
-
-An additional test, whereby surfaces were randomly removed from a selection was introduced, in order to better parallel the unpredictability of surfaces in natural scenes.
 
 % ----------------------------%
 
@@ -379,9 +386,17 @@ Summary: The underlying reason for the relative success of the investigated tran
 \item If we do use this signal in natural environments, does the degradation of this signal in artificial environments impact our preference ratings? Could evidence of this mechanism show up in lighting preference indices used in the lighting engineering world?
 \end{itemize}
 
+% ------------------- %
+
+\section{Optimality of the melanopsin spectral sensitivity}
+
+An additional test, whereby surfaces were randomly removed from a selection was introduced, in order to better parallel the unpredictability of surfaces in natural scenes.
+
 
 % ------------------- %
 % EXTRAS
+
+
 
 % \begin{figure}[htbp]
 %     \includegraphics[max width=\textwidth]{figs/comp/melcomp_1/correlationBetweenLevel1Sigs.pdf}
