@@ -45,85 +45,75 @@ be useful for colour constancy?
 
 This chapter shall describe the computational investigation and accompanying thought process in roughly chronological order.
 
-\section{Predicting chromaticity}
-
-The simplest computational method to achieve rough colour constancy is through normalisation of input signals by the input signals to the illuminant. It is the implicit assumption in previous experiments that a melanopic signal could act as a cue to the chromaticity of the illuminant.
-
-%Maloney -RGB fallacy
-
-Initially, two questions were proposed:
-\begin{enumerate}
-\item Considering only daylight spectra (excluding reflective surfaces), can a melanopic signal predict the chromaticity of daylight? 
-\item Now considering also object reflectances, can a melanopic signal predict the chromaticity of the daylight, or the surfaces? 
-\end{enumerate}
+\section{Data sources}
 
 Foundational data consisting of 
-the Granada daylight dataset 
+a subset\footnote{Every 20th value (130 of total 2600), to reduce compute time, and increase legibility of plots} of the Granada daylight dataset 
 \citep{hernandez-andres_color_2001}\footnote{Data: \url{http://colorimaginglab.ugr.es/pages/Data\#__doku_granada_daylight_spectral_database}},
 the Stockman-Sharpe 10$^{\circ}$ cone fundamentals 
 \citep{stockman_spectral_2000,stockman_spectral_1999}
 (aka the CIE 2006 10$^{\circ}$ cone fundamental sensitivity functions \cite{cie_cie_2006})\footnote{Available as `T\_cones\_ss10' in \gls{PTB}.},
 the melanopsin fundamental of \citet{lucas_measuring_2014}\footnote{Available as `T\_melanopsin' in \gls{PTB}.},
-and a subset\footnote{For these computations 11 surfaces were chosen from the Vrhel dataset, with a roughly even representation of skin tones, fruit, and vegetable/greenery.} 
+and a subset\footnote{10 surfaces were chosen from the Vrhel dataset, with a roughly even representation of skin tones, fruit, and vegetable/greenery.} 
 of the reflectances of \citet{vrhel_measurement_1994}\footnote{Available as `sur\_vrhel' in \gls{PTB}.}
 were used.
 % Many MANY other things were considered, but I think perhaps I'll summarise those elsewhere
 
-Initial computations considered the illuminants alone, without considering the interaction with surface reflectances (as per question 1). However, to avoid repeating text and figures here both approaches (with and without reflectances) shall be considered alongside. Figures in this section use black points to indicate `illuminant only' and coloured points for `illuminant with surfaces'. 
-
-Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ (as per standard tristumulus values but using the melanopsin fundamental) were computed as per Equation \ref{eq:MBTristim} for each illuminant within the Granada dataset. A real-world version of this would be to measure a spectralon tile (or other uniformally reflective surface) under each daylight condition. Tristimulus values were then computed for each surface under each illuminant.
+Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ (as per standard tristumulus values but using the melanopsin fundamental) were computed as per Equation \ref{eq:MBTristim} for each illuminant. A real-world version of this would be to measure a spectralon tile (or other uniformally reflective surface) under each daylight condition. Tristimulus values were then computed for each surface under each illuminant.
 
 \gls{MB} chromaticity co-ordinates were calculated, for both illuminant alone and for each surface under each illuminant, as per Equation \ref{eq:MB}\footnote{Note to assist in the reading of associated code: the normalising factors $k$ were applied during the Equation \ref{eq:MB} rather than Equation \ref{eq:MBTristim}.} The \gls{MB} chromaticities are plotted in Figure \ref{fig:MB}. 
 
+\bigskip
+\noindent
+Support for various other options was included:
+\begin{itemize}
+    \item A range of CIE D series illuminants\footnote{Generated with the \gls{PTB} function `GenerateCIEDay'.}
+    \item Scenes 1-4 of the
+\citet{nascimento_statistics_2002}\footnote{Data: \url{https://personalpages.manchester.ac.uk/staff/d.h.foster/Hyperspectral_images_of_natural_scenes_02.html}} hyperspectral reflectance data
+    \item Scenes 1-5 of the 
+\citet{foster_frequency_2006}\footnote{Data: \url{https://personalpages.manchester.ac.uk/staff/d.h.foster/Hyperspectral_images_of_natural_scenes_04.html}}
+hyperspectral reflectance data
+\end{itemize}
+
+The CIE D-series illuminants allowed for a smaller and more controlled dataset and the Nascimento/Foster et al. data allowed for a more realistic distribution of reflectances.
+
 \begin{figure}[htbp]
     \includegraphics[max width=\textwidth]{figs/comp/predictingChromaticity/BasicMB_2.pdf}
-    \caption{\gls{MB} chromaticities of 130 daylight illuminants (black points), and for 10 reflectances under each illuminant (coloured points. Colours not linked to real colours, solely for visualisation).}
+    \caption{\gls{MB} chromaticities of 130 daylight illuminants (black points), and for 10 reflectances under each illuminant (coloured points). Colours not linked to real colours, solely for visualisation). The edge of the spectral locus is visible along the lower edge.}
     \label{fig:MB}
 \end{figure} 
 
-Three-dimensional plots were made to display $l_{\text{MB}}$ against $s_{\text{MB}}$ against $[L,M,S,I]$ in turn. The plot for $I$ is shown in Figure \ref{fig:level1}. Other plots closely resembled this one. It can be seen that although there exists some relationship between the chromaticity values of the illuminants and the $[L,M,S,I]$ values, it does not appear as though one could be used to reliably predict the other. All that can be gained from this relationship is the understanding that if the $[L,M,S,I]$ value is above a certain threshold, it is likely to be in a group with a low $s_{\text{MB}}$ and high $l_{\text{MB}}$ value. The real-world correlate of this is - \textit{if the daylight is bright enough, I can be fairly confident that the chromaticity of light will be relatively warm in colour.} This is as expected, since the brightest daylight conditions are likely to be those with unobstructed direct sunlight, which is warmer in \gls{CCT} than illumination provided by the blue sky. This relationship seems relatively weak however, and could not be used to accurately predict the chromaticity of an illuminant. 
+% -------------------------- %
+
+\section{Recovering the chromaticity of daylight}
+
+The simplest computational method to achieve rough colour constancy is through normalisation of input signals by the hypothetical input signals to the illuminant. It is the implicit assumption in previous experiments that a melanopic signal could act as a cue to the chromaticity of the illuminant.
+
+This is what \citet{maloney_physics-based_2001} refers to as the `RGB heuristic'. In most situations appearance of a scene under two different illuminants will be relatable via the chromaticity of those illuminants. However, there is no mathematical reason for this to be strictly true due to different colour rendering properties.
+
+\bigskip
+\noindent
+Initially, two questions were proposed:
+\begin{enumerate}
+\item Considering only daylight spectra (excluding reflective surfaces), can a melanopic signal predict the chromaticity of daylight? \item Now considering also object reflectances, can a melanopic signal predict the chromaticity of the daylight? 
+\end{enumerate}
+
+\subsection{First level signals}
+
+In this chapter the terminology of \citet{barrionuevo_contributions_2014} shall be employed; following their usage `first level signals' are those which are direct photoreceptor catches (or analogues, such as $XYZ$ tristimulus values), and `second level signals' are those computed by comparison of one signal and one or more other signals (such as $xy$ or \gls{MB} chromaticity values).
+
+In order to visualise the relationship between the chromaticity of the illuminant and the resulting receptor catches, three-dimensional plots were made displaying $l_{\text{MB}}$ against $s_{\text{MB}}$ against $[L,M,S,I]$ in turn. \gls{MB} chromaticity space was chosen due to its status as a physiologically based chromaticity diagram, following the logic that if biologically plausible mechanisms are sought, then computations in a space best representing the real space are preferable. The plot for $I$ is shown in Figure \ref{fig:level1}. Other plots closely resembled this one. It can be seen that although there exists some relationship between the chromaticity values of the illuminants and the $I$ values, it does not appear as though one could be used to reliably predict the other. 
+
+There is an almost bimodal relationship; all that can be gained from this relationship is the understanding that if the $I$ value is above a certain threshold, it is likely to be in a group with a relatively low $s_{\text{MB}}$ and relatively high $l_{\text{MB}}$ value. The real-world correlate of this is - \textit{if the daylight is bright enough, I can be fairly confident that the chromaticity of light will be relatively warm in colour.} This is as expected, since the brightest daylight conditions are likely to be those with unobstructed direct sunlight, which is warmer in \gls{CCT} than illumination provided by the blue sky. This relationship could not be used to predict the precise chromaticity of an illuminant. A near-identical trend is seen when surfaces are considered (the coloured points in Figure \ref{fig:level1}).
 
 \begin{figure}[htbp]
-    \includegraphics[max width=\textwidth]{figs/comp/melcomp_1/level1sigspredictingColorimetry.pdf}
-    \caption{\gls{MB} chromaticity diagram on the horizontal plane ($l_{\text{MB}}$ against $s_{\text{MB}}$), with $[L,M,S,I]$ plotted in turn on the z-axis, for the illuminants of the Granada dataset, and a subset of the Vrhel reflectances. Red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants. Note - vertical axes rescaled per plot. For the red (illuminant only) points, in each graph the trend from left-to-right above is to start low with a gradual increase before fairly rapidly going vertical. Though hard to see here, the grey points follow the same trend, but on a surface-by-surface level.}
+    \includegraphics[max width=\textwidth]{figs/comp/predictingChromaticity/CvsI.pdf}
+    \caption{\gls{MB} chromaticity of 130 illuminants plotting against the $I$ values for the illuminants alone (black points) and 10 different surfaces (coloured points). The edge of the spectral locus is visible along the lower edge $l_{\text{MB}}$ edge of the diagram.}
     \label{fig:level1}
 \end{figure} 
 
-The answer to the first question set out for the script then, is that a melanopic signal cannot predict chromaticity (though neither can any other single signal). In regard to the second question, whilst a similar relationship is seen, it is on a surface-by-surface level (each group of points representing a single surface shows a similar trend to that highlighted in red for the illuminant-only points, but each group is distinct, though often overlapping, from others). The effect of this would be that for a random surface under a random illuminant, any of the $[L,M,S,I]$ values would do a poor job of predicting the chromaticity of the illuminant. The melanopsin-based value ($I$) certainly does not do a markedly better job than other values.
-
-\begin{figure}[htbp]
-    \includegraphics[max width=\textwidth]{figs/comp/melcomp_1/correlationBetweenLevel1Sigs.pdf}
-    \caption{The relationship between melanopic power (analogous to a tristimulus value but calculated using the spectral sensitivity of melanopsin). Red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants.  The traditional tristimulus values show a very strong correlation for illuminant-only values. It is not particularly easy to see here, but each surface is represented by a roughly straight line of grey points at slightly different angles.}
-    \label{fig:tristimCorrelation}
-\end{figure} 
-
-It should be noted that there was very high correlation between each signal. This is shown in Figure \ref{fig:tristimCorrelation} and the correlation table below. This can be considered as corresponding to the high importance of the first principal component of the spectral measurements in this dataset. Put another way, a sensor with almost any spectral sensitivity could be used to estimate the general magnitude of the daylight. The discussion of principal components shall be returned to under melcomp\_3.
-
-%\begin{minipage}{\linewidth}
-\begin{lstlisting}
-corr(LMSI)
-    1.0000    1.0000    0.9993    0.9998
-    1.0000    1.0000    0.9995    0.9999
-    0.9993    0.9995    1.0000    0.9999
-    0.9998    0.9999    0.9999    1.0000
-\end{lstlisting}
-%\end{minipage}
-
-\bigskip
-
-Following this, similar plots were made which plotted $l_{\text{MB}}$ against $s_{\text{MB}}$ as before, but now plotted the various combinations of $[L,M,S,I]$, created by considering one signal over another (e.g. $L/M$), on the z-axis. These plots are shown in Figure \ref{fig:allComboSignals}. Following the terminology of \citet{barrionuevo_contributions_2014} $[L,M,S,I]$ shall be referred to as `first level signals' and these derived signals as `second level signals'. The twelve plots created all showed clear and relatively simple relationships between chromaticity and these new derived signals, at least for the illuminant-only values. Again, a similar trend was seen for each individual surface, but once surfaces were included any overall trend broke down into small replicants of the overall trend.
-% This might end up putting a single line on a page. Check before submitting
-
-% \clearpage
-% \includepdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals.pdf}
-% \begin{figure}[h!]
-%     \caption{Relationship between chromaticity and second level signals. Plotted on the x-axis here is $l_{\text{MB}}$, with second level signals on the apparent y-axis. During analysis these plots were three dimensional, with the apparent y-axis being a z-axis and the x-axis joined by a y-axis of $s_{\text{MB}}$. As before, red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants. It can be seen that on a per object basis (incl. no object) there is good correlation between all of the above signals (though often it is non-linear).}
-%     % See gifs online at...
-%     \label{fig:allComboSignals}
-% \end{figure} 
-% %\clearpage
-% % does it look weird if this doesn't spread over a double?
-
+\subsection{Second level signals}
+Following this, similar plots were made which plotted $l_{\text{MB}}$ against $s_{\text{MB}}$ as before, but now plotted the various second level combinations of $[L,M,S,I]$, created by considering one signal divided by another (e.g. $L/M$), on the z-axis. These plots are shown in Figure \ref{fig:allComboSignals}. The plots created all showed clear and relatively simple relationships between chromaticity and these new derived signals, at least for the illuminant-only values. 
 
 \begin{fullpagefigure}
 \figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals.pdf}
@@ -132,32 +122,52 @@ Following this, similar plots were made which plotted $l_{\text{MB}}$ against $s
 \label{fig:allComboSignals}
 \end{fullpagefigure}
 
-For many of these signals however, such relationships are to be expected\footnote{My thanks go to Manuel Spitschan for convincing me of this point.}. For example, a relationship between $l_{\text{MB}}$ and $L/M$ should be expected, since $l_{\text{MB}}$ is defined as the sum of weighted components of $L$ and $M$. To confirm this, a null condition was performed, where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated as before. The results can be seen in Figure \ref{fig:allComboSignals_rand}. Relationships between secondary signals derived from $L$, $M$ or $S$ signals still showed correlations with chromaticity (albeit now points fell on a plane, instead of a line), whereas signals with a $I$ component showed only minimal coherence, forming a noisy cloud in three-dimensional space. This implies that should the melanopic signals correlate with chromaticity, that this is not simply a computational artefact of the way in which chromaticity is calculated.
+A similar trend was seen for each individual surface as was seen for illuminant-only, however these relationships appear to be offset from that for a perfect reflector.
 
-% \clearpage
-% \includepdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals_rand.pdf}
-% \begin{figure}[h!]
-%     \caption{As per \ref{fig:allComboSignals} but where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated from these instead of real values. Where relationships still exist, this implies that they are computational artefacts rather than underlying relationships. Blue is used to distinguish this random data from previous real data. Note that different rotations have been applied to some of the subplots to best display the correlations.}
-%     \label{fig:allComboSignals_rand}
+\subsection{A PCA interpretation}
+
+These results seem to make intuitive sense based if we consider the daylight dataset from a principal components perspective. For this dataset \gls{PC1} is broad and relatively smooth, and accounts for 99.952\% of the variance, and so a first level signal in any part of the spectrum is going to essentially track this component. 
+
+\begin{figure}[htbp]
+ \includegraphics[max width=\textwidth]{figs/comp/melcomp_3/8.png} %legend required
+ \caption{The first 3 principal components for the Granada daylight dataset, after weighting to prioritise the visible spectrum. PC1 is in blue, PC2 in red and PC3 in yellow. These first three components account for 99.952\%, 0.037\% and 0.005\% of variance respectively.}
+ \label{fig:PCA}
+\end{figure} 
+
+\Gls{PC2} is relatively smooth and monotonic (and accounts for 0.037\% of the variance). Almost any comparison between signals at different points in the spectrum (second level signal) is going to roughly track this component (though the relative contribution of this component will slightly depend on the value of \gls{PC1}).
+
+% Could add a plot relating chromaticity to PC2 and PC3 here.
+
+Each surface meanwhile, will differentially reflect different parts of the spectrum, meaning that this sampling of \gls{PC2} will vary from surface to surface, but the same overall trend will be followed.
+
+%\begin{figure}[htbp]
+%  \includegraphics[max width=\textwidth]{figs/comp/melcomp_3/vw.png}
+%  \caption{The variable weightings applied during the \gls{PCA} analysis. Generated by tracing the upward ramp of the S-cone sensitivity being used, plateauing at unity until the decrease of the L-cone sensitivity, and then following the decrease of the L-cone sensitivity.}
+%  \label{fig:VW}
 % \end{figure} 
-% %\clearpage
-% % does it look weird if this doesn't spread over a double?
 
+\subsection{Relationships as artefacts}
 
+For many of these signals however, such relationships are to be expected\footnote{My thanks go to Manuel Spitschan for convincing me of this point.}. For example, a relationship between $l_{\text{MB}}$ and $L/M$ should be expected, since $l_{\text{MB}}$ is defined as the sum of weighted components of $L$ and $M$. To confirm this, a control condition was performed, where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated as before. The results can be seen in Figure \ref{fig:allComboSignals_rand}. Relationships between secondary signals derived from $L$, $M$ or $S$ signals still showed correlations with chromaticity (albeit now points fell on a plane, instead of a line), whereas signals with a $I$ component showed only minimal coherence, forming a noisy cloud in three-dimensional space. This implies that should the melanopic signals correlate with chromaticity, that this is not simply a computational artefact of the way in which chromaticity is calculated.
 
 \begin{fullpagefigure}
 \figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/melcomp_1/allComboSignals_rand.pdf}
-\caption{As per \ref{fig:allComboSignals} but where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated from these instead of real values. Where relationships still exist, this implies that they are computational artefacts rather than underlying relationships. Blue is used to distinguish this random data from previous real data. Note that different rotations have been applied to some of the subplots to best display the correlations.}
+\caption{As per \ref{fig:allComboSignals} but where $[L,M,S,I]$ was replaced by randomly generated values, and the second level signals were generated from these instead of real values. Blue is used to distinguish this random data from previous real data. Note that different rotations have been applied to some of the subplots to best display the correlations.}
 \label{fig:allComboSignals_rand}
 \end{fullpagefigure}
 
 This example shows that if a melanopic signal exhibits correlation with a chromatic signal \emph{not} due to the underlying mathematics of how chromaticity is calculated, and that any relationship must follow from a genuine regularity in the data.
 
+\noindent
+To summarise this section:
+
 \begin{enumerate}
    \item A basic melanopic signal, computed from direct daylight measurements, cannot predict chromaticity, other than a crude estimation of whether a measurement is direct sunlight or not. \emph{Figure \ref{fig:level1}}
     \item The same can be said for melanopic values computed for daylight reflected off a surface. \emph{Figure \ref{fig:level1}}
-    \item A first level melanopic value is highly correlated with first level cone signals. \emph{Figure \ref{fig:tristimCorrelation}}
-    \item There are relatively strong relationships between hypothetical second level signals (\emph{Figure \ref{fig:allComboSignals}}) but some of these appear to be nothing more than computational artefacts (\emph{Figure \ref{fig:allComboSignals_rand}}). Notably, the melanopic second level signals did not suffer in this way.
+  %  \item A first level melanopic value is highly correlated with first level cone signals. \emph{Figure \ref{fig:tristimCorrelation}}
+    \item There are relatively strong and simple relationships between hypothetical second level signals and illuminant chromaticity. \emph{Figure \ref{fig:allComboSignals}}
+    \item When considering surfaces, these relationships are maintained, but offset differently for each surface. \emph{Figure \ref{fig:allComboSignals}}
+    \item Some of these correlations appear to be nothing more than computational artefacts (\emph{Figure \ref{fig:allComboSignals_rand}}). Notably, the melanopic second level signals did not seem to be such artefacts.
 \end{enumerate}
 
 % -----------------------------------------%
@@ -228,17 +238,13 @@ Following VSS a slight alteration in approach occurred. Consideration was given 
 
 \begin{figure}[htbp]
  \includegraphics[max width=\textwidth]{figs/comp/melcomp_2/ZL.pdf}
- \caption{X and Y axes are a \gls{MB} chromaticity space, derived in this case using the \gls{SP} fundamentals, and the Z axis is $i_{\text{MB}}$. Plotted are the values for 11 surfaces (as per melcomp\_1), under 20 D-series illuminants (non-linear range between 3600 and 25000).}
+ \caption{X and Y axes are a \gls{MB} chromaticity space, derived in this case using the SP fundamentals, and the Z axis is $i_{\text{MB}}$. Plotted are the values for 10 surfaces (as per melcomp\_1), under 20 D-series illuminants (non-linear range between 3600 and 25000).}
  \label{fig:ZL}
 \end{figure} % Update axes to add `MB'
 
 The script started with the same process as melcomp\_1, loading data and computing \gls{MB} chromaticities, along with hypothetical $i_{\text{MB}}$ values. $r_{\text{MB}}$ values, the rod based analogue, were also calculated, although this was done for completeness (again, following the influence of \cite{barrionuevo_contributions_2014}) rather than following a genuine belief that they could be involved.
 
-In addition to the data considered in melcomp\_1, support was added to inlcude a range of CIE D series illuminants\footnote{Generated with the \gls{PTB} function `GenerateCIEDay'.}, scenes 1-4 of the
-\citet{nascimento_statistics_2002}\footnote{Data: \url{https://personalpages.manchester.ac.uk/staff/d.h.foster/Hyperspectral_images_of_natural_scenes_02.html}} hyperspectral reflectance data,
-scenes 1-5 of the 
-\citet{foster_frequency_2006}\footnote{Data: \url{https://personalpages.manchester.ac.uk/staff/d.h.foster/Hyperspectral_images_of_natural_scenes_04.html}}
-hyperspectral reflectance data, and the \gls{SP} fundamentals\footnote{Loaded through \gls{PTB} as `T\_cones\_sp' (the new version as of \url{https://github.com/Psychtoolbox-3/Psychtoolbox-3/commit/2d360a2e827ed03174206cada5717ee555c727a1}).}. The CIE D-series illuminants allowed for a smaller and more controlled dataset, the Foster et al. data allowed for a more realistic distribution of reflectances and the \acrfull{SP} fundamentals allowed for a technically `correct' \gls{MB} diagram (before I knew about CIE 170-2:2015 \cite{cie_cie_2015}).
+
 
 It was found that a log transform applied to the $[lsi]_{\text{MB}}$ data made relationships between the various signals more linear.
 
@@ -373,5 +379,24 @@ Summary: The underlying reason for the relative success of the investigated tran
 \item If we do use this signal in natural environments, does the degradation of this signal in artificial environments impact our preference ratings? Could evidence of this mechanism show up in lighting preference indices used in the lighting engineering world?
 \end{itemize}
 
+
+% ------------------- %
+% EXTRAS
+
+% \begin{figure}[htbp]
+%     \includegraphics[max width=\textwidth]{figs/comp/melcomp_1/correlationBetweenLevel1Sigs.pdf}
+%     \caption{The relationship between melanopic power (analogous to a tristimulus value but calculated using the spectral sensitivity of melanopsin). Red points indicate signals computed directly from the spectral power distribution, grey points represent values of computed colorimetry for objects under illuminants.  The traditional tristimulus values show a very strong correlation for illuminant-only values. It is not particularly easy to see here, but each surface is represented by a roughly straight line of grey points at slightly different angles.}
+%     \label{fig:tristimCorrelation}
+% \end{figure} 
+
+% It should be noted that there was very high correlation between each signal. This is shown in Figure \ref{fig:tristimCorrelation} and the correlation table below. This can be considered as corresponding to the high importance of the first principal component of the spectral measurements in this dataset. Put another way, a sensor with almost any spectral sensitivity could be used to estimate the general magnitude of the daylight. The discussion of principal components shall be returned to under melcomp\_3.
+
+% \begin{lstlisting}
+% corr(LMSI)
+%     1.0000    1.0000    0.9993    0.9998
+%     1.0000    1.0000    0.9995    0.9999
+%     0.9993    0.9995    1.0000    0.9999
+%     0.9998    0.9999    0.9999    1.0000
+% \end{lstlisting}
 
 
