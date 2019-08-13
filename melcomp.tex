@@ -365,6 +365,12 @@ This visual analysis is mirrored by the k-means-marks computed for each output. 
  \label{fig:output100}
 \end{figure} 
 
+\begin{figure}[htbp] % From the next section but I really want these to be next to eachother
+\centerline{\includegraphics[max width=1.2\textwidth]{figs/comp/comparisonFourAlgos/output50.pdf}}
+ \caption{As per Figure \ref{fig:output100} but where only 50\% of the surfaces are present under each illuminant.}
+ \label{fig:output50}
+\end{figure} 
+
 % ---------------------------------- %
 
 \subsection{A more naturalistic test case}
@@ -375,12 +381,6 @@ When we randomly remove 50\% of the surfaces under each illuminant, the resultin
 
 A visualisation of the results at under this condition is shown in Figure \ref{fig:output50}. It can be seen that the neat clusters that \gls{GW} showed in Figure \ref{fig:output100} have transformed into broad clouds. This can be thought of as the cue that \gls{GW} uses becoming noisier; viewing unknown surfaces drawn from a normally distributed set of surfaces (in terms of chromatic bias), the less surfaces which are visible, the lower the likeliood that the mean chromaticity of the surfaces represents the chromaticity of the illuminant. 
 
-\begin{figure}[htbp]
-\centerline{\includegraphics[max width=1.2\textwidth]{figs/comp/comparisonFourAlgos/output50.pdf}}
- \caption{As per Figure \ref{fig:output100} but where only 50\% of the surfaces are present under each illuminant.}
- \label{fig:output50}
-\end{figure} 
-
 Parameterising the percentage of surfaces shows that this general trend continues at other percentages. Outcomes at percentages from 20\% to 100\% in 10\% intervals are shown in Figure \ref{fig:outputRange}.
 
 \begin{figure}[htbp]
@@ -389,7 +389,7 @@ Parameterising the percentage of surfaces shows that this general trend continue
  \label{fig:outputRange}
 \end{figure} 
 
-Increasing the number of surfaces has little effect on the overall trend. A trial performed with 33 surfaces from the \citet{vrhel_measurement_1994} dataset (selected such that they were `natural' and above a minimum threshold chromaticity difference (calculated under a single daylight measurement) showed a slight overall decrease in the performance of the melanopsin-based correction, but it still outperformed all other algorithms below 80\% surface inclusion. Interestingly, the \gls{BiW} algorithm performed much better than it had in previous trials, presumably within this subset of the data the brightest surface was a more reliable cue than in the previous set. A summary for this test is shown in Figure \ref{fig:outputRangeMore}
+Increasing the number of surfaces has little effect on the overall trend. A trial performed with 32 surfaces from the \citet{vrhel_measurement_1994} dataset (selected such that they were `natural' and above a minimum threshold chromaticity difference (calculated under a single daylight measurement) showed a slight overall decrease in the performance of the melanopsin-based correction, but it still outperformed all other algorithms below 80\% surface inclusion. Interestingly, the \gls{BiW} algorithm performed much better than it had in previous trials, presumably within this subset of the data the brightest surface was a more reliable cue than in the previous set. A summary for this test is shown in Figure \ref{fig:outputRangeMore}
 
 \begin{figure}[htbp]
  \includegraphics[max width=\textwidth]{figs/comp/comparisonFourAlgos/outputRangeMore.pdf}
@@ -397,17 +397,30 @@ Increasing the number of surfaces has little effect on the overall trend. A tria
  \label{fig:outputRangeMore}
 \end{figure} 
 
+\hl{Summary} %!!!!!!!!!!
+
 % ---------------------------------- %
 
 \section{Optimality of the melanopsin spectral sensitivity}
 
-An additional test, whereby surfaces were randomly removed from a selection was introduced, in order to better parallel the unpredictability of surfaces in natural scenes.
+
+Now that we have a seemingly robust method for quantifying the performance of an algorithm, we are better placed to consider whether the \gls{SSF} of melanopsin is in any way `optimal' for this task, or whether any performance we have seen stems simply from allowing this particular algorithm to have access to a greater amount of information through additional sampling of the scene.
+
+Re-running these computations but shifting the spectral sensitivity of the nominal melanopsin \gls{SSF} to lower and higher wavelengths, gives Figure \ref{fig:optimality}. The computations were re-run 10 times, and the minimum, mean and maximum taken for each point. This variability exists only because of the random seeding required for the k-means clustering algorithm. Within the standard script there are 20 repeats of each k-means-mark test, and presumably if this figure was raised the variability visible in Figure \ref{fig:optimality} would disappear.
+
+\begin{figure}[htbp]
+ \includegraphics[max width=\textwidth]{figs/comp/optimality_caller/optimality.pdf}
+ \caption{The results of varying the nominal melanopsin spectral sensitivity function.}
+ \label{fig:optimality}
+\end{figure} 
+
+It can be seen that the baseline spectral sensitivity of melanopsin (488nm) is in the best area of the spectrum for a signal which is to be used as a corrective signal in this fashion. There is an additional peak at around 582nm. It may be coincidental, but it seems worth noting that the spectral sensitivity of the bistable form of melanopsin would be at 587nm \citep{mure_melanopsin_2009}.
+
 
 % -------------%
 
 \section{Why is this possible?}
 
-% ------------------------------- %
 
 At this stage the underlying reason for the relative success of these transforms was considered. One potential lead is a curious regularity at the lower wavelengths of the reflectance spectrum of many natural objects. In figure \ref{fig:plateau} it can be seen that there is a plateau in the relative spectral reflectances of some natural objects (a subset of the \citet{vrhel_measurement_1994} reflectances) between roughly 430nm and 480nm, with relatively small deviations within 400nm to 500nm. Another way to visualise this is to calculate the correlation between points on the reflectance function. Such a calculation was performed initially on a combined set of scenes 1-4 of the
 \citet{nascimento_statistics_2002}\footnote{Data: \url{https://personalpages.manchester.ac.uk/staff/d.h.foster/Hyperspectral_images_of_natural_scenes_02.html}} hyperspectral reflectance data and
@@ -435,15 +448,7 @@ hyperspectral reflectance data, and then on three other datasets. See figure \re
 
 An interesting advantage could be made of this regularity. Assume a simpler situation where there were two points on the spectrum of the reflectance functions of a set of natural objects which were always the same as eachother (perfect correlation). Sensors of appropriately narrow spectral sensitivity, placed at these two points on the spectrum would always register corresponding signals. Considering that the second principal component of daylight variability is a broad skew, any difference in the signals from two such receptors could be used fairly reliably to sense the contribution of this second component in any single condition. 
 
-This work was presented at this stage as a poster at the \emph{Visual Neuroscience Summer School (Rauischholzhausen, 2018)} as a poster, which has not been made publicly available.
-
-Summary: The underlying reason for the relative success of the investigated transforms was considered. A plateau at shorter wavelengths of natural object reflectances was noted, and it was speculated that this could be taken advantage of.
-
-\begin{figure}[htbp]
- \includegraphics[max width=\textwidth]{figs/comp/melcomp_9/5a_diffMel.png}
- \caption{Testing the effect of shifting the melanopsin sensitivity up and down the spectrum.}
- \label{fig:9opt}
-\end{figure} 
+%Summary: The underlying reason for the relative success of the investigated transforms was considered. A plateau at shorter wavelengths of natural object reflectances was noted, and it was speculated that this could be taken advantage of.
 
 % --------------------------------------%
 
@@ -459,7 +464,7 @@ Summary: The underlying reason for the relative success of the investigated tran
 \end{itemize}
 \item Work out how much of the optimality function is noise
 \begin{itemize}
-\item Re-run test with random number generators un-set or set with different seeds to understand their influence
+%\item Re-run test with random number generators un-set or set with different seeds to understand their influence
 \item Consider different observers, daylight data and surface data
 \end{itemize}
 \item Simplify the grading mechanism (K-means is over the top)
