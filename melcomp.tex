@@ -340,14 +340,14 @@ Before the k-means clustering algorithm was applied, data were again zero-meaned
  \label{fig:KM2}
 \end{figure} 
 
+\clearpage
+
 
 % ------------------------- %
 
 \subsection{A comparison of four algorithms}
 
-The simple melanopic algorithm (additive/subtractive) was compared with 3 other algorithms: a \gls{GW} algorithm, a \gls{BiW} algorithm and a \gls{DN} algorithm (a baseline condition where no correction was applied).
-
-The structure of \citet{barnard_comparison_2002} was employed, but with the modifications suggested above. %This is shown as a flow diagram in Figure \ref{fig:flow}.
+The simple melanopic algorithm (additive/subtractive) was compared with 3 other algorithms: a \gls{GW} algorithm, a \gls{BiW} algorithm and a \gls{DN} algorithm (a baseline condition where no correction was applied). The structure of \citet{barnard_comparison_2002} was employed, but with the modifications suggested above. %This is shown as a flow diagram in Figure \ref{fig:flow}. 
 
 % \begin{fullpagefigure}
 % \figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/flow.png}
@@ -355,37 +355,47 @@ The structure of \citet{barnard_comparison_2002} was employed, but with the modi
 % \label{fig:flow}
 % \end{fullpagefigure}
 
-% \begin{fullpagefigure}
-% \figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/comparisonFourAlgos/output.pdf}
-% \caption{The output of the four algorithms; top left: \gls{DN}, top right: \gls{GW}, botton left: \gls{BiW}, bottom right: \gls{GW}.}
-% \label{fig:flow}
-% \end{fullpagefigure}
+The results of the four algorithms are shown in Figure \ref{fig:output100}. It can be seen that the \gls{GW} algorithm performs particularly well under this test condition, separating the different surfaces into very tightly clustered and very distant groups. The \gls{BiW} algorithm appears to choose one of two surfaces as the brightest, which splits each surface group into two groups. If it were able to pick a single reference point it appears as though it would be similarly successful. The melanopsin-based correction performs moderately well; as shown before it improves greatly upon the \gls{DN} condition, but the groups are not particularly tightly clustered and there is a moderate amount of overlap between the groups.
 
+This visual analysis is mirrored by the k-means-marks computed for each output. They were: \gls{DN}: 0.5869, \gls{GW}: 0.9631, \gls{BiW}: 0.5308, mel-based: 0.9346.\footnote{It should be noted that due to the random nature of initial seeding in k-means clustering, these values are expected the vary slightly depending on initial state of the random number generator.}
 
 \begin{figure}[htbp]
- \includegraphics[max width=\textwidth]{figs/comp/comparisonFourAlgos/output.pdf}
- \caption{The output of the four algorithms; top left: \gls{DN}, top right: \gls{GW}, botton left: \gls{BiW}, bottom right: \gls{GW}.}
- \label{fig:4output}
+ \centerline{\includegraphics[max width=1.2\textwidth]{figs/comp/comparisonFourAlgos/output100.pdf}}
+ \caption{The output of the four algorithms; top left: \gls{DN}, top right: \gls{GW}, botton left: \gls{BiW}, bottom right: melanopsin-based correction, as per Equation \ref{eq:correction}. Colours denote different surface groups.}
+ \label{fig:output100}
 \end{figure} 
-
-
-
-
 
 % ---------------------------------- %
 
 \subsection{A more naturalistic test case}
 
+In terms of real-world validity, this test condition represents a rather unusual situation: a set of 10 surfaces is represented under each illuminant, with each surface always being present, and being present in the same proportion (relative to other surfaces) each time. Under these, conditions, we should expect \gls{GW} and \gls{BiW} to flourish. In more realistic conditions however (where the scene was less stable), we might expect them to suffer.
+
+When we randomly remove 50\% of the surfaces under each illuminant, the resulting k-means-marks are: \gls{DN}: 0.5989, \gls{GW}: 0.6967, \gls{BiW}: 0.5916, mel-based: 0.9447. It can be seen that \gls{GW} has fallen dramatically whilst the others have remained roughly stable. 
+
+A visualisation of the results at under this condition is shown in Figure \ref{fig:output50}. It can be seen that the neat clusters that \gls{GW} showed in Figure \ref{fig:output100} have transformed into broad clouds. This can be thought of as the cue that \gls{GW} uses becoming noisier; viewing unknown surfaces drawn from a normally distributed set of surfaces (in terms of chromatic bias), the less surfaces which are visible, the lower the likeliood that the mean chromaticity of the surfaces represents the chromaticity of the illuminant. 
+
 \begin{figure}[htbp]
- \includegraphics[max width=\textwidth]{figs/comp/melcomp_9/4a_summary.png}
- \caption{The performance of the various algorithms as a function of the available surfaces under any one simulation.}
- \label{fig:4asum}
+\centerline{\includegraphics[max width=1.2\textwidth]{figs/comp/comparisonFourAlgos/output50.pdf}}
+ \caption{As per Figure \ref{fig:output100} but where only 50\% of the surfaces are present under each illuminant.}
+ \label{fig:output50}
 \end{figure} 
 
-When all surfaces are shown every time, the \gls{GW} and \gls{BiW} algorithms slightly outperform a melanopic transform.
+Parameterising the percentage of surfaces shows that this general trend continues at other percentages. Outcomes at percentages from 20\% to 100\% in 10\% intervals are shown in Figure \ref{fig:outputRange}.
 
+\begin{figure}[htbp]
+ \includegraphics[max width=\textwidth]{figs/comp/comparisonFourAlgos/outputRange.pdf}
+ \caption{The performance of the various algorithms as a function of the available surfaces under any one simulation (100\% = 10).}
+ \label{fig:outputRange}
+\end{figure} 
 
-As soon as surfaces start to be randomly removed, performance of \gls{GW} and \gls{BiW} algorithms dropped sharply, whereas the melanopic transform was unaffected. \emph{Figure \ref{fig:4asum}}
+Increasing the number of surfaces has little effect on the overall trend. A trial performed with 33 surfaces from the \citet{vrhel_measurement_1994} dataset (selected such that they were `natural' and above a minimum threshold chromaticity difference (calculated under a single daylight measurement) showed a slight overall decrease in the performance of the melanopsin-based correction, but it still outperformed all other algorithms below 80\% surface inclusion. Interestingly, the \gls{BiW} algorithm performed much better than it had in previous trials, presumably within this subset of the data the brightest surface was a more reliable cue than in the previous set. A summary for this test is shown in Figure \ref{fig:outputRangeMore}
+
+\begin{figure}[htbp]
+ \includegraphics[max width=\textwidth]{figs/comp/comparisonFourAlgos/outputRangeMore.pdf}
+ \caption{As per Figure \ref{fig:outputRange} but with an extended set of 32 \glspl{SRF}.}
+ \label{fig:outputRangeMore}
+\end{figure} 
 
 % ---------------------------------- %
 
