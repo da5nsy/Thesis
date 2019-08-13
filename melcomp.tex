@@ -225,8 +225,7 @@ Note that such a perspective would not be possible for a space where the third d
 
 \subsection{Additive/Subtractive model}
 
-It was found through an optimisation procedure that through addition or subtraction of weighted $i_{\text{MB}}$ values, as per equation \ref{eq:correction} a conversion to an approximately illuminant-independent could be performed. The optimisation initially sought optimal weights for the scaling factors with the goal of minimising the overall spread of chromaticities (measured as standard deviation of the entire set)\footnote{This was later amended to the intra-group spread of chromaticities (measured as standard deviation of within each group. See Section X%
-)}. The results of applying Equation \ref{eq:correction} can be seen in figure \ref{fig:corrected}. %The effect of different weights can be seen in Figure \ref{fig:minSD}. 
+It was found through an optimisation procedure that through addition or subtraction of weighted $i_{\text{MB}}$ values, as per equation \ref{eq:correction} a conversion to an approximately illuminant-independent could be performed. The optimisation initially sought optimal weights for the scaling factors with the goal of minimising the overall spread of chromaticities (measured as standard deviation of the entire set)\footnote{This was later amended to the intra-group spread of chromaticities, measured as standard deviation of within each group. This had a relatively minor impact, $k_{1}$ = 0.57, and $k_{2}$ = -0.94.}. The results of applying Equation \ref{eq:correction} can be seen in figure \ref{fig:corrected}. %The effect of different weights can be seen in Figure \ref{fig:minSD}. 
 It can be seen that the points now roughly cluster together by object, with less smearing induced by changes in illuminant (compared to Figure \ref{fig:MB}).
 
 
@@ -325,7 +324,7 @@ To address this shortcoming I propose the following: that the output of an algor
 
 % A more extensive framework of testing a melanopic correction against other colour constancy algorithms was introduced, following the framework of \citet{barnard_comparison_2002} (later used by \citet{hordley_reevaluation_2006} and \citet{gijsenij_computational_2011}) A \gls{GW}, a \gls{BiW}, and a \gls{DN} algorithm were used as benchmarks.
 
-To test/demonstrate such a procedure, let's consider the plots from Figure \ref{fig:corrected} and \ref{fig:590}. Whilst the simple measure of whole-set standard deviation reports the latter as the more successful output, the k-means-mark for these outputs is 0.8915 and 0.5662 respectively, which tallies with our intuition of which instance of the algorithm has performed better. The K-means selections for each are visualised in Figures \ref{fig:KM1} and \ref{fig:KM2}.
+To test/demonstrate such a procedure, let us consider the plots from Figure \ref{fig:corrected} and \ref{fig:590}. Whilst the simple measure of whole-set standard deviation reports the latter as the more successful output, the k-means-mark for these outputs is 0.8915 and 0.5662 respectively, which tallies with our intuition of which instance of the algorithm has performed better. The K-means selections for each are visualised in Figures \ref{fig:KM1} and \ref{fig:KM2}.
 
 Before the k-means clustering algorithm was applied, data were again zero-meaned (no effect on algorithm, only neatens later presentation) and normalised by standard deviation (medium/large effect on algorithm, resulting in equal weights given to variance in either dimension of \gls{MB} space).
 
@@ -336,9 +335,9 @@ Before the k-means clustering algorithm was applied, data were again zero-meaned
 \end{figure} 
 
 \begin{figure}[htbp]
- \includegraphics[max width=\textwidth]{figs/comp/KMeansMarkDemo/1.pdf}
+ \includegraphics[max width=\textwidth]{figs/comp/KMeansMarkDemo/2.pdf}
  \caption{The data of Figure \ref{fig:590}, plotted with colours indicating the groupings chosen by a k-means clustering procedure.}
- \label{fig:KM1}
+ \label{fig:KM2}
 \end{figure} 
 
 
@@ -348,13 +347,26 @@ Before the k-means clustering algorithm was applied, data were again zero-meaned
 
 The simple melanopic algorithm (additive/subtractive) was compared with 3 other algorithms: a \gls{GW} algorithm, a \gls{BiW} algorithm and a \gls{DN} algorithm (a baseline condition where no correction was applied).
 
-The structure of \citet{barnard_comparison_2002} was employed, but with the modifications suggested above. This is shown as a flow diagram in Figure \ref{fig:flow}.
+The structure of \citet{barnard_comparison_2002} was employed, but with the modifications suggested above. %This is shown as a flow diagram in Figure \ref{fig:flow}.
 
-\begin{fullpagefigure}
-\figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/flow.png}
-\caption{A flow chart representation of the assessment process.}
-\label{fig:flow}
-\end{fullpagefigure}
+% \begin{fullpagefigure}
+% \figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/flow.png}
+% \caption{A flow chart representation of the assessment process.}
+% \label{fig:flow}
+% \end{fullpagefigure}
+
+% \begin{fullpagefigure}
+% \figpdf[pages=-,rotate=90, offset=75 -75]{figs/comp/comparisonFourAlgos/output.pdf}
+% \caption{The output of the four algorithms; top left: \gls{DN}, top right: \gls{GW}, botton left: \gls{BiW}, bottom right: \gls{GW}.}
+% \label{fig:flow}
+% \end{fullpagefigure}
+
+
+\begin{figure}[htbp]
+ \includegraphics[max width=\textwidth]{figs/comp/comparisonFourAlgos/output.pdf}
+ \caption{The output of the four algorithms; top left: \gls{DN}, top right: \gls{GW}, botton left: \gls{BiW}, bottom right: \gls{GW}.}
+ \label{fig:4output}
+\end{figure} 
 
 
 
