@@ -14,8 +14,7 @@ Code and data is provided: \url{https://github.com/da5nsy/LargeSphere}
 
 Results:
 
-This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the authors academic supervisors), who initiated the experiment, and TR who \dots %%%
-The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it became clear that there had been a technical fault during this run of data collection, and my data was deemed corrupted. This data is discussed further in Appendix X. %%%%%%%%
+This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the authors academic supervisors), who initiated the experiment, and TR who was a student of LM's. The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it became clear that there had been a technical fault during this run of data collection, and my data was deemed corrupted. %This data is discussed further in Appendix X. %%%%%%%%
 Thus, my only contribution to this work is an extension to the data analysis started by LM, upon which I shall focus on in this chapter.
 
 \section{Methodology}
@@ -38,8 +37,8 @@ A hollow fibreglass sphere of approximately 750mm diameter was prepared with thr
 
 \subsection{Observer task}
 
-The observer sat on one side of the sphere with their face inside the sphere, such that nothing outside of the sphere was visible. On view on the opposite side of the sphere was a circular 4$^{\circ}$ aperture onto an LCD screen, upon which a random colour drawn from ??????%
-was visible. It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic. Once they were happy with the achromacy of the patch, they were to hit a button at which a new random colour would be presented. The first displayed colour was displayed at L* of 85, with subsequent colours descending by 5 L* until 15 L*. This scale was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total). See Figure \ref{fig:ExperimentalPro}.
+The observer sat on one side of the sphere with their face inside the sphere, such that nothing outside of the sphere was visible. On view on the opposite side of the sphere was a circular 4$^{\circ}$ aperture onto an LCD screen, upon which a random colour % drawn from ??????
+was visible. It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic. Once they were happy with the achromacy of the patch, they were to hit a button at which a new random colour would be presented. The first displayed colour was displayed at L* of 85, with subsequent colours descending by 5 L* until 10 L*. This scale was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total). See Figure \ref{fig:ExperimentalPro}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/ExperimentalPro.png}
@@ -47,9 +46,9 @@ was visible. It was the observer's task to use two handheld sliders, which contr
 \label{fig:ExperimentalPro}
 \end{figure}
 
-\subsection{Data Collection}
+% \subsection{Data Collection}
 
-Data was collected for two observers \dots
+% Data was collected for two observers \dots
 
 \subsection{Data Processing}
 
@@ -59,15 +58,38 @@ The second approach took advantage of the fact that measurements were taken at s
 
 \section{Results}
 
+Visually summarising the results for even a single observer is difficult due to the high number of variables and collected datapoints.
+
+In Figures \ref{fig:overview1} - \ref{fig:overview3} data from LM, TR and the author (DG) is presented.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/overview1.pdf}
+\caption{The dataset of observer LM. In all plots, the average CIELAB values are taken over the 10 repeats within each session. \emph{Top left:} an overview of the chromaticity of selected points. Connections between points indicate that they are from the say run (under the same adapting wavelength). Colouring of points and lines indicates the adapting wavelength. Whilst there is a rough correspondence between the colour of the line and the appearance of the adapting field this is only meant as a means to differentiate between the different lines. \emph{Top right:} as for top left but only for points recorded at specific values of L*. Colours are as for top left, but lines linking points now represent points of like L*. This plot is included to show the relationship across wavelength of the adapting field. \emph{Bottom left and right: Other perspectives upon the CIELAB projection. Data as for top left.}}
+\label{fig:overview1}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/overview1.pdf}
+\caption{As per Figure \ref{fig:overview1}, but with the data of observer TR.}
+\label{fig:overview1}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/overview1.pdf}
+\caption{As per Figure \ref{fig:overview1}, but with the data of observer DG.}
+\label{fig:overview1}
+\end{figure}
+
+
 \subsection{Chromaticity-based analysis}
 
 \hl{As presented at ICVS.}
 
 \subsection{Spectrum-based analysis}
 
-Code: (?) %%
+\textit{The code to reproduce the following analysis can be found at \url{https://github.com/da5nsy/LargeSphere/blob/master/Data\%20Analysis/VonKriesTest.m}}
 
-The first stage of this analysis was to generate simulated data which represented the situation whereby there was only simple Von Kries adaptation. This was accomplished by multiplying the individual \glspl{SPD} (Figure \ref{fig:LSillum}) by the CIE 2006 10$^{\circ}$ observer fundamentals (not in the manner in which this is usually done, resulting in tristimulus values, but rather poitwise, thus retaining the spectral nature of the data). See Figure \ref{fig:LSsimdata}.
+The first stage of this analysis was to generate simulated data which represented the situation whereby there was only simple Von Kries adaptation. This was accomplished by multiplying the individual \glspl{SPD} (Figure \ref{fig:LSillum}) by the CIE 2006 10$^{\circ}$ observer fundamentals (not in the manner in which this is usually done, resulting in tristimulus values, but rather point-wise, thus retaining the spectral nature of the data). See Figure \ref{fig:LSsimdata}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/LSsimdata.pdf}
