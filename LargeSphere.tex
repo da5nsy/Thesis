@@ -1,7 +1,9 @@
 \chapter{Large Sphere Experiment} %new name?
 \label{chap:LargeSphere}
 
-\textit{The work presented here has been presented previously as an oral presentation at AIC 2013 \citep[p. 623]{macdonald_chromatic_2013} \textbf{prior to the author's involvement}, and as an oral presentation at ICVS 2017 \citep[p. 35/58]{jan_kremers_24th_2017} by the author.}
+\textit{The work presented here has been presented as an oral presentation at AIC 2013 \citep[p. 623]{macdonald_chromatic_2013} \textbf{prior to the author's involvement}, and as an oral presentation at ICVS 2017 \citep[p. 35/58]{jan_kremers_24th_2017} by the author.}
+
+Code and data is provided: \url{https://github.com/da5nsy/LargeSphere}
 
 \section{Summary}
 
@@ -9,10 +11,7 @@ The goal of this experimental work was to examine the effect of different wavele
 
 Within a Ganzfeld viewing environment, illuminated by one of 16 different wavelengths of near-monochromatic light, observers performed an achromatic setting task, controlling the chromaticity of a display visible in the central field through a 4$^{\circ}$ circular aperture with two handheld sliders.
 
-
-Code and data is provided: \url{https://github.com/da5nsy/LargeSphere}
-
-Results:
+\hl{Results:}
 
 This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the authors academic supervisors), who initiated the experiment, and TR who was a student of LM's. The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it became clear that there had been a technical fault during this run of data collection, and my data was deemed corrupted. %This data is discussed further in Appendix X. %%%%%%%%
 Thus, my only contribution to this work is an extension to the data analysis started by LM, upon which I shall focus on in this chapter.
@@ -58,32 +57,56 @@ The second approach took advantage of the fact that measurements were taken at s
 
 \section{Results}
 
-Visually summarising the results for even a single observer is difficult due to the high number of variables and collected datapoints.
-
-In Figures \ref{fig:overview1} - \ref{fig:overview3} data from LM, TR and the author (DG) is presented.
+Visually summarising the results for even a single observer is difficult due to the high number of variables and collected datapoints. In the following plots data is averaged over the 10 runs within each session (under each adapting wavelength). In Figures \ref{fig:overviewLM} - \ref{fig:overviewDG} data from LM, TR and the author (DG) is presented.
 
 \begin{figure}[htbp]
-\includegraphics[max width=\textwidth]{figs/LargeSphere/overview1.pdf}
-\caption{The dataset of observer LM. In all plots, the average CIELAB values are taken over the 10 repeats within each session. \emph{Top left:} an overview of the chromaticity of selected points. Connections between points indicate that they are from the say run (under the same adapting wavelength). Colouring of points and lines indicates the adapting wavelength. Whilst there is a rough correspondence between the colour of the line and the appearance of the adapting field this is only meant as a means to differentiate between the different lines. \emph{Top right:} as for top left but only for points recorded at specific values of L*. Colours are as for top left, but lines linking points now represent points of like L*. This plot is included to show the relationship across wavelength of the adapting field. \emph{Bottom left and right: Other perspectives upon the CIELAB projection. Data as for top left.}}
-\label{fig:overview1}
+\includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/LMdataOverview.pdf}
+\caption{The dataset of observer LM. In all plots, the average CIELAB values are taken over the 10 repeats within each session. \emph{Top left:} an overview of the chromaticity of selected points. Connections between points indicate that they are from the say run (under the same adapting wavelength). Colouring of points and lines indicates the adapting wavelength. Whilst there is a rough correspondence between the colour of the line and the appearance of the adapting field this is only meant as a means to differentiate between the different lines. \emph{Top right:} as for top left but only for points recorded at specific values of L*. Colours are as for top left, but lines linking points now represent points of like L*. This plot is included to show the relationship across wavelength of the adapting field. \emph{Lower left and right:} Other perspectives upon the CIELAB projection. Data as for top left.}
+\label{fig:overviewLM}
 \end{figure}
 
 \begin{figure}[htbp]
-\includegraphics[max width=\textwidth]{figs/LargeSphere/overview1.pdf}
-\caption{As per Figure \ref{fig:overview1}, but with the data of observer TR.}
-\label{fig:overview1}
+\includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/TRdataOverview.pdf}
+\caption{As per Figure \ref{fig:overviewLM}, but with the data of observer TR.}
+\label{fig:overviewTR}
 \end{figure}
 
 \begin{figure}[htbp]
-\includegraphics[max width=\textwidth]{figs/LargeSphere/overview1.pdf}
-\caption{As per Figure \ref{fig:overview1}, but with the data of observer DG.}
-\label{fig:overview1}
+\includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/DGdataOverview.pdf}
+\caption{As per Figure \ref{fig:overviewLM}, but with the data of observer DG.}
+\label{fig:overviewDG}
 \end{figure}
+
+It can be seen in the data for all observers that there is a clear L*-dependent shift. Interestingly, this appears to have a different effect on the different observers; the data of LM clusters tightly around [0,0] for low values of L* and then generally moves north-west as L* increases, whereas for TR the shift is south-west.
+
+Within this pattern it can be seen for observers LM and TR that there is a correspondence between the adapting wavelength and the selected chromaticity. This is most easily seen in the top right plots of Figures \ref{fig:overviewLM} and \ref{fig:overviewTR}. In the case of observer LM a rough figure-8 shape is seen, whereas for observer TR something closer to a circle or horseshoe is seen.
+
+In Figure \ref{fig:overviewDG} is can be seen in the lower-right plot that the data splits into two distinct groups, one is which is considerably lower in b* than is seen for either of the previous observers, or would generally be expected. It is suspected that there was a screen calibration issue which led to offsetting of the screen output in an unpredictable session-by-session fashion. It was found that a basic offsetting applied selectively to those sessions which appeared to be affected could `correct' for this issue, but without a better understanding of the issue this dataset is considered unsuitable for further analysis.
+
+\clearpage
 
 
 \subsection{Chromaticity-based analysis}
 
-\hl{As presented at ICVS.}
+The CIELAB co-ordinates for the adapting fields were computed from the measurements of the adapting fields, shown in Figure \ref{fig:LSillum}, and are presented in Figures \ref{fig:adapter1} and \ref{fig:adapter2}. 
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/adapter1.pdf}
+\caption{The CIELAB values for the surround illuminants, calculated from the measurements shown in Figure \ref{fig:LSillum}, taking the white point of the screen as the white point.}
+\label{fig:adapter1}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/adapter2.pdf}
+\caption{As per Figure \ref{fig:adapter1}, but different perspectives upon the three-dimensional CIELAB space.}
+\label{fig:adapter2}
+\end{figure}
+
+If we were to assume a very basic adaptive system, and the full validity of CIELAB as a model of visual processing, then we might expect to see something which mirrors this pattern. Observer TR's data exhibits a trend roughly similar to this; a roughly circular plot in the top right of Figure \ref{fig:overviewTR}.
+
+Observer LM's data however, does not resemble this pattern. %DG's data, well, the less said the better.
+
+Considering that there is a clear L*-dependent shift in chosen chromaticities (though I don't know how much of this is dependent upon the chroma shift added to the stimulus with the experiment, and I don't know how much the different in results is due to the different white points for the two observers).
 
 \subsection{Spectrum-based analysis}
 
