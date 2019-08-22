@@ -12,13 +12,22 @@
 
 Lighting in museums is required to satisfy multiple criteria; perhaps the least contestable requirement being that the lighting illuminate objects such that they are suitably visible to museum visitors. Also of utmost importance in most museum settings is that the lighting does not have an unreasonably damaging effect upon the objects or environment, be this through direct photodegradation or as a result of heat transfer. Further to these requirements, an increased or optimal visual quality is generally desirable, although what this represents or how to achieve it is generally ambiguous.
 
-In sweeping terms, all electromagnetic radiation (visible and non-visible) damages objects, and more radiation damages objects proportionally moreso. Thus the question becomes: \emph{how little light can we use to illuminate objects such that they're visible to the extent required?} The inverse form, sometimes used on the assumption that more light always represents an increase in observer satisfaction/pleasure is: \emph{`how much light can we use so that only $x$ damage occurs over $y$ years'}. 
+In sweeping terms, all electromagnetic radiation (visible and non-visible) damages objects, and more radiation damages objects proportionally moreso. Thus the question becomes: \emph{how little light can we use to illuminate objects such that they're visible to the extent required?} The inverse form, sometimes used on the assumption that more light always represents an increase in observer satisfaction/pleasure is: \emph{`how much light can we use so that only $x$ damage occurs over $y$ time'}. 
 
-Industry guidance documents provide advice on how to manage lighting to best address the above requirements and many other additional specific requirements through the recommendation of procedure and provision of target figures for quantitative variables. Non-visible electro-magnetic radiation, being of no visual benefit but having potential to harm, is now excluded from gallery spaces as an industry standard.
+Industry guidance documents provide advice on how to manage lighting to best address the above requirements and many other additional specific requirements through the recommendation of procedure and provision of target figures for quantitative variables. \Gls{UV} radiation, being of no visual benefit but having potential to harm, is now excluded from gallery spaces as an industry standard.
 
-\subsection{Damage factors} \label{sec:DamageIndex}
+\subsection{Damage functions} \label{sec:DamageIndex}
 
-\hl{How do I not just copy pages 5-7 of CIE 2004?. THAT's what I want to say.}
+The goal of damage functions is to give a quantitative means by which to predict the amount of damage caused by a light source to a prototypical object. They follow the general logic that radiation of lower wavelength is likely to cause more damage to objects.
+
+\citet{harrison_report_1953} is generally acknowledged as the first to suggest such a function, but he himself acknowledges that it had ``long been established that the shorter the wavelength (visible yellow, green, blue, violet and invisible UV being progressively shorter) the more photochemically potent will be such radiant energy, provided such energy is actually absorbed''.
+
+\begin{figure}[htbp]
+%\includegraphics[max width=\textwidth]{figs/litReview/Harrison.png}
+\caption{Harrison's \citep{harrison_report_1953} damage function, reproduced from CIE 157:2004 \citep{cie_cie_2004}.}
+\label{fig:Harrison}
+\end{figure}
+
 
 \subsection{Interviews with Museum Professionals} \label{sec:Interviews}
 
@@ -40,11 +49,11 @@ Whilst a small number considered themselves active in the area of lighting resea
 
 Asked what each considered to be `good lighting', responses included `safe', `invisible' (you don't notice it), and `lighting which is appropriate for your objects and your exhibition' (noting the variability of requirements dependent on the particular object(s) being presented). Asked to present a list or range of priorities, many focused on the safety requirements of lighting. The principal safety concern for lighting was that it fell below specific illuminance criteria, dependent on the assumed sensitivity category of the object in question. The specific target values were generally those provided by \citet{thomson_museum_1986} of 50lx for sensitive items and 200lx for less sensitive items (which are based on the visual preference work of \citet{loe_preferred_1982}).
 
-Considering a scale of other priorities, following the requirement for appropriate lux levels, considerations included: limiting/excluding UV, obtaining an acceptable CRI value, and time and capital costs associating with fitting and maintenance. Energy efficiency was also a driver, but this did not seem to be a factor within technology category, rather it was noted that many institutions are switching to \gls{LED} because of increased efficiency, but that the difference in efficiency between one \gls{LED} type and another was negligible compared to the saving in contrast to lighting technology which \gls{LED} was replacing, which was often tungsten.
+Considering a scale of other priorities, following the requirement for appropriate lux levels, considerations included: limiting/excluding \gls{UV}, obtaining an acceptable \gls{CRI} value, and time and capital costs associating with fitting and maintenance. Energy efficiency was also a driver, but this did not seem to be a factor within technology category, rather it was noted that many institutions are switching to \gls{LED} because of increased efficiency, but that the difference in efficiency between one \gls{LED} type and another was negligible compared to the saving in contrast to lighting technology which \gls{LED} was replacing, which was often tungsten.
 
-The range of roles played in the procurement of lighting varied amongst those interviewed. Whilst some created guidance documents which would then be passed on to estates teams and exhibition designers or lighting designers specifically, others had a much more hands-on role, testing specific lighting before installation or making recommendations on a case-by-case basis. It was noted that whilst relamping and retrofitting was generally handled by `in house' teams, where new galleries or large temporary exhibitions were created it was common for an external lighting design company to be contracted to perform the work. When asked whether recommendations were normally followed, the general reply was that recommendations for lux exposure and UV content were almost always followed, but other recommendations (such as for CRI or \gls{CCT}) were more loosely interpreted. In many cases recommendations for \gls{CCT} were not made.
+The range of roles played in the procurement of lighting varied amongst those interviewed. Whilst some created guidance documents which would then be passed on to estates teams and exhibition designers or lighting designers specifically, others had a much more hands-on role, testing specific lighting before installation or making recommendations on a case-by-case basis. It was noted that whilst relamping and retrofitting was generally handled by `in house' teams, where new galleries or large temporary exhibitions were created it was common for an external lighting design company to be contracted to perform the work. When asked whether recommendations were normally followed, the general reply was that recommendations for lux exposure and UV content were almost always followed, but other recommendations (such as for \gls{CRI} or \gls{CCT}) were more loosely interpreted. In many cases recommendations for \gls{CCT} were not made.
 
-When asked about the tools used to make such recommendations and choices, responses included references to guidelines and reference sources (most often \citet{thomson_museum_1986}, though also \citet{druzik_guidelines_2012} and \citet{british_standards_institution_pas_2012}), references to specific units such as `lux' used in tandem with recommendations from guidelines such as above, indices such as the \gls{CIE} general colour rendering index R$_a$ (referred ubiquitously to as `CRI' by interviewees) and notes of specific conferences which were attended in order to stay up to date with the research on the subject. There was a general feeling that the current climate was one of swift technological change in lighting, which created an increased difficulty in staying up to date with developments. It was noted that attending conferences and industry workshops were very beneficial in assisting professionals to stay up to date. 
+When asked about the tools used to make such recommendations and choices, responses included references to guidelines and reference sources (most often \citet{thomson_museum_1986}, though also \citet{druzik_guidelines_2012} and \citet{british_standards_institution_pas_2012}), references to specific units such as `lux' used in tandem with recommendations from guidelines such as above, indices such as the \gls{CIE} general colour rendering index R$_a$ (referred ubiquitously to as `\gls{CRI}' by interviewees) and notes of specific conferences which were attended in order to stay up to date with the research on the subject. There was a general feeling that the current climate was one of swift technological change in lighting, which created an increased difficulty in staying up to date with developments. It was noted that attending conferences and industry workshops were very beneficial in assisting professionals to stay up to date. 
 
 \begin{quote}
 `   Things are moving so quickly that to rely on books which have taken two years to produce [does not suffice, because] things have moved on. Books (plus journals) used to be the main reference. Now things are moving at such a rapid pace.''
@@ -90,6 +99,32 @@ Generally, the interviewees believed that visitor requirements were being met (a
 
 No interviewees knew of recent surveys similar to the present one.
 
+\subsection{Visitor Requirements of Museum Lighting}
+
+The visitor requirements of museum lighting are varied and complex. The examination and definition of these requirements has been the subject of a small number of studies, principally by \citet{kesner_museum_1993-1} in the USA in the early nineteen-nineties \citep{kesner_museum_1993,kesner_exhibition_1992,kesner_current_1991,kesner_analysis_1997}. These studies were based on survey based self-reporting, and concluded that colour accuracy was the highest requirement and that `richness' of colour was the lowest priority\footnote{A cautious interpretation of these results is advised, considering that there were high average scores for each category}.
+
+\begin{quote}
+Artifact appearance, particularly clarity of artefact form and accuracy of artifact color, is the most important visitor need. Although visual impression, specifically acceptable gallery brightness and rich artefact color, is least important among the factors, it too rated highly important \citep{kesner_museum_1993-1}.
+\end{quote}
+
+Further studies, spurred by recent adoption of \gls{LED} technology have been completed, although with very limited and questionably scientific basis at the Field Museum \citep{myer_demonstration_2010}.
+
+Additionally work has been completed which describes the results of a written survey of museum professionals on the subject of lighting specification, focusing on SSL (effectively \gls{LED}) adoption, and their justification for specifying specific lighting \citep{perrin_ssl_2014}. 979 people who had requested access to the guidelines document produced by some of the same authors \citep{druzik_guidelines_2012} were emailed with a request for participation. 46 (4.7\%) responded with a completed survey. Of those, 30\% are described as `international' which considering the base of the authors is in the USA we can assume as meaning `not based in the USA'. The survey was prepared as part of the USA government's GATEWAY program, and can be considered as a follow-up to work on recommendations for specification \citep{druzik_guidelines_2012}. 
+
+\noindent
+The headline results are as follows:
+\begin{itemize}
+    \item When the `success' of new \gls{LED} based lighting schemes was evaluated the public reaction was either neutral or positive in all cases \footnote{There appears to be an issue with the data for this question however, with the `no response' garnering 48\% of the responses and `favorable response' garnering 55\%\dots}
+    \item The distribution of staff response was broadly similar: `no response'-17\%, `negative response'-3\%, `favorable response'-80\%.
+    \item The results of two priority ranking questions\footnote{`Rank the following lighting goals' and `Please rank the following factors in your selection of lamps'} are broadly similar:
+    \begin{itemize}
+        \item First question: The first priority is identified as `limiting damage' with other priorities broadly equal.
+        \item Second question: Joint first priorities are identified as `colour and spectral power distribution' and `damage potential' with others broadly similar (though dimming, input power and warranty lagging behind others)
+    \end{itemize}
+    \item 91\% of respondents reported using `\gls{CRI}' which is assumed to refer to \gls{CIE} R$_a$. 6\% state that they refer to other Ri values, and 20\% report using CQS (Color Quality Scale \citep{ohno_rationale_2010,davis_color_2010}).
+    \item 60\% of respondents report that they consider \gls{CCT}.
+\end{itemize} 
+
 \subsection{Museum Lighting Specification Guidance Documents}
 
 Following the interviews with the museum professionals, the five most referred-to museum lighting guidance documents were reviewed, and a summary is presented here.
@@ -117,11 +152,11 @@ In summary:
 \item There was often blurring between recommendations concerned with visual appearance and those concerned with conservation. 
 \end{itemize}
 
-\subsubsection{CCT in museums}
+\subsection{CCT in museums}
 
 \acrfull{CCT} describes the chromaticity of a light source on a one dimensional axis roughly from blue to yellow, based on the apparent chromaticity of a black body radiator at differing temperatures. It is often described as an important variable in museum lighting but definite recommendations, in the rare cases that they are given, are generally based on very general rules that predict that damage potential will be decreased if \gls{CCT} is minimised \citep{cie_cie_2004}, nostalgia for the appearance of tungsten lighting or questionable research on human preference \citep{kruithof_tubular_1941,fotios_revised_2017}. Whilst some research appears to have found optimal \glspl{CCT} for viewing artwork \citep{nascimento_best_2014,pinto_correlated_2008,scuello_museum_2004,scuello_museum_2004-1, liu_cultural_2013} results often have large inter-observer variability, context dependency and it is not uncommon for the headline findings of separate studies to be in contradiction. 
 
-Specifications often refer implicitly or explicitly to the findings of \citet{kruithof_tubular_1941}, who found that at lower levels of illumination, lower \glspl{CCT} were preferred, and that at higher levels of illumination higher \glspl{CCT} were preferred. Whilst this general trend seems to have anecdotal support, I suspect that there may be lighting technology based confounds, and recent researchers \citep{vienot_kruithofs_2009} (including a meta-study of multiple other examinations \citep{fotios_revised_2017}) found there to be no provable correlation between preference and colour temperature.
+Specifications often refer implicitly or explicitly to the findings of \citet{kruithof_tubular_1941}, who found that at lower levels of illumination, lower \glspl{CCT} were preferred, and that at higher levels of illumination higher \glspl{CCT} were preferred. Whilst this general trend seems to have anecdotal support, it is possible that there may be lighting-technology-based confounds, and recently researchers \citep{vienot_kruithofs_2009} (including a meta-study of multiple other examinations \citep{fotios_revised_2017}) found there to be no provable correlation between preference and colour temperature.
 
 The \gls{CIE} however, published a report showing the varying the \gls{CCT} of museum lighting could have a clear impact on the potential damage undergone by museum objects \citep{cie_cie_2004}. 
 
@@ -157,7 +192,33 @@ To verify the findings of the \gls{CIE}, to extend their findings to \glspl{LED}
 
 The results of these computations show a clear relationship between \gls{CCT} and \gls{DI}. Considering that this is not currently taken advantage of in museum lighting, it seems as though there is a great potential for reducing damage whilst maintaining visitor visual satisfaction.
 
-\clearpage
+\subsection{Colour Rendering Indices in Museums}
+
+Are fidelity indices suitable for museum use? 
+The first chapter of Cuttle's book `Light for Art's Sake: Lighting for Artworks and Museum Displays'19 is titled `A philosophy for the presentation of art'. The choice of title here is apt but may surprise some readers, sounding more whimsical than might be expected of a serious subject attended by scientists and engineers. The reason it is so apt is because lighting is unavoidably a creative intervention (I owe this phrase to Katherine Curran); which is to say that there is no lighting which is truly impartial, and no lighting which is truly correct in the sense of being unequivocally superior to another. All lighting decisions require choices to be made, and whilst these choices can be wrapped up to appear as an optimization problem where proximity to a particular solution is the goal, the problem always rests on the bedrock of a philosophy based decision.
+
+In the above mentioned chapter Cuttle lays out a total of seven distinct philosophical propositions, which he poses for consideration as approaches to museum lighting, some contradictory and some with the potential to overlap:
+
+1.	`To make the artwork appear as it would have appeared to the artist at the time of its creation
+2.	To ensure that no damage due to light exposure will occur
+3.	To achieve the best possible appearance of the artwork
+4.	To provide optimum conditions for viewing art
+5.	To impart a sense of having seen `the real thing'
+6.	To assist viewers to understand the displayed objects and their reason for being there
+7.	For the lighting designer to establish a distinct and recognisable style'19 
+
+These propositions refer to museum lighting holistically, considering all aspects of museum lighting, but can be readily focused on the problem of colour appearance specifically. Before we narrow our gaze however, it is worth briefly considering a wide view of lighting attributes which may aid in the realisation of `good quality' museum lighting. Consider Scott Rosenfeld's list of the five `controllable qualities' in museum lighting; `intensity, movement [temporal artefacts], angle [modelling, avoiding glare and reflections], distribution [ambient lighting vs. spot lighting], color'20.
+Whilst Cuttle's propositions make for interesting discussions and enjoyable extended pondering, they are of limited assistance in the practical task of actually specifying lighting. Thankfully, a range of tools exist for the examination of the colour rendering properties of a light source, in the form of indices which aim to numerically describe an illumination's effect on colour appearance of the objects of which it is tasked with illuminating.
+
+Traditionally, colour rendering indices aim to offer a standardized method for calculating the colour differences induced by the substitution of a reference illuminant with a specific test source, and for comparing the relative merit of different test light sources on their ability to induce minimum change. In modern parlance this type of index should be referred to as a colour fidelity index, that is- one which is conceptually concerned with colorimetric reproduction. The term `colour rendering' has come to encompass much more than just fidelity.
+
+Diametrically opposed in some ways to fidelity are the indices which aim to quantify `preference'. In the simplest case, a preference index will aim to provide a value that is predictive of how an observer would rate a light source it against other light sources. 
+
+Within, and on the spectrum between these two groups there exist a range of different indices with subtly different aims and mechanisms for achieving these aims. For a thorough overview, albeit one which omits some more recent developments, see Guo and Houser21.
+
+In practice, both of these philosophical approaches are mandated in current lighting guidance. For the most part, advice for lighting specification6,7 on the subject of colour rendering can be simplified to read `use lamps of above \gls{CRI} 80 (referring tacitly to \gls{CIE} R$_a$) but always test them visually before you buy in bulk'. Whilst this may at first seem like sensible advice, upon further inspection it in fact represents a serious contradiction, unless considered with heavy caveats. The problem rests in the fact that \gls{CIE} R$_a$ is a fidelity index, whereas any visual inspection is likely to be performed by observing the appearance of an object under the test illumination without a reference. Fidelity aims to describe accuracy of reproduction, but this is a quality which is arguably not testable by visual inspection. This contradiction seems to perpetuate unnoticed in museum practice, with lighting specifiers often abstractly declaring to target a faithful/accurate/honest/impartial representation of objects, but practically choosing light sources based on visual inspection where preference is the only criteria. There is of course a range of approaches, ranging from pure reliance on indices to almost entire reliance on visual testing.
+
+In conclusion, no one metric exists that would satisfy the divergent aims and philosophies of museum lighting. Several distinct types of colour rendering index exist, but the existing range fall into the broad categories of `fidelity' or `preference', with the latter being particularly poorly definable due to its variability in different environments, with different user functional requirements and different intrinsic preferences between different observers. Progress could be made by breaking these broad categories into smaller more manageable specific objectives.
 
 
 %%%% BONUS AREA %%%%%%%%%%
@@ -178,43 +239,6 @@ The results of these computations show a clear relationship between \gls{CCT} an
 
 % There also seems to be a great range of lighting quality within the British Museum, with some spaces feeling bright and others comparatively gloomy. There is a range of colour temperatures and chromaticities of light at the museum, as shown in Figure 1.
 
-% Multiple methods are currently employed to limit the exposure of objects in the museum. UV absorbing film or glazing which incorporates UV reduction is used throughout the museum and in certain galleries there are automatic blinds which limit the intrusion of direct sunlight at specific times of the day and year. For particularly sensitive objects, rooms are lit artificially at very low levels, and some objects are selectively lit in order to further limit their accumulative exposure.
+% Multiple methods are currently employed to limit the exposure of objects in the museum. \Gls{UV} absorbing film or glazing which incorporates \gls{UV} reduction is used throughout the museum and in certain galleries there are automatic blinds which limit the intrusion of direct sunlight at specific times of the day and year. For particularly sensitive objects, rooms are lit artificially at very low levels, and some objects are selectively lit in order to further limit their accumulative exposure.
 
-% \subsection{Visitor Requirements of Museum Lighting}
-
-% The visitor requirements of museum lighting are understandably varied and complex. The examination and definition of these requirements has been the subject of a small number of studies, principally by Kesner3 in the USA in the early nineteen-nineties. These studies were based on survey based self-reporting, and concluded that colour accuracy was the highest requirement and that `richness' of colour was the lowest priority. The meaningfulness of these conclusions is cast into doubt by the high average scores for each category (>4/5 for each category).
-% \begin{quote}
-% Artifact appearance, particularly clarity of artefact form and accuracy of artifact color, is the most important visitor need. Although visual impression, specifically acceptable gallery brightness and rich artefact color, is least important among the factors, it too rated highly important.3
-% \end{quote}
-% Further studies, spurred by recent adoption of \gls{LED} technology have been completed, although with very limited and questionably scientific basis at the Field Museum4.
-% Additionally work has been completed5 which describes the results of a written survey of museum professionals on the subject of lighting specification, focussing on SSL (effectively \gls{LED}) adoption, and their justification for specifying specific lighting. 
-% 979 people who had requested access to the guidelines document produced by some of the same authors6 were emailed with a request for participation. 46 (4.7\%) responded with a completed survey. Of those, 30\% are described as `international' which considering the base of the authors is in the USA we can assume as meaning `not based in the USA'. The survey was prepared as part of the USA government's GATEWAY program, and can be considered as a follow-up to work on recommendations for specification6. 
-% The headline results are as follows:
-% -	When the `success' of new \gls{LED} based lighting schemes was evaluated the public reaction was either neutral or positive in all cases. 
-% o	There appears to be an issue with the data for this question however, with the `no response' garnering 48\% of the responses and `favorable response' garnering 55\%.
-% -	The distribution of staff response was broadly similar: `no response'-17\%, `negative response'-3\%, `favorable response'-80\%.
-% -	The results of two priority ranking questions  are broadly similar:
-% o	First question: The first priority is identified as `limiting damage' with other priorities broadly equal.
-% o	Second question: Joint first priorities are identified as `colour and spectral power distribution' and `damage potential' with others broadly similar (though dimming, input power and warranty lagging behind others)
-% -	91\% of respondents reported using `Color Rendering Index (CRI)' which is assumed to refer to \gls{CIE} R$_a$. 6\% state that they refer to other Ri values, and 20\% report using CQS.
-% -	60\% of respondents report that they consider \gls{CCT}.
-
-% \subsection{Colour Rendering Indices in Museums}
-
-% Are fidelity indices suitable for museum use? 
-% The first chapter of Cuttle's book `Light for Art's Sake: Lighting for Artworks and Museum Displays'19 is titled `A philosophy for the presentation of art'. The choice of title here is apt but may surprise some readers, sounding more whimsical than might be expected of a serious subject attended by scientists and engineers. The reason it is so apt is because lighting is unavoidably a creative intervention (I owe this phrase to Katherine Curran); which is to say that there is no lighting which is truly impartial, and no lighting which is truly correct in the sense of being unequivocally superior to another. All lighting decisions require choices to be made, and whilst these choices can be wrapped up to appear as an optimization problem where proximity to a particular solution is the goal, the problem always rests on the bedrock of a philosophy based decision.
-% In the above mentioned chapter Cuttle lays out a total of seven distinct philosophical propositions, which he poses for consideration as approaches to museum lighting, some contradictory and some with the potential to overlap:
-% 1.	`To make the artwork appear as it would have appeared to the artist at the time of its creation
-% 2.	To ensure that no damage due to light exposure will occur
-% 3.	To achieve the best possible appearance of the artwork
-% 4.	To provide optimum conditions for viewing art
-% 5.	To impart a sense of having seen `the real thing'
-% 6.	To assist viewers to understand the displayed objects and their reason for being there
-% 7.	For the lighting designer to establish a distinct and recognisable style'19 
-% These propositions refer to museum lighting holistically, considering all aspects of museum lighting, but can be readily focused on the problem of colour appearance specifically. Before we narrow our gaze however, it is worth briefly considering a wide view of lighting attributes which may aid in the realisation of `good quality' museum lighting. Consider Scott Rosenfeld's list of the five `controllable qualities' in museum lighting; `intensity, movement [temporal artefacts], angle [modelling, avoiding glare and reflections], distribution [ambient lighting vs. spot lighting], color'20.
-% Whilst Cuttle's propositions make for interesting discussions and enjoyable extended pondering, they are of limited assistance in the practical task of actually specifying lighting. Thankfully, a range of tools exist for the examination of the colour rendering properties of a light source, in the form of indices which aim to numerically describe an illumination's effect on colour appearance of the objects of which it is tasked with illuminating.
-% Traditionally, colour rendering indices aim to offer a standardized method for calculating the colour differences induced by the substitution of a reference illuminant with a specific test source, and for comparing the relative merit of different test light sources on their ability to induce minimum change. In modern parlance this type of index should be referred to as a colour fidelity index, that is- one which is conceptually concerned with colorimetric reproduction. The term `colour rendering' has come to encompass much more than just fidelity.
-% Diametrically opposed in some ways to fidelity are the indices which aim to quantify `preference'. In the simplest case, a preference index will aim to provide a value that is predictive of how an observer would rate a light source it against other light sources. 
-% Within, and on the spectrum between these two groups there exist a range of different indices with subtly different aims and mechanisms for achieving these aims. For a thorough overview, albeit one which omits some more recent developments, see Guo and Houser21.
-% In practice, both of these philosophical approaches are mandated in current lighting guidance. For the most part, advice for lighting specification6,7 on the subject of colour rendering can be simplified to read `use lamps of above CRI 80 (referring tacitly to \gls{CIE} R$_a$) but always test them visually before you buy in bulk'. Whilst this may at first seem like sensible advice, upon further inspection it in fact represents a serious contradiction, unless considered with heavy caveats. The problem rests in the fact that \gls{CIE} R$_a$ is a fidelity index, whereas any visual inspection is likely to be performed by observing the appearance of an object under the test illumination without a reference. Fidelity aims to describe accuracy of reproduction, but this is a quality which is arguably not testable by visual inspection. This contradiction seems to perpetuate unnoticed in museum practice, with lighting specifiers often abstractly declaring to target a faithful/accurate/honest/impartial representation of objects, but practically choosing light sources based on visual inspection where preference is the only criteria. There is of course a range of approaches, ranging from pure reliance on indices to almost entire reliance on visual testing.
-% In conclusion, no one metric exists that would satisfy the divergent aims and philosophies of museum lighting. Several distinct types of colour rendering index exist, but the existing range fall into the broad categories of `fidelity' or `preference', with the latter being particularly poorly definable due to its variability in different environments, with different user functional requirements and different intrinsic preferences between different observers. Progress could be made by breaking these broad categories into smaller more manageable specific objectives.
+% 

@@ -16,7 +16,7 @@ Code and data are provided: \url{https://github.com/da5nsy/Small-Sphere}.
 % - too many variables
 % research question
 
-This experiment was performed to develop upon the Large Sphere experiment by narrowing down the number of variables and more directly testing the hypothesis that melanopsin is involved in colour constancy. This was achieved using a similar experimental set-up to the previous experiment, with several key alterations:
+This experiment was performed to develop upon the Large Sphere experiment by narrowing down the number of variables and more directly explore the question of whether melanopsin plays a role in colour constancy. This was achieved using a similar experimental set-up to the previous experiment, with several key alterations:
 
 \begin{enumerate}
     \item Instead of 16 surround conditions, only two were included.
@@ -39,23 +39,25 @@ The null hypothesis that this experiment aims to test is that melanopsin activat
 The sphere used in this experiment was roughly 400mm in diameter, with ports of similar functions to those which were present in the Large Sphere. On one side there is a padded port for an observer's face. Mirroring this is a small aperture through which an LCD screen is visible. At the top of the sphere was a port through which illumination was provided. An additional port, on the observer's side of the base, was added such that the illumination provided to the sphere could be unobtrusively monitored throughout experiments.
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth,center]{figs/SmallSphere/diagram.pdf}
+\includegraphics[max width=\textwidth,center]{figs/SmallSphere/diagram.pdf}
 \caption{The small sphere set up, reproduced from \citet{macdonald_melanopsin_2017}, courtesy of Lindsay MacDonald.}
 \label{fig:diagram}
 \end{figure}
 
 \subsection{The sphere}
 
+% how big was the fixation?
+
 % diagram 
 % photo
 
-The sphere used in this experiment was somewhat smaller than the one used in the previous experiments (hence the experiment short-hand names) and this served several purposes. 
+The sphere used in this experiment was somewhat smaller than the one used in the previous experiments (hence the experiment short-hand names) and this served several purposes. The illumination in the Large Sphere had been rather low, partly such that rod interactions would be made visible, and partly due to practical limitations. The grey paint on the interior of the Large Sphere was chosen such to limit specular reflections, but it meant that overall illumination levels were very low. In the small sphere, it was hoped that by reducing the size of the sphere it would be possible to keep the level of illumination higher, as it would be spread across a smaller surface. Additionally, of practical concern, it was easier to find experimental space for a smaller sphere.
 
-The illumination in the Large Sphere had been rather low, partly such that rod interactions would be made visible, and partly due to practical limitations. The grey paint on the interior of the Large Sphere was chosen such to limit specular reflections, but it meant that overall illumination levels were very low. In the small sphere, it was hoped that my reducing the size of the sphere that it might be possible to keep the illumination slightly higher, as it would be spread across a smaller surface. Additionally, of practical concern, it was easier to find experimental space for a smaller sphere.
-
-Several paints were trialled for use in the small sphere. The required conditions were that they were available as a spray, and provided as `matt white'. Sample patched were sprayed to assess finish and spectral reflectance. It was seen as beneficial if: the finish had a very fine grain and as little gloss to it as possible, the surface reflectance was high and the \gls{SRF} was an uniform across the spectrum as possible. It was also considered a requisite requirement that any paint should not include any fluorescent whitening agents (such as can be seen in the `white paper' data shown in Figure \ref{fig:spray}).
+Several paints were trialled for use in the small sphere. The required conditions were that they were available as a spray, and provided as `matt white'. Sample patched were sprayed to assess finish and spectral reflectance. It was seen as beneficial if: the finish had a very fine grain and as little gloss to it as possible, the surface reflectance was high and the \gls{SRF} was as uniform across the spectrum as possible. It was also considered a requisite requirement that any paint should not include any fluorescent whitening agents (such as can be seen in the `white paper' shown in Figure \ref{fig:spray}).
 
 Measurements of the \glspl{SRF} of the 8 tested spray-paints, and further details of the spray-paints themselves, can be seen in Figure \ref{fig:spray}. It can be seen that Montana Gold Sh. White Cream and Pebble, along with MTN 94 RV-198 are either too low in reflectance, or not spectrally uniform enough. The two with the most desirable finishes were the Flame Blue and MTN Water Based paints. The MTN Water Based paint was chosen due to its particularly fine-grain finish.
+
+The sharp drop off in the \glspl{SRF} suggest that most of the tested paints were titanium-based (based on comparisons to measurements made by \citet{cosentino_fors_2014}). \footnote{It is unfortunate in some ways that the \glspl{SRF} drop so rapidly around 400nm, as this means that the one of the chosen LEDs with a peak output of around 400nm will lose a great deal of its power in the interaction with the paint. On the other hand - this decreases the risk to the observer of being exposed to exessive amounts of short wavelength radiation.}  
 
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth,center]{figs/SmallSphere/VisualiseSPDs_result.pdf}
@@ -71,14 +73,15 @@ The screen was offset by roughly 150mm through a short black paper tube in order
 %Primaries
 %Gamut
 
+% Out of gamut LEDs?
+
 \subsubsection{Characterisation}
 
 Following the disappointment of the data collection phase of the Large Sphere experiment, two separate characterisation procedures were performed, one before and one after every set of observations (in addition to the monitoring of illumination inside the sphere).
 
 The first characterisation routine is rather standard - a spectral measurement of the display primaries followed by a ramping through pixel space for each display channel from zero output to maximum output\footnote{Controlled by the script available at \url{https://github.com/da5nsy/Small-Sphere/blob/5c6af38c5036a4c0a328a9854427ae8e851e84fd/Hardware\%20Specs/PR650\%20Screen\%20Measurements/PR650displaycharacterisation_DG.m}}. This was only measured for the small portion of the screen which would be used during experiments.
 
-The second calibration procedure attempted to include any issues which may arise due to the specific specification method used within the experiment. A very minor amendment was made to a copy of the main experimental script, such that it only included 3 repeats rather than 30. %haven't introduced this yet
-This script was run in exactly the same way that the main experimental script would be run, except that the observer was replaced by our \gls{PR650}, and no effort was made to select neutral points, with a measurement being made of each presentation. In this way, a random selection of points were recorded, and through comparison with the recorded `responses', it could be seen whether there was any discrepancy between what we thought was being displayed on the screen and what was actually being displayed on the screen.
+The second calibration procedure attempted to include any issues which may arise due to the specific specification method used within the experiment. The main experimental script was modified to provide a `characterisation mode', with a greatly reduced number of trials (15 total). This mode otherwise performed in exactly the same way that the main experimental script normally would, and the observer was replaced by our \gls{PR650}, and no effort was made to select neutral points, with a measurement being made of each presentation directly. In this way, a random selection of points were recorded, and through comparison with the recorded `responses', it could be seen whether there was any discrepancy between what we thought was being displayed on the screen and what was actually being displayed on the screen.
 % demo?
 
 \subsection{The LED rig}
@@ -102,7 +105,7 @@ Four types of LED, to operate as two pairs, were chosen to maximise melanopic co
 %810-0492 C503B-BCN-CV0Z0461
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth,center]{figs/SmallSphere/LED_SPDs.pdf}
+\includegraphics[max width=\textwidth,center]{figs/SmallSphere/LED_SPDs.pdf}
 \caption{The normalised \glspl{SPD} of the Small Sphere \glspl{LED}.}
 \label{fig:LED_SPDs}
 \end{figure}
@@ -110,7 +113,7 @@ Four types of LED, to operate as two pairs, were chosen to maximise melanopic co
 The arduino script set the \glspl{LED}, via pulse width modulation, to the output levels decided in the perceptual nulling segment of the experiment. The two modes had either the combination of UV and amber, or blue and red, allowing for the chromaticities falling upon the lines shown in Figure \ref{fig:LED_SPDs}. The combinations UV and blue, or amber and red, were never used.
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth,center]{figs/SmallSphere/LED_cross.pdf}
+\includegraphics[max width=\textwidth,center]{figs/SmallSphere/LED_cross.pdf}
 \caption{The chromaticities of the Small Sphere \glspl{LED} in CIE 1931 space.}
 \label{fig:LED_cross}
 \end{figure}
@@ -128,32 +131,59 @@ Throughout the experiments the illumination inside the sphere was measured with 
 
 \subsubsection{Perceptual Nulling}
 
-The basic logic of this experiment is as follows: under the null hypothesis two adapting fields of identical appearance should adapt an observer in exactly the same way. In order to design two adapting field illuminants which appear identical (perceptual metamers) we can either make predictions based upon standard observers (with parameters set to match our real observers regards age and pupil dilation etc.) or we can provide a process whereby individual observers make minor alterations to the two conditions until they appear identical. We have opted to use colorimetry as a starting point to choose primaries, and then allow observers to fine-tune this matching.\footnote{A similar process to this has recently been used very effectively by \citet{allen_form_2019}.}
+The basic logic of this experiment is as follows: under the null hypothesis two adapting fields of identical appearance should adapt an observer in exactly the same way. In order to design two adapting field illuminants which appear identical (perceptual metamers) we can either make predictions based upon standard observers (with parameters set to match our real observers regards age and pupil dilation etc.) or we can provide a process whereby individual observers make minor alterations to the two conditions until they appear identical for them (assuming we have the technical conditions where this is possible). We have opted to use colorimetry as a starting point to choose primaries (Figure \ref{fig:LED_cross}), and then allow observers to fine-tune this matching.
 
-We run the risk of falling into circularity here: we ask observers to set two fields such that they appear identical, and then (in a roundabout way) we ask them whether there is any visual difference between them. If melanopsin does have a direct impact upon visual perception we are at risk of accounting for this at this stage.
-
-Attempting to avoid this problem, we perform the perceptual nulling under conditions which we predict should not allow for \gls{ipRGC} involvement, or should minimise such. It seems to be the case that \glspl{ipRGC} do not react strongly over very short timescales ($<$0.5hz \citep{spitschan_human_2017-1}), with cones being much more active in this temporal window, so we chose to rapidly alternate between the two conditions and ask observers to make alterations until there is a minimal visible flicker.
+We run the risk of falling into circularity here: we ask observers to set two fields such that they appear identical, and then (in a roundabout way) we ask them whether there is any visual difference between them. If melanopsin does have a direct impact upon visual perception we are at risk of accounting for this at this stage. In an attempt to avoid this problem, we perform the perceptual nulling under conditions which we predict should not allow for \gls{ipRGC} involvement, or should minimise such. It seems to be the case that \glspl{ipRGC} do not react strongly over very short timescales ($<$0.5hz \citep{spitschan_human_2017-1}), with cones being much more active in this temporal window, so we chose to rapidly alternate between the two conditions and ask observers to make alterations until there is a minimal visible flicker.
 
 Observers were instructed to fixate upon a small fixation point displayed at the centre of the otherwise dark display. They placed their hands upon three dials which could be independently varied to change the peripheral adapting illuminant inside the sphere.
 
 Two modes were presented to observers, one where the two conditions were presented at 30hz for 1 second, followed by a 10 second break, and one where the conditions were presented at 4hz for 500ms, followed by a 1 second break. 
 
-During the first condition the observer was requested only to alter the setting of the first dial, which would alter the overall level of the red/blue combination (whilst the uv/amber combination kept the same level).
+During the first condition the observer was requested only to alter the setting of the first dial, which would alter the overall level of the red/blue combination (whilst the uv/amber combination kept the same level). This was referred to as brightness matching.
 
-During the second condition the observer was requested only to alter the settings of the second and third dial. The second dial would alter the relative contributions of red/blue to the first condition. The third dial would alter the relative contributions of uv/amber to the second condition. These options can be thought of as traversing the straight lines in Figure \ref{fig:LED_cross}.
+During the second condition the observer was requested only to alter the settings of the second and third dial. The second dial would alter the relative contributions of red/blue to the first condition. The third dial would alter the relative contributions of uv/amber to the second condition. These options can be thought of as traversing the straight lines in Figure \ref{fig:LED_cross}. This was referred to as colour matching.
 
-The observer was allowed to switch back and forth between these two modes until they were happy with the match. Observers found this task rather difficult, predominantly due to the inherent difficulty in making colour matches in the periphery. An additional difficulty was that since eye movements were not strictly controlled, if an observer were to briefly look away from the fixation they would be able to see the adapting field with their foveal vision. This was problematic since in most cases the peripheral matches induced strong contrast for foveal perception. Though it was unintentional, this seems to be a particularly effective way of generating the perception of a Maxwell spot.
+The observer was allowed to switch back and forth between these two modes until they were happy with the match. Once an observer had indicated that they were happy with a match, the LED drive values were recorded and these were used for the observer in their future sessions.
 
-Despite these difficulties, observers generally found settings which for them resulted in a metameric match (where they could no longer perceive flicker). One observer who initially agreed to be part of the study withdrew at this stage, partly due to a difficulty completing this task, but mainly due to a claustrophobic nature. Another potential observer withdrew at this stage, since they were unable to make a match using this set of primaries, which we attribute to incipient cataracts.
+Observers found this task rather difficult, predominantly due to the inherent difficulty in making colour matches in the periphery. An additional difficulty was that since eye movements were not strictly controlled, if an observer were to briefly look away from the fixation they would be able to see the adapting field with their foveal vision. This was problematic since in most cases the peripheral matches induced strong contrast for foveal perception. Though it was unintentional, this seems to be a particularly effective way of generating the perception of a Maxwell spot. Further to this, the authors experience was that the visible periphery could be further divided, by eccentricity, into two or possibly three areas where a match in one area would not provide a match in both areas.
+
+Despite these difficulties, observers generally found settings which for them resulted in a metameric match (where they could no longer perceive flicker, or perceived minimal flicker). One observer who initially agreed to be part of the study withdrew at this stage, partly due to a difficulty completing this task, but mainly due to a claustrophobic nature. Another potential observer withdrew at this stage, since they were unable to make a match using this set of primaries, which we tentatively attribute to incipient cataracts.
 
 This method has since been improved upon by \citet{allen_form_2019} who used a 2AFC task instead of a method of manual adjustment to pinpoint areas of perceptual metamerism.
 
 % Observers were...
 % Initial metamer setting
-% Achromatic selections
+\subsubsection{Achromatic selections}
+
+3 observers took part in the main experiment (the author (DG), HC, and LW). 
+
+The task was identical to that performed in the Large Sphere experiment; using two sliders (controlling the yellow/blue component and the red/green component) set the foveal stimulus to appear achromatic. As previously noted, instead of 10 runs of L* 85 descending in 5* increments to L* 10, there were 30 runs of a pseudo-randomly permuted (each run) set of stimuli specified such that there was one at every 10 L* interval between 30 L* and 70 L*. The range was reduced so as to minimise the impact of gamut-boundary issues. The L* interval was increased to allows for a greater number of repetitions of specific values within a similar time frame. The order was pseudo-randomly permuted to avoid any trend based effects.
+
+Two observers (HC and LW) performed 4 complete runs each, 2 under each condition. The author completed 2 runs, one under each condition.
+
+\subsubsection{Data Analysis}
+
+Following calibration, for each observer under each condition, the means and standard deviation were computed for each dimension of CIELAB. The inter-condition mean vector was calculated.
+
+The data were submitted to a two-sample two-dimensional Kolmogorov-Smirnov test\footnote{Using the function available from \url{https://uk.mathworks.com/matlabcentral/fileexchange/38617-kstest_2s_2d-x1-x2-alpha}.} to compare the two distinct conditions for each observer (including data for repeats where performed). 
+
+To provide a baseline-check, the same test was applied to the repeat data for two observers, with the assumption that this would not return a significant difference.
+
+These results were considered alongside measurements of LEDs taken during the experiments.
 
 \section{Results}
+
+Means:
+Standard Deviations:
+
+
+% results by observer, in some sensible space
+% showing 
 
 
 \section{Discussion}
 % Assumptions
+
+%Rod activation
+%Calculate melanopic contrast for actual conditions
+%Line indicates match
