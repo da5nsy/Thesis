@@ -20,13 +20,35 @@ Industry guidance documents provide advice on how to manage lighting to best add
 
 The goal of damage functions is to give a quantitative means by which to predict the amount of damage caused by a light source to a prototypical object. They follow the general logic that radiation of lower wavelength is likely to cause more damage to objects.
 
-\citet{harrison_report_1953} is generally acknowledged as the first to suggest such a function, but he himself acknowledges that it had ``long been established that the shorter the wavelength (visible yellow, green, blue, violet and invisible UV being progressively shorter) the more photochemically potent will be such radiant energy, provided such energy is actually absorbed''.
+\citet{harrison_report_1953} is generally acknowledged as the first to suggest such a function, but he himself acknowledges that it had ``long been established that the shorter the wavelength (visible yellow, green, blue, violet and invisible UV being progressively shorter) the more photochemically potent will be such radiant energy, provided such energy is actually absorbed''. \citet[p.9]{harrison_report_1953} defined the `radiation hazard associated with a light source' as:
+
+\begin{equation}
+    \sum_{0}^{\infty} \mathrm{H}_{\lambda} \mathrm{D}_{\lambda} \Delta \lambda / \sum_{0}^{\infty} \mathrm{H}_{\lambda} \overline{\mathrm{y}}_{\lambda} \Delta \lambda
+\end{equation}
+
+where $\mathrm{H}_{\lambda}$ is the spectral irradiance, $\mathrm{D}_{\lambda}$ is the `Relative Damage Factor' (which is extrapolated from the data collected shortly prior to Harrison's own report by the National Bureau of Standards \citep{noauthor_preservation_1951}, and shown in Figure \ref{fig:Harrison}), and $\overline{\mathrm{y}}_{\lambda}$ is the `Luminous Efficiency at various wavelengths' (the CIE 1924 photopic $V_{\lambda}$ luminosity function). The resulting figure would describe the amount of damage expected from a light source, normalised by its luminance.
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/litReview/Harrison.png}
-\caption{Harrison's \citep{harrison_report_1953} damage function, reproduced from CIE 157:2004 \citep{cie_cie_2004}.}
+%\includegraphics[max width=\textwidth]{figs/LitRev/HarrisonInd.pdf}
+\caption{Harrison's \citep{harrison_report_1953} damage function ($\mathrm{D}_{\lambda}$), and luminous efficacy ($\overline{\mathrm{y}}_{\lambda}$), alongside the Declaration of Independence data \citep{noauthor_preservation_1951} from which it was extrapolated.}
 \label{fig:Harrison}
 \end{figure}
+
+\begin{quotation}
+Although Harrison's proposal aroused a lot of interest at the time, the conservators were sceptical that a single damage function could be representative of all the diverse materials found in museums. \hl{Thomson (1978, p. 178)} stated ``for more fugitive materials \dots the figure for visible radiation would be higher. On the other hand \dots the fastest dyes are probably affected only by UV. Thus it can be seen that no single figure can be given for damage versus wavelength''. Confidence was further eroded when it became evident that the precisely defined D($\lambda$) function had been extrapolated from a very limited number of
+measurements based on exposing samples of "low-grade paper", such as newsprint. 
+
+Because of the scientists' mistrust of D($\lambda$), Harrison's proposal failed to gain acceptance as the procedure for comparing the damage potential of different types of light sources. It was, nonetheless, influential in the wider museum community. As can be seen in \hl{Figure 1.1}, the D($\lambda$) function gives the impression that damage is due almost entirely to UV. Furthermore, the relatively small amount of damage shown to be attributable to visible radiation is due to the shorter wavelengths, with damage becoming negligible at wavelengths longer than 500nm. This cemented in the minds of many museum directors that the incandescent lamp was safe and the museum light source of choice (the halogen lamp had not been invented), and that daylight must be eliminated from galleries.
+
+Despite the shortcomings of D($\lambda$), scientists realised that Harrison’s procedure was basically sound. If a reliable way of expressing the relative damage potential of radiation as a function of wavelength could be found, it would be practical to compare the effects of exposing objects to different spectra of incident radiation. Modern computers would make the calculations very simple. It has been shown that, despite its appearance in Figure 1.1, D($\lambda$) is actually a simple logarithmic function \hl{(Cuttle, 1988)} with a slope of –1,25 logD($\lambda$) units per 100nm of wavelength. 
+
+\textit{CIE 157:2004 Control of damage to museum objects by optical radiation \citep{cie_cie_2004}.}
+\end{quotation}
+
+Radiation must be absorbed \dots \citet{durmus_optimising_2017,durmus_colour_2015,durmus_optimising_2015,durmus_object_2017}.
+
+With modern computation
+
 
 
 \subsection{Interviews with Museum Professionals} \label{sec:Interviews}
