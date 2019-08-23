@@ -18,38 +18,84 @@ Industry guidance documents provide advice on how to manage lighting to best add
 
 \subsection{Damage functions} \label{sec:DamageIndex}
 
-The goal of damage functions is to give a quantitative means by which to predict the amount of damage caused by a light source to a prototypical object. They follow the general logic that radiation of lower wavelength is likely to cause more damage to objects.
+In heritage science `damage functions' are ``functions of unacceptable change, dependent on agents of change''\citep{strlic_damage_2013}. The goal of damage functions in heritage lighting engineering is to give a quantitative means by which to predict the amount of damage caused to a prototypical object by a given light source, and to assist in limiting such damage. They generally follow the logic that radiation of lower wavelength is likely to cause more damage to objects.
 
 \citet{harrison_report_1953} is generally acknowledged as the first to suggest such a function, but he himself acknowledges that it had ``long been established that the shorter the wavelength (visible yellow, green, blue, violet and invisible UV being progressively shorter) the more photochemically potent will be such radiant energy, provided such energy is actually absorbed''. \citet[p.9]{harrison_report_1953} defined the `radiation hazard associated with a light source' as:
 
 \begin{equation}
     \sum_{0}^{\infty} \mathrm{H}_{\lambda} \mathrm{D}_{\lambda} \Delta \lambda / \sum_{0}^{\infty} \mathrm{H}_{\lambda} \overline{\mathrm{y}}_{\lambda} \Delta \lambda
+    \label{eq:Harrison}
 \end{equation}
 
-where $\mathrm{H}_{\lambda}$ is the spectral irradiance, $\mathrm{D}_{\lambda}$ is the `Relative Damage Factor' (which is extrapolated from the data collected shortly prior to Harrison's own report by the National Bureau of Standards \citep{noauthor_preservation_1951}, and shown in Figure \ref{fig:Harrison}), and $\overline{\mathrm{y}}_{\lambda}$ is the `Luminous Efficiency at various wavelengths' (the CIE 1924 photopic $V_{\lambda}$ luminosity function). The resulting figure would describe the amount of damage expected from a light source, normalised by its luminance.
+where $\mathrm{H}_{\lambda}$ is the spectral irradiance, $\mathrm{D}_{\lambda}$ is the `Relative Damage Factor' (which is extrapolated from the data collected shortly prior to Harrison's own report by the National Bureau of Standards \citep{noauthor_preservation_1951}, and shown in Figure \ref{fig:Harrison}), and $\overline{\mathrm{y}}_{\lambda}$ is the CIE 1924 photopic $V_{\lambda}$ luminosity function. The resulting value would describe the amount of damage expected from a light source, normalised by its luminance.
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/LitRev/HarrisonInd.pdf}
-\caption{Harrison's \citep{harrison_report_1953} damage function ($\mathrm{D}_{\lambda}$), and luminous efficacy ($\overline{\mathrm{y}}_{\lambda}$), alongside the Declaration of Independence data \citep{noauthor_preservation_1951} from which it was extrapolated.}
+\includegraphics[max width=\textwidth]{figs/LitRev/HarrisonInd.pdf}
+\caption{Harrison's \citep{harrison_report_1953} damage function ($\mathrm{D}_{\lambda}$), and luminous efficacy ($\overline{\mathrm{y}}_{\lambda}$), alongside the Declaration of Independence data \citep{noauthor_preservation_1951} from which it was extrapolated (re-normalised to match scale).}
 \label{fig:Harrison}
 \end{figure}
 
-\begin{quotation}
-Although Harrison's proposal aroused a lot of interest at the time, the conservators were sceptical that a single damage function could be representative of all the diverse materials found in museums. \hl{Thomson (1978, p. 178)} stated ``for more fugitive materials \dots the figure for visible radiation would be higher. On the other hand \dots the fastest dyes are probably affected only by UV. Thus it can be seen that no single figure can be given for damage versus wavelength''. Confidence was further eroded when it became evident that the precisely defined D($\lambda$) function had been extrapolated from a very limited number of
-measurements based on exposing samples of "low-grade paper", such as newsprint. 
+\begin{figure}[htbp]
+%\includegraphics[max width=\textwidth]{figs/LitRev/Saunders.pdf}
+\caption{Graph courtesy of David Saunders, presented at the Museum Lighting Symposium \& Workshops \citep[p.61]{pokorska_book_2017} showing the relationship between wavelength and the bonds which can be broken in various molecules, with `Wavelength (nm)' on the abscissa and `Bond energy (kJ/mol)' on the ordinate.}
+\label{fig:Saunders}
+\end{figure}
 
-Because of the scientists' mistrust of D($\lambda$), Harrison's proposal failed to gain acceptance as the procedure for comparing the damage potential of different types of light sources. It was, nonetheless, influential in the wider museum community. As can be seen in \hl{Figure 1.1}, the D($\lambda$) function gives the impression that damage is due almost entirely to UV. Furthermore, the relatively small amount of damage shown to be attributable to visible radiation is due to the shorter wavelengths, with damage becoming negligible at wavelengths longer than 500nm. This cemented in the minds of many museum directors that the incandescent lamp was safe and the museum light source of choice (the halogen lamp had not been invented), and that daylight must be eliminated from galleries.
+There has been extended scepticism about the utility of damage functions in general, with the argument being that no one damage function could represent the vast range and complexities of real materials. \citet[p. 178]{thomson_museum_1978} wrote that ``for more fugitive materials \dots the figure for visible radiation would be higher. On the other hand \dots the fastest dyes are probably affected only by UV. Thus it can be seen that no single figure can be given for damage versus wavelength''.
 
-Despite the shortcomings of D($\lambda$), scientists realised that Harrison’s procedure was basically sound. If a reliable way of expressing the relative damage potential of radiation as a function of wavelength could be found, it would be practical to compare the effects of exposing objects to different spectra of incident radiation. Modern computers would make the calculations very simple. It has been shown that, despite its appearance in Figure 1.1, D($\lambda$) is actually a simple logarithmic function \hl{(Cuttle, 1988)} with a slope of –1,25 logD($\lambda$) units per 100nm of wavelength. 
+Criticism was aimed at this specific damage function due to it's derivation from such a small and minimally representative dataset - Harrison's data was `extended' from the 5 datapoints measured by the National Bureau of Standards \citep{noauthor_preservation_1951} in their investigations of how to best care for the Declaration of Independence\footnote{It is a curiosity that these minimal figures would not in fact have been much use to those planning the care for the declaration, since in the report it is noted that ``The deterioration of animal parchment is not as rapid as that of the low-grade paper for which the damage factors were determined''\citep{noauthor_preservation_1951}, and the Declaration of Independence is written on animal parchment.}, and was derived from the study of `low-grade paper', which cannot to said to represent the average museum item\footnote{Though \emph{no} material truly can!}.
 
-\textit{CIE 157:2004 Control of damage to museum objects by optical radiation \citep{cie_cie_2004}.}
-\end{quotation}
+CIE 157:2004 \citep{cie_cie_2004} notes that whilst Harrison's proposal failed to gain acceptance as the procedure for comparing the damage potential of different types of light sources, it did convince people of the ills of \gls{UV}, with the result that daylight was subsequently eliminated from many galleries.
 
-Radiation must be absorbed \dots \citet{durmus_optimising_2017,durmus_colour_2015,durmus_optimising_2015,durmus_object_2017}.
+Following \citet{cuttle_lighting_1988}, who noted that Harrison's damage function could be well fit by an inverted logarithmic function, with parameters controlling the slope and normalisation point of the function, CIE 157:2004 provided the following equation:
 
-With modern computation
+\begin{equation}
+    s(\lambda)_{\mathrm{dm,rel}}=\exp [-b(\lambda-n)]
+\end{equation}
+
+where differing values of $b$ for 5 categories of item are provided (Table \ref{tab:b}), $n$ is the normalisation value (CIE 157:2004 uses a value of 300), and the $s(\lambda)_{\mathrm{dm,rel}}$ function is the estimated action spectrum for each category. $s(\lambda)_{\mathrm{dm,rel}}$ would be substituted into Equation \ref{eq:Harrison} for $\mathrm{D}_{\lambda}$. CIE 157:2004 also provides values of $H_{s,dm}$ which indicate the susceptibility of each group of materials to damage (where damage is considered as colour change%in $\Delta E_{\mathrm{ab}}^{\ast}$
+).
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{|c|l|l|l|}
+\hline
+Group & Samples & $H_{s,dm}$ (W h/m$^{2}$) & $b$ \\ \hline
+a & Low-grade paper & 5 & 0.038 \\ \hline
+b & Rag paper & 1200 & 0.0125 \\ \hline
+c & Oil paints on canvas & 850 & 0.0115 \\ \hline
+d & Textiles & 290 & 0.0100 \\ \hline
+e & Water colours on rag paper & 175 & 0.0115 \\ \hline
+\end{tabular}
+\caption{Table reproduced from CIE 157:2004 \citep{cie_cie_2004}, showing the values for $H_{s,dm}$ and $b$ for various categories. Note: the source for this data is not particularly clear; it is listed as `The Berlin researchers', which is assumed to follow the references: \citet{krochmann_beleuchtung_1988,cie_cie_1991,hilbert_zur_1991}, none of which I have been able to access.}
+\label{tab:b}
+\end{table}
 
 
+
+\noindent
+X extended Harrison's data to other types of object \dots
+
+\noindent
+Luminance is crappy.
+
+% disregarded
+% altogether although the D{~,~ function shows wavelength
+% weighting varying over a 10: 1 range in this region.
+% The argument, then, is not whether we have a D(h) function
+% which is correct, but whether we can improve usefully upon
+% the likely reliability of the present system.
+
+\noindent
+Radiation must be absorbed \dots \citet{durmus_optimising_2017,durmus_colour_2015,durmus_optimising_2015,durmus_object_2017}. \citet{saunders_wavelength-dependent_1994}, \citet{villmann_wavelength_2018}
+
+With modern computation, and access to datasets, it becomes relatively easy to calculate a value of \Gls{DI} (as per Equation \ref{eq:Harrison}), but further normalised such that Illuminant A has a reference value of 1). Figure \ref{fig:Houser} shows the results for such computations for 401 illuminants and light sources\footnote{The code to reproduce this is available from: \url{https://github.com/da5nsy/DamageIndex}}.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LitRev/DI.pdf}
+\caption{The values of $DI$ }
+\label{fig:Houser}
+\end{figure}
 
 \subsection{Interviews with Museum Professionals} \label{sec:Interviews}
 
