@@ -1,4 +1,4 @@
-\subsection{Colorimetry and Colour Measurement}
+\subsection{Colorimetry}
 
 \textit{The current recommended source for colorimetry is \gls{CIE} document `\gls{CIE} 015:2018'\citep{cie_cie_2018}\footnote{Though as \citet{fairchild_cie_2019} notes, this document is `expensive and somewhat difficult to find', and as such I have been using a draft of the now superseded `\gls{CIE} 15.3:2004'\citep{cie_cie_2004-2} as my personal guide.}. Whlist this is the authoritative reference, my personal opinion is that an understanding of colorimetry of \gls{CIE} colorimetry is best gained from an understanding of it's history, and for this I recommend Janos Schanda's book `Colorimetry: Understanding the \gls{CIE} System'\citep{schanda_colorimetry_2007}.}
 
@@ -8,11 +8,16 @@ Colorimetry is the study of the quantitative specification of colour. As a subje
 
 The classic standard observer was defined by the \gls{CIE} in 1931, following experiments by Wright and Guild \cite{wright_re-determination_1929, guild_colorimetric_1931}. Despite several more recently published standard observers, the 1931 observer is still much used, and I shall use it in the following example of how a basic colorimetric computation is performed.
 
+\glsreset{SPD}
+\glsreset{SRF}
+\glsreset{CMF}
+\glsreset{SSF}
+
 An illuminant is defined by its \gls{SPD}, a surface as it's \gls{SRF}, and a the sensitivity of a sensor (such as a photosensitive cell in the retina, or a pixel in a camera) by its \gls{CMF} (or in the case that biologically based measurements are used - the \gls{SSF}).
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/SPDetc.pdf}
-\caption{An \gls{SPD} (D65), a set of \glspl{SRF} (from a Macbeth Colour Checker) and three \glspl{CMF} (\gls{CIE} 1931).}
+\caption{An \gls{SPD} (D65), a set of \glspl{SRF} (from a Macbeth Colour Checker) and three \glspl{CMF} (\gls{CIE} 1931 observer).}
 \label{fig:specFun}
 \end{figure}
 % % How is D65 normalised here?
@@ -34,9 +39,11 @@ Z=k \sum_{\lambda} \phi(\lambda) \overline{z}(\lambda) \Delta \lambda
 \label{eq:XYZ}
 \end{subequations}
 
+\nopagebreak %this doesn't work currently
+
 where $\overline{x}(\lambda)$ (said `x bar'), $\overline{y}(\lambda)$ and $\overline{z}(\lambda)$ are the \glspl{CMF} of the 1931 observer (or are replaced by the \Glspl{CMF}/\Glspl{SSF} or the chosen observer), $\phi(\lambda)$ is as defined above, $k$ is a normalising factor, and it is recommended that $\Delta\lambda$ be 1nm. It is traditional to set $k$ such that $Y=100$, though in the case of relative colorimetry (most cases) is often ignored since the following equation renders it superfluous.
 
-From the tristimulus values chromaticity co-ordinates ($x$ and $y$) can be computed. These can then be plotted on a 1931 chromaticity diagram, shown as Figure \ref{fig:1931}.
+From the tristimulus values chromaticity co-ordinates ($x$ and $y$) can be computed. These can then be plotted on a 1931 chromaticity space diagram, shown as Figure \ref{fig:1931}.
 
 \begin{subequations}
 \begin{align}
@@ -74,7 +81,7 @@ y=\frac{Y}{X+Y+Z}
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo1.pdf}
-\caption{The \gls{CIE} 1931 chromaticity diagram, showing the chromaticity of the macbeth colour checker patches under D65. Note that for all of the plots in this section, the colours used for the spectral loci are only very rough approximations.}
+\caption{The \gls{CIE} 1931 chromaticity space, showing the chromaticity of the macbeth colour checker patches under D65. Note that for all of the plots in this section, the colours used for the spectral loci are only very rough approximations.}
 \label{fig:1931}
 \end{figure}
 
@@ -82,7 +89,7 @@ y=\frac{Y}{X+Y+Z}
 
 Over time various other colour spaces have been proposed and formally accepted by the \gls{CIE}, each aiming to improve upon a prior space in one or more ways. One of the most frequently sought characteristics for a colour space is perceptual uniformity, whereby a set distance in one part of the space is comparable in terms of apparent colour difference to that same distance in another part of the space.
 
-One such chromaticity space which shall be used extensively in this thesis is the \gls{CIE} 1976 UCS (uniform chromaticity scale) diagram, which is a relatively simple transformation of the 1931 chromaticity diagram. The conversion can be accomplished in a number of analogous fashions, one of which is shown below.
+One such chromaticity space which shall be used extensively in this thesis is the \gls{CIE} 1976 UCS (uniform chromaticity scale) space, which is a relatively simple transformation of the 1931 chromaticity space. The conversion can be accomplished in a number of analogous fashions, one of which is shown below.
 
 \begin{subequations}
 \begin{align}
@@ -95,17 +102,17 @@ where $x$ and $y$ are the 1931 chromaticity co-ordinates as defined in Equation 
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo3.pdf}
-\caption{\gls{CIE} 1976 UCS (uniform chromaticity scale) diagram, showing the chromaticity of the macbeth colour checker patches under D65 (as in Figure \ref{fig:1931}).}
+\caption{\gls{CIE} 1976 UCS (uniform chromaticity scale) space, showing the chromaticity of the macbeth colour checker patches under D65 (as in Figure \ref{fig:1931}).}
 \label{fig:UCS}
 \end{figure}
 
-A three-dimensional extension to the CIE 1976 UCS diagram is the \gls{CIE} 1976 L*u*v* colour space, often abbreviated to CIELUV, which aims to provide perceptual uniformity in a space that includes both chromaticity and lightness (relative to a white object under the same illumination). It is defined as follows:
+A three-dimensional extension to the CIE 1976 UCS space is the \gls{CIE} 1976 L*u*v* colour space, often abbreviated to CIELUV, which aims to provide perceptual uniformity in a space that includes both chromaticity and lightness (relative to a white object under the same illumination). It is defined as follows:
 
 \begin{subequations}
 \begin{align}
 L^{*} &= 116 f(Y/Y_{n})-16 \\
 \textrm{where} f(Y/Y_{n}) &= (Y/Y_{n})^{1/3} &\textrm{ if } (Y/Y_{n}) > (24/116)^{3} \\
-\textrm{where} f(Y/Y_{n}) &= (841/108)(Y/Y_{n})+16/116 &\textrm{ if } (Y/Y_{n}) \leq (24/116)^{3} \\
+\textrm{or} f(Y/Y_{n}) &= (841/108)(Y/Y_{n})+16/116 &\textrm{ if } (Y/Y_{n}) \leq (24/116)^{3} \\
 u^{*} &= 13L^{*}(u'-u'_{n}) \\ 
 v^{*} &= 13L^{*}(v'-v'_{n})
 \end{align}
@@ -118,6 +125,20 @@ where $Y_{n}$, $u'_{n}$ and $v'_{n}$ refer to the colour stimulus of a perfect r
 \caption{A representation of CIELUV, showing the values for the macbeth colour checker patches under D65 (as in Figure \ref{fig:1931} and \ref{fig:UCS}). Note that if viewed from above, the distribution of points would appear similar to as in Figure \ref{fig:UCS}. If all of the points were of uniform L*, then the distribution would be identical, only with different scaling.}
 \label{fig:CIELUV}
 \end{figure}
+
+Introduced at the same time as CIELUV was a colourspace with a similar goal of perceptual uniformity: CIELAB. They are similar in many ways, and share $L^{*}$ and if the CIE committee in charge of recommending such a space for adoption had been able to decide upon one or the other, one would have sufficed. As it is, both exist. CIELAB seems to be in slightly more common usage, but CIELUV is used in this thesis (particularly Chapter \ref{chap:Tablet}) due to the close link to an associated chromaticity space (the CIE 1976 UCS space). CIELAB is defined as follows:
+
+\begin{subequations}
+\begin{align}
+L^{*} &= 116 f(Y/Y_{n})-16 \\
+\textrm{where} f(Y/Y_{n}) &= (Y/Y_{n})^{1/3} &\textrm{ if } (Y/Y_{n}) > (24/116)^{3} \\
+\textrm{or} f(Y/Y_{n}) &= (841/108)(Y/Y_{n})+16/116 &\textrm{ if } (Y/Y_{n}) \leq (24/116)^{3} \\
+a^{*} &= 500[f(X/X_{n}) - f(Y/Y_{n})] \\ 
+b^{*} &= 200[f(Y/Y_{n}) - f(Z/Z_{n})] \\
+\end{align}
+\end{subequations}
+
+where $f(X/X_{n})$ and $f(Z/Z_{n})$ follow the same format as $f(X/X_{n})$.
 
 The final colour space presented here is the \acrfull{MB} colour space. This space does not aspire to be perceptually uniform\footnote{This can be clearly noted by comparing Figure \ref{fig:lrMB} with previous figures. Where this set of chromaticities previously spanned the spaces fairly broadly, here all the chromaticities inhabit only a small portion of the chromaticity space.}. Instead, it aspires to provide a colour space which has a physiological underpinning. As such, the observer used consists of nominal \glspl{SSF} (rather than \glspl{CMF}), and the conversion from tristimulus values to chromaticity space attempts to mirror the way in which this actually occurs physiologically.
 
@@ -146,7 +167,7 @@ Whereas the relationship between the axes of previous colour spaces was importan
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo5.pdf}
-\caption{A \gls{MB} chromaticity diagram (as per \gls{CIE} 170-2:2015\citep{cie_cie_2015}) showing the values for the macbeth colour checker patches under D65, as in previous figures.}
+\caption{A \gls{MB} chromaticity space diagram (as per \gls{CIE} 170-2:2015\citep{cie_cie_2015}) showing the values for the macbeth colour checker patches under D65, as in previous figures.}
 \label{fig:lrMB}
 \end{figure}
 
