@@ -88,7 +88,7 @@ The classic study on how reflectance properties relate to damage is that of \cit
 
 However, it is the opinion of this author that this argument is an exercise in artificial futility; whilst we may not be able to model the individual damage functions for every object in a museum, we may at least use one which has some bearing on the damage function, rather than the one which is implicitly used by museums currently - the CIE 1924 luminosity function ($\overline{\mathrm{y}}_{\lambda}$ of Figure \ref{fig:Harrison}), which relates to the sensitivity of the human eye rather than any type of object. \citet{cuttle_lighting_1988} puts it well: ``The argument, then, is not whether we have a [damage] function which is correct, but whether we can improve usefully upon the likely reliability of the present system''. It is depressing that this was said in 1988 and yet little seems to have changed in practice (See Chapter \ref{chap:Interviews}).
 
-In the case where specific objects/pigments of interest can be identified, and their individual damage functions calculated, there is valuable recent research to draw on regarding methods for optimising light sources to minimise damage \citep{durmus_optimising_2017,durmus_colour_2015,durmus_optimising_2015,durmus_object_2017,delgado_ramos_art_2009,delgado_lighting_2011,luna_selective_2015}. The fading of lead chromate in the paintings of Vincent van Gogh has captured public attention \citep{lewis_smith_will_2013} and has resulted in multiple studies looking at ways to optimise the illuminant for this one particular material \citep{lunz_can_2017,monico_degradation_2011}.
+In the case where specific objects/pigments of interest can be identified, and their individual damage functions calculated, there is valuable recent research to draw on regarding methods for optimising light sources to minimise damage \citep{durmus_optimising_2017,durmus_colour_2015,durmus_optimising_2015,durmus_object_2017,delgado_ramos_art_2009,delgado_lighting_2011,luna_selective_2015,cuttle_proposal_2000,vazquez_point_2017}. The fading of lead chromate in the paintings of Vincent van Gogh has captured public attention \citep{lewis_smith_will_2013} and has resulted in multiple studies looking at ways to optimise the illuminant for this one particular material \citep{lunz_can_2017,monico_degradation_2011}.
 
 With modern computation, and access to datasets, it becomes relatively easy to calculate a value of \Gls{DI}. Figure \ref{fig:Houser} shows the results for such computations for 401 illuminants and light sources (as per Equation \ref{eq:Harrison}, using a damage factor computed as per Equation \ref{eq:damfac}, but further normalised such that Illuminant A has a reference value of 1)\footnote{The code to reproduce this is available from: \url{https://github.com/da5nsy/DamageIndex}}. It can be seen that whilst most illuminants cluster around 1 there is a broad range. It should be remembered that these illuminants would in no way indicate their relative damage index to an observer or a purchaser, unless one went to the effort to look up or measure the \gls{SPD} and compute the damage factor. A careful or careless choice in this respect could easily double or halve the amount of time an item could be exhibited before succumbing to terminal damage.
 
@@ -110,7 +110,7 @@ The classic study on this second assumption, performed in a mock-museum environm
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/Loe.png}
-\caption{Illuminance vs a factor which is thought to indicate `quality', reproduced from \citet{loe_preferred_1982}.}
+\caption{Illuminance vs a factor which is thought to indicate `quality', for three different brands of illuminant, reproduced from \citet{loe_preferred_1982}.}
 \label{fig:Loe}
 \end{figure}
 
@@ -123,7 +123,7 @@ There notable exception, where lighting as it relates to the visitor experience 
 Kesner's studies comprised self-reporting surveys, and concluded that colour accuracy was the highest requirement and that `richness' of colour was the lowest priority\footnote{A cautious interpretation of these results is advised, considering that there were high average scores for each category.}:
 
 \begin{quote}
-\emph{``Artifact appearance, particularly clarity of artefact form and accuracy of artifact color, is the most important visitor need. Although visual impression, specifically acceptable gallery brightness and rich artefact color, is least important among the factors, it too rated highly important.''} - \citet{kesner_museum_1993-1}
+\emph{``Artifact appearance, particularly clarity of artefact form and accuracy of artifact color, is the most important visitor need. Although visual impression, specifically acceptable gallery brightness and rich artefact color, is least important among the factors, it too rated highly important.''}~\citep{kesner_museum_1993-1}
 \end{quote}
 
 %more?
@@ -131,6 +131,8 @@ Kesner's studies comprised self-reporting surveys, and concluded that colour acc
 %Following the release of guidelines on the topic of \glspl{LED} in museums\citep{druzik_guidelines_2012}, a written survey of museum professionals who had requested these guidelines was performed, and the results reported by \citet{perrin_ssl_2014}. The respondents were predominately based in USA, with 30\% identifying as `international'. The survey was part of the USA government's `GATEWAY program'. Responding to the question `Please rank the following factors in your selection of lamps', joint first priorities are identified as `colour and spectral power distribution' and `damage potential'.
 
 \subsection{Museum Lighting Specification Guidance Documents}
+
+% druzik_museum_2007 %history
 
 Following the interviews with the museum professionals, the five most referred-to museum lighting guidance documents were reviewed, and a summary is presented here.
 
@@ -167,7 +169,7 @@ The \acrfull{CCT} of an illuminant describes the chromaticity of a light source 
 \label{fig:BBR}
 \end{figure}
 
-\Gls{CCT} is often described as an important variable in museum lighting, but definite recommendations, in the rare cases that they are given, are generally based on nostalgia for the appearance of tungsten lighting, questionable research on human preference \citep{kruithof_tubular_1941,fotios_revised_2017} or very rough rules that predict that damage potential will be decreased if \gls{CCT} is minimised \citep{cie_cie_2004}. Whilst some research appears to have found optimal \glspl{CCT} for viewing artwork \citep{nascimento_best_2014,pinto_correlated_2008,scuello_museum_2004,scuello_museum_2004-1, liu_cultural_2013} results often have large inter-observer variability, context dependency and it is not uncommon for the headline findings of separate studies to be in contradiction. 
+\Gls{CCT} is often described as an important variable in museum lighting, but definite recommendations, in the rare cases that they are given, are generally based on nostalgia for the appearance of tungsten lighting, questionable research on human preference \citep{kruithof_tubular_1941,fotios_revised_2017} or very rough rules that predict that damage potential will be decreased if \gls{CCT} is minimised \citep{cie_cie_2004}. Whilst some research appears to have found optimal \glspl{CCT} for viewing artwork \citep{nascimento_best_2014,pinto_correlated_2008,scuello_museum_2004,scuello_museum_2004-1, liu_cultural_2013,vidovszky-nemeth_introductory_2016,feltrin_impact_2019} results often have large inter-observer variability, context dependency and it is not uncommon for the headline findings of separate studies to be in contradiction. 
 
 Specifications often refer implicitly or explicitly to the findings of \citet{kruithof_tubular_1941}, who found that at lower levels of illumination, lower \glspl{CCT} were preferred, and that at higher levels of illumination higher \glspl{CCT} were preferred (see Figure \ref{fig:Kruithof}). Whilst this general trend seems to have anecdotal support, it is possible that there may be lighting-technology-based confounds, and recently researchers \citep{vienot_kruithofs_2009} (including a meta-study of multiple other examinations \citep{fotios_revised_2017}) found there to be no substantive support for Kruithof's findings.
 
@@ -185,18 +187,9 @@ The damage justification seems more substantive; following the application of da
 \label{fig:CIE2004}
 \end{figure}
 
-% ---------------------- %
+This line of reasoning relies heavily upon the applicability of damage functions to the specific materials in question. As discussed previously (Section \ref{sec:DamageIndex}) it seems that whilst the generalised damage functions account for some of the individual material damage functions, they do not fully do so. However, tentatively, they do seem to be a relatively good fit for the shared characteristics of different damage functions (at least far more so than $V\Lambda$), and so it seems reasonable to use them where no other broad approximation for a large set of objects exists.
 
-This research relies heavily upon the applicability of damage functions to the specific materials in question. Many (my supervisors) think that damage functions are no good because they're too general, but I would be cautious about throwing the baby out with the bathwater.
-
-\begin{enumerate}
-    \item They're the best that we have.
-    \item We need something with general applicability anyway - I don't see anyone providing tailored lighting for every object which exists.
-    \item The physics checks out.
-    \item They're definitely applicable to at least some objects.
-\end{enumerate}
-
-To verify the findings of the \gls{CIE}, to extend their findings to \glspl{LED}, and to provide code for others to do similar research or even test their own lights/materials, I wrote some code\footnote{\url{https://github.com/da5nsy/DamageIndex/blob/c7851e27ca1b0915013d8723db04704b49b4085e/CalcDI.m}} which would calculate a \gls{DI}. Then I used that code to compute a new version of the \gls{CIE} plot.
+To verify the findings of the \gls{CIE}, extend their findings to \glspl{LED}, and provide code for others to do similar research or even test their own lights/materials, a set of MATLAB functions\footnote{\url{https://github.com/da5nsy/DamageIndex/blob/c7851e27ca1b0915013d8723db04704b49b4085e/CalcDI.m}} have been writtenn which calculate \gls{DI} values for arbitrary illuminants. This code has been used to produce Figure \ref{fig:CCTvsDI}, which shows the \glspl{CCT} and \glspl{DI} of the 401 \glspl{SPD} of \citet{houser_review_2013}. A $b$ value of 0.0115 corresponding to `oil paints on canvas' and `water colours on rag paper' (see Table \ref{tab:b}) was used. It can be seen that there is a clear correlation between \gls{CCT} and \gls{DI} with higher \glspl{CCT} being predicted to be relatively more damaging. If a damage function with a lower $b$ value (such as for `low-grade paper' or `textiles') had been used, the relationship between \gls{CCT} and \gls{DI} would be steeper.
 
 %\afterpage{\clearpage}
 %\includepdf[pages=-,rotate=90, offset=75 -75]{figs/LitRev/CCTvsDI.pdf}
@@ -206,9 +199,9 @@ To verify the findings of the \gls{CIE}, to extend their findings to \glspl{LED}
 % \end{figure} 
 
 \begin{fullpagefigure}
-\figpdf[pages=-,rotate=90, offset=75 -75]{figs/LitRev/CCTvsDI.pdf}
-%\figpageside{}
-\caption{The \glspl{CCT} and \glspl{DI} of the \glspl{SPD} used by \citet{houser_review_2013} [provided via personal communication, but now partially available via \gls{PTB} as `spd\_houser'].}
+\figpdf[pages=-,rotate=90, offset=-85 -85]{figs/LitRev/CCTvsDI.pdf}
+\figpageside{}
+\caption{The \glspl{CCT} and \glspl{DI} of the \glspl{SPD} used by \citet{houser_review_2013} [provided via personal communication, but now partially (without category information) available via \gls{PTB} as `spd\_houser'].}
 \label{fig:CCTvsDI}
 \end{fullpagefigure}
 
@@ -217,35 +210,50 @@ The results of these computations show a clear relationship between \gls{CCT} an
 %\clearpage
 % This is combo with the figpageside thing above currently isn't quite working
 
+\cleardoublepage %works but seems a bit heavy handed.
+
 \subsection{Colour Rendering Indices in Museums}
 
-Are fidelity indices suitable for museum use? 
-The first chapter of Cuttle's book `Light for Art's Sake: Lighting for Artworks and Museum Displays'19 is titled `A philosophy for the presentation of art'. The choice of title here is apt but may surprise some readers, sounding more whimsical than might be expected of a serious subject attended by scientists and engineers. The reason it is so apt is because lighting is unavoidably a creative intervention (I owe this phrase to Katherine Curran); which is to say that there is no lighting which is truly impartial, and no lighting which is truly correct in the sense of being unequivocally superior to another. All lighting decisions require choices to be made, and whilst these choices can be wrapped up to appear as an optimization problem where proximity to a particular solution is the goal, the problem always rests on the bedrock of a philosophy based decision.
+%Are fidelity indices suitable for museum use? 
+The first chapter of Cuttle's book `Light for Art's Sake: Lighting for Artworks and Museum Displays'\citep{cuttle_light_2007} is titled `A philosophy for the presentation of art'. The choice of title here is apt but may surprise some readers, sounding more whimsical than might be expected of a serious subject attended by scientists and engineers. The reason it is so apt is because lighting is unavoidably a creative intervention\footnote{Credit for this phrase to Katherine Curran} which is to say that there is no lighting which is truly impartial, and no lighting which is truly `correct' in the sense of being unequivocally superior to another. All lighting decisions require choices to be made, and whilst these choices can be wrapped up to appear as an optimisation problem where proximity to a particular solution is the goal, the problem always rests on the bedrock of a philosophy based decision.
 
 In the above mentioned chapter Cuttle lays out a total of seven distinct philosophical propositions, which he poses for consideration as approaches to museum lighting, some contradictory and some with the potential to overlap:
 
-1.	`To make the artwork appear as it would have appeared to the artist at the time of its creation
-2.	To ensure that no damage due to light exposure will occur
-3.	To achieve the best possible appearance of the artwork
-4.	To provide optimum conditions for viewing art
-5.	To impart a sense of having seen `the real thing'
-6.	To assist viewers to understand the displayed objects and their reason for being there
-7.	For the lighting designer to establish a distinct and recognisable style'19 
+\begin{enumerate}
+\item To make the artwork appear as it would have appeared to the artist at the time of its creation
+\item To ensure that no damage due to light exposure will occur
+\item To achieve the best possible appearance of the artwork
+\item To provide optimum conditions for viewing art
+\item To impart a sense of having seen `the real thing'
+\item To assist viewers to understand the displayed objects and their reason for being there
+\item For the lighting designer to establish a distinct and recognisable style
+\end{enumerate}
 
-These propositions refer to museum lighting holistically, considering all aspects of museum lighting, but can be readily focused on the problem of colour appearance specifically. Before we narrow our gaze however, it is worth briefly considering a wide view of lighting attributes which may aid in the realisation of `good quality' museum lighting. Consider Scott Rosenfeld's list of the five `controllable qualities' in museum lighting; `intensity, movement [temporal artefacts], angle [modelling, avoiding glare and reflections], distribution [ambient lighting vs. spot lighting], color'20.
+These propositions refer to museum lighting holistically, considering all aspects of museum lighting, but can be readily focused on the problem of colour appearance specifically. Before we narrow our gaze however, it is worth briefly considering a wide view of lighting attributes which may aid in the realisation of `good quality' museum lighting. Consider Rosenfeld's list of the five `controllable qualities' in museum lighting; `intensity, movement [temporal artefacts], angle [modelling, avoiding glare and reflections], distribution [ambient lighting vs. spot lighting], color' \citep{rosenfeld_agony_2013}.
+
 Whilst Cuttle's propositions make for interesting discussions and enjoyable extended pondering, they are of limited assistance in the practical task of actually specifying lighting. Thankfully, a range of tools exist for the examination of the colour rendering properties of a light source, in the form of indices which aim to numerically describe an illumination's effect on colour appearance of the objects of which it is tasked with illuminating.
 
-Traditionally, colour rendering indices aim to offer a standardized method for calculating the colour differences induced by the substitution of a reference illuminant with a specific test source, and for comparing the relative merit of different test light sources on their ability to induce minimum change. In modern parlance this type of index should be referred to as a colour fidelity index, that is- one which is conceptually concerned with colorimetric reproduction. The term `colour rendering' has come to encompass much more than just fidelity.
+Traditionally, colour rendering indices aim to offer a standardised method for calculating the colour differences induced by the substitution of a reference illuminant with a specific test source, and for comparing the relative merit of different test light sources on their ability to induce minimum change. In modern parlance this type of index should be referred to as a colour fidelity index, that is - one which is conceptually concerned with colorimetric reproduction. The term `colour rendering' has come to encompass much more than just fidelity.
 
-Diametrically opposed in some ways to fidelity are the indices which aim to quantify `preference'. In the simplest case, a preference index will aim to provide a value that is predictive of how an observer would rate a light source it against other light sources. 
+Diametrically opposed in some ways to fidelity are the indices which aim to quantify `preference'. In the simplest case, a preference index will aim to provide a value that is predictive of how an observer would rate a light source against other light sources. 
 
-Within, and on the spectrum between these two groups there exist a range of different indices with subtly different aims and mechanisms for achieving these aims. For a thorough overview, albeit one which omits some more recent developments, see Guo and Houser21.
+Within and between these two groups there exist a range of different indices with subtly different aims and mechanisms for achieving these aims. For thorough overviews see \citet{guo_review_2004} and \citet{houser_review_2013}.
 
-In practice, both of these philosophical approaches are mandated in current lighting guidance. For the most part, advice for lighting specification6,7 on the subject of colour rendering can be simplified to read `use lamps of above \gls{CRI} 80 (referring tacitly to \gls{CIE} R$_a$) but always test them visually before you buy in bulk'. Whilst this may at first seem like sensible advice, upon further inspection it in fact represents a serious contradiction, unless considered with heavy caveats. The problem rests in the fact that \gls{CIE} R$_a$ is a fidelity index, whereas any visual inspection is likely to be performed by observing the appearance of an object under the test illumination without a reference. Fidelity aims to describe accuracy of reproduction, but this is a quality which is arguably not testable by visual inspection. This contradiction seems to perpetuate unnoticed in museum practice, with lighting specifiers often abstractly declaring to target a faithful/accurate/honest/impartial representation of objects, but practically choosing light sources based on visual inspection where preference is the only criteria. There is of course a range of approaches, ranging from pure reliance on indices to almost entire reliance on visual testing.
+In practice, both of these philosophical approaches are mandated in current lighting guidance. For the most part, advice for lighting specification on the subject of colour rendering can be simplified to read `use lamps of above \gls{CRI} 80 (referring tacitly to \gls{CIE} R$_a$) but always test them visually before you buy in bulk'. Whilst this may at first seem like sensible advice, upon further inspection it actually represents a serious contradiction, unless considered with heavy caveats. The problem rests in the fact that \gls{CIE}~R$_a$ is a fidelity index, whereas any visual inspection is likely to be performed by observing the appearance of an object under the test illumination without a reference. Fidelity aims to describe accuracy of reproduction, but this is a quality which is arguably not testable by visual inspection. This contradiction seems to perpetuate unnoticed in museum practice, with lighting specifiers often abstractly declaring to target a faithful/accurate/honest/impartial representation of objects, but practically choosing light sources based on visual inspection where preference is the only criteria. There is of course a range of approaches, ranging from pure reliance on indices to almost entire reliance on visual testing.
 
 In conclusion, no one metric exists that would satisfy the divergent aims and philosophies of museum lighting. Several distinct types of colour rendering index exist, but the existing range fall into the broad categories of `fidelity' or `preference', with the latter being particularly poorly definable due to its variability in different environments, with different user functional requirements and different intrinsic preferences between different observers. Progress could be made by breaking these broad categories into smaller more manageable specific objectives.
 
-\clearpage
+%weale_truth_1973
+
+%vienot birds
+% vienot_leds_2011
+
+%bespoke colour rendering indices, sistine chapel
+% schanda_new_2014
+
+%correcting for hunt effect
+% wei_consideration_2018
+
 
 
 %%%% BONUS AREA %%%%%%%%%%
