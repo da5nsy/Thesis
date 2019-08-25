@@ -179,8 +179,7 @@
 \setlength \hoffset{-25.4mm}
 \setlength \voffset{-25.4mm}
 \setlength \textwidth{140mm}
-\setlength \textheight{237mm} % was 232 (DG)
-%I think you need some extra vertical space for headers and page numbers
+\setlength \textheight{232mm} %I think you need some extra vertical space for headers and page numbers
 \setlength \topmargin{20mm}
 \setlength \oddsidemargin {39mm} % Allow a mm for the bleed.
 \if@twoside
