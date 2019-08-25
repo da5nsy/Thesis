@@ -88,7 +88,7 @@ The classic study on how reflectance properties relate to damage is that of \cit
 
 However, it is the opinion of this author that this argument is an exercise in artificial futility; whilst we may not be able to model the individual damage functions for every object in a museum, we may at least use one which has some bearing on the damage function, rather than the one which is implicitly used by museums currently - the CIE 1924 luminosity function ($\overline{\mathrm{y}}_{\lambda}$ of Figure \ref{fig:Harrison}), which relates to the sensitivity of the human eye rather than any type of object. \citet{cuttle_lighting_1988} puts it well: ``The argument, then, is not whether we have a [damage] function which is correct, but whether we can improve usefully upon the likely reliability of the present system''. It is depressing that this was said in 1988 and yet little seems to have changed in practice (See Chapter \ref{chap:Interviews}).
 
-In the case where specific objects/pigments of interest can be identified, and their individual damage functions calculated, there is valuable recent research to draw on regarding methods for optimising light sources to minimise damage \citep{durmus_optimising_2017,durmus_colour_2015,durmus_optimising_2015,durmus_object_2017}. The fading of lead chromate in the paintings of Vincent van Gogh has captured public attention \citep{lewis_smith_will_2013} and has resulted in multiple studies looking at ways to optimise the illuminant for this one particular material \citep{lunz_can_2017,monico_degradation_2011}.
+In the case where specific objects/pigments of interest can be identified, and their individual damage functions calculated, there is valuable recent research to draw on regarding methods for optimising light sources to minimise damage \citep{durmus_optimising_2017,durmus_colour_2015,durmus_optimising_2015,durmus_object_2017,delgado_ramos_art_2009,delgado_lighting_2011,luna_selective_2015}. The fading of lead chromate in the paintings of Vincent van Gogh has captured public attention \citep{lewis_smith_will_2013} and has resulted in multiple studies looking at ways to optimise the illuminant for this one particular material \citep{lunz_can_2017,monico_degradation_2011}.
 
 With modern computation, and access to datasets, it becomes relatively easy to calculate a value of \Gls{DI}. Figure \ref{fig:Houser} shows the results for such computations for 401 illuminants and light sources (as per Equation \ref{eq:Harrison}, using a damage factor computed as per Equation \ref{eq:damfac}, but further normalised such that Illuminant A has a reference value of 1)\footnote{The code to reproduce this is available from: \url{https://github.com/da5nsy/DamageIndex}}. It can be seen that whilst most illuminants cluster around 1 there is a broad range. It should be remembered that these illuminants would in no way indicate their relative damage index to an observer or a purchaser, unless one went to the effort to look up or measure the \gls{SPD} and compute the damage factor. A careful or careless choice in this respect could easily double or halve the amount of time an item could be exhibited before succumbing to terminal damage.
 
@@ -102,29 +102,33 @@ With modern computation, and access to datasets, it becomes relatively easy to c
 \clearpage
 \subsection{Visitor Requirements of Museum Lighting}
 
-The visitor requirements of museum lighting are varied and complex. The examination and definition of these requirements has been the subject of a small number of studies, principally by \citet{kesner_museum_1993-1} in the USA in the early nineteen-nineties \citep{kesner_museum_1993,kesner_exhibition_1992,kesner_current_1991,kesner_analysis_1997}. These studies were based on survey based self-reporting, and concluded that colour accuracy was the highest requirement and that `richness' of colour was the lowest priority\footnote{A cautious interpretation of these results is advised, considering that there were high average scores for each category.}.
+The visual requirements of museum visitors is likely to depend upon a large number of variables, both intrinsic and extrinsic to the visitor (e.g. intrinsic - age, cultural background, goals for the museum visit and extrinsic: luminance, lighting distribution, \gls{CCT}, \gls{CRI} and flicker properties of lighting). Some of these factors have been independently studied in a museum context, and for others it is likely that findings in other environments could generalise such that they could be used to inform decisions regarding museum lighting.
+
+Traditionally, the principal manner in which museum professionals sought to limit damage was through setting a maximum luminance level. The implicit assumptions in this process are twofold; firstly: that damage will increase with increased luminance. This was a fairer assumption when tungsten was the only type of lighting technology, but as other lighting technologies with different \glspl{SPD} have been introduced this assumption has become less accurate (see Section \ref{sec:DamageIndex}: \nameref{sec:DamageIndex}). The second implicit assumption is that viewers will prefer higher luminance environments.
+
+The classic study on this second assumption, performed in a mock-museum environment is that of \citet{loe_preferred_1982}. In this study Loe et al. examined three variables: painting illuminance, light source (different technologies) and light distribution. One finding from this study has had substantial impact in setting guidelines and future thinking was that a minimum of 200lux was required to `give visual satisfaction'. This figure was subsequently used in \citet{thomson_museum_1978}, which has informed a great deal of subsequent thinking on the topic. It is worth noting however, that only a small number of different luminances were sampled, and it is quite possible that the results are at the mercy of several types of bias \citep{fotios_research_2009}.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LitRev/Loe.png}
+\caption{Illuminance vs a factor which is thought to indicate `quality', reproduced from \citet{loe_preferred_1982}.}
+\label{fig:Loe}
+\end{figure}
+
+There has been extensive research on the visitor requirements in terms of \gls{CCT} and \gls{CRI} and these shall be covered in separate sections.
+
+In terms of a holistic approach to museum lighting research (considering more than a single or small number of isolated variables), there has been a great deal of work which deals with the visitor experience in a broad and cultured fashion from the lofty vantage of museum studies (such as \citet{falk_museum_2016} and \citet{shapiro_museum_1990}), but rarely do the physical practicalities such as lighting get a mention. 
+
+There notable exception, where lighting as it relates to the visitor experience is considered, is the work of Kesner in the USA in the early nineteen-nineties \citep{kesner_museum_1993-1,kesner_museum_1993,kesner_exhibition_1992,kesner_current_1991,kesner_analysis_1997}.
+
+Kesner's studies comprised self-reporting surveys, and concluded that colour accuracy was the highest requirement and that `richness' of colour was the lowest priority\footnote{A cautious interpretation of these results is advised, considering that there were high average scores for each category.}:
 
 \begin{quote}
-\emph{``Artifact appearance, particularly clarity of artefact form and accuracy of artifact color, is the most important visitor need. Although visual impression, specifically acceptable gallery brightness and rich artefact color, is least important among the factors, it too rated highly important.''} \citet{kesner_museum_1993-1}
+\emph{``Artifact appearance, particularly clarity of artefact form and accuracy of artifact color, is the most important visitor need. Although visual impression, specifically acceptable gallery brightness and rich artefact color, is least important among the factors, it too rated highly important.''} - \citet{kesner_museum_1993-1}
 \end{quote}
 
-Further studies, spurred by recent adoption of \gls{LED} technology have been completed, although with very limited and questionably scientific basis at the Field Museum \citep{myer_demonstration_2010}.
+%more?
 
-Additional work has been completed which describes the results of a written survey of museum professionals on the subject of lighting specification, focusing on SSL (effectively \gls{LED}) adoption, and their justification for specifying specific lighting \citep{perrin_ssl_2014}. 979 people who had requested access to the guidelines document produced by some of the same authors \citep{druzik_guidelines_2012} were emailed with a request for participation. 46 (4.7\%) responded with a completed survey. Of those, 30\% are described as `international' which considering the base of the authors is in the USA we can assume as meaning `not based in the USA'. The survey was prepared as part of the USA government's GATEWAY program, and can be considered as a follow-up to work on recommendations for specification \citep{druzik_guidelines_2012}. 
-
-\noindent
-The headline results are as follows:
-\begin{itemize}
-    \item When the `success' of new \gls{LED} based lighting schemes was evaluated the public reaction was either neutral or positive in all cases.\footnote{There appears to be an issue with the data for this question however, with the `no response' garnering 48\% of the responses and `favorable response' garnering 55\%\dots}
-    \item The distribution of staff response was broadly similar: `no response'-17\%, `negative response'-3\%, `favorable response'-80\%.
-    \item The results of two priority ranking questions (`Rank the following lighting goals' and `Please rank the following factors in your selection of lamps') are broadly similar:
-    \begin{itemize}
-        \item First question: The first priority is identified as `limiting damage' with other priorities broadly equal.
-        \item Second question: Joint first priorities are identified as `colour and spectral power distribution' and `damage potential' with others broadly similar (though dimming, input power and warranty lagging behind others)
-    \end{itemize}
-    \item 91\% of respondents reported using `\gls{CRI}' which is assumed to refer to \gls{CIE} R$_a$. 6\% state that they refer to other R$_i$ values, and 20\% report using the Color Quality Scale \citep{ohno_rationale_2010,davis_color_2010}.
-    \item 60\% of respondents report that they consider \gls{CCT}.
-\end{itemize} 
+%Following the release of guidelines on the topic of \glspl{LED} in museums\citep{druzik_guidelines_2012}, a written survey of museum professionals who had requested these guidelines was performed, and the results reported by \citet{perrin_ssl_2014}. The respondents were predominately based in USA, with 30\% identifying as `international'. The survey was part of the USA government's `GATEWAY program'. Responding to the question `Please rank the following factors in your selection of lamps', joint first priorities are identified as `colour and spectral power distribution' and `damage potential'.
 
 \subsection{Museum Lighting Specification Guidance Documents}
 
@@ -155,17 +159,33 @@ In summary:
 
 \subsection{CCT in museums}
 
-\acrfull{CCT} describes the chromaticity of a light source on a one dimensional axis roughly from blue to yellow, based on the apparent chromaticity of a black body radiator at differing temperatures. It is often described as an important variable in museum lighting but definite recommendations, in the rare cases that they are given, are generally based on very general rules that predict that damage potential will be decreased if \gls{CCT} is minimised \citep{cie_cie_2004}, nostalgia for the appearance of tungsten lighting or questionable research on human preference \citep{kruithof_tubular_1941,fotios_revised_2017}. Whilst some research appears to have found optimal \glspl{CCT} for viewing artwork \citep{nascimento_best_2014,pinto_correlated_2008,scuello_museum_2004,scuello_museum_2004-1, liu_cultural_2013} results often have large inter-observer variability, context dependency and it is not uncommon for the headline findings of separate studies to be in contradiction. 
+The \acrfull{CCT} of an illuminant describes the chromaticity of a light source on a one dimensional axis roughly from blue to yellow, based on the apparent chromaticity of a black body radiator at differing temperatures. Figure \ref{fig:BBR} shows the curve formed in chromaticity space by a set of black body radiators of different temperatures. It is worth noting that most real light sources fall upon the relatively straight section of the left-hand part of this line.
 
-Specifications often refer implicitly or explicitly to the findings of \citet{kruithof_tubular_1941}, who found that at lower levels of illumination, lower \glspl{CCT} were preferred, and that at higher levels of illumination higher \glspl{CCT} were preferred. Whilst this general trend seems to have anecdotal support, it is possible that there may be lighting-technology-based confounds, and recently researchers \citep{vienot_kruithofs_2009} (including a meta-study of multiple other examinations \citep{fotios_revised_2017}) found there to be no provable correlation between preference and colour temperature.
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LitRev/BBR.pdf}
+\caption{The black body radiator curve on a CIE 1931 chromaticity chart, highlighting \glspl{CCT} of 1000K, 6500K and 10000K.}
+\label{fig:BBR}
+\end{figure}
 
-The \gls{CIE} however, published a report showing the varying the \gls{CCT} of museum lighting could have a clear impact on the potential damage undergone by museum objects \citep{cie_cie_2004}. 
+\Gls{CCT} is often described as an important variable in museum lighting, but definite recommendations, in the rare cases that they are given, are generally based on nostalgia for the appearance of tungsten lighting, questionable research on human preference \citep{kruithof_tubular_1941,fotios_revised_2017} or very rough rules that predict that damage potential will be decreased if \gls{CCT} is minimised \citep{cie_cie_2004}. Whilst some research appears to have found optimal \glspl{CCT} for viewing artwork \citep{nascimento_best_2014,pinto_correlated_2008,scuello_museum_2004,scuello_museum_2004-1, liu_cultural_2013} results often have large inter-observer variability, context dependency and it is not uncommon for the headline findings of separate studies to be in contradiction. 
+
+Specifications often refer implicitly or explicitly to the findings of \citet{kruithof_tubular_1941}, who found that at lower levels of illumination, lower \glspl{CCT} were preferred, and that at higher levels of illumination higher \glspl{CCT} were preferred (see Figure \ref{fig:Kruithof}). Whilst this general trend seems to have anecdotal support, it is possible that there may be lighting-technology-based confounds, and recently researchers \citep{vienot_kruithofs_2009} (including a meta-study of multiple other examinations \citep{fotios_revised_2017}) found there to be no substantive support for Kruithof's findings.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LitRev/Kruithof.png}
+\caption{The `Kruithof curve' reproduced from \citet{kruithof_tubular_1941}, showing colour constancy against illuminance, and highlighting an area that is considered ``pleasing''.}
+\label{fig:Kruithof}
+\end{figure}
+
+The damage justification seems more substantive; following the application of damage factors as discussed in Section \ref{sec:DamageIndex} the \gls{CIE} published a report showing the varying the \gls{CCT} of museum lighting could have a clear impact on the potential damage undergone by museum objects \citep{cie_cie_2004}. 
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/LitRev/CIE2004.png} 
 \caption{Figure reproduced from CIE 157:2004 \citep[p.16]{cie_cie_2004}, showing the relationship between \gls{CCT} and relative damage potential.}
 \label{fig:CIE2004}
 \end{figure}
+
+% ---------------------- %
 
 This research relies heavily upon the applicability of damage functions to the specific materials in question. Many (my supervisors) think that damage functions are no good because they're too general, but I would be cautious about throwing the baby out with the bathwater.
 
