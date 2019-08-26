@@ -574,6 +574,7 @@
     \@mkboth{\@impactstatement}{\@impactstatement}%
 }{%
 }
+
 %    \end{macrocode}
 %  \end{environment}
 %  \Finale
