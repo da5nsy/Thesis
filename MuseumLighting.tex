@@ -2,9 +2,9 @@
 
 \bigskip
 
-\begin{quote}
-`Museums and art galleries collect, preserve, and display natural artifacts and/or examples of human achievement and analyze their impact on the world and the universe around us. Effective exhibit lighting must balance exhibition and conservation needs and enrich the museum experience.'
-\end{quote}
+\begin{itquote}{}
+Museums and art galleries collect, preserve, and display natural artifacts and/or examples of human achievement and analyze their impact on the world and the universe around us. Effective exhibit lighting must balance exhibition and conservation needs and enrich the museum experience.
+\end{itquote}
 
 \begin{flushright}IES RP-30-96 Museum and Art Gallery Lighting: \\A Recommended Practice \citep{ies_ies_1996}\end{flushright}
 
@@ -88,7 +88,7 @@ The classic study on how reflectance properties relate to damage is that of \cit
 
 However, it is the opinion of this author that this argument is an exercise in artificial futility; whilst we may not be able to model the individual damage functions for every object in a museum, we may at least use one which has some bearing on the damage function, rather than the one which is implicitly used by museums currently - the CIE 1924 luminosity function ($\overline{\mathrm{y}}_{\lambda}$ of Figure \ref{fig:Harrison}), which relates to the sensitivity of the human eye rather than any type of object. \citet{cuttle_lighting_1988} puts it well: ``The argument, then, is not whether we have a [damage] function which is correct, but whether we can improve usefully upon the likely reliability of the present system''. It is depressing that this was said in 1988 and yet little seems to have changed in practice (See Chapter \ref{chap:Interviews}).
 
-In the case where specific objects/pigments of interest can be identified, and their individual damage functions calculated, there is valuable recent research to draw on regarding methods for optimising light sources to minimise damage \citep{durmus_optimising_2017,durmus_colour_2015,durmus_optimising_2015,durmus_object_2017,delgado_ramos_art_2009,delgado_lighting_2011,luna_selective_2015,cuttle_proposal_2000,vazquez_point_2017}. The fading of lead chromate in the paintings of Vincent van Gogh has captured public attention \citep{lewis_smith_will_2013} and has resulted in multiple studies looking at ways to optimise the illuminant for this one particular material \citep{lunz_can_2017,monico_degradation_2011}.
+In the case where specific objects/pigments of interest can be identified, and their individual damage functions calculated, there is valuable research to draw on regarding methods for optimising light sources to minimise damage, initiated by \citet{miller_evaluating_1993}\footnote{Though I have not been able to access this paper to confirm this fact.} and developed by many others \citep{durmus_optimising_2017,durmus_colour_2015,durmus_optimising_2015,durmus_object_2017,delgado_ramos_art_2009,delgado_lighting_2011,luna_selective_2015,cuttle_proposal_2000,vazquez_point_2017}. The fading of lead chromate in the paintings of Vincent van Gogh has captured public attention \citep{lewis_smith_will_2013} and has resulted in multiple studies looking at ways to optimise the illuminant for this one particular material \citep{lunz_can_2017,monico_degradation_2011}.
 
 With modern computation, and access to datasets, it becomes relatively easy to calculate a value of \Gls{DI}. Figure \ref{fig:Houser} shows the results for such computations for 401 illuminants and light sources (as per Equation \ref{eq:Harrison}, using a damage factor computed as per Equation \ref{eq:damfac}, but further normalised such that Illuminant A has a reference value of 1)\footnote{The code to reproduce this is available from: \url{https://github.com/da5nsy/DamageIndex}}. It can be seen that whilst most illuminants cluster around 1 there is a broad range. It should be remembered that these illuminants would in no way indicate their relative damage index to an observer or a purchaser, unless one went to the effort to look up or measure the \gls{SPD} and compute the damage factor. A careful or careless choice in this respect could easily double or halve the amount of time an item could be exhibited before succumbing to terminal damage.
 
@@ -122,9 +122,9 @@ There notable exception, where lighting as it relates to the visitor experience 
 
 Kesner's studies comprised self-reporting surveys, and concluded that colour accuracy was the highest requirement and that `richness' of colour was the lowest priority\footnote{A cautious interpretation of these results is advised, considering that there were high average scores for each category.}:
 
-\begin{quote}
-\emph{``Artifact appearance, particularly clarity of artefact form and accuracy of artifact color, is the most important visitor need. Although visual impression, specifically acceptable gallery brightness and rich artefact color, is least important among the factors, it too rated highly important.''}~\citep{kesner_museum_1993-1}
-\end{quote}
+\begin{citequote}{kesner_museum_1993-1}
+Artifact appearance, particularly clarity of artefact form and accuracy of artifact color, is the most important visitor need. Although visual impression, specifically acceptable gallery brightness and rich artefact color, is least important among the factors, it too rated highly important.
+\end{citequote}
 
 %more?
 
@@ -153,7 +153,7 @@ Firstly, a general note regards the mind-set of those providing recommendations:
 
 This is based on the argument as follows: all light is damaging, but required in order for visitors to see objects. Damage by light acts in a roughly reciprocal manner, such that a small amount of light over a long time period might be made to do equal damage as a large amount of light over a short period. Considering the multiple aims of museums; (1) to display objects, but also (2) preserve them such that they may be displayed to future generations, it seems desirable to find the minimal amount of light that satisfies the first aim, such that the ability to deliver on the second aim is maximised. Thus many of the recommendations discussed here are actually concerned with the ability of a viewer to extract visual information. This point is not always entirely clear, and it is my suspicion that conservators are sometimes lulled into believing that there is something special about the specific values recommended regards their ability to ‘avoid’ damage. 
 
-One clear exception to this, which will be discussed in further detail, is CIE 157:20042 which considers damage functions of specific materials. These deal specifically with the degradation of objects, with less regard to how objects might appear. Other works which deal with damage functions either generally or for specific types of objects fall into this exception also.
+One clear exception to this, which will be discussed in further detail, is \gls{CIE} 157:2004 \citep{cie_cie_2004} which considers damage functions of specific materials. These deal specifically with the degradation of objects, with less regard to how objects might appear. Other works which deal with damage functions either generally or for specific types of objects fall into this exception also.
 
 The common language most regularly employed in both of these approaches is the term of 'lux', though this is a contentious issue with some arguing that it correlates well enough with damage potential, and others exploring the use of damage functions3. ‘Lux’ relates loosely to the human perception of brightness, but does not consider any type of material absorbance, reflectance or damage function. The historical background to this precedent appears to be as follows; whilst technological ability to vary the spectral power distribution of a light source was limited (whilst tungsten was the dominant source of illumination) is could be assumed that there was a predictable relationship between lux and radiometric spectral power distribution, such that any two lights with the same lux level would cause the same level of damage to any specific object, and thus providing damage minimisation advice could be done using the language of lux, which was pre-established considering the original approach outlined above. This approach is now less appropriate, considering the increased variability in spectral power distribution provided by the introduction of LED technology, and it is reasonable to assume that in the future additional lighting technologies (or variations of existing technologies) might be introduced, with again fundamentally different types of spectral power distribution.
 
@@ -166,7 +166,7 @@ The guidelines chosen for review were:
 \item \gls{CIE} 157:2004 Control of Damage to Museum Objects by Optical Radiation \citep{cie_cie_2004}
 \item Guidelines for Selecting Solid-State Lighting for Museums \citep{druzik_guidelines_2012}
 \item SLL LG8: Lighting for museums and art galleries \citep{cibse_lighting_2015}
-\item IES RP-30-96 Museum and Art Gallery Lighting: A Recommended Practice \citep{ies_ies_1996}\footnote{This has since been usurped by \citet{illuminating_engineering_society_ies_2017}.}.
+\item IES RP-30-96 Museum and Art Gallery Lighting: A Recommended Practice \citep{ies_ies_1996}\footnote{This has since been usurped by IES \citep{illuminating_engineering_society_ies_2017}.}.
 \end{itemize}
 
 \noindent
@@ -184,49 +184,45 @@ In summary:
 
 \subsubsection{`The Museum Environment'}
 
-`The Museum Environment', first published in 1978\citep{thomson_museum_1978}, with a popular second edition published in 1986\citep{thomson_museum_1986} (I shall hereon be referring to this later edition), appears to be one of the most frequently consulted resources on the subject of lighting for practising museum professionals. Whilst the book encompasses a great many subjects aside from lighting, two chapters are set aside for the subject of lighting specifically, covering a large range of topics within the scope of museum lighting. In Druzik's overview of museum lighting specification \citep{druzik_museum_2007} he notes that ‘up until the first edition of The Museum Environment in 1978, no one had written a book on preventive conservation in museums that was comprehensive, yet clear enough for scientists and conservators to use with nearly equal ease.’
+`The Museum Environment', first published in 1978 \citep{thomson_museum_1978}, with a popular second edition published in 1986 \citep{thomson_museum_1986} (I shall hereon be referring to this later edition), appears to be one of the most frequently consulted resources on the subject of lighting for practising museum professionals. Whilst the book encompasses a great many subjects aside from lighting, two chapters are set aside for the subject of lighting specifically, covering a large range of topics within the scope of museum lighting. In Druzik's overview of museum lighting specification \citep{druzik_museum_2007} he notes that ‘up until the first edition of The Museum Environment in 1978, no one had written a book on preventive conservation in museums that was comprehensive, yet clear enough for scientists and conservators to use with nearly equal ease.’
 
 The section of Thomson’s book most often referred to in my experience has been his guidance on recommended exposure for different object types. A table from this section is reproduced below as Figure \ref{fig:Thomson} which details the types of objects which might most readily be assumed to fall into groups of like sensitivities. The recommended maximum illuminance values stem most heavily from experiments performed by \citet{loe_preferred_1982} in the years immediately previous to the publication of this second edition. It is noted that these recommendations are a revision upwards from the first edition, where 50/150lux was recommended in place of 50/200lx.
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/LitRev/Thomson.png}
+\includegraphics[max width=\textwidth]{figs/LitRev/Thomson.png}
 \caption{Table 2 of \citet[p. 23]{thomson_museum_1986}, describing recommended maximum illuminances for 2 groups of objects.}
-\label{fig:Loe}
+\label{fig:Thomson}
 \end{figure}
 
-Loe et al.'s work concludes with the recommendation that ``preferred artificial lighting conditions for viewing works of art are a painting illuminance approaching 200 lux provided from lamps with good colour rendering characteristics, e.g. a \gls{CIE} Ra index of >85 and a large gamut area''. It is of particular interest to me that Thomson neglected to quote the final part of this recommendation regarding the specific Ra and note regards gamut area.
+Loe et al.'s work concludes with the recommendation that ``preferred artificial lighting conditions for viewing works of art are a painting illuminance approaching 200 lux provided from lamps with good colour rendering characteristics, e.g. a \gls{CIE} Ra index of \textgreater 85 and a large gamut area''. It is of particular interest to me that Thomson neglected to quote the final part of this recommendation regarding the specific Ra and note regards gamut area.
 
 On the topic of colour rendering, Thomson goes into great depths to explain the topic and the means available for calculating various indices, spending a disproportionate amount of time (compared to what I understand was normal for the time) on the topic of Crawford’s ‘band method’ \citep{crawford_colour_1960,crawford_measurement_1959} for colour rendering index calculation amongst other things.
 
 For the most part he neglects to make recommendations for specific target values, only making the rough and unsupported assertion in passing: 
 
-\begin{quote}
-\textit{
-``Recommendation for good colour rendering. \\
+\begin{itquote}{}
+Recommendation for good colour rendering. \\
 \gls{CIE}~$R$\textsubscript{a} about 90 or better, \\
 $R$\textsubscript{w} (worst R) about 80 or better, \\
-and Crawford Class A, B or C''}
-\end{quote}
+and Crawford Class A, B or C
+\end{itquote}
 
 No research is referenced to support this recommendation. The inclusion of $R$\textsubscript{w} (the lowest value of $R$\textsubscript{i}) is notable due to its lack of consideration in other documents. 
 
 Still on the topic of colour rendering, of additional note is Thomson’s general introduction to the subject, where he frames the conversation in a manner which presents colour rendering as a measure of the colour changes to which the HVS in unable to adapt to, opposite changes induced by changes in colour temperature to which the HVS is generally able to adapt easily to. Thomson also provides an accessible, and often quoted summary of the underpinnings of how the CIE General Colour Rendering Index operates in principle:
 
-\begin{quote}
-\textit{
-\begin{enumerate}
-\item ‘Adapt our eyes to the illuminant under test.
-\item Look at a set of representative objects under it and accurately memorise their colours.
-\item Adapt to the reference illuminant.
-\item Look at the same objects under this second illuminant and compare the colours to the colours in our memory.’
-\end{enumerate}}
-\end{quote}
+\begin{itquote}{}
+Adapt our eyes to the illuminant under test. \\
+Look at a set of representative objects under it and accurately memorise their colours.\\
+Adapt to the reference illuminant.\\
+Look at the same objects under this second illuminant and compare the colours to the colours in our memory.
+\end{itquote}
 
 Thomson’s comments on the selection of colour temperature are minimal, not referring to any specific \gls{CCT} in his summary of specifications [p. 268]. The only note dealing directly with the specification of colour temperature can be found on page 25, and refers only specifically to the conversation of what colour temperature to select for those environments which for conservation purposes need to be lit at particularly low illuminance levels.
 
-\begin{quote}
-\textit{``The `coolness' \dots of daylight when it has been reduced to 50 lux often gives the impression of gloom, especially when it is highly diffused. No one knows how deeply it has been built into our systems, but ever since our first ancestors sat around fires, and later used oil lamps and candles, the human race has been accustomed to `warm' light in the home after dark. As a result the warm 50 lux from tungsten lamps appears to be brighter, and certainly more cheerful, than 50 lux of diffused daylight. For the same reason warm rather than cool fluorescent lamps should be chosen for 50 lux situations.''}
-\end{quote}
+\begin{itquote}{}
+The `coolness' \dots of daylight when it has been reduced to 50 lux often gives the impression of gloom, especially when it is highly diffused. No one knows how deeply it has been built into our systems, but ever since our first ancestors sat around fires, and later used oil lamps and candles, the human race has been accustomed to `warm' light in the home after dark. As a result the warm 50 lux from tungsten lamps appears to be brighter, and certainly more cheerful, than 50 lux of diffused daylight. For the same reason warm rather than cool fluorescent lamps should be chosen for 50 lux situations.
+\end{itquote}
 
 It is assumed that the views expressed above are grown from empirical observation. They mirror the standpoint of other publications which refer to the work of \citet{kruithof_tubular_1941} and the derived ‘Kruithof curve’ (see Section \ref{sec:CCTmus)}).
 
@@ -234,13 +230,13 @@ The bulk of pages 49-51 concern colour temperature, if one includes the associat
 
 A final note in reference to this text goes to the discussion of whether or not to consider the type of lighting for which the artist intended an artwork to be displayed under, or that under which it was originally created. At the risk of quoting half the book I include one final passage which I think particularly pertinent to the area of research to be undertaken in this project, with which I shall conclude my discussion of this publication:
 
-\begin{quote}
-``I think one would be correct to suppose that artists have always assumed that their creations would be viewed in a variety of situations, not all lit ideally, and have designed their work accordingly. Even the Impressionists and others who made a point of completing their canvasses in the open air did not expect them to be so viewed. When De La Tour painted a candle-lit scene he painted it in such a way that the scene would look candle-lit under any reasonable lighting (for a contrary view see Weale [\citep{weale_truth_1973}]). 
+\begin{itquote}{}
+I think one would be correct to suppose that artists have always assumed that their creations would be viewed in a variety of situations, not all lit ideally, and have designed their work accordingly. Even the Impressionists and others who made a point of completing their canvasses in the open air did not expect them to be so viewed. When De La Tour painted a candle-lit scene he painted it in such a way that the scene would look candle-lit under any reasonable lighting (for a contrary view see Weale [\citep{weale_truth_1973}]). 
 
 But it could also be said that, however robust the work of art, it will look better in some lighting situations than in others, and so we should bend our efforts to finding the best possible situation. Within the limitations of the museum one cannot but agree, provided there is indeed a consensus of perceptive opinion on what is best, and provided that the damage caused by light is kept under control. 
 
-There is certainly no mathematical treatment whereby we can equate the viewer's gain against the exhibit's loss. However there has been considerable research on the visual process as it is affected by the lighting, and Brommelle [\citep{brommelle_visual_1972}] has carefully related the experimental work to the museum problem.'' %can't make it italics because it's multiple paragraphs, or so it seems
-\end{quote}
+There is certainly no mathematical treatment whereby we can equate the viewer's gain against the exhibit's loss. However there has been considerable research on the visual process as it is affected by the lighting, and Brommelle [\citep{brommelle_visual_1972}] has carefully related the experimental work to the museum problem.
+\end{itquote}
 
 \subsubsection{CIE 157:2004 Control of Damage to Museum Objects by Optical Radiation}
 
@@ -250,15 +246,124 @@ To set the context for the discussion of this CIE technical report, first a note
 
 As previously mentioned, this document takes a different approach to the problem of limiting light induced damage in museums, focusing rather on the process of considering the optimal spectral power distributions as opposed to limiting the light levels wholesale. For example, the closest the document comes to making light level recommendations in the manner of `The Museum Environment' \citep{thomson_museum_1986} is in the tabulation of Mlx hour values for predicted noticeable fade. This approach leaves the decision of actual lighting levels to the museum professionals, with the question being ‘How long do I want this object to last before a noticeable fade has occurred?’
 
-The document is in some ways an endorsement and extension of the approach taken by \citet{harrison_report_1953} (as discussed in Section \ref{sec:DamageIndex}), in which the concept of a damage function was introduced, this being ``an action spectrum that defines the relative spectral responsivity of a receiving material''. %The authors of this document note that the work did not originally gain traction due to conservators’ scepticism that a single function could represent the vast range of potential museum object (still an intractable problem). Interest was further lessened by the fact that the original work refers only to one very specific type of material – low grade paper. However, the authors of this document argue that the fundamental idea is sound; a damage function (so long as it is genuinely representative to an extent) could be a valuable tool in assessing the appropriateness of different light sources.
+The document is in some ways an endorsement and extension of the approach taken by \citet{harrison_report_1953} (as discussed in Section \ref{sec:DamageIndex}), in which the concept of a damage function was introduced, this being ``an action spectrum that defines the relative spectral responsivity of a receiving material''. The authors of this document note that the work did not originally gain traction due to conservators’ scepticism that a single function could represent the vast range of potential museum object (still an intractable problem). Interest was further lessened by the fact that the original work refers only to one very specific type of material – low grade paper. However, the authors of this document argue that the fundamental idea is sound; a damage function (so long as it is genuinely representative to an extent) could be a valuable tool in assessing the appropriateness of different light sources.
 
-%The authors then pull reference from further studies focused on a range of other materials, and find low grade paper is actually an outlier in terms of wavelength sensitivity, with many other materials able to be grouped together in type of dependency (if not like sensitivity). Following Cuttle’s work11 to describe the pre-existing damage functions as simple mathematical relationships, comparison between the variety of newly created damage functions was possible.
+The authors then pull reference from further studies focused on a range of other materials, and find low grade paper is actually an outlier in terms of wavelength sensitivity, with many other materials able to be grouped together in type of dependency (if not like sensitivity). Following Cuttle’s work \citep{cuttle_lighting_1988} to describe the pre-existing damage functions as simple mathematical relationships, comparison between the variety of newly created damage functions was possible.
 
 Regarding colour temperature, the report states:
 
-\begin{quote}
-While the variations of spectral responsivity for individual materials, particularly pigments, remains problematic, the overall tendency for responsivity to increase at shorter wavelengths is reasonably well defined. It has been shown that there is a general effect for the relative damage potential to increase as colour temperature increases [[\citet{cuttle_lighting_1988}]]
-\end{quote}
+\begin{itquote}{}
+While the variations of spectral responsivity for individual materials, particularly pigments, remains problematic, the overall tendency for responsivity to increase at shorter wavelengths is reasonably well defined. It has been shown that there is a general effect for the relative damage potential to increase as colour temperature increases [\citet{cuttle_lighting_1988}]
+\end{itquote}
+
+This falls short of offering recommendations for colour temperature choice, remaining impartially scientific. However, an included table, reproduced below, makes it clear that the lower the colour temperature, the lower the potential for damage (for a set SPD ‘type’).
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LitRev/CIE2004b.png}
+\caption{Table 2.2 of CIE 157:2004 \citep{cie_cie_2004}}
+\label{fig:CIE2004b}
+\end{figure}
+
+This section concludes with the introduction of two related topics, again with significance for this project. The first regards the work of \citet{miller_evaluating_1993} in which the concept of ‘reflected energy matching (REM)’ is introduced, the second is of the work by \citet{thornton_high_1975} in which he describes the technique of using ‘prime colour’ light sources.
+
+REM in the current context refers to a process of illuminating an object preferentially with illumination of wavelengths which it is known to reflect. The premise of this is: absorbed radiation is visually unimportant, yet conversely the radiation most likely to damage an object. Thus an ideal situation would be to illuminate an object with radiation which it entirely reflects. The immediate limitations of this process are that this process would be object specific and potentially problematic for correct colour rendering. This procedure was suggested to be implemented using fibre optics and filter systems, it would likely be much more approachable with the advent of LED technologies which allow certain spectral flexibility.
+
+A note in the text regards the potential for REM to increase the saturation of colours relates that this ‘raises questions concerning the ethics of modifying the apparent colours of displayed objects.’ 
+
+\hl{Thornton/Prime}
+\hl{(Colour rendering/critical viewing)}
+
+In the final section of this document (written with the aim to ‘give recommendations for lighting in museums’) very little advice is given in the form of specific figures to aim for, rather a decision appears to have been made that it was preferable to detail the areas that the authors considered worthy of attention, and to lay out the arguments for deliberation. For example, on the topic of \gls{CCT} choice reference is made to the previous discussion which details the deleterious potential of illumination at different colour temperatures, but it is clearly stated that ‘[w]here the viewing conditions call for moderate or high colour temperature lighting, conservation concerns should not override design objectives for the display.’ This seems to be supported by the later statement that ‘[i]t is thoroughly bad policy to place an object on display, where it inevitably will suffer some damage, and to fail to present it adequately.’ It is further noted that low colour temperatures may ‘judged unsatisfactory’ when it is used in combination with natural illumination. 
+
+With marked separation, the previously discussed work of \citet{loe_preferred_1982} is referred to, in the context of providing guidance on a lux value that is ‘generally sufficient to provide for adequate visibility’.
+
+There is a noteworthy section on the meaningful distinction between illuminance and irradiance: `It needs to be recognised that illuminance is not a reliable alternative measure [for irradiance], as it represents the density of luminous flux, being radiant flux evaluated according to a typical human visual response, defined by the photopic spectral luminous efficiency function V($/lambda$). Not only does illuminance take no account of irradiance outside the visible spectrum, but also radiant flux within the visible spectrum is weighted according to its relative visual effect, which is not related to its damage effect.'
+
+\subsubsection{CGI/Getty Guidelines for Selecting Solid-State Lighting for Museums}
+
+This guidance document\citep{druzik_guidelines_2012}, produced by the Canadian Conservation Institute and The Getty Conservation Institute, provides guidance for museum professionals to select \gls{LED} lighting. As such, the guide includes an introduction to the technological theory of \glspl{LED}, advice on how to consider the requirements of museum lighting, and a practical guide to selecting lighting. It is the only document here considered which discusses solely LED technology.
+
+Compared to the other documents considered here, there is also a focus on the longevity of systems, particularly in respect to potential for colour change, and advice on the type of information that should form a warranty agreement between supplier and end user.
+
+A recurring piece of advice throughout the document is that a lighting specifier should always view lighting in person before making a significant order. The implicit, and sometimes explicit subtext here is twofold; firstly, that the specifications available for lighting are insufficient to describe the visual appearance of lighting, and secondly, that the quality of museum lighting (the ability of lighting to fulfil predetermined requirements) is visually assessable. An extension of this second point would be to consider the visual requirements in museums as being solely or principally defined by a general preference for appearance under lighting.
+
+Following this notion, \gls{CIE}~R$_a$ is referred to as ‘imperfect’ and ‘misunderstood’, and it is suggested that it could be used as a ‘secondary consideration’. There are several different specific values of CIE Ra recommended at different points within the document.
+
+\begin{itquote}{}
+It is generally agreed that a \gls{CRI} above 85 is suitable
+\end{itquote}
+\begin{itquote}{}
+To illuminate areas with a more utilitarian such as machinery, many science exhibits, food services, hallways, educational activities, etc. settle on a color rendering index (\gls{CRI}) above 80. When color matching may be more an attentive activity such as viewing art, ethnography, some natural history collections exhibits, etc. select \glspl{LED} with a \gls{CRI} above 90. However, because \gls{CRI} is an imperfect metric, \gls{CRI} should be considered a target, not a firm criterion.
+\end{itquote}
+\begin{itquote}{}
+There is no international museum standard on what is or is not an "acceptable" \gls{CRI}, but the Canadian Conservation Institute (CCI) recommends a minimum of 85. Many museums specify greater than 90.
+\end{itquote}
+
+As is perhaps apparent in the quotes above, this document has the feel of friendly advice rather than an official guidance document. As such, it has particular value for this project as a perhaps more revealing account of the advice which actually circulates in the field. For example, one piece of advice which I haven’t seen anywhere else in official literature, but which as I understand it is relatively common in general parlance is that provided during the overview on page 23: ‘Check color rendering on your own skin’. This advice is incongruous with the museum lighting advice which prioritises objectivity and impartiality, as this implicitly suggests looking for a ‘pleasing’ appearance.
+
+The document makes subtle references to the Color Quality Scale (CQS) \citep{ohno_rationale_2010,baier_is_2012,davis_toward_2005,davis_color_2010} and GAI \citep{rea_color_2008}; saying that in response to limitations with CIE Ra ‘at least two other color metrics have been proposed recently’, followed by references which relate to the aforementioned respectively. The document also makes two references specifically to \gls{CIE}~R$_9$ values, firstly as part of the information on the ENERGY STAR program (where it is quoted alongside other lamp specifications) and once in the Appendix (where visual demonstrations of induced colour shifts are provided for the CQS and \gls{CIE} test colour samples. Interestingly, a scale for \gls{CIE}~R$_9$ is described, where: ‘\gls{CIE}~R$_9$ = 0-49 means it renders red hues well. When R9 is 50-74 it is very good. R9 above 75 is considered excellent.’ As with many items in this document, no reference as to the source of this information is provided. 
+
+Regards the question of CCT within museum lighting, the guidance offers a Kruithof-ian approach, though without naming it as such, recommending warmer light for lower light levels and colder light for higher light levels. 
+
+\begin{itquote}{}
+With low light levels, as in museums, viewers tend to prefer warmer light similar to that of incandescent lamps, e.g. the 2800K of standard incandescent lamps, or the slightly higher 3000K of quartz halogen incandescent lamps. As illumination increases to several thousand lux, preference is for cooler light, 5000K or higher.
+\end{itquote}
+
+It is noted than an exception might be made in the situation where artificial lighting is employed to augment natural illumination. This said, elsewhere in the same document the reader is advised to ‘avoid higher color temperatures for light sensitive materials as these LEDs may have an unacceptably large peak in the “blue region” of the spectrum.’
+
+Also poorly referenced is the discussion of the 50lx recommendation. Research is mentioned but not directly quoted. It is assumed that the research described as ‘in the 1980s’ is the previously discussed research of \citep{loe_preferred_1982}.
+
+The final area of note within this report is that which considers the methods applicable to assessing museum lighting in situ. A survey completed at the Field Museum \citep{myer_demonstration_2010} is quoted in detail, the survey having been completed by museum staff and lighting practitioners as part of a GATEWAY program demonstration at the museum. This survey includes such questions as ‘The lighting product shows \underline{\hspace{2cm}} of the subject colors accurately’ and was completed for a halogen system and an LED system in the same space.
+
+\subsubsection{SLL LG8: Lighting for museums and art galleries}
+
+\citet{cibse_lighting_2015}
+
+% To be written up
+% -	Recent doc 2015
+% -	Benefits from Practical examples
+% -	Lots of big/familiar names
+% -	Limited references, no in line sources
+
+% -	Pg 3 CCT warmer light standout?
+% -	Pg 4 CRI 90 very good, <80 not suitable
+% -	5 colour of backgrounds
+% -	9/12 combining daylight and cct
+% -	24 ‘purely advisory’ reflect current practice
+% -	25 ‘access has two components, visibility and duration of exposure to light’
+% -	27 basing on ‘good eyesight’ might be ‘discriminatory’
+% -	28 distorting intention of artist
+% -	33 V&A JNC 50years?
+% -	43 trade off
+% -	46 blue peak ongoing research
+% -	47 essential to conduct side-by-side trials
+% -	67 good colour quality = poor efficacy?
+% -	Many specific object types
+
+\subsubsection{IES RP-30-96 Museum and Art Gallery Lighting: A Recommended Practice}
+
+\citet{ies_ies_1996}
+
+% -	1996, as of 2016 being updated
+% -	Guide for lighting designers
+
+% -	1 ‘human achievement’
+% -	1 Different priorities for different people (kesner)
+% -	1 Three rules
+% -	2 ‘Color should not change the look of an artifact’ “overriding – original appearance”
+% -	3 CRI “true color” >80
+% -	3 CCT Determine whether the display takes on a warm or cool appearance
+% -	12 30lux required for color
+% -	12 avoid bold surrounding colours
+% -	13 ‘killing the patient’
+% -	15 lux = exposure(?)
+% -	31 Brief history of daylight in galleries
+% -	31 adaptation
+
+
+
+
+
 
 
 
@@ -275,14 +380,6 @@ While the variations of spectral responsivity for individual materials, particul
 
 \subsection{CCT in museums}
 \label{sec:CCTmus}
-
-The \acrfull{CCT} of an illuminant describes the chromaticity of a light source on a one dimensional axis roughly from blue to yellow, based on the apparent chromaticity of a black body radiator at differing temperatures. Figure \ref{fig:BBR} shows the curve formed in chromaticity space by a set of black body radiators of different temperatures. It is worth noting that most real light sources fall upon the relatively straight section of the left-hand part of this line.
-
-\begin{figure}[htbp]
-\includegraphics[max width=\textwidth]{figs/LitRev/BBR.pdf}
-\caption{The black body radiator curve on a CIE 1931 chromaticity chart, highlighting \glspl{CCT} of 1000K, 6500K and 10000K.}
-\label{fig:BBR}
-\end{figure}
 
 \Gls{CCT} is often described as an important variable in museum lighting, but definite recommendations, in the rare cases that they are given, are generally based on nostalgia for the appearance of tungsten lighting, questionable research on human preference \citep{kruithof_tubular_1941,fotios_revised_2017} or very rough rules that predict that damage potential will be decreased if \gls{CCT} is minimised \citep{cie_cie_2004}. Whilst some research appears to have found optimal \glspl{CCT} for viewing artwork \citep{nascimento_best_2014,pinto_correlated_2008,scuello_museum_2004,scuello_museum_2004-1, liu_cultural_2013,vidovszky-nemeth_introductory_2016,feltrin_impact_2019} results often have large inter-observer variability, context dependency and it is not uncommon for the headline findings of separate studies to be in contradiction. 
 
@@ -354,7 +451,7 @@ Diametrically opposed in some ways to fidelity are the indices which aim to quan
 
 Within and between these two groups there exist a range of different indices with subtly different aims and mechanisms for achieving these aims. For thorough overviews see \citet{guo_review_2004} and \citet{houser_review_2013}.
 
-In practice, both of these philosophical approaches are mandated in current lighting guidance. For the most part, advice for lighting specification on the subject of colour rendering can be simplified to read `use lamps of above \gls{CRI} 80 (referring tacitly to \gls{CIE} R$_a$) but always test them visually before you buy in bulk'. Whilst this may at first seem like sensible advice, upon further inspection it actually represents a serious contradiction, unless considered with heavy caveats. The problem rests in the fact that \gls{CIE}~R$_a$ is a fidelity index, whereas any visual inspection is likely to be performed by observing the appearance of an object under the test illumination without a reference. Fidelity aims to describe accuracy of reproduction, but this is a quality which is arguably not testable by visual inspection. This contradiction seems to perpetuate unnoticed in museum practice, with lighting specifiers often abstractly declaring to target a faithful/accurate/honest/impartial representation of objects, but practically choosing light sources based on visual inspection where preference is the only criteria. There is of course a range of approaches, ranging from pure reliance on indices to almost entire reliance on visual testing.
+In practice, both of these philosophical approaches are mandated in current lighting guidance. For the most part, advice for lighting specification on the subject of colour rendering can be simplified to read `use lamps of above \gls{CRI} 80 (referring tacitly to \gls{CIE}~R$_a$) but always test them visually before you buy in bulk'. Whilst this may at first seem like sensible advice, upon further inspection it actually represents a serious contradiction, unless considered with heavy caveats. The problem rests in the fact that \gls{CIE}~R$_a$ is a fidelity index, whereas any visual inspection is likely to be performed by observing the appearance of an object under the test illumination without a reference. Fidelity aims to describe accuracy of reproduction, but this is a quality which is arguably not testable by visual inspection. This contradiction seems to perpetuate unnoticed in museum practice, with lighting specifiers often abstractly declaring to target a faithful/accurate/honest/impartial representation of objects, but practically choosing light sources based on visual inspection where preference is the only criteria. There is of course a range of approaches, ranging from pure reliance on indices to almost entire reliance on visual testing.
 
 In conclusion, no one metric exists that would satisfy the divergent aims and philosophies of museum lighting. Several distinct types of colour rendering index exist, but the existing range fall into the broad categories of `fidelity' or `preference', with the latter being particularly poorly definable due to its variability in different environments, with different user functional requirements and different intrinsic preferences between different observers. Progress could be made by breaking these broad categories into smaller more manageable specific objectives.
 

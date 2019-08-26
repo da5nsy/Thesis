@@ -194,3 +194,38 @@
 
 %for multi-line equations
 \usepackage{amsmath} 
+
+% For quoting hack
+\usepackage{xparse}
+\usepackage{quoting}
+
+\NewDocumentEnvironment{citequote}{m}
+ {%
+  \begin{quoting}[indentfirst=true,font=itshape]
+  \bigquotes{r}{``}
+ }
+ {%
+  \bigquotes{l}{''}%
+  \item\relax\hspace*{\fill}\citeauthor{#1}\ \textup{\cite{#1}}%
+   \end{quoting}
+ }
+\newcommand{\bigquotes}[2]{%
+  {%
+    \raisebox{\dimexpr\fontcharht\font`A-\height}{\Large\bfseries#2}%
+  }%
+}
+
+\NewDocumentEnvironment{itquote}{m} %as above but without the ref. I can't get rid of the {m} and I don't know why
+ {%
+  \begin{quoting}[indentfirst=false,font=itshape]
+  \bigquotes{r}{``}
+ }
+ {%
+  \bigquotes{l}{''}%
+   \end{quoting}
+ }
+ 
+ 
+% For orcid  
+%\usepackage{academicons}
+%\definecolor{orcidlogocol}{HTML}{A6CE39}
