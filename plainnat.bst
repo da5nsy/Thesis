@@ -44,6 +44,10 @@
  % Works with identical authors and year are further sorted by
  %   citation key, to preserve any natural sequence.
  %
+
+ % Added various bits to get it to work with doi and backref 
+ % as per https://tex.stackexchange.com/questions/115679/problem-in-enabling-back-referencing-in-classisthesis-package/116028#116028
+
 ENTRY
   { address
     author
@@ -125,6 +129,7 @@ FUNCTION {output.check}
 FUNCTION {fin.entry}
 { add.period$
   write$
+  newline$ "\backrefprint\backrefparscantrue" write$  %% added
   newline$
 }
 
@@ -374,6 +379,7 @@ FUNCTION {make.full.names}
 
 FUNCTION {output.bibitem}
 { newline$
+  "\backrefparscanfalse" write$ newline$    %% added
   "\bibitem[" write$
   label write$
   ")" make.full.names duplicate$ short.list =
@@ -1419,6 +1425,12 @@ FUNCTION {begin.bib}
   write$ newline$
   "  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi"
   write$ newline$
+  "  \providecommand\backrefparscanfalse{}"   %% added
+  write$ newline$                             %% added
+  "  \providecommand\backrefparscantrue{}"    %% added
+  write$ newline$                             %% added
+  "  \providecommand\backrefprint{}"          %% added
+  write$ newline$                             %% added
 }
 
 EXECUTE {begin.bib}
