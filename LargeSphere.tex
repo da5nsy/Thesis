@@ -1,7 +1,7 @@
 \chapter{Large Sphere Experiment} %new name?
 \label{chap:LargeSphere}
 
-\textit{The work presented here has been presented as an oral presentation at AIC 2013 \citep[p. 623]{macdonald_chromatic_2013} \textbf{prior to the author's involvement}, and as an oral presentation at ICVS 2017 \citep[p. 35/58]{jan_kremers_24th_2017} by the author.}
+\textit{The work presented here has been presented as an oral presentation at AIC 2013 \citep{macdonald_chromatic_2013} \textbf{prior to the author's involvement}, and as an oral presentation at ICVS 2017 \citep{garside_investigations_2017} by the author.}
 
 Code and data is provided: \url{https://github.com/da5nsy/LargeSphere}
 
@@ -13,7 +13,7 @@ Within a Ganzfeld viewing environment, illuminated by one of 16 different wavele
 
 \hl{Results:}
 
-This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the authors academic supervisors), who initiated the experiment, and TR who was a student of LM's. The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it became clear that there had been a technical fault during this run of data collection, and my data was deemed corrupted. %This data is discussed further in Appendix X. %%%%%%%%
+This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the authors academic supervisors), who initiated the experiment, and TR who was a student of LM's. The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it appeared that there had been a technical fault during this run of data collection, and my data was deemed corrupted. %This data is discussed further in Appendix X. %%%%%%%%
 Thus, my only contribution to this work is an extension to the data analysis started by LM, upon which I shall focus on in this chapter.
 
 \section{Methodology}
@@ -37,7 +37,7 @@ A hollow fibreglass sphere of approximately 750mm diameter was prepared with thr
 \subsection{Observer task}
 
 The observer sat on one side of the sphere with their face inside the sphere, such that nothing outside of the sphere was visible. On view on the opposite side of the sphere was a circular 4$^{\circ}$ aperture onto an LCD screen, upon which a random colour % drawn from ??????
-was visible. It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic. Once they were happy with the achromacy of the patch, they were to hit a button at which a new random colour would be presented. The first displayed colour was displayed at L* of 85, with subsequent colours descending by 5 L* until 10 L*. This scale was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total). See Figure \ref{fig:ExperimentalPro}.
+was visible (See section \ref{sec:LSstim}). It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic (an achromatic setting task). Once they were happy with the achromacy of the patch, they were to hit a button at which point a new random colour would be presented. The first displayed colour was displayed at L* of 85, with subsequent colours descending by 5 L* until 10 L*. This scale was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), visualised in Figure \ref{fig:ExperimentalPro}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/ExperimentalPro.png}
@@ -45,13 +45,28 @@ was visible. It was the observer's task to use two handheld sliders, which contr
 \label{fig:ExperimentalPro}
 \end{figure}
 
+\subsection{Stimulus specification}
+\label{sec:LSstim}
+
+The stimulus was controlled via a MATLAB script, which read the input of two sliders and a button via a `Phidget' interface. The two linear sliders provided values of between 0 and 1000, and these values were converted to CIELAB co-ordinates in such a manner that the slider maxima corresponded to the Natural Colour System (NCS) unique hue positions as computed by \citet{derefeldt_transformation_1986}. In this manner the sliders could be considered as moving between red and green (via the CIELAB origin), and blue and yellow (via the CIELAB origin) respectively. These values were transformed into standard sRGB values, with white references of [XYZ = 99.04, 100, 151.30] for observer LM and [XYZ = 94.97, 100, 98.15] for observer TR, and these values were output to the screen.
+
+The generation of random colours was achieved by modulating the nominal zero-point on each slider scale, where the default zero point is considered as 500, sampling from a uniform distribution between 250 and 750 for each presentation. 
+
+The slider position was then considered relative to this new zero-point, meaning that once an observer hit the button to confirm their selection, a new random colour, anchored to their previous selection (in a rough manner) would be presented. It should be noted that this new colour was not entirely independent of the previous selection.
+
 % \subsection{Data Collection}
 
 % Data was collected for two observers \dots
 
 \subsection{Data Processing}
 
-Two distinct approaches were taken to data processing. The first attempted to process the data in a chromatic space, with the reasoning that under the null condition chromatic selections should simply correspond to the chromaticity of the surround illuminants. If it were shown that this relationship was not as expected, in a manner which might suggest involvement by other mechanisms (meaning rods or \glspl{ipRGC}), then this could be considered as evidence against the null hypothesis.
+Data were calibrated in the following manner: the recorded RGB values os the observers' selections were bounded (values above 1 or below 0 were brought within range, with an `absolute' rendering intent) and converted via look-up-table to \gls{CIE} 1931 XYZ tristimulus values. From these, xy chromaticities and CIELAB values were computed (with the white point of the display, as loaded from the characterisation file, used as the white reference).
+
+A set of data referred to as the `baseline' data was generated, where there was no observer input, to consider the range of possible responses that an observer could make.
+
+\hl{insert figure, once I work out what the standard reporting style is going to be.}
+
+Two distinct approaches were taken to data analysis. The first attempted to process the data in a chromatic space, with the reasoning that under the null condition chromatic selections should simply correspond to the chromaticity of the surround illuminants. If it were shown that this relationship was not as expected, in a manner which might suggest involvement by other mechanisms (meaning rods or \glspl{ipRGC}), then this could be considered as evidence against the null hypothesis.
 
 The second approach took advantage of the fact that measurements were taken at samples across the wavelength spectrum. Here the logic was that if the null condition were true, we should be able to fit a model to observer responses which only used cone-based inputs, and we could carefully consider the (presumed) benefit of including rods and \glspl{ipRGC} in the model. If either rod input or \gls{ipRGC} input were found to dramatically improve the model then this could be considered as evidence against the null hypothesis.
 
@@ -88,7 +103,7 @@ In Figure \ref{fig:overviewDG} is can be seen in the lower-right plot that the d
 
 \subsection{Chromaticity-based analysis}
 
-The CIELAB co-ordinates for the adapting fields were computed from the measurements of the adapting fields, shown in Figure \ref{fig:LSillum}, and are presented in Figures \ref{fig:adapter1} and \ref{fig:adapter2}. 
+The CIELAB co-ordinates for the adapting fields were computed from the measurements shown in Figure \ref{fig:LSillum}, relative to the white point of the display, and are presented in Figures \ref{fig:adapter1} and \ref{fig:adapter2}. 
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/adapter1.pdf}
@@ -120,7 +135,7 @@ The first stage of this analysis was to generate simulated data which represente
 \label{fig:LSsimdata}
 \end{figure}
 
-A comparison was then made between this data and a set of real data (Obs = TR, averaged over time (entire run, no exclusions), averaged over L* = 35:60\footnote{Values outside of this range exhibited gamut boundary issues.}). This real data had been transformed from the recorded RGB values of achromatic matches into LMS values. It can be seen that there is a considerable difference between the simulated data and the real data (Figure \ref{fig:simVreal}). S-cone data shows the closest match, with the predicted peak at 460nm\footnote{Note that this is not at the peak sensitivity of s-cones (which would appear at 440nm for this dataset at 20nm intervals) but rather at the peak of the s-cone sensitivity function multiplied by the \gls{SPD}, as plotted in Figure \ref{fig:LSsimdata}.} being mirrored in the real data. This peak appears to bleed into the (real) M-cone data, and the simulated data for L and M-cone data shows very little correspondence to the collected data. Correlation coefficients between the simulated and this specific real dataset are 0.1399, -0.2509, 0.3164 for L, M and S respectively.
+A comparison was then made between this data and a set of real data (Obs = TR, averaged over time (entire run, no exclusions), averaged over L* = 35:60). This real data had been transformed from the recorded RGB values of achromatic matches into LMS values. It can be seen that there is a considerable difference between the simulated data and the real data (Figure \ref{fig:simVreal}). S-cone data shows the closest match, with the predicted peak at 460nm\footnote{Note that this is not at the peak sensitivity of s-cones (which would appear at 440nm for this dataset at 20nm intervals) but rather at the peak of the s-cone sensitivity function multiplied by the \gls{SPD}, as plotted in Figure \ref{fig:LSsimdata}.} being mirrored in the real data. This peak appears to bleed into the (real) M-cone data, and the simulated data for L and M-cone data shows very little correspondence to the collected data. Correlation coefficients between the simulated and this specific real dataset are 0.1399, -0.2509, 0.3164 for L, M and S respectively.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/simVreal.pdf}
@@ -211,22 +226,22 @@ However, it is unclear to what extent these relationships may arise due to limit
 
 Though there is a demonstrated ability of additional signals to improve the correlation with the real data, it would be a considerable leap to consider this as evidence for the existence of mechanisms operating in this manner.
 
-It is likely that any additional signal at a different wavelength (or even with a different frequency component) would have been able to deliver a higher correlation, since the data is noisy and through the random recombination we are functionally allowing every option to be tested. This is highly likely to result in over-fitting. One way to test whether this has occurred is to plot the contributions of the top performers from these situations (analogous to Figures \ref{fig:contributions_3} and \ref{fig:contributions_all}) and consider whether there are any trends. If the improvements are meaningful (rather than simply fitting to noise) we would be more likely to see trends in the optimal weightings. This is plotted in Figure \ref{fig:contributions_5}. It can be seen that there does appear to be some trends for both rods and \glspl{ipRGC}. Splitting this apart, into Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods}, where we plot the results for simulations run where only the rods were added or only the \glspl{ipRGC} were added, we can see these trends slightly more clearly.
+It is likely that any additional signal at a different wavelength (or even with a different frequency component) would have been able to deliver a higher correlation, since the data is noisy and through the random recombination we are functionally allowing every option to be tested. This is highly likely to result in over-fitting. One way to test whether this has occurred is to plot the contributions of the top performers from these situations (analogous to Figures \ref{fig:contributions_3} and \ref{fig:contributions_all}) and consider whether there are any trends. If the improvements are meaningful (rather than simply fitting to noise) we might expect to see trends in the optimal weightings. This is plotted in Figure \ref{fig:contributions_5}. It can be seen that there does appear to be some trends for both rods and \glspl{ipRGC}. Splitting this apart, into Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods}, where we plot the results for simulations run where only the rods were added or only the \glspl{ipRGC} were added, we can see these trends slightly more clearly.
 
 \begin{figure}[htbp]
-\includegraphics[max width=\textwidth]{figs/LargeSphere/contributions_5.pdf}
+\includegraphics[max width=0.9\textwidth]{figs/LargeSphere/contributions_5.pdf}
 \caption{As per Figure \ref{fig:contributions_3} but for the conditions where both rods and ipRGCs were included as additional input signals were considered.} 
 \label{fig:contributions_5}
 \end{figure}
 
 \begin{figure}[htbp]
-\includegraphics[max width=\textwidth]{figs/LargeSphere/contributions_4.pdf}
+\includegraphics[max width=0.9\textwidth]{figs/LargeSphere/contributions_4.pdf}
 \caption{As per Figure \ref{fig:contributions_3} but for the conditions where rods were included as additional input signals.} 
 \label{fig:contributions_4}
 \end{figure}
 
 \begin{figure}[htbp]
-\includegraphics[max width=\textwidth]{figs/LargeSphere/contributions_5minusrods.pdf}
+\includegraphics[max width=0.9\textwidth]{figs/LargeSphere/contributions_5minusrods.pdf}
 \caption{As per Figure \ref{fig:contributions_3} but for the conditions where ipRGCs were included as additional input signals.} 
 \label{fig:contributions_5minusrods}
 \end{figure}
