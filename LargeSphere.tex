@@ -52,7 +52,7 @@ The stimulus was controlled via a MATLAB script, which read the input of two sli
 
 The generation of random colours was achieved by modulating the nominal zero-point on each slider scale, where the default zero point is considered as 500, sampling from a uniform distribution between 250 and 750 for each presentation. 
 
-The slider position was then considered relative to this new zero-point, meaning that once an observer hit the button to confirm their selection, a new random colour, anchored to their previous selection (in a rough manner) would be presented. It should be noted that this new colour was not entirely independent of the previous selection.
+The slider position was then considered relative to this new zero-point, meaning that once an observer hit the button to confirm their selection, a new random colour, anchored to their previous selection (in a rough manner) would be presented. It should be noted that this new colour was not entirely independent of the previous selection, due to this anchoring.
 
 % \subsection{Data Collection}
 
@@ -60,17 +60,27 @@ The slider position was then considered relative to this new zero-point, meaning
 
 \subsection{Data Processing}
 
-Data were calibrated in the following manner: the recorded RGB values os the observers' selections were bounded (values above 1 or below 0 were brought within range, with an `absolute' rendering intent) and converted via look-up-table to \gls{CIE} 1931 XYZ tristimulus values. From these, xy chromaticities and CIELAB values were computed (with the white point of the display, as loaded from the characterisation file, used as the white reference).
+Data were calibrated in the following manner: the recorded RGB values of the observers' selections were bounded (values above 1 or below 0 were brought within range, with an `absolute' rendering intent), quantized to 8-bits, and converted via look-up-table to \gls{CIE} 1931 XYZ tristimulus values. From these, xy chromaticities and CIELAB values were computed (with the white point of the display, as loaded from the characterisation file, used as the white reference).
 
-A set of data referred to as the `baseline' data was generated, where there was no observer input, to consider the range of possible responses that an observer could make.
+A set of data referred to as the `baseline' data was generated, where there was no observer input, to consider the range of possible responses that an observer could make. This data was processed in exactly the same manner as the observer data, and is shown in Figure \ref{fig:overviewBL}, where it can be seen that the chromatic gamut increases as L* increases (due to a factor \texttt{cfac} in the display code which aimed to scale chromatic space with L*, mirroring the shape of CIELAB). It can also be seen that the gamut boundary is sometimes reached at higher levels of L*, with some of the vectors curving to remain within gamut.
 
-\hl{insert figure, once I work out what the standard reporting style is going to be.}
+\begin{figure}[htbp]
+\includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/baselinedataOverview.pdf}
+\caption{The baseline dataset. This data represents the condition where there is no observer input, and the two sliders are left at their maximum (1000), minimum (0), or neutral (500) positions (9 combinations). In the legend the first number denotes the slider A position, and the second denotes the slider B position.}
+\label{fig:overviewBL}
+\end{figure}
 
-Two distinct approaches were taken to data analysis. The first attempted to process the data in a chromatic space, with the reasoning that under the null condition chromatic selections should simply correspond to the chromaticity of the surround illuminants. If it were shown that this relationship was not as expected, in a manner which might suggest involvement by other mechanisms (meaning rods or \glspl{ipRGC}), then this could be considered as evidence against the null hypothesis.
+%The effect of the random offsetting was also queried, and it was found that the maximum random offset pushed the chromaticities halfway between \dots
 
-The second approach took advantage of the fact that measurements were taken at samples across the wavelength spectrum. Here the logic was that if the null condition were true, we should be able to fit a model to observer responses which only used cone-based inputs, and we could carefully consider the (presumed) benefit of including rods and \glspl{ipRGC} in the model. If either rod input or \gls{ipRGC} input were found to dramatically improve the model then this could be considered as evidence against the null hypothesis.
+Two distinct approaches were taken to data analysis. The first attempted to process the data in a chromatic space, with the reasoning that under the null condition chromatic selections should simply correspond to the chromaticity of the surround illuminants, presumably with some sort of gain function applied. If it were shown that this relationship was not as expected, in a manner which might suggest involvement by other mechanisms (meaning rods or \glspl{ipRGC}), then this could be considered as evidence against the null hypothesis.
+
+The second approach took advantage of the fact that measurements were taken at samples across the wavelength spectrum. Since we know the power at each waveband, and the spectral sensitivities of the receptors, we can see whether the responses (transformed to cone space) relate in some simple way to spectral sensitivities.
+
+%Here the logic was that if the null condition were true, we should be able to fit a model to observer responses which only used cone-based inputs, and we could carefully consider the (presumed) benefit of including rods and \glspl{ipRGC} in the model. If either rod input or \gls{ipRGC} input were found to dramatically improve the model then this could be considered as evidence against the null hypothesis.
 
 \section{Results}
+
+\subsection{Summary}
 
 Visually summarising the results for even a single observer is difficult due to the high number of variables and collected datapoints. In the following plots data is averaged over the 10 runs within each session (under each adapting wavelength). In Figures \ref{fig:overviewLM} - \ref{fig:overviewDG} data from LM, TR and the author (DG) is presented.
 
@@ -92,11 +102,30 @@ Visually summarising the results for even a single observer is difficult due to 
 \label{fig:overviewDG}
 \end{figure}
 
-It can be seen in the data for all observers that there is a clear L*-dependent shift. Interestingly, this appears to have a different effect on the different observers; the data of LM clusters tightly around [0,0] for low values of L* and then generally moves north-west as L* increases, whereas for TR the shift is south-west.
+It can be seen in the data for all observers that there is a clear L*-dependent shift. Interestingly, the precise nature of this seems different for each observer; the data of LM clusters tightly around [0,0] for low values of L* and then generally moves north-west as L* increases, before returning towards the origin at the highest values of L*. For TR the shift is monotonic and roughly south-west.
 
-Within this pattern it can be seen for observers LM and TR that there is a correspondence between the adapting wavelength and the selected chromaticity. This is most easily seen in the top right plots of Figures \ref{fig:overviewLM} and \ref{fig:overviewTR}. In the case of observer LM a rough figure-8 shape is seen, whereas for observer TR something closer to a circle or horseshoe is seen.
+Within this pattern it can be seen for observers LM and TR that there is a correspondence between the adapting wavelength and the selected chromaticity. This is most easily seen in the top right plots of Figures \ref{fig:overviewLM} and \ref{fig:overviewTR}. In both cases a rough circle can be seen for both of the values of L* shown.
 
 In Figure \ref{fig:overviewDG} is can be seen in the lower-right plot that the data splits into two distinct groups, one is which is considerably lower in b* than is seen for either of the previous observers, or would generally be expected. It is suspected that there was a screen calibration issue which led to offsetting of the screen output in an unpredictable session-by-session fashion. It was found that a basic offsetting applied selectively to those sessions which appeared to be affected could `correct' for this issue, but without a better understanding of the issue this dataset is considered unsuitable for further analysis.
+
+\subsection{Variability over time/repeats}
+
+Not represented in the above plots is the way in which responses varied over time within each session, averaged over L* (the previous plots were averages over time). Figures \ref{fig:timeLM} and \ref{fig:timeTR} show the calibrated CIELAB values for observers LM and TR. 
+
+L* should theoretically remain steady throughout, with minor differences introduced presumably due to differences between the screen and sRGB, 8-bit quantization, and any selections where a gamut boundary was reached. Both a* and b* follow the broad trends which would be expected given previous figures. Newly visible in these figures is the manner in which responses change over time. For both observers LM and TR the first two or three repeats seem to be distinct from the rest of the set, suggesting that adaptation had not yet reached a steady-state during this time.
+
+\begin{figure}[htbp]
+\includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/LMdataOverTime.pdf}
+\caption{CIELAB co-ordinates across time (repeat #). Top plot is L*, middle a* and lower b*.}
+\label{fig:timeLM}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/TRdataOverTime.pdf}
+\caption{As per Figure \ref{fig:timeLM}, but with the data of observer TR.}
+\label{fig:timeTR}
+\end{figure}
+
 
 \clearpage
 
