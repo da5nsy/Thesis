@@ -11,7 +11,7 @@ The goal of this experimental work was to examine the effect of different wavele
 
 Within a Ganzfeld viewing environment, illuminated by one of 16 different wavelengths of near-monochromatic light, observers performed an achromatic setting task, controlling the chromaticity of a display visible in the central field through a 4$^{\circ}$ circular aperture with two handheld sliders.
 
-\hl{Results:}
+Two different analyses were performed, with neither providing comprehensive support for rejecting the null hypothesis. However, it is noted that several assumptions are implicit in the experimental design, and that the experiment samples only a small region of the potential search space for melanopic input to adaptation (See Section \ref{sec:LSdis}).
 
 This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the authors academic supervisors), who initiated the experiment, and TR who was a student of LM's. The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it appeared that there had been a technical fault during this run of data collection, and my data was deemed corrupted. %This data is discussed further in Appendix X. %%%%%%%%
 Thus, my only contribution to this work is an extension to the data analysis started by LM, upon which I shall focus on in this chapter.
@@ -140,16 +140,16 @@ The CIELAB co-ordinates for the adapting fields were computed from the measureme
 \label{fig:adapter1}
 \end{figure}
 
-If the surround fully controlled adaptation, and observers were fully adapted, it would be expected that observers would select the chromaticity of the surround as their neutral chromaticity. It is unlikely that either of these statements is correct, but we would still expect selections to be impacted by the chromaticity of the surrounds to some extent. If we re-plot the selected L* values from the top-right sub-figures of Figures \ref{fig:overviewLM} and \ref{fig:overviewTR} atop the data of Figure \ref{fig:adapter1}, we can visualise the correspondence between the observer selections and the surrounds.
+If the surround fully controlled adaptation, and observers were fully adapted, it would be expected that observers would select the chromaticity of the surround as their neutral chromaticity. It is unlikely that either of these statements is correct, but we would still expect selections to be impacted by the chromaticity of the surrounds to some extent. If we re-plot the selected L* values from the top-right sub-figures of Figures \ref{fig:overviewLM} and \ref{fig:overviewTR} atop the data of Figure \ref{fig:adapter1}, we can visualise the correspondence between the observer selections and the surrounds\footnote{Note that the data of Figure \ref{fig:adapter1} is transformed for Figure \ref{fig:LMCompSurr}. The same measurements data was used for the surrounds, but the normalisation factor was different since the white point of the display was used when calculating CIELAB co-ordinates.}.
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/LargeSphere/LMcompareWithSurround.pdf}
+\includegraphics[max width=\textwidth]{figs/LargeSphere/LMcompareWithSurround.pdf}
 \caption{The CIELAB co-ordinates for the surround illuminants, relative to the white point used in the LM trials (black line), and the data from the top right sub-figure of Figure \ref{fig:overviewLM}, showing the CIELAB co-ordinates of the observer selections for 20 L* and 60 L* (dashed and dotted grey lines respectively).}
 \label{fig:LMCompSurr}
 \end{figure}
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/LargeSphere/TRcompareWithSurround.pdf}
+\includegraphics[max width=\textwidth]{figs/LargeSphere/TRcompareWithSurround.pdf}
 \caption{As per Figure \ref{fig:LMCompSurr} but for the data of TR.}
 \label{fig:TRCompSurr}
 \end{figure}
@@ -157,6 +157,8 @@ If the surround fully controlled adaptation, and observers were fully adapted, i
 For both observers we see that the pattern of responses corresponds very well to the pattern of the chromaticities of the surrounds. For both observers there is a scaling and offset but considering the L* dependent shifts seen previously, and the way in which isoluminant planes through CIELAB change shape with changing values of L* this is to be expected.
 
 Whilst there is some marked variation from a perfect replication of the surround CIELAB co-ordinates - for example the 500nm and 600nm points for LM, and the 520nm and 540nm points for TR, these variations seem to be in line with the level of noise in the responses, and attribution to a specific cause (such as melanopsin or rod input) cannot easily be achieved, since many variables are confounded.
+
+Based on this analysis I do not find sufficient evidence to reject the null hypothesis.
 
 % But luminance \dots
 
@@ -168,7 +170,7 @@ Whilst there is some marked variation from a perfect replication of the surround
 
 \subsection{Spectrum-based analysis}
 
-\textit{The code to reproduce the following analysis can be found at \url{https://github.com/da5nsy/LargeSphere/blob/master/Data\%20Analysis/VonKriesTest.m}}
+%\textit{The code to reproduce the following analysis can be found at \url{https://github.com/da5nsy/LargeSphere/blob/master/Data\%20Analysis/VonKriesTest.m}}
 
 The first stage of this analysis was to generate simulated data which represented the situation whereby there was only simple Von Kries adaptation. This was accomplished by multiplying the individual \glspl{SPD} (Figure \ref{fig:LSillum}) by the CIE 2006 10$^{\circ}$ observer fundamentals (not in the manner in which this is usually done, resulting in tristimulus values, but rather point-wise, thus retaining the spectral nature of the data). See Figure \ref{fig:LSsimdata}.
 
@@ -257,19 +259,17 @@ Further, it is not clear to what extent the gains exhibited in Table \ref{tab:pl
 \label{fig:relcontributions}
 \end{figure}
 
-\section{Discussion}
+\subsubsection{Spectrum-based Analysis Discussion}
 
-There is a clear distinction between the simple simulated response functions, and the recorded data. It is interesting that a simple linear recombination can improve the correlation so greatly. It should be remembered however that this type of post-hoc fitting is liable to delivering the results a researcher might hope to find. 
+There is a clear distinction between the simple simulated response functions, and the recorded data. It is interesting that a simple linear recombination can improve the correlation so greatly. It should be remembered however that this type of post-hoc fitting is liable to delivering whatever results a researcher might hope to find. 
 
 Taken at face value, the results seem to indicate that the principal drivers of adaptation are not at the cone level, but rather at a higher level, once cone inputs have been combined. The results mirror what might be expected of these higher level signals - there appears to be a single signal for L and M, roughly mirrored between the two, with a reciprocal trade-off possible between L and M for both, and the S cone signal takes positive weights for S, and negative weights for both L and M, but with a curious hint of a reciprocal trade-off between S and M.
 
 However, it is unclear to what extent these relationships may arise due to limitations of the experimental set-up; it is possible that a rise in one signal is yoked through hardware limitation to the rise or fall in another. Future investigators should consider whether this effect is modellable.
 
-\subsection{Additional Signals}
-
 Though there is a demonstrated ability of additional signals to improve the correlation with the real data, it would be a considerable leap to consider this as evidence for the existence of mechanisms operating in this manner.
 
-It is likely that any additional signal at a different wavelength (or even with a different frequency component) would have been able to deliver a higher correlation, since the data is noisy and through the random recombination we are functionally allowing every option to be tested. This is highly likely to result in over-fitting. One way to test whether this has occurred is to plot the contributions of the top performers from these situations (analogous to Figures \ref{fig:contributions_3} and \ref{fig:contributions_all}) and consider whether there are any trends. If the improvements are meaningful (rather than simply fitting to noise) we might expect to see trends in the optimal weightings. This is plotted in Figure \ref{fig:contributions_5}. It can be seen that there does appear to be some trends for both rods and \glspl{ipRGC}. Splitting this apart, into Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods}, where we plot the results for simulations run where only the rods were added or only the \glspl{ipRGC} were added, we can see these trends slightly more clearly.
+It is likely that any additional signal at a different wavelength (or even with a different frequency component) would have been able to deliver a higher correlation, since the data is noisy and through the random recombination we are functionally allowing every option to be tested. This is highly likely to result in over-fitting. One way to test whether this has occurred is to plot the contributions of the top performers from these situations (analogous to Figures \ref{fig:contributions_3} and \ref{fig:contributions_all}) and consider the apparent trends. This is plotted in Figure \ref{fig:contributions_5}. It can be seen that there does appear to be some trends for both rods and \glspl{ipRGC}. Splitting this apart, into Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods}, where we plot the results for simulations run where only the rods were added or only the \glspl{ipRGC} were added, we can see these trends slightly more clearly.
 
 \begin{figure}[htbp]
 \includegraphics[max width=0.9\textwidth]{figs/LargeSphere/contributions_5.pdf}
@@ -279,61 +279,54 @@ It is likely that any additional signal at a different wavelength (or even with 
 
 \begin{figure}[htbp]
 \includegraphics[max width=0.9\textwidth]{figs/LargeSphere/contributions_4.pdf}
-\caption{As per Figure \ref{fig:contributions_3} but for the conditions where rods were included as additional input signals.} 
+\caption{As per Figure \ref{fig:contributions_3} but for the conditions where rods alone were included as additional input signals.} 
 \label{fig:contributions_4}
 \end{figure}
 
 \begin{figure}[htbp]
 \includegraphics[max width=0.9\textwidth]{figs/LargeSphere/contributions_5minusrods.pdf}
-\caption{As per Figure \ref{fig:contributions_3} but for the conditions where ipRGCs were included as additional input signals.} 
+\caption{As per Figure \ref{fig:contributions_3} but for the conditions where ipRGCs alone were included as additional input signals.} 
 \label{fig:contributions_5minusrods}
 \end{figure}
 
-Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods} appear somewhat similar. Considering the similar spectral characteristics of rods and melanopsin, it should be expected that the model would use the signals in somewhat similar fashions. It appears as though neither have a particularly strong role to play in the L and M adaptation, however both seem to reliably be used as a negative weighting for S. It is unclear whether this is simply a response to a single high datapoint in this dataset (the peak at 460nm) or whether this integration serves a broader purpose. This peak at 460nm also seems to be the cause for the stubbornly low correlation coefficients for the S channel (compared to L and M), which max out at around 0.81 (see Figure \ref{fig:relcontributions}). 
-
-\clearpage
+Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods} appear somewhat similar. Considering the similar spectral characteristics of rods and melanopsin, it should be expected that the model would use the signals in somewhat similar fashions. It appears as though neither have a particularly strong role to play in the L and M adaptation, however both seem to reliably be used as a negative weighting for S. It is unclear whether this is simply a response to a single high datapoint in this dataset (the peak at 460nm) or whether this integration serves a broader purpose. This peak at 460nm also seems to be the cause for the stubbornly low correlation coefficients for the S channel (compared to L and M), which max out at around 0.81 (see Figure \ref{fig:relcontributions}).
 
 \section{Conclusion}
 
 Two methods of analysis for the \citet{macdonald_chromatic_2013} data are presented here.
 
-The first analysis \dots
+The chromaticity-based analysis showed that there was a strong correspondence between the patterns of the chromaticities of the adapting fields and the pattern of responses. There were a small number of outliers, which could plausibly be due to additional inputs to the adaptive process, however these outliers were in line with the amount of noise in the data, and confounded by many other variables and sources of noise. This analysis provides no basis for rejecting the null hypothesis.
 
-The second analysis showed that the results for one observer could not be well fitted by a simple model of Von-Kries-type observer, but that simple linear combinations of the responses of such an observer could be made to fit the recorded data very well. Though the ability of these fits is to be expected from this type of post-hoc fitting, the types of models which are predicted by the fitting align well with our understanding of post-receptoral signals, which gives us confidence that we may be measuring adaptation at these levels. It would be particularly valuable to see whether the temporal nature of responses also aligned with our understanding of the timecourses of these different signals. 
+The spectrum-based analysis showed that the results for one observer could not be well fitted by a simple model of Von-Kries-type observer, but that simple linear combinations of the responses of such an observer could be made to fit the recorded data very well. Though the ability of these fits is to be expected from this type of post-hoc fitting, the types of models which are predicted by the fitting align well with our understanding of post-receptoral signals, which suggests that we may be measuring adaptation at these levels. It would be particularly valuable to see whether the temporal nature of responses also aligned with our understanding of the timecourses of these different signals. It should be noted that this result could be due to the nature of the experimental set-up; observers were unable to modulate the cone activations directly. For example, to make the stimulus more green, the observer would inherently have to make it less red. It is plausible that this may account for the relationships seen in this analysis.
+
 The second analysis further showed that integration of the simulated rod and melanopic signals provide additional value in fitting the data. Again, this is to be expected from this type of fitting. The minimal improvement delivered by the inclusion of rod and melanopic signals does not furnish me with strong enough evidence to reject the null hypothesis that chromatic adaptation can be fully accounted for by cone and rod mechanisms. 
-
 
 \subsection{Limitations}
 
 Several limitations have been identified with this experimental design which should be borne in mind when analysing this dataset, or planning similar experiments.
 
 \begin{itemize}
-\item How much noise? Repeat sessions.
-\item Input imprecision - limits detectable effect sizes.
-\item Difficult to say what is biological and what is mechanical.
-\item Only trichromatic control, unclear when two effects seems correlated whether it is biological or mechanical.
-\item Assumptions about cross-retinal adaptation.
-\item Masked by correlation within sessions - difficult to separate. Self - correlation. DG data - following red.
-\item Low spectral resolution.
-\item Gamut boundary issues.
+\item Other research \hl{[REF]} has indicated that melanopsin is inactive below moderate light levels. The light levels in this experiment were very low \hl{[info]}, and so it is unclear whether we might expect to see melanopsin activation, and thus any melanopic interaction to adaptation, at these levels.
+\item The light levels were different for each condition. Presumably a stronger adapting illuminant might have a stronger adaptive effect, but it is unclear what how this might manifest (faster? more chromatic neutral point?) and what the underlying relationship may be. It would be tempting to match the adapting surrounds for luminance, or radiant power, but neither of these solutions provide genuine equality across conditions (when matching for luminance almost no level of 400nm radiation would be able to match the luminance at other wavelengths, and there is no reason that radiant power should directly translate to adaptive effect).
+\item This experimental paradigm requires the assumption that adapting one part of the retina (the periphery) has an effect upon the adaptive state of another part (the fovea). This assumption is implicit in all chromatic adaptation models, but to some extent we know this to be incorrect - consider for example spatially locked after-images. See also the previous work of \citet{macadam_chromatic_1956} where two halves of the retina were explicitly adapted differently.
+\item This method provides very noisy data, and it is difficult to average over any of the nominal `repeat' conditions since every variable seems to have a non-negligible effect, and none of these effects appear to be easily modellable. The inherent noise in this data collection methods places heavy limits on the scale of detectable effect sizes.
+\item It is difficult to distinguish effects that indicate a biological conclusion and those which arise due to experimental limitations. For example, in the spectrum-based analysis it was unclear whether an increase in one sensor activation was required to make a match, or whether it was simply yokes to a decrease in another by the restraints placed upon the response space.
+\item It appears that there is a strong correlation between an observer's match and their previous match. It is unclear whether this is due to the fact that the new `random' starting condition is centred upon the previous selection, or whether this is a foveal adaptive effect.
+\item The spectral resolution is relatively low for analyses such as the spectrum based analysis. However, increasing the resolution would probably be an unrealistic goal, considering the amount of required observer time.
+\item There were limited gamut boundary issues.
 \end{itemize}
 
 
 \subsection{Further Work}
 
-The dataset collected by \citet{macdonald_chromatic_2013} may only comprise data from two observers, but it is vastly broad and interesting data which may serve valuable to those interested in chromatic adaptation and colour constancy. Various further analyses are envisioned:
+This dataset may only comprise data from two observers, but it is broad and may serve valuable to those interested in chromatic adaptation and colour constancy. Various further analyses are envisioned:
 \begin{itemize}
-    \item As previously mentioned, there would likely to value in the modelling of the potential response space of an observer on this task, and the interaction the types of analyses performed here.
+    \item As previously mentioned, there would likely to value in the further modelling of the potential response space of an observer on this task, and the interaction the types of analyses performed here.
     \item It would be interesting to consider non-linear adaptation responses. This may better account for the data at the extremes of the wavelength range where luminance was very low.
     \item The temporal dimension of the data is not considered either of the analyses presented here, but the code for the second analysis has been written in such a way that it should be relatively easy to implement. Considering the different expected time courses for adaptation for cones/rods/\glspl{ipRGC} this may serve to be a fruitful avenue.
-    \item other observer %%
-    \item correct for luminance dependent effects to be able to reduce noise / relax bounds on included data. %%
-    \item observers %%
-    \begin{itemize}
-    \item better observer models incorporating age %%
-    \item different observer for central and peripheral %%
-    \item sharpened cone spectra - but, careful
-    \end{itemize}
+    \item It would be valuable to collect data for more observers, ideally under conditions where the white point of the display was matched between observers, in order to understand what effects are robust across observers.
+    \item If the L* dependent effects could be accounted for, then averaging over the entire range of L* could be implemented, which would theoretically reduce noise, and improve the ability of an investigator to make conclusions from a chromaticity-based analysis.
+    \item For the spectrum-based analysis, currently only a single model observer is used (Stockman-Sharpe 10deg). It would be possible, and more correct to use specific observers relating to actual ages and visual fields. It may also be possible to use sharpened spectral sensitivities (see \citet{finlayson_spectral_1994}), though this would need to be done particularly carefully, considering the already large potential for overfitting.
 \end{itemize}
 
 
