@@ -132,7 +132,7 @@ L* should theoretically remain steady throughout, with minor differences introdu
 
 \subsection{Chromaticity-based analysis}
 
-The CIELAB co-ordinates for the adapting fields were computed from the measurements shown in Figure \ref{fig:LSillum}, relative to the white point of the display, and are presented in Figures \ref{fig:adapter1} and \ref{fig:adapter2}. 
+The CIELAB co-ordinates for the adapting fields were computed from the measurements shown in Figure \ref{fig:LSillum}, relative to the white point of the display for observer TR, and are presented in Figure \ref{fig:adapter1}. 
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/adapter1.pdf}
@@ -140,17 +140,31 @@ The CIELAB co-ordinates for the adapting fields were computed from the measureme
 \label{fig:adapter1}
 \end{figure}
 
+If the surround fully controlled adaptation, and observers were fully adapted, it would be expected that observers would select the chromaticity of the surround as their neutral chromaticity. It is unlikely that either of these statements is correct, but we would still expect selections to be impacted by the chromaticity of the surrounds to some extent. If we re-plot the selected L* values from the top-right sub-figures of Figures \ref{fig:overviewLM} and \ref{fig:overviewTR} atop the data of Figure \ref{fig:adapter1}, we can visualise the correspondence between the observer selections and the surrounds.
+
 \begin{figure}[htbp]
-\includegraphics[max width=\textwidth]{figs/LargeSphere/adapter2.pdf}
-\caption{As per Figure \ref{fig:adapter1}, but different perspectives upon the three-dimensional CIELAB space.}
-\label{fig:adapter2}
+%\includegraphics[max width=\textwidth]{figs/LargeSphere/LMcompareWithSurround.pdf}
+\caption{The CIELAB co-ordinates for the surround illuminants, relative to the white point used in the LM trials (black line), and the data from the top right sub-figure of Figure \ref{fig:overviewLM}, showing the CIELAB co-ordinates of the observer selections for 20 L* and 60 L* (dashed and dotted grey lines respectively).}
+\label{fig:LMCompSurr}
 \end{figure}
 
-If we were to assume a very basic adaptive system, and the full validity of CIELAB as a model of visual processing, then we might expect to see something which mirrors this pattern. Observer TR's data exhibits a trend roughly similar to this; a roughly circular plot in the top right of Figure \ref{fig:overviewTR}.
+\begin{figure}[htbp]
+%\includegraphics[max width=\textwidth]{figs/LargeSphere/TRcompareWithSurround.pdf}
+\caption{As per Figure \ref{fig:LMCompSurr} but for the data of TR.}
+\label{fig:TRCompSurr}
+\end{figure}
 
-Observer LM's data however, does not resemble this pattern. %DG's data, well, the less said the better.
+For both observers we see that the pattern of responses corresponds very well to the pattern of the chromaticities of the surrounds. For both observers there is a scaling and offset but considering the L* dependent shifts seen previously, and the way in which isoluminant planes through CIELAB change shape with changing values of L* this is to be expected.
 
-Considering that there is a clear L*-dependent shift in chosen chromaticities (though I don't know how much of this is dependent upon the chroma shift added to the stimulus with the experiment, and I don't know how much the different in results is due to the different white points for the two observers).
+Whilst there is some marked variation from a perfect replication of the surround CIELAB co-ordinates - for example the 500nm and 600nm points for LM, and the 520nm and 540nm points for TR, these variations seem to be in line with the level of noise in the responses, and attribution to a specific cause (such as melanopsin or rod input) cannot easily be achieved, since many variables are confounded.
+
+% But luminance \dots
+
+% \begin{figure}[htbp]
+% \includegraphics[max width=\textwidth]{figs/LargeSphere/adapter2.pdf}
+% \caption{As per Figure \ref{fig:adapter1}, but different perspectives upon the three-dimensional CIELAB space.}
+% \label{fig:adapter2}
+% \end{figure}
 
 \subsection{Spectrum-based analysis}
 
