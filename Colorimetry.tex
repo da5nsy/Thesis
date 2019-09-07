@@ -1,10 +1,10 @@
 \subsection{Colorimetry}
 
-\textit{The current recommended source for colorimetry is \gls{CIE} document `\gls{CIE} 015:2018'\citep{cie_cie_2018}\footnote{Though as \citet{fairchild_cie_2019} notes, this document is `expensive and somewhat difficult to find', and as such I have been using a draft of the now superseded `\gls{CIE} 15.3:2004'\citep{cie_cie_2004-2} as my personal guide.}. Whlist this is the authoritative reference, my personal opinion is that an understanding of colorimetry of \gls{CIE} colorimetry is best gained from an understanding of it's history, and for this I recommend Janos Schanda's book `Colorimetry: Understanding the \gls{CIE} System'\citep{schanda_colorimetry_2007}.}
+\textit{The current recommended source for colorimetry is \gls{CIE} document `\gls{CIE} 015:2018'\citep{cie_cie_2018}\footnote{Though as \citet{fairchild_cie_2019} notes, this document is `expensive and somewhat difficult to find', and as such I have been using a draft of the now superseded `\gls{CIE} 15.3:2004'\citep{cie_cie_2004-2} as my personal guide. All equations listed in this chapter come from this source.}. Whilst this is the authoritative reference, my personal opinion is that an understanding of \gls{CIE} colorimetry is best gained from an understanding of its history, and for this I recommend Janos Schanda's book `Colorimetry: Understanding the \gls{CIE} System'\citep{schanda_colorimetry_2007}.}
 
 \bigskip
 
-Colorimetry is the study of the quantitative specification of colour. As a subjective, internal and anthropocentric concept, in order to measure anything meaningful and comparable, we use a standard observer, or more precisely, one of a number of defined standard observers \cite{cie_bs_2011}.
+I define `colorimetry' as the study of the quantitative specification of colour. As a subjective, internal and anthropocentric concept, in order to measure anything meaningful and comparable, we use a standard observer, or more precisely, one of a number of defined standard observers \cite{cie_bs_2011}.
 
 The classic standard observer was defined by the \gls{CIE} in 1931, following experiments by Wright and Guild \cite{wright_re-determination_1929, guild_colorimetric_1931}. Despite several more recently published standard observers, the 1931 observer is still much used, and I shall use it in the following example of how a basic colorimetric computation is performed.
 
@@ -13,7 +13,7 @@ The classic standard observer was defined by the \gls{CIE} in 1931, following ex
 \glsreset{CMF}
 \glsreset{SSF}
 
-An illuminant is defined by its \gls{SPD}, a surface as it's \gls{SRF}, and a the sensitivity of a sensor (such as a photosensitive cell in the retina, or a pixel in a camera) by its \gls{CMF} (or in the case that biologically based measurements are used - the \gls{SSF}).
+An illuminant is defined by its \gls{SPD}, a surface by its \gls{SRF}, and the sensitivity of a sensor (such as a photosensitive cell in the retina, or a pixel in a camera) by its \gls{CMF} (or in the case that biologically based measurements are used - the \gls{SSF}).
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/SPDetc.pdf}
@@ -28,7 +28,9 @@ The light reaching the eye for a given reflecting surface under a given illumina
 \phi(\lambda)=R(\lambda) \cdot S(\lambda)
 \end{equation}
 
-where $R(\lambda)$ is the \gls{SRF}, $R(\lambda)$ is the \gls{SPD} and $\phi(\lambda)$ is the resulting colour signal. From this a set of values termed `tristimulus values' may be computed. Tristimulus values are computed by multiplying the colour signal by the \glspl{CMF} or \glspl{SSF}, and following the principle of univariance (that each cone type cannot alone distinguish between different wavelengths) the tristimulus values can, to some extent, be thought of as containing the entirety of the chromatic information about a surface (excluding high level colour appearance phenomena predicted by \Glspl{CAM}, and properties such as gloss).
+where $R(\lambda)$ is the \gls{SRF}, $S(\lambda)$ is the \gls{SPD} and $\phi(\lambda)$ is the resulting colour signal. From this a set of values termed `tristimulus values' may be computed. Tristimulus values are computed by multiplying the colour signal by the \glspl{CMF} or \glspl{SSF}, and following the principle of univariance (that each cone type cannot alone distinguish between different wavelengths) the tristimulus values can, to some extent, be thought of as containing the entirety of the chromatic information about a surface (excluding high level colour appearance phenomena predicted by \Glspl{CAM}, and properties such as gloss).
+
+%KC: make sure these equations are on the same page as the explanation 
 
 \begin{subequations}
 \begin{align}
@@ -121,8 +123,8 @@ v^{*} &= 13L^{*}(v'-v'_{n})
 where $Y_{n}$, $u'_{n}$ and $v'_{n}$ refer to the colour stimulus of a perfect reflector. The same data presented in Figures \ref{fig:1931} and \ref{fig:UCS} is presented in CIELUV in Figure \ref{fig:CIELUV} (though of course the three-dimensional quality of the data is somewhat lost in this presentation). 
 
 \begin{figure}[hbtp]
-\includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo4.pdf}
-\caption{A representation of CIELUV, showing the values for the macbeth colour checker patches under D65 (as in Figure \ref{fig:1931} and \ref{fig:UCS}). Note that if viewed from above, the distribution of points would appear similar to as in Figure \ref{fig:UCS}. If all of the points were of uniform L*, then the distribution would be identical, only with different scaling.}
+\includegraphics[max width=0.8\textwidth]{figs/LitRev/ColorimetryDemo4.pdf}
+\caption{A representation of CIELUV, showing the values for the macbeth colour checker patches under D65 (as in Figure \ref{fig:1931} and \ref{fig:UCS}). Note that if viewed from above, the distribution of points would appear similar to as in Figure \ref{fig:UCS}. If all of the points were of uniform L*, then the distribution would be identical, only with different scaling and offsetting.}
 \label{fig:CIELUV}
 \end{figure}
 
@@ -153,7 +155,7 @@ S_{\text{MB}}&=k_{s} \sum_{\lambda} \phi(\lambda) \overline{s}(\lambda) \Delta \
 \label{eq:MBTristim}
 \end{subequations}
 
-where $k_{l}$ = 0.68990272, $k_{m}$ = 0.34832189, $k_{s}$ = 0.03715971. This set differs minimally but purposefully from Equation \ref{eq:XYZ}; in the choice of observer ($\overline{lms}$), and in the use of different scaling factors for each tristimulus value. The different scaling values dictate the relative contributions of $L_{\text{MB}}$ and $M_{\text{MB}}$ to luminance, and constrict $s_{\text{MB}}$ to a maximum value of 1. \gls{MB} chromaticity values are then calculated as follows:
+where $k_{l}$ = 0.68990272, $k_{m}$ = 0.34832189, $k_{s}$ = 0.03715971. This set differs minimally but purposefully from Equation \ref{eq:XYZ}; in the choice of observer ($\overline{lms}$), and in the use of different scaling factors for each tristimulus value. The different scaling values dictate the relative contributions of $L_{\text{MB}}$ and $M_{\text{MB}}$ to luminance, and constrict $s_{\text{MB}}$ to a maximum value of 1 in the following equation (Equation \ref{eq:MB}). \gls{MB} chromaticity values are then calculated as follows:
 
 \begin{subequations}
 \begin{align}
@@ -173,11 +175,11 @@ Whereas the relationship between the axes of previous colour spaces was importan
 
 \subsubsection{Correlated Colour Temperature}
 
-The \acrfull{CCT} of an illuminant describes the chromaticity of a light source on a one dimensional axis roughly from blue to yellow, based on the apparent chromaticity of a black body radiator at differing temperatures. Figure \ref{fig:BBR} shows the curve formed in chromaticity space by a set of black body radiators of different temperatures. It is worth noting that most real light sources fall upon the relatively straight section of the left-hand part of this line.
+The \acrfull{CCT} of an illuminant describes the chromaticity of a light source on a one dimensional axis roughly from blue to yellow, based on the apparent chromaticity of a black body radiator at differing temperatures. Figure \ref{fig:BBR} shows the curve formed in \gls{CIE} 1931 chromaticity space by a set of black body radiators of different temperatures. It is worth noting that most real light sources fall upon the relatively straight section of the left-hand part of this line.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/BBR.pdf}
-\caption{The black body radiator curve on a CIE 1931 chromaticity chart, highlighting \glspl{CCT} of 1000K, 6500K and 10000K.}
+\caption{The black body radiator curve on a \gls{CIE} 1931 chromaticity chart, highlighting \glspl{CCT} of 1000K, 6500K and 10000K.}
 \label{fig:BBR}
 \end{figure}
 
