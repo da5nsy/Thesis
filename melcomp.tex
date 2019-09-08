@@ -55,6 +55,10 @@ This chapter will describe the computational investigation and accompanying thou
 
 \section{Data sources}
 
+\input{ColData.tex}
+
+\subsection{Chosen Data sources}
+
 Foundational data consisting of 
 a subset\footnote{Every 20th value (130 of total 2600), to reduce compute time, and increase legibility of plots.} of the Granada daylight dataset 
 \citep{hernandez-andres_color_2001}\footnote{Data: \url{http://colorimaginglab.ugr.es/pages/Data\#__doku_granada_daylight_spectral_database}},
@@ -66,7 +70,7 @@ and a subset\footnote{10 surfaces were chosen from the Vrhel dataset, with a rou
 of the reflectances of \citet{vrhel_measurement_1994}\footnote{Available as `sur\_vrhel' in \gls{PTB}.}
 were used.
 
-Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ (as per standard tristumulus values but using the melanopsin fundamental, see Equation \ref{eg:iMB}) were computed as per Equation \ref{eq:MBTristim} for each illuminant. A real-world version of this would be to measure a spectralon tile (or other uniformly reflective surface) under each daylight condition. Tristimulus values were then computed for each surface under each illuminant.
+Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ (as per standard tristumulus values but using the melanopsin fundamental, see Equation \ref{eq:iMB}) were computed as per Equation \ref{eq:MBTristim} for each illuminant. A real-world version of this would be to measure a spectralon tile (or other uniformly reflective surface) under each daylight condition. Tristimulus values were then computed for each surface under each illuminant.
 
 \gls{MB} chromaticity co-ordinates were calculated, for both illuminant alone and for each surface under each illuminant, as per Equation \ref{eq:MB}\footnote{Note to assist in the reading of associated code: the normalising factors $k$ were applied during the Equation \ref{eq:MB} rather than Equation \ref{eq:MBTristim}.} The \gls{MB} chromaticities are plotted in Figure \ref{fig:MB}. 
 
@@ -123,7 +127,7 @@ There is an almost bimodal relationship; all that can be gained from this relati
 Following this, similar plots were made which plotted $l_{\text{MB}}$ against $s_{\text{MB}}$ as before, but now plotted the various second-level combinations of $[L,M,S,I]$, created by considering one signal divided by another (e.g. $L/M$), on the z-axis. These plots are shown in Figure \ref{fig:allComboSignals}. The plots created all showed clear and relatively simple relationships between chromaticity and these new derived signals, at least for the illuminant-only values. 
 
 \begin{figure}
-\includegraphics[max width=1.\textwidth]{figs/comp/predictingChromaticity/allComboSignals.pdf}
+\includegraphics[max width=0.8\textwidth]{figs/comp/predictingChromaticity/allComboSignals.pdf}
 \caption{Relationship between chromaticity and second-level signals. Plotted on the x-axis here is $l_{\text{MB}}$, with second-level signals on the apparent y-axis. During analysis these plots were three dimensional, with the apparent y-axis being a z-axis and the x-axis joined by a y-axis of $s_{\text{MB}}$. As before, black points indicate direct illuminant values, with coloured values corresponding to surface reflectances (though the colours do not relate the surfaces other than to distinguish one from another). It can be seen that on a per object basis (incl. no object) there is good correlation between chromaticity and all of the above signals. A similar relationship holds for the $s_{\text{MB}}$ perspective.}
 % See gifs online at...
 \label{fig:allComboSignals}
@@ -159,7 +163,7 @@ Each surface will reflect different parts of the spectrum, meaning that this sam
 For many of these signals however, such relationships are likely to arise solely from the manner in which each signal is constructed\footnote{My thanks go to Manuel Spitschan for convincing me of this point.}. For example, a relationship between $l_{\text{MB}}$ and $L/M$ might be expected, since $l_{\text{MB}}$ is defined as $L$ divided by the sum of weighted components of $L$ and $M$ (Equation \ref{eq:MB}). To confirm this, a control condition was performed, where $[L,M,S,I]$ was replaced by randomly generated values, and the second-level signals were generated as before. The results can be seen in Figure \ref{fig:allComboSignals_rand}. Relationships between secondary signals derived from $L$, $M$ or $S$ signals still showed correlations with chromaticity (albeit now points fell on a plane, instead of a line), whereas signals with an $I$ component showed only minimal coherence, forming a noisy cloud in three-dimensional space. 
 
 \begin{figure}
-\includegraphics[max width=1.2\textwidth]{figs/comp/predictingChromaticity/allComboSignals_rand.pdf} 
+\includegraphics[max width=0.8\textwidth]{figs/comp/predictingChromaticity/allComboSignals_rand.pdf} 
 \caption{As per \ref{fig:allComboSignals} but where $[L,M,S,I]$ was replaced by randomly generated values, and the second-level signals were generated from these instead of real values. Blue is used to distinguish this random data from previous real data. Note that different rotations have been applied to some of the subplots to best display the correlations.}
 \label{fig:allComboSignals_rand}
 \end{figure}
@@ -181,10 +185,6 @@ To summarise this section:
     \item Some of these correlations appear to be nothing more than computational artefacts (\emph{Figure \ref{fig:allComboSignals_rand}}). Notably, the melanopic second-level signals did not seem to be such artefacts.
 \end{enumerate}
 
-\clearpage
-
-
-% -----------------------------------------%
 \section{Transformation to an illuminant-independent space}
 
 Whilst estimating the chromaticity of the illuminant is one way in which colour constancy might be achieved, it is also possible that some transformation might exist which delivers signals into an illuminant-independent space but which doesn't explicitly depend upon an estimate of the chromaticity of the illuminant.
@@ -303,12 +303,7 @@ To summarise this section:
     \item It was found that when the melanopic value was replaced by signals generated from different spectral sensitivities, some hypothetical signals appeared to be more successful than a melanopic value. These signals performed very well by the metric of whole-set standard deviation, but in practice would make very poor corrective signals due to the reduced discriminability between surfaces. \emph{Figure \ref{fig:590}}
 \end{enumerate}
 
-\clearpage
 
-
-
-
-% -----------------------------------%
 \section{Assessment of colour constancy algorithms}
 
 The basic mechanism of an additive/subtractive model of melanopic colour constancy seems worthy of further scrutiny. However, we have seen that care is required in defining what is considered successful performance for a colour constancy algorithm. Broadly speaking, we would like our algorithm to be judged on its ability to allow for \emph{recognition} (reliably remapping points from a specific surface to a specific point in appearance space) and \emph{discrimination} (creating distinct representations of different surfaces)\footnote{The ideal colour constancy algorithm would distinguish between all spectrally distinct surfaces, no matter how minor their distinctions. However, here we are more interested in uncovering a mechanism which may be used by the human visual system, and so it seems sensible to limit the requirement to separation of surfaces which would generally be seen as chromatically distinct.}.
@@ -350,19 +345,16 @@ To test/demonstrate such a procedure, let us consider the plots from Figure \ref
 Before the k-means clustering algorithm was applied, data were again zero-meaned (no effect on algorithm, only neatens later presentation) and normalised by standard deviation (medium/large effect on algorithm, resulting in equal weights given to variance in either dimension of \gls{MB} space).
 
 \begin{figure}[htbp]
- \includegraphics[max width=\textwidth]{figs/comp/KMeansMarkDemo/1.pdf}
+ \includegraphics[max width=0.8\textwidth]{figs/comp/KMeansMarkDemo/1.pdf}
  \caption{The data of Figure \ref{fig:corrected}, plotted with colours indicating the groupings chosen by a k-means clustering procedure. Note that the colours do not relate to appearance of surfaces, they are only to indicate groupings. Note also that these colours do not correspond to colours used in the previous figure; the k-means-mark algorithm is not interested in the absolute labelling of groups, rather whether all members from group X have been sorted into group Y etc.)}
  \label{fig:KM1}
 \end{figure} 
 
 \begin{figure}[htbp]
- \includegraphics[max width=\textwidth]{figs/comp/KMeansMarkDemo/2.pdf}
+ \includegraphics[max width=0.8\textwidth]{figs/comp/KMeansMarkDemo/2.pdf}
  \caption{The data of Figure \ref{fig:590}, plotted with colours indicating the groupings chosen by a k-means clustering procedure.}
  \label{fig:KM2}
 \end{figure} 
-
-\clearpage
-
 
 % ------------------------- %
 
