@@ -8,7 +8,7 @@
 
 \section{Summary}
 
-A computational study was performed to explore whether a melanopsin signal would be useful for colour constancy in a real world environment, and to reduce the search space for future psychophysical experiments. This research was exploratory in nature (as opposed to confirmatory) with the goal being a furthering of our understanding of the problem and generation of hypotheses, rather than the confirming of specific hypotheses \citep{steinle_entering_1997}.
+A computational study was performed to explore whether a melanopsin signal would be useful for colour constancy in a real world environment, and to reduce the search space for future psychophysical experiments. This research was exploratory in nature (as opposed to confirmatory) with the goal being a furthering of our understanding of the problem and generation of hypotheses, rather than the confirmation of specific hypotheses \citep{steinle_entering_1997}.
 
 It was found that an additional receptor with a spectral sensitivity different from that of the cone receptors was able to deliver a signal which could effectively be used to transform input signals to an illuminant-independent space. 
 
@@ -133,12 +133,12 @@ A similar trend was seen for each individual surface as was seen for illuminant-
 
 \subsection{A PCA interpretation}
 
-These results seem to make intuitive sense if we consider the daylight dataset from a \gls{PCA} perspective%\footnote{Note that weighting within the \gls{PCA} was given as following the outsides of the spectral sensitivity curves of s-cones and l-cones (both normalised to unity), and unity between their peaks. For a further discussion of this fiddly topic see \citet{maloney_evaluation_1986}.}
+These results seem to make intuitive sense if we consider the daylight dataset from a \gls{PCA} perspective (Figure \ref{fig:PCA})%\footnote{Note that weighting within the \gls{PCA} was given as following the outsides of the spectral sensitivity curves of s-cones and l-cones (both normalised to unity), and unity between their peaks. For a further discussion of this fiddly topic see \citet{maloney_evaluation_1986}.}
 . For this dataset \gls{PC1} is broad and relatively smooth, and accounts for 99.888\% of the variance, and so a first-level signal in any part of the spectrum is going to essentially track this component. 
 
 \begin{figure}[htbp]
- \includegraphics[max width=\textwidth]{figs/comp/melcomp_3/8.png} %legend required
- \caption{The first 3 principal components for the Granada daylight dataset, after weighting to prioritise the visible spectrum. PC1 is in blue, PC2 in red and PC3 in yellow. These first three components account for 99.888\%, 0.077\% and 0.015\% of variance respectively.}
+ \includegraphics[max width=\textwidth]{figs/comp/melcomp_3/PC.pdf} %legend required
+ \caption{The first 3 principal components for the Granada daylight dataset. These first three components account for 99.888\%, 0.077\% and 0.015\% of variance respectively.}
  \label{fig:PCA}
 \end{figure} 
 
@@ -156,7 +156,7 @@ Each surface will reflect different parts of the spectrum, meaning that this sam
 
 \subsection{Relationships as artefacts}
 
-For many of these signals however, such relationships are to be expected\footnote{My thanks go to Manuel Spitschan for convincing me of this point.}. For example, a relationship between $l_{\text{MB}}$ and $L/M$ should be expected, since $l_{\text{MB}}$ is defined as the sum of weighted components of $L$ and $M$. To confirm this, a control condition was performed, where $[L,M,S,I]$ was replaced by randomly generated values, and the second-level signals were generated as before. The results can be seen in Figure \ref{fig:allComboSignals_rand}. Relationships between secondary signals derived from $L$, $M$ or $S$ signals still showed correlations with chromaticity (albeit now points fell on a plane, instead of a line), whereas signals with a $I$ component showed only minimal coherence, forming a noisy cloud in three-dimensional space. This implies that should the melanopic signals correlate with chromaticity, that this is not simply a computational artefact of the way in which chromaticity is calculated.
+For many of these signals however, such relationships are likely to arise solely from the manner in which each signal is constructed\footnote{My thanks go to Manuel Spitschan for convincing me of this point.}. For example, a relationship between $l_{\text{MB}}$ and $L/M$ might be expected, since $l_{\text{MB}}$ is defined as $L$ divided by the sum of weighted components of $L$ and $M$ (Equation \ref{eq:MB}). To confirm this, a control condition was performed, where $[L,M,S,I]$ was replaced by randomly generated values, and the second-level signals were generated as before. The results can be seen in Figure \ref{fig:allComboSignals_rand}. Relationships between secondary signals derived from $L$, $M$ or $S$ signals still showed correlations with chromaticity (albeit now points fell on a plane, instead of a line), whereas signals with an $I$ component showed only minimal coherence, forming a noisy cloud in three-dimensional space. 
 
 \begin{figure}
 \includegraphics[max width=1.2\textwidth]{figs/comp/predictingChromaticity/allComboSignals_rand.pdf} 
@@ -164,7 +164,9 @@ For many of these signals however, such relationships are to be expected\footnot
 \label{fig:allComboSignals_rand}
 \end{figure}
 
-This example shows that if a melanopic signal exhibits correlation with a chromatic signal \emph{not} due to the underlying mathematics of how chromaticity is calculated, and that any relationship must follow from a genuine regularity in the data.
+The fact that the relationship between chromaticity and second-level signals degrades for a melanopsin-based second-level signal but not for a cone-based second-level signal, when data is replaced with randomly generated noise, suggests that whilst the relationships in the cone-based cases may arise simply due to the mathematical similarity between the calculation of chromaticity and second-level signals, this is not the case for the melanopsin-based second-level signals. 
+
+Considering that relationships between the melanopsin-based second-level signals and chromaticity do seem to exist (Figure \ref{fig:allComboSignals}), one must conclude that there is a regularity in the data which allows for such a relationship to be revealed.
 
 \bigskip
 \noindent
@@ -464,7 +466,7 @@ scenes 1-5 of the
 hyperspectral reflectance data, and then on three other datasets. See Figures \ref{fig:foster} and \ref{fig:others} respectively.
 
 \begin{figure}[htbp] % update this to look better and include the specific data used elsewhere in this section
- \includegraphics[max width=\textwidth]{figs/comp/melcomp_2_caller/plateau.pdf}
+ \includegraphics[max width=\textwidth]{figs/comp/plateau.pdf}
  \caption{The spectral reflectance functions of a subset of the \citet{vrhel_measurement_1994} reflectances (solid lines), normalised at the peak of s-cone sensitivity (CIE 2006 10$^{\circ}$), with the spectral sensitivity of s-cones and melanopsin \citep{lucas_measuring_2014} overlaid (dot-dashed lines).}
  \label{fig:plateau}
 \end{figure} 
