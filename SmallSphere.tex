@@ -184,19 +184,42 @@ These results were considered alongside measurements of LEDs taken during the ex
 
 \subsection{Primary Data}
 
-A summary of results, where each run is represented by a standard deviation ellipse, is shown in Figure \ref{fig:SSsummary}. Break downs for each observer, showing each achromatic setting are shown in Figures \ref{fig:SS_DG} - \ref{fig:SS_LW}.
-
+A summary of results, where each run is represented by a standard deviation ellipse, is shown in Figure \ref{fig:SSsummary}. This data is summarised numerically in Table \ref{tab:SS}.
+%
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth,center]{figs/SmallSphere/SSsummary.pdf}
 \caption{A summary of all primary data in CIELAB. Ellipses represent 1 standard deviation in the primary and orthogonal axes. The legend lists observer (`DG' / `HC' / `LW'), followed by condition (`AU' - amber/UV, `RB' - red/blue) and date in M:D format. }
 \label{fig:SSsummary}
 \end{figure}
+%
+Break downs for each observer, showing each achromatic setting are shown in Figures \ref{fig:SS_DG} - \ref{fig:SS_LW}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth,center]{figs/SmallSphere/DG.pdf}
 \caption{Data for observer DG in CIELAB from the 3 different perspectives upon CIELAB. Colour-coding and legend as in Figure \ref{fig:SSsummary}.}
 \label{fig:SS_DG}
 \end{figure}
+
+\npdecimalsign{.}
+\nprounddigits{2}
+\begin{table}[htbp]
+\begin{tabular}{l|n{5}{2}|n{5}{2}|n{5}{2}|n{5}{2}|n{5}{2}|n{5}{2}}
+ & {Mean L*} & {Mean a*} & {Mean b*} & {SD L*} & {SD a*} & {SD b*} \\\hline
+DG-AU-7-21- & 56.9524882586103 & 0.675133479973983 & -8.95624509045388 & 15.4782221350432 & 3.37322583046715 & 5.16326018479416 \\
+DG-RB-7-20- & 56.8352131214145 & 5.86729467342570 & -2.25622136024552 & 15.5393088290294 & 4.30521317526720 & 7.16328133963527 \\
+HC-AU-7-21- & 56.9830459740028 & 0.402247732505120 & -11.9578449508451 & 15.5435035776612 & 8.21945088677043 & 12.5222120194318 \\
+HC-AU-10-18 & 56.8971211534733 & -2.24456088531061 & -7.16804458897986 & 15.4181956290139 & 10.8454390151009 & 13.6183962570021 \\
+HC-RB-7-20- & 57.3862272800228 & 6.73813216259034 & -12.2093568428256 & 15.4736742570885 & 8.67549550271706 & 11.2009394810601 \\
+HC-RB-10-19 & 57.0530929390755 & 3.71380245778532 & -2.54846686713661 & 15.3993164407270 & 8.83695463046939 & 10.7859514864323 \\
+LW-RB-7-21- & 57.5105253571841 & 3.39002741980479 & 20.4596724371518 & 15.4739311348141 & 10.0877780537142 & 12.4311707631679 \\
+LW-RB-10-12 & 57.0631633891158 & 44.9631108112767 & 10.4401095935665 & 14.9296460299345 & 13.4200150486452 & 11.1293401028562 \\
+LW-AU-7-20- & 57.5360205801163 & 3.60347851990418 & 17.5738374140498 & 15.4155618340430 & 8.35162097424319 & 10.7933314652044 \\
+LW-AU-10-11 & 56.6233765384295 & 43.2106748934748 & 13.5352420755118 & 14.8549410119713 & 14.9631458587677 & 10.6922382005586
+\end{tabular}
+\caption {Summary of Small Sphere data.}
+\label{tab:SS}
+\end{table}
+\npnoround
 
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth,center]{figs/SmallSphere/HC.pdf}
@@ -212,12 +235,18 @@ A summary of results, where each run is represented by a standard deviation elli
 
 \subsection{Secondary Data}
 
-Data describing the characterisations of hardware follow. Figure \ref{fig:SSLEDs} shows the chromaticities of the adapting surrounds as recording during each session. 
+Data describing the characterisations of hardware follow. Figures \ref{fig:SSLEDs} and \ref{fig:SSLEDs2} show the chromaticities of the adapting surrounds as recording during each session. 
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth,center]{figs/SmallSphere/SSLEDs.pdf}
-\caption{}
+\includegraphics[max width=0.9\textwidth,center]{figs/SmallSphere/OOwide.pdf}
+\caption{The \gls{CIE} 1931 chromaticities of the adapting field as measured during data collection, with the spectral locus for context. See figure \ref{fig:SSLEDs2} for further detail.}
 \label{fig:SSLEDs}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=0.9\textwidth,center]{figs/SmallSphere/OO.pdf}
+\caption{As per Figure \ref{fig:SSLEDs} but with different scaling and labels.}
+\label{fig:SSLEDs2}
 \end{figure}
 
 Figure \ref{fig:SSgamut} shows the recorded gamut and white points of the display measured before or after each session. 
@@ -230,12 +259,13 @@ Figure \ref{fig:SSgamut} shows the recorded gamut and white points of the displa
 
 Figure \ref{fig:SScal2} shows representative results from one of the secondary characterisation sessions.
 
-
 \begin{figure}[htbp]
 %\includegraphics[max width=\textwidth,center]{figs/SmallSphere/SScal2.pdf}
 \caption{}
 \label{fig:SScal2}
 \end{figure}
+
+\clearpage
 
 \section{Discussion}
 % Assumptions
