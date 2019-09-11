@@ -345,6 +345,24 @@ Whilst the clustering metric of Forsyth is a step in the right direction, it doe
 
 To address this shortcoming I propose the following: that the output of an algorithm (where the input is a batch of synthetic data such as in the method of \citet{barnard_comparison_2002}) should be subjected to a k-means clustering (this is easy where synthesised data is used and $k$ is known) and this output in turn should be marked against the known groupings of the original input data. This marking would reveal how well the algorithm had remapped points into clusters relating to their original grouping, and how separable the clusters are. A suitable number of repetitions of the k-means clustering is advisable, to avoid local minima. 
 
+A computational demonstration of this procedure is shown in Listing \ref{lst:KMM_MATLAB}, in rough \gls{MATLAB} code. For each cluster (based on the ground truth data), the proportion of points which are given the modal value (per ground truth cluster), is computed. This value is then averaged over clusters. A perfect score, where each point within a ground-truth cluster was given the same value by the k-means algorithm, would be 1, with the chance baseline depending on the number of points and number of clusters\footnote{A runnable version of Listing \ref{lst:KMM_MATLAB} is available (\url{https://github.com/da5nsy/Melanopsin_Computational/blob/master/KMeansMarkDemo_abstract.m}).}. 
+
+\begin{lstlisting}[style = Matlab-editor, basicstyle = \mlttfamily, float = htbp, caption = Abstracted MATLAB code showing the k-means-mark computation, label = lst:KMM_MATLAB ]
+
+GT  = GroundTruth; % The actual cluster information
+KMI = KMeansIndex; % Result from K-means clustering
+
+for ii = 1:numberOfClusters
+    MP(i) = mean(mode(KMI(GT == ii)) == KMI(GT == ii)); 
+    %mode proportion
+end
+
+KMM = mean(MP); % k-means-mark
+
+\end{lstlisting}
+
+
+
 % A more extensive framework of testing a melanopic correction against other colour constancy algorithms was introduced, following the framework of \citet{barnard_comparison_2002} (later used by \citet{hordley_reevaluation_2006} and \citet{gijsenij_computational_2011}) A \gls{GW}, a \gls{BiW}, and a \gls{DN} algorithm were used as benchmarks.
 
 To test/demonstrate such a procedure, let us consider the plots from Figure \ref{fig:corrected} and \ref{fig:590}. Whilst the simple measure of whole-set standard deviation reports the latter as the more successful output, the k-means-mark for these outputs is 0.8915 and 0.5662 respectively, which tallies with our intuition of which instance of the algorithm has performed better. The K-means selections for each are visualised in Figures \ref{fig:KM1} and \ref{fig:KM2}.
