@@ -7,7 +7,7 @@
 
 The principal aim of this piece of work is to explore a novel method for colour constancy experiments, which allows for experiments to be performed in real and complex environments, in order to better understand colour constancy outside of a laboratory environment. The \gls{SAPS} method uses a tablet computer to present a spatial version of an achromatic point setting task. 
 
-The key concerns are whether the proposed a methodology can: a) present a stable stimulus across disparate environments, b) record differences in perceptual white point, and c) be suitable for naive observers following minimal instruction. 
+The key concerns are whether the proposed methodology can: a) present a stable stimulus across disparate environments, b) record differences in the state of chromatic adaptation, and c) be suitable for naive observers following minimal instruction. 
 
 On each point, the method is shown to be moderately successful, with caveats, and suggestions are provided for improvements upon the current design. Such a methodology could be used to investigate the effect of multiple cues, conflicting cues and cues which cannot easily be reproduced in a laboratory environment.
 
@@ -34,7 +34,7 @@ For example, a common stimulus-type used in such experiments are `Mondrian' patt
 \end{figure}
 
 It is clear that these set-ups are much reduced in their complexity compared to a natural scene. Simple experimental stimuli allow for clear questions to be asked, and for those questions to be answered with statistical strength. Such research is valuable, but the results cannot always be extrapolated to other types of stimuli and different environments. The use of simplified stimuli risks overlooking unknown scene attributes, and the human behaviours which may be reliant on them. %LM: Ref Beau Lotto book
-Experiments often find that colour constancy in lab environments is never `complete'; is this representative of real world behaviour or could this result be due a lab environment failing to deliver all the cues available to an observer in a natural environment? Recent technological advances have enabled experimenters to reproduce natural scenes with increasingly accuracy and comprehensiveness \citep{heasly_rendertoolbox3_2014}, but the number of variables in real scenes is practically infinite, and whilst our ability to reproduce a scene increases over time as technology develops, we only reproduce what we deem important at the time. Using a real-world environment would allow for processes to occur as they do naturally, in the environment for which these processes are presumably optimised (See \citet{kelly_chips_2018} and \citet{shepard_perceptual_1992}). The ability to move away from the lab environment also allows us to run experiments in specific locations of interest, such as museum spaces.
+Experiments often find that colour constancy in lab environments is never `complete' \citep{murray_almost_2006,foster_color_2011}; is this representative of real world behaviour or could this result be due a lab environment failing to deliver all the cues available to an observer in a natural environment? Recent technological advances have enabled experimenters to reproduce natural scenes with increasingly accuracy and comprehensiveness \citep{heasly_rendertoolbox3_2014}, but the number of variables in real scenes is practically infinite, and whilst our ability to reproduce a scene increases over time as technology develops, we only reproduce what we deem important at the time. Using a real-world environment would allow for processes to occur as they do naturally, in the environment for which these processes are presumably optimised (See \citet{kelly_chips_2018} and \citet{shepard_perceptual_1992}). The ability to move away from the lab environment also allows us to run experiments in specific locations of interest, such as museum spaces.
 
 There are at least two clear challenges to the use of natural environments for scientific study; the inability to control target variables, and the influence of uncontrollable or uncontrolled non-target variables. The first challenge may be surmountable; depending on the variable in question it might either be controlled by force, or over time natural variability may provide the required experimental range. The second may be insurmountable but, depending on the specific situation, it may be permissible to consider uncontrolled variations simply as sources of experimental noise. Further challenges arise where connections exist between target and non-target variables, or where the influence of the non-target variables dwarf the effect of the target variable.
 
@@ -71,16 +71,19 @@ Primarily as a proof of concept for this methodology, but also to assist in answ
 If \glspl{ipRGC} play a role in colour constancy we would expect to see a distinction between the responses recorded under the different illuminants. 
 
 \section{Experimental set-up and methodology}
+
+Three separate experiments were performed. These are described in Section \ref{sec:SAPS_exp}.
+
 \subsection{Participants}
 
 \subsubsection{Selection of participants}
 
-The participants for experiment 1 were the author, one of the author's academic supervisors (KC) and a technician at the laboratory (TS).
+The participants for Experiment 1 (Section \ref{sec:SAPS_exp1}) were the author, one of the author's academic supervisors (KC) and a technician at the laboratory (TS).
 
-For experiment 2, 58 observers were selected randomly from museum visitors. A visitor would be approached by the experimenter (the author) and asked whether `they would be interested in taking part in a colour vision experiment'. Those who replied positively were verbally informed of the ethics details for the study, the principal parts of which were: that no identifying information would be recorded, that the experiment carried no risks greater than those associated with normal use of a tablet computer, that observers were not paid or otherwise incentivised to take part, and that the task would take roughly ten minutes. A verbal description of the ethics details for this experiment was provided rather than the more traditional paper version to avoid providing the observer with a white reference immediately prior to the experiment. This study was approved by the \gls{UCL} Ethics committee (Project ID Number: 9357/001), application attached as Appendix \ref{app:ethics1}. In accordance with the ethics approval granted for this project, people under the age of 18 were only invited to participate under the supervision of a parent/carer.
+For Experiment 2 (Section \ref{sec:SAPS_exp2}), 58 observers were selected randomly from museum visitors. A visitor would be approached by the experimenter (the author) and asked whether `they would be interested in taking part in a colour vision experiment'. Those who replied positively were verbally informed of the ethics details for the study, the principal parts of which were: that no identifying information would be recorded, that the experiment carried no risks greater than those associated with normal use of a tablet computer, that observers were not paid or otherwise incentivised to take part, and that the task would take roughly ten minutes. A verbal description of the ethics details for this experiment was provided rather than the more traditional paper version to avoid providing the observer with a white reference immediately prior to the experiment. This study was approved by the \gls{UCL} Ethics committee (Project ID Number: 9357/001), application attached as Appendix \ref{app:ethics1}. In accordance with the ethics approval granted for this project, people under the age of 18 were only invited to participate under the supervision of a parent/carer.
 % number, age and sex here? !!!!!!!!!
 
-For experiment 3, nine participants (5 female, 4 male, ages not recorded) were recruited from the author's friends and family (including one academic supervisor, LM), with the hope that this would assure attendance and motivation and to take advantage of short-notice availability of the experimental space. Participants were informed of the ethics details for the study in advance of attending. Ethics approval was provided following the amendment of the aforementioned ethics application (9357/001), attached as Appendix \ref{app:ethics2}.
+For Experiment 3 (Section \ref{sec:SAPS_exp3}), nine participants (5 female, 4 male, ages not recorded) were recruited from the author's friends and family (including one academic supervisor, LM), with the hope that this would assure attendance and motivation and to take advantage of short-notice availability of the experimental space. Participants were informed of the ethics details for the study in advance of attending. Ethics approval was provided following the amendment of the aforementioned ethics application (9357/001), attached as Appendix \ref{app:ethics2}.
 % number, age and sex here? !!!!!!!!!
 
 \subsubsection{Instructions to the participants}
@@ -123,12 +126,12 @@ The stimulus presented to observers was an isoluminant plane (in CIE L*) through
 
 The stimulus was specified as: L*: 60 uniformly across field, u*: ranging linearly from -50 to 50 from one side of the field to the other, and v*: as for u*, but along the orthogonal axis, so that the stimulus was of uniform lightness and smoothly changing hue and chroma. The full stimulus image (Figure \ref{fig:Stimulus}) was 2188 x 2188 pixels; this is larger than the pixel dimensions of the chosen screen (1366 x 768, Section \ref{sec:spec}) to allow for the stimulus to be rotated freely and offset by up to a third of the image in any direction before the edge of the image is encountered. 
 
-The stimulus was specified with the above attributes in a matrix within \gls{MATLAB}\footnote{Code: \url{https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/stimulusGenerator002.m}}. CIELUV values were converted to XYZ tristimulus values using built in functions, with reference white set as the XYZ tristimulus values of the display at maximum white (with screen protector), as measured with an Xrite i1 device (shown in Figure \ref{fig:gamut}). Linearisation was achieved through the use of a look-up table, computed by spline interpolation of the measured outputs at 15 pixel %(KT: pixel drive value?)
+The stimulus was specified with the above attributes in a matrix within \gls{MATLAB}\footnote{Code: \url{https://github.com/da5nsy/SAPS/blob/21940bb6ed9d0e37d88e1b655f4919d73431743a/experiment/stimulusGenerator002.m}}. CIELUV values were converted to XYZ tristimulus values, with reference white set as the XYZ tristimulus values of the display at maximum white (with screen protector), as measured with an Xrite i1 device (shown in Figure \ref{fig:gamut}). Linearisation was achieved through the use of a look-up table, computed by spline interpolation of the measured outputs at 15 pixel %(KT: pixel drive value?)
 value increments from 0 to 255 for each channel. The stimulus was then output as an 24-bit RGB tiff, which could be easily loaded and manipulated by the psychophysical stimulus presentation software PsychoPy \citep{peirce_psychopypsychophysics_2007}. %(Illustrate with flow diagram?)
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/stimulus.png}
-\caption{Full stimulus image, from which subsections were selected and presented as stimuli. Note that no effort has been made to correct this image for printing, and so it is best considered as only a rough approximation.}
+\caption{Full stimulus image, from which subsections were selected and presented as stimuli. Note that no effort has been made to correct this image for printing, and so it is best considered as only a rough approximation. It may be possible to see the vertical line on the left where the sRGB gamut boundary is reached; this is further described in Figure \ref{fig:stimchan}.}
 \label{fig:Stimulus}
 \end{figure}
 % Copied and pasted from original psychopy folder. Could regenerate using stimulusGenerator002.m
@@ -158,7 +161,7 @@ Plotting the chromaticities present across a full run of 30 trials yields Figure
 \subsubsection{Limitations of the stimuli} \label{sec:limitations}
 Under the current set-up the stimulus is to some extent fixed; each stimulus is a subsection of a single complete stimulus image (Figure \ref{fig:Stimulus}). This means that an observer can at no point select a chromaticity that is not present in the full stimulus, and they will less often have the option to select a chromaticity which falls towards the boundary of this stimulus space than they would be able to select one at the centre of this space, due to the nature of the rotation and offset described in Section \ref{sec:presenting_the_stimuli} (See Figure \ref{fig:practical}). 
 
-When designing the stimulus it was assumed that the stimulus would cover a large enough area of colour-space to allow for any selection that an observer would reasonably care to make. Later analysis (for example, see Figure \ref{fig:PAMELA_DG_results} where an illuminant falls far outside the practical gamut) showed that this was not the case, and that it was not unusual for an illuminant that appeared entirely neutral to in fact fall outside what I had considered to be an extensive coverage of colour-space. I had underestimated the power colour constancy.
+When designing the stimulus it was assumed that the stimulus would cover a large enough area of colour-space to allow for any selection that an observer would reasonably care to make (the stimulus would include an achromatic area surrounded by areas which under no situation would be deemed achromatic). Later analysis (for example, see Figure \ref{fig:PAMELA_DG_results} where an illuminant falls far outside the practical gamut) showed that this was not the case, and that it was not unusual for an illuminant that appeared entirely neutral to fall outside of the response-space. I had underestimated the power colour constancy!
 
 This limitation leads to a pattern in the data which I shall refer to as `smearing', so called because when the desired selection point is outside of the practical gamut, or even close to the edge of the gamut, the closest possible points which are available for an observer to select will fall upon a line between the objective white point (the white point of the display) and the true desired selection point, thus the data is smeared between the point which an observer actually wants to select, and the objective white point. This is discussed further is Section \ref{sec:bounding}, where amendments to this experimental method are proposed which might limit or remove this effect.
 
@@ -259,7 +262,7 @@ Now I shall consider the impact of the above finding upon our specific stimulus.
 \label{fig:stimhist}
 \end{figure}
 
-Note also that whilst the blue and green channels possess no pixels at either end of the pixel value range (0/255), the red channel possesses both, suggesting that a gamut boundary is reached at both extremes for the red channel. A large number of pixels in the red channel are at 0, with a small number at 255. From \ref{fig:stimchan} it can be seen the zero values are located on the far left of the stimulus, in the strongly blue/green area, and that the 255 values are located in the bottom right hand corner, in the strong red/pink area.
+Note also that whilst the blue and green channels possess no pixels at either end of the pixel value range (0/255), the red channel possesses both, suggesting that a gamut boundary is reached at both extremes for the red channel. A large number of pixels in the red channel are at 0, with a small number at 255, representing points at which the sRGB gamut is reached. From \ref{fig:stimchan} it can be seen the zero values are located on the far left of the stimulus, in the strongly blue/green area, and that the 255 values are located in the bottom right hand corner, in the strong red/pink area.
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/stimchan.png}
@@ -339,7 +342,7 @@ Intuitive threshold: the SD of a `baseline' observer & No intuitive threshold \\
 
 \subsubsection{UCL PAMELA} \label{sec:PAMELA}
 
-\gls{UCL}'s \acrfull{PAMELA} consists of a large open space, enclosed within a light-proof warehouse, and is most often used for its customisable floor space, where small sections can be independently raised or lowered to recreate the spatial configurations of public spaces such as streets or railway platforms (see \citet{cheng_effect_2018} for example, and Figure \ref{fig:PAMELAobs1}). It is of interest to this project since it also has a customisable lighting rig comprising 44 addressable fixtures, each with 6 independent channels, which is controlled via a PC interface, and an additional high power white channel, which is on a separate control system. 
+\gls{UCL}'s \acrfull{PAMELA} (used for Experiments 1 and 3) consists of a large open space, enclosed within a light-proof warehouse, and is most often used for its customisable floor space, where small sections can be independently raised or lowered to recreate the spatial configurations of public spaces such as streets or railway platforms (see \citet{cheng_effect_2018} for example, and Figure \ref{fig:PAMELAobs1}). It is of interest to this project since it also has a customisable lighting rig comprising 44 addressable fixtures, each with 6 independent channels, which is controlled via a PC interface, and an additional high power white channel, which is on a separate control system. 
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/PAMELAlights1.jpg}
@@ -382,15 +385,15 @@ The chromaticities of the light sources, measured with a UPRtek MK350 (a handhel
 
 \subsubsection{The British Museum} \label{sec:BM}
 
-The British Museum is a large museum located close to the main \gls{UCL} campus, which exhibits artefacts of artistic, cultural and historical relevance. It is one of the UK's most visited tourist attractions, drawing over 5 million visitors yearly \citep{simon_calder_tate_2019}.
+The British Museum (used for Experiment 2) is a large museum located close to the main \gls{UCL} campus, which exhibits artefacts of artistic, cultural and historical relevance. It is one of the UK's most visited tourist attractions, drawing over 5 million visitors yearly \citep{simon_calder_tate_2019}.
 
 \medskip \noindent
 Three spaces within the museum were used (with permission):
 
 \begin{itemize}
-    \item Rooms 77/78 (`Greek and Roman Architecture', `Classical Inscriptions'), lit with fluorescent lighting (CCT = 2820K SD = 31, 83 lux SD = 4, Ra = 90 SD = 0).
-    \item Room 25 (`Africa' - specifically the east section of the room), lit with incandescent lighting (CCT = 2509K SD = 42, 149 lux SD = 83, Ra = 99 SD = 1).
-    \item The Queen Elizabeth II Great Court (referred to as `GC'), lit with filtered daylight \citep{foster_and_partners_london._great_2002} (CCT = 6145K SD = 73, 7913 lux SD = 1891, Ra = 83 SD = 0) during daylight hours, with additional lighting at twilight and after sunset. All experiments were carried out during daylight hours.
+    \item Rooms 77/78 (`Greek and Roman Architecture', `Classical Inscriptions'), lit with fluorescent lighting (CCT = 2820K SD = 31, 83 lux SD = 4, \gls{CIE}~R\textsubscript{a} = 90 SD = 0).
+    \item Room 25 (`Africa' - specifically the east section of the room), lit with incandescent lighting (CCT = 2509K SD = 42, 149 lux SD = 83, \gls{CIE}~R\textsubscript{a} = 99 SD = 1).
+    \item The Queen Elizabeth II Great Court (referred to as `GC'), lit with filtered daylight \citep{foster_and_partners_london._great_2002} (CCT = 6145K SD = 73, 7913 lux SD = 1891, \gls{CIE}~R\textsubscript{a} = 83 SD = 0) during daylight hours, with additional lighting at twilight and after sunset. All experiments were carried out during daylight hours.
 \end{itemize}
 
 \begin{figure}[hbtp]
@@ -442,18 +445,19 @@ Additional testing was undertaken within the Chadwick Building of \gls{UCL} (hom
 
 \clearpage
 
-\section{Experiments}
+\section{Experiments} \label{sec:SAPS_exp}
 
-\subsection{Experiment 1}
+\subsection{Experiment 1} \label{sec:SAPS_exp1}
 With the goal of understanding both the intra/inter-observer variability and intra/inter-environment variability, 13 runs of the experiment were performed by the author under the 3 illumination settings defined at \gls{PAMELA} (see Section \ref{sec:PAMELA}), 4 under `WW', 6 under `CW', 3 under `MH', after 2 different lengths of adaptation (5 minutes and 30 minutes). In initial analyses no effect of length of adaptation was found% write about this
 , and so we group the data across these 2 conditions for analysis. Two other observers (KC and TS) also performed a number of observation (3 and 4 respectively) under a range of illumination settings.
 
-\subsection{Experiment 2}
+\subsection{Experiment 2} \label{sec:SAPS_exp2}
 
 Extending the above experiment, particularly to the inclusion of naive observers, an experiment with a 58 observers was performed at \hyperref[sec:BM]{The British Museum}. See Figures \ref{fig:BM_Africa} and \ref{fig:BM_GC}.
 The experiment was performed over five days, during which participants made observations in one of three gallery spaces. The three galleries used were Room 77/78, Room 25 and The Queen Elizabeth II Great Court, as described in section \ref{sec:BM}. 
 
-\subsection{Experiment 3}
+\subsection{Experiment 3} \label{sec:SAPS_exp3}
+
 In order to provide a case study for this methodology, and to investigate the role of melanopic activation upon achromatic settings, an experiment was performed at \gls{PAMELA} (see Section \ref{sec:PAMELA} for details), under the 2 of the 3 lighting conditions previously defined (`CW' and `MH'), with a repeat of `MH'. A reminder: these two lighting conditions were specified to be colorimetrically matched for the CIE 1931 observer, but with differing melanopic flux. In this experiment, the condition previously referred to as `CW' shall be referred to as with `ML' (for `mel-low'), for clarity in order to align with current literature.
 
 The null hypothesis for this experiment is: achromatic settings are determined solely by retinal cone catches. A corollary of this is that melanopic flux plays no role. CIE 1931 chromaticity is used as a proxy for retinal cone catches.
