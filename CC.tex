@@ -44,13 +44,18 @@ In a natural environment, a change in the wavelength composition of radiation re
 
 \subsubsection{Mechanistic vs. Inferential}
 
-In the literature there seems to be a long-running grapple between colour constancy and chromatic adaptation, with blurred boundaries and mixed definitions occurring frequently. \citet{brill_chromatic_1986} drive a wedge between the two concepts, but refute the simple division that chromatic adaptation is the process and colour constancy is the ability, asserting that the two should be considered as separate processes, operating on different timescales and in different fashions. The most common use of the term `chromatic adaptation' now seems to be to refer to low level adaptation, with \citet{brainard_color_2014} using the term `mechanistic' to refer to this type of transformation.
+In the literature there seems to be a long-running grapple between colour constancy and chromatic adaptation, with blurred boundaries and mixed definitions occurring frequently. \citet{brill_chromatic_1986} drive a wedge between the two concepts, but refute the traditional division that chromatic adaptation is the process and colour constancy is the ability, asserting that the two should be considered as separate processes, operating on different timescales and in different fashions.
+
+\citet{hurlbert_computational_1998} divides computational models into two classes: \emph{sensory} and \emph{perceptual}, which broadly follow the low-level / high-level divide, where sensory models `could be achieved early in visual processing by adaptive scaling of the initial receptor responses', and perceptual models which `would necessarily occur at later stages of visual processing'.
+
+
+The most common use of the term `chromatic adaptation' now seems to be to refer to low level adaptation, with \citet{brainard_color_2014} using the term `mechanistic' to refer to this type of transformation.
 
 \begin{citequote}{brainard_color_2014}
 Adaptation of this sort supports constancy to the extent that its overall effect is to stabilize the postreceptoral representation of the light reflected from objects across changes of illumination (as well as other contextual changes).
 \end{citequote}
 
-The term `colour constancy', by contrast, is used to refer to higher level inference-based processes, which occur at faster timescales than are possible by adaptation alone \citep{rinner_time_2000}. It seems likely that multiple processes work in tandem at multiple levels and timescales to acheive colour constancy.
+The term `colour constancy', by contrast, is used to refer to higher level inference-based processes, which occur at faster timescales than are possible by adaptation alone \citep{rinner_time_2000}. It seems likely that multiple processes work in tandem at multiple levels and timescales to acheive colour constancy \citep{hurlbert_colour_2007}.
 
 \subsubsection{von Kries Adaptation}
 
@@ -110,7 +115,7 @@ astonishment at how well it has withstood the test of time.
 
 \subsubsection{Retinex}
 
-Considered in the context on von Kries' work, the Retinex model of Land and colleagues \citep{land_retinex_1964,land_lightness_1971,land_recent_1983,land_recent_1986,mccann_quantitative_1976} might be described as `von Kries with spatial considerations' but I imagine such a statement would have rather riled the often bombastic sounding Land. It appears to have been Land's understanding that the Retinex model was not a model of chromatic adaptation, but rather a model to usurp and do away with the very concept of chromatic adaptation.
+Considered in the context on von Kries' work, the Retinex model of Land et al. \citep{land_retinex_1964,land_lightness_1971,land_recent_1983,land_recent_1986,mccann_quantitative_1976} might be described as `von Kries with spatial considerations' but I imagine such a statement would have rather riled the often bombastic sounding Land. It appears to have been Land's understanding that the Retinex model was not a model of chromatic adaptation, but rather a model to usurp and do away with the very concept of chromatic adaptation.
 
 Land was fond of picking apart Newton's statements regarding colour; particularly that the perception of colour was the result of an objects' `excess and predominance in the [spectra of the] reflected light' \citep{newton_opticks_1704}. Land asserted that rather than work from the premise that the visual system was correcting an absolute record of the world, by normalising it to account for the ambient light source, one should instead consider visual input only as a relative record, where each element within a scene only takes on properties by comparison with the other elements of the scene. 
 
@@ -118,10 +123,21 @@ He suggested for consideration the idea of the human visual system recording thr
 
 However, \citet{barnard_practical_1999} points out that the various versions of the Retinex algorithm simplify to versions of the von Kries adaptation, and \citet{brainard_analysis_1986} found that `the algorithm is too sensitive to changes in the color of nearby objects to serve as an adequate model of human color constancy'. In addition, it has been found to be computationally difficult to implement, with no clear way in which it could be biologically implemented.
 
+The work of Land et al. has spurred a great deal of progress in the world of digital imaging, where the term `computational colour constancy' is used. The number of distinct algorithms increases at a rate which seems to always accelerate, and I shall not review them all here, though I shall point to valuable overview papers:  \citet{hordley_reevaluation_2006, gijsenij_computational_2011}.
+
 \subsubsection{Linear models}
 
+If we extend the common interpretation of colour constancy (that colours should remain constant), to a stricter case where we actively try to recover the \glspl{SRF} of surfaces, simple von Kries-type transformations no longer suffice. \citet{maloney_physics-based_2001} and \citet{yang_illuminant_2001} discuss what they term the `RGB heuristic'. Simply put - this is the commonly held assumption that a set of cone catches under one illuminant will be related to a second set of cone catches under another by a transformation which can be fully described by the chromaticities of the illuminants. As \citet{maloney_physics-based_2001} says `there is no \emph{mathematical} reason to expect [this] to hold, even approximately'. This can be considered from the perspective of colour rendering; it is known that objects which are metamers under one illuminant might not be under another. This rather scuppers simple models of colour constancy. \citet{foster_frequency_2006} quantified the frequency of metamerism in real scenes and found it to be `sufficiently large to affect visual inferences about material identity'.
 
+For this stricter definition of colour constancy Maloney et al. \citep{maloney_computational_1984, maloney_color_1986} propose a method which makes use of discrete linear models, whereby the set of real \glspl{SRF} and real \glspl{SPD} are approximated by a small number of fixed basis functions. 
 
+\citet{maloney_color_1986} find that `with three classes of photoreceptors, we can exactly recover surface reflectances drawn from a fixed model of surface reflectance with at most two degrees of freedom'. \citet{maloney_computational_1984} showed that this generalised such that with $n$ classes of photoreceptors, \glspl{SRF} could be reconstructed for surfaces drawn from models with $n-1$ degrees of freedom, so long as there were not more than $n$ degrees of freedom in the illumination model, and so long as the minimum complexity condition was met (there were enough surfaces visible).
+
+Despite its mathematical elegance, quantitative analysis of this algorithm showed that it performance was poor \cite{brainard_bayesian_1994, finlayson_color_1995}, which is not surprising considering that natural surface \glspl{SRF} generally require more than two basis functions for accurate reconstruction.
+
+\bigskip
+
+There are many further ideas, theories, and concepts relating to colour constancy and chromatic adaptation which are beyond the scope of this chapter, but which I shall provide some references for in case the reader is interested: gamut mapping algorithms \citep{forsyth_colour_1990,forsyth_novel_1990,forsyth_colour_1989,finlayson_color_1996}, bayesian colour constancy \citep{finlayson_color_2001, brainard_bayesian_2006,gazzaniga_bayesian_2009, brainard_bayesian_1994,gehler_bayesian_2008} and specular-reflectance-based algorithms \citep{mollon_monge_2006, morimoto_discrimination_2018,hurlbert_computational_1998}.
 
 %% Removed stuff ---------------------------------
 
