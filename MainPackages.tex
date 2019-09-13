@@ -81,7 +81,7 @@
 % Remove or comment out the command for proper versions.
 \usepackage[modulo]{lineno}
 \linenumbers 
-\renewcommand\linenumberfont{\normalfont\bfseries\small}
+\renewcommand\linenumberfont{\normalfont\bfseries\itshape\footnotesize}
 
 
 % Alternatively, you can use the ifdraft package to let you add
@@ -197,7 +197,7 @@
 \NewDocumentEnvironment{itquote}{m} %as above but without the ref. I can't get rid of the {m} and I don't know why
  {%
   \begin{quoting}[indentfirst=false,font=itshape]
-  \bigquotes{r}{``}
+  \bigquotes{r}{``} \centering 
  }
  {%
   \bigquotes{l}{''}%

@@ -15,7 +15,7 @@ Christopher Tyler \\
 
 \section{Summary}
 
-A computational study was performed to explore whether a melanopsin signal would be useful for colour constancy in a real world environment, and to reduce the search space for future psychophysical experiments. This research was exploratory in nature (as opposed to confirmatory) with the goal being a furthering of our understanding of the problem and generation of hypotheses, rather than the confirmation of specific hypotheses \citep{steinle_entering_1997}.
+A computational study was performed to explore whether a melanopsin signal would be useful for colour constancy in a real world environment, and to reduce the search space for future psychophysical experiments. This research was exploratory in nature (as opposed to confirmatory) with the goal being a furthering of our understanding of the problem and generation of hypotheses, rather than the confirmation or refutation of specific hypotheses \citep{steinle_entering_1997}.
 
 It was found that an additional receptor with a spectral sensitivity different from that of the cone receptors was able to deliver a signal which could effectively be used to transform input signals to an illuminant-independent space. 
 
@@ -35,7 +35,7 @@ Code is provided: \url{https://github.com/da5nsy/Melanopsin_Computational}
 
 \section{Introduction}
 
-In the other chapters of this thesis the approach taken to study the effect of melanopsin has mirrored standard practice: we think that melanopsin \emph{might} be involved in a specific process and so we run an experiment where we vary the amount of melanopsin activation within a stimulus (our independent variable) and measure something to see if there is an associated change in the target dependent variable, with the hope of understanding \emph{how} melanopsin might be involved in the target process, but at no point do we really drill down on the questions of \emph{why} melanopsin might be involved in this process.
+In the other chapters of this thesis the approach taken to study the effect of melanopsin has mirrored standard practice: we think that melanopsin \emph{might} be involved in a specific process and so we run an experiment where we vary the amount of melanopsin activation within a stimulus (our independent variable) and measure something to see if there is an associated change in the target dependent variable, with the hope of understanding \emph{how} melanopsin might be involved in the target process. However, at no point do we really drill down on the questions of \emph{why} melanopsin might be involved in this process.
 
 This has meant that it is unclear whether our results (positive or negative) can be taken at face value - perhaps our baseline assumptions about how or why melanopsin is involved were wrong, and we were consequently looking in the wrong place.
 
@@ -45,7 +45,7 @@ This chapter describes an exploratory computational study which took an ecologic
 \begin{enumerate}
     \item It may be possible to answer the question of whether it is sensible for melanopsin to be involved in colour constancy in any form whatsoever - is there any benefit to be gained from involving melanopsin?
     \item We may be able to suggest or rule out specific computational structures - one computation might be beneficial whilst others might not be.
-    \item It may help to narrow the search area for future psychophysical experimentation - in previous experiments there have been lots of assumptions about the luminance range over which melanopsin is active, the spatial distribution (both in terms of receptive fields and influence over signals from distant parts of the retina), the temporal dynamics of the signals involved (and many other assumptions but conscious and unconscious). This is an opportunity to test whether a melanopsin-based signal is useful for specific ranges of the stimulus space.
+    \item It may help to narrow the search area for future psychophysical experimentation - in previous experiments there have been lots of assumptions about the luminance range over which melanopsin is active, the spatial distribution (both in terms of receptive fields and influence over signals from distant parts of the retina), the temporal dynamics of the signals involved (and many other assumptions both conscious and unconscious). This is an opportunity to test whether a melanopsin-based signal is useful for specific ranges of the stimulus space.
 \end{enumerate}
 
 \noindent The key research question for this section can be posed thus:
@@ -58,7 +58,7 @@ would a signal from a melanopsin-expressing cell \\
 be useful for colour constancy?
 \end{quote}
 
-This chapter will describe the computational investigation and accompanying thought process in roughly chronological order.
+This chapter will describe the computational investigation and accompanying thought process in a roughly chronological order.
 
 \section{Data sources}
 
@@ -97,7 +97,7 @@ The CIE D-series illuminants allowed for a smaller and more controlled daylight 
 
 \begin{figure}[htbp]
     \includegraphics[max width=\textwidth]{figs/comp/predictingChromaticity/BasicMB_2.pdf}
-    \caption{\gls{MB} chromaticities of 130 daylight illuminants (black points), and for 10 reflectances under each illuminant (coloured points). Colours not linked to surface appearances; they are arbitrary and used solely to distinguish different surfaces from one another). The edge of the spectral locus is visible along the lower edge.}
+    \caption{\gls{MB} chromaticities of 130 daylight illuminants (black points), and for 10 reflectances under each illuminant (coloured points). Colours are not linked to surface appearances; they are arbitrary and used solely to distinguish different surfaces from one another. The edge of the spectral locus is visible along the lower edge.}
     \label{fig:MB}
 \end{figure} 
 
@@ -105,7 +105,7 @@ The CIE D-series illuminants allowed for a smaller and more controlled daylight 
 
 \section{Recovering the chromaticity of daylight}
 
-The simplest computational method to achieve colour constancy is through normalisation of receptor signals by the hypothetical receptor signals to the illuminant. It is the implicit assumption in previous experiments that a melanopic signal could act as a cue to the chromaticity of the illuminant.
+The simplest computational method to achieve colour constancy is through normalisation of receptor signals by the hypothetical receptor signals for the illuminant. It is the implicit assumption in previous experiments that a melanopic signal could act as a cue to the chromaticity of the illuminant.
 
 This is what \citet{maloney_physics-based_2001} refers to as the `RGB heuristic', and in some ways only delivers rough colour constancy, but it is nonetheless valuable. In most situations appearance of a scene under two different illuminants will be roughly relatable via the chromaticity of those illuminants.\footnote{However, it should be noted that there is no mathematical reason for this to be strictly true due to different colour rendering properties.}
 
@@ -118,7 +118,7 @@ Initially, two questions were proposed:
 
 \subsection{First-level signals}
 
-In this chapter the terminology of \citet{barrionuevo_contributions_2014} is employed; following their usage `first-level signals' are those which are direct photoreceptor catches (or analogues, such as $XYZ$ tristimulus values), and `second-level signals' are those computed by comparison of one signal with one or more other signals (such as $xy$ or \gls{MB} chromaticity values).
+In this chapter the terminology of \citet{barrionuevo_contributions_2014} is employed; following their usage, `first-level signals' are those which are direct photoreceptor catches (or analogues, such as $XYZ$ tristimulus values), and `second-level signals' are those computed by comparison of one signal with one or more other signals (such as $xy$ or \gls{MB} chromaticity values).
 
 In order to visualise the relationship between the chromaticity of the illuminant and the resulting receptor catches, three-dimensional plots were made displaying $l_{\text{MB}}$ against $s_{\text{MB}}$ against $[L,M,S,I]$ in turn. \gls{MB} chromaticity space was chosen due to its status as a physiologically based chromaticity diagram, following the logic that if biologically plausible mechanisms are sought, then computations in a space best representing the real space are preferable. The plot for $I$ is shown in Figure \ref{fig:level1}. Other plots closely resembled this one. It can be seen that although there exists some relationship between the chromaticity values of the illuminants and the $I$ values, it does not appear as though one could be used reliably to predict the other. 
 
@@ -140,7 +140,7 @@ Following this, similar plots were made which plotted $l_{\text{MB}}$ against $s
 \label{fig:allComboSignals}
 \end{figure}
 
-A similar trend was seen for each individual surface as was seen for illuminant-only, however these relationships appear to be offset from that for a perfect reflector.
+A similar trend was seen for each individual surface as was seen for illuminant-only, however these relationships appear to be offset from that of a perfect reflector.
 
 \subsection{A PCA interpretation}
 
@@ -175,7 +175,7 @@ For many of these signals however, such relationships are likely to arise solely
 \label{fig:allComboSignals_rand}
 \end{figure}
 
-The fact that the relationship between chromaticity and second-level signals degrades for a melanopsin-based second-level signal but not for a cone-based second-level signal, when data is replaced with randomly generated noise, suggests that whilst the relationships in the cone-based cases may arise simply due to the mathematical similarity between the calculation of chromaticity and second-level signals, this is not the case for the melanopsin-based second-level signals. 
+The fact that the relationship between chromaticity and second-level signals degrades for a melanopsin-based second-level signal, but not for a cone-based second-level signal, when data is replaced with randomly generated noise, suggests that whilst the relationships in the cone-based cases may arise simply due to the mathematical similarity between the calculation of chromaticity and second-level signals, this is not the case for the melanopsin-based second-level signals. 
 
 Considering that relationships between the melanopsin-based second-level signals and chromaticity do seem to exist (Figure \ref{fig:allComboSignals}), one must conclude that there is a regularity in the data which allows for such a relationship to be revealed.
 
@@ -219,7 +219,7 @@ In order to understand the relationships between the \gls{MB} chromaticities and
  \label{fig:ZL}
 \end{figure}
 
-It was found that a log transform applied to the $[lsi]_{\text{MB}}$ data made relationships between the various signals more linear, and the data much more normally distributed. A power transformation was also effective in this goal, but a log transform was chosen such that multiplicative transformations could be implemented as additive transformations at later stages. The data were also zero-meaned and normalised for standard deviation so that the signals were on like scales.
+It was found that a log transform applied to the $[lsi]_{\text{MB}}$ data made relationships between the various signals more linear, and the data much more normally distributed. A power transformation was also effective in this goal, but a log transform was chosen such that multiplicative transformations could be implemented as additive transformations at later stages. The data was also zero-meaned and normalised for standard deviation so that the signals were on like scales.
 
 A range of speculative transformations were performed, to transform colour signals to illuminant-independent colour signals. A rotational transformation was successful (analogous to changing the perspective as in figure \ref{fig:viewpoint}) and additionally a weighted additive model was found to be rather successful. No satisfactory model was found where a purely multiplicative transformation was applied.
 
@@ -325,18 +325,18 @@ Different schools of thought within colour constancy research have used differen
 
 The first group have tended to assess their proposed solutions in the context of biological and physical plausibility. Where solutions in this group rely upon some regularity in the environment, discussions gravitate to the value, ubiquity, and veracity/validity of this regularity (see Hurlbert's table \cite[p.~295]{hurlbert_computational_1998} which sorts a range of colour constancy algorithms by the assumptions that they rely upon). Alternatively, studies can remove the cue or cues under investigation from a controlled visual scene and in some way measure the impact upon an observer's state of chromatic adaptation \cite{kraft_mechanisms_1999}. I am not aware of a standard measure for quantifying the ability or biological plausibility of a particular proposed algorithm.
 
-The second group have made considerable progress in the development of the \Glspl{CAT} which are used within \Glspl{CAM}, through the collection of corresponding colour datasets (pairs of colorimetric values where the the first member of each pair under a first illuminant matches in appearance the second under a second illuminant). Models are then fitted to these datasets such that the appearance of an arbitrary colour under the one illuminant could be predicted under the other, and vice versa. The effectiveness of a model is quantified by considering how well the model fits data that was independently collected \cite{cie_cie_2004-1}.
+The second group have made considerable progress in the development of the \Glspl{CAT} which are used within \Glspl{CAM}, through the collection of corresponding colour datasets (pairs of colorimetric values where the first member of each pair under a first illuminant matches in appearance the second under a second illuminant). Models are then fitted to these datasets such that the appearance of an arbitrary colour under the one illuminant could be predicted under the other, and vice versa. The effectiveness of a model is quantified by considering how well the model fits data that was independently collected \cite{cie_cie_2004-1}.
 
 The third group focuses on estimating the tristimulus values or colorimetry of an unknown illuminant from the pixels of a digital photographic image. There is obvious crossover between this group and the previous groups, for two reasons.
 Firstly, the human visual system could compute relatively meaningful estimates of surface reflectance properties if the illumination spectra could be estimated with moderate accuracy \cite{maloney_computational_1984}. Secondly, where the goal is to output an image which appears as it would to a human observer, there is implicitly a goal to understand how an observer might be performing this computation. This group traditionally quantifies success of algorithms by how well they can compute an illuminant estimate in terms of its RGB values in a camera-specific colour space.
 
 There is no clear fit between existing models of assessment and the specific goals of the algorithm under assessment. The most natural fit is within the first group, since the key interest is whether a melanopsin-based signal provides a valuable tool to a biological system in solving an ecological problem (and thus whether it might exist in real biological systems). However, it is unclear at this stage what is the mechanism by which such a system may operate, and so the discussion of what assumptions such a mechanism may rely on seem overly abstract.
 
-Of clearer applicability is the work of Barnard et al. \cite{barnard_comparison_2002} (later used by \citet{hordley_reevaluation_2006} and \citet{gijsenij_computational_2011}). They propose a method whereby spectral measurements of illuminants and surfaces are used to create `synthesized' data, representing each surface under each illuminant, which can be used as an input to a colour constancy algorithm. Since the ground truth is known here, the results can be quantitively assessed. 
+Of clearer applicability is the work of Barnard et al. \cite{barnard_comparison_2002} (later used by \citet{hordley_reevaluation_2006} and \citet{gijsenij_computational_2011}). They propose a method whereby spectral measurements of illuminants and surfaces are used to create `synthesized' data, representing each surface under each illuminant, which can be used as an input to a colour constancy algorithm. Since the ground-truth is known here, the results can be quantitively assessed. 
 
 There are some amendments to their process which are required if we are to use it here. Firstly, the data used in their experiments comprises natural and non-natural surface reflectances and illuminants, which is suitable for their purposes of assessing algorithms designed for digital cameras, but is unsuitable here for assessing an algorithm to understand its ability in a natural environment (the environment which would have influenced the natural evolution of biological systems). Therefore, the reflectance and illuminant data will need to be limited to naturally occuring data. Secondly, their performance metrics again relate to their problem rather than ours: they consider only the accuracy of the estimated white point, and whilst this may be useful to a biological system, the grander goal is a conversion of chromaticities to an illuminant-independent surface appearance space. An illuminant estimate is one way to reach this goal, but it is not fundamentally necessary, and the accuracy of this value does not necessarily provide a good measure of effectiveness of the whole system.
 
-One performance metric which more closely matches the goals of this study is that provided by Forsyth \cite[p.~19]{forsyth_novel_1990}, who suggests ``the median Euclidean distance of the outputs from the average (over the different lights) output, for each [colour] chip. This median is then normalised by the Euclidean magnitude of the outputs.'' This value provides an insight into the nature of the clustering of points following a transform, which can be considered as loosely related to our fundamental goal of allowing for recognition (a point being mapped to roughly the point it should be). However, no regard is given to our second fundamental goal of discrimination. Indeed, an algorithm which outputs two clusters of points which lay directly atop each other, even if these clusters represented vastly different objects, would be rated as successful, if these clusters were particularly tightly clustered.
+One performance metric which more closely matches the goals of this study is that provided by Forsyth \cite[p.~19]{forsyth_novel_1990}, who suggests using ``the median Euclidean distance of the outputs from the average (over the different lights) output, for each [colour] chip. This median is then normalised by the Euclidean magnitude of the outputs.'' This value provides an insight into the nature of the clustering of points following a transform, which can be considered as loosely related to our fundamental goal of allowing for recognition (a point being mapped to roughly the point it should be). However, no regard is given to our second fundamental goal of discrimination. Indeed, an algorithm which outputs two clusters of points which lay directly atop each other, even if these clusters represented vastly different objects, would be rated as successful, if these clusters were particularly tightly clustered.
 
 % ---------------------------------- %
 \subsection{K-means clustering as an assessment tool}
@@ -345,7 +345,7 @@ Whilst the clustering metric of Forsyth is a step in the right direction, it doe
 
 To address this shortcoming I propose the following: that the output of an algorithm (where the input is a batch of synthetic data such as in the method of \citet{barnard_comparison_2002}) should be subjected to a k-means clustering (this is easy where synthesised data is used and $k$ is known) and this output in turn should be marked against the known groupings of the original input data. This marking would reveal how well the algorithm had remapped points into clusters relating to their original grouping, and how separable the clusters are. A suitable number of repetitions of the k-means clustering is advisable, to avoid local minima. 
 
-A computational demonstration of this procedure is shown in Listing \ref{lst:KMM_MATLAB}, in rough \gls{MATLAB} code\footnote{A runnable version of Listing \ref{lst:KMM_MATLAB} is available (\url{https://github.com/da5nsy/Melanopsin_Computational/blob/master/KMeansMarkDemo_abstract.m}).}. For each cluster (based on the ground truth data), the proportion of points which are given the modal value (per ground truth cluster), is computed. This value is then averaged over clusters. A perfect score, where each point within a ground-truth cluster was given the same value by the k-means algorithm, would be 1, with the chance baseline depending on the number of points and number of clusters. 
+A computational demonstration of this procedure is shown in Listing \ref{lst:KMM_MATLAB}, in rough \gls{MATLAB} code\footnote{A runnable version of Listing \ref{lst:KMM_MATLAB} is available (\url{https://github.com/da5nsy/Melanopsin_Computational/blob/master/KMeansMarkDemo_abstract.m}).}. For each cluster (based on the ground-truth data), the proportion of points which are given the modal value (per ground-truth cluster), is computed. This value is then averaged over clusters. A perfect score, where each point within a ground-truth cluster was given the same value by the k-means algorithm, would be 1, with the chance baseline depending on the number of points and number of clusters. 
 
 \begin{lstlisting}[style = Matlab-editor, basicstyle = \mlttfamily, float = htbp, caption = Abstracted MATLAB code showing the k-means-mark computation, label = lst:KMM_MATLAB ]
 
@@ -417,7 +417,7 @@ In terms of real-world validity, this test condition represents a rather unusual
 
 When we randomly remove 50\% of the surfaces under each illuminant, the resulting k-means-marks are: \gls{DN}: 0.5989, \gls{GW}: 0.6967, \gls{BiW}: 0.5916, mel-based: 0.9447. It can be seen that \gls{GW} has fallen dramatically whilst the others have remained roughly stable. 
 
-A visualisation of the results at under this condition is shown in Figure \ref{fig:output50}. It can be seen that the neat clusters that \gls{GW} showed in Figure \ref{fig:output100} have degenerated into broad clouds. This can be explained by the cue that \gls{GW} uses becoming noisier; when viewing unknown surfaces drawn from a normally distributed set of surfaces (in terms of chromatic bias), the fewer surfaces that are visible, the lower the likeliood that the mean chromaticity of the surfaces represents the chromaticity of the illuminant. 
+A visualisation of the results at under this condition is shown in Figure \ref{fig:output50}. It can be seen that the neat clusters that \gls{GW} showed in Figure \ref{fig:output100} have degenerated into broad clouds. This can be explained by the cue that \gls{GW} uses becoming noisier; when viewing unknown surfaces drawn from a normally distributed set of surfaces (in terms of chromatic bias), the fewer surfaces that are visible, the lower the likelihood that the mean chromaticity of the surfaces represents the chromaticity of the illuminant. 
 
 Parameterising the percentage of surfaces shows that this general trend continues at other percentages. Outcomes at percentages from 20\% to 100\% in 10\% intervals are shown in Figure \ref{fig:outputRange}.
 
@@ -427,7 +427,7 @@ Parameterising the percentage of surfaces shows that this general trend continue
  \label{fig:outputRange}
 \end{figure} 
 
-Increasing the number of surfaces has little effect on the overall trend. A trial performed with 32 surfaces from the \citet{vrhel_measurement_1994} dataset (selected such that they were `natural' and above a minimum threshold chromaticity difference (calculated under a single daylight measurement) showed a slight overall decrease in the performance of the melanopsin-based correction, but it still outperformed all other algorithms below 80\% surface inclusion. Interestingly, the \gls{BiW} algorithm performed much better than it had in previous trials, presumably within this subset of the data the brightest surface was a more reliable cue than in the previous set. A summary for this test is shown in Figure \ref{fig:outputRangeMore}
+Increasing the number of surfaces has little effect on the overall trend. A trial performed with 32 surfaces from the \citet{vrhel_measurement_1994} dataset (selected such that they were `natural' and above a minimum threshold chromaticity difference when chromaticity was calculated under a single daylight measurement) showed a slight overall decrease in the performance of the melanopsin-based correction, but it still outperformed all other algorithms below 80\% surface inclusion. Interestingly, the \gls{BiW} algorithm performed much better than it had in previous trials, presumably within this subset of the data the brightest surface was a more reliable cue than in the previous set. A summary for this test is shown in Figure \ref{fig:outputRangeMore}
 
 \begin{figure}[htbp]
  \includegraphics[max width=\textwidth]{figs/comp/comparisonFourAlgos/outputRangeMore.pdf}
@@ -484,7 +484,7 @@ hyperspectral reflectance data, and then on three other datasets. See Figures \r
 
 \begin{figure}[htbp] % update this to look better and include the specific data used elsewhere in this section
  \includegraphics[max width=\textwidth]{figs/comp/plateau.pdf}
- \caption{The spectral reflectance functions of a subset of the \citet{vrhel_measurement_1994} reflectances (solid lines), normalised at the peak of s-cone sensitivity (CIE 2006 10$^{\circ}$), with the spectral sensitivity of s-cones and melanopsin \citep{lucas_measuring_2014} overlaid (dot-dashed lines).}
+ \caption{The \glspl{SRF} of a subset of the \citet{vrhel_measurement_1994} reflectances.}
  \label{fig:plateau}
 \end{figure} 
 
@@ -500,7 +500,7 @@ hyperspectral reflectance data, and then on three other datasets. See Figures \r
  \label{fig:others}
 \end{figure} 
 
-An interesting advantage could be made of this regularity. Assume a simpler situation where there were two points on the spectrum of the reflectance functions of a set of natural objects which were always the same as each other (perfect correlation). Sensors of appropriately narrow spectral sensitivity, placed at these two points on the spectrum would always register corresponding signals. Considering that the second principal component of daylight variability is a broad skew, any difference in the signals from two such receptors could be used fairly reliably to sense the contribution of this second component in any single condition. 
+It may be possible to take advantage of this regularity. Assume a simpler situation where there were two points on the spectrum of the reflectance functions of a set of natural objects which were always the same as each other (perfect correlation). Sensors of appropriately narrow spectral sensitivity, placed at these two points on the spectrum would always register corresponding signals. Considering that the second principal component of daylight variability is a broad skew, any difference in the signals from two such receptors could be used fairly reliably to sense the contribution of this second component in any single condition. 
 
 %Summary: The underlying reason for the relative success of the investigated transforms was considered. A plateau at shorter wavelengths of natural object reflectances was noted, and it was speculated that this could be taken advantage of.
 
@@ -518,11 +518,11 @@ One line of enquiry which may be valuable to pursue, and which may provide a rep
 
 The normalised, or `second-level' signals tested here showed moderate promise. All possible combinations of cone signals and melanopic signals were tested, and each was shown to be highly correlated with the chromaticity (in \gls{MB} space) of the illuminant. Relationships between signals from surfaces and the illuminant chromaticity were similar on a surface-by-surface basis but showed considerable offset (Figure \ref{fig:allComboSignals}). It was shown that for the purely cone-based second-level signals these correlations could arise purely as computational artefacts based on how chromaticity is calculated, but that in the case of the melanopic signals no such inherent relationship existed.
 
-Considering a melanopic signal as a third dimension upon a \gls{MB} chromaticity diagram yielded two abstract requirements for a signal for which the purpose was to enable a transformation to an illuminant-independent space. The first was a moderate level of decorrelation with existing signals such that the cloud of points within this space was non-planar. The second was that this new signal should track an approximately monotonic path through this space. Such a vantage also afforded the view that there was at least one type of transformation which might use the $i_{\text{MB}}$ values constructively (Figure \ref{fig:viewpoint}).
+Considering a melanopic signal as a third dimension upon a \gls{MB} chromaticity diagram yielded two abstract requirements for a signal for which the purpose was to enable a transformation to an illuminant-independent space. The first was a moderate level of decorrelation with existing signals such that the cloud of points within this space was non-planar. The second was that this new signal should track an approximately monotonic path through this space. A three-dimensional perspective also afforded the view that there was at least one type of transformation which might use the $i_{\text{MB}}$ values constructively (Figure \ref{fig:viewpoint}).
 
-A specific transform was tested against a number of standard transformations, using a novel quantitative measure of success (`k-means-mark'). By this measure, the \gls{GW} algorithm was found to be the most effective for our basic condition. However, when the number of surfaces in a scene was randomly reduced the performance of the \gls{GW} algorithm began to fall rapidly, whereas the melanopic algorithm was unaffected (See Figures \ref{fig:output50} and \ref{fig:outputRange}). A melanopic algorithm does not rely upon stability of scene-level attributes, whereas \gls{GW} and \gls{BiW} do.
+A specific transform was tested against a number of standard transforms, using a novel quantitative measure of success (`k-means-mark'). By this measure, the \gls{GW} algorithm was found to be the most effective for our basic condition. However, when the number of surfaces in a scene was randomly reduced the performance of the \gls{GW} algorithm began to fall rapidly, whereas the melanopic algorithm was unaffected (See Figures \ref{fig:output50} and \ref{fig:outputRange}). A melanopic algorithm does not rely upon stability of scene-level attributes, whereas \gls{GW} and \gls{BiW} do.
 
-The optimality of the spectral sensitivity of melanopsin for providing a signal for such an algorithm was queried. The root of the question here was whether this is something which can be performed with any additional signal, or whether there was something special about the spectral sensitivity of melanopsin. The answer to this question was of inherent interest, but there was the additional interest that if it could be shown that a melanopsin-based signal was in some ways optimal, it would increase our confidence (ever so slightly) that melanopsin is involved in this task, since we assume that in the course of evolution the spectral sensitivity might over time have shifted to a position of greatest value.
+The optimality of the spectral sensitivity of melanopsin for providing a signal for such an algorithm was queried. The root of the question here was whether this is something which can be performed with any additional signal, or whether there was something special about the spectral sensitivity of melanopsin. Apart from the inherent interest of understanding whether there is an optimal sensitivity for such a signal, and what this optimal sensitivity is, there is the additional fact that if it could be shown that a melanopsin-based signal was optimal in some respects, in would lend credence to the theory that melanopsin is involved in this task, since we assume that in the course of evolution the sensitivity may have shifted to a position of greatest value over time.
 
 It was found that melanopsin is in a spectra window where such a transform would be particularly effective (for our choices of illuminants, surfaces and cone sensitivities). However, the non-optimal signals also performed remarkably well, with many parts of the spectrum allowing for k-means-marks of above 0.8 (Figure \ref{fig:optimality}). 
 
@@ -540,7 +540,7 @@ There are a number of suggestions for further research:
 \begin{itemize}
     \item Whilst the k-means-mark method provides a suitable method for determining functional equivalence between tightness of clustering and separation between clusters, it has a couple of annoying issues. Firstly, it takes rather a long time to compute (though I must remain thankful for the relative speed of modern computers) and secondly, it introduces a level of inherent uncertainty (as can be seen in Figure \ref{fig:optimality}) which is not ideal for comparing algorithms nor for the reproducibility of this work.
     \item It is thought that a simpler cluster analysis method could be implemented without losing the benefits of the k-means-mark method.
-    \item One might consider a multiple-sample two-dimensional Kolmogorov-Smirnov Test taking as a starting point the code implementation of \citet{peacock_two-dimensional_1983}\footnote{Code: \url{https://uk.mathworks.com/matlabcentral/fileexchange/38617-kstest_2s_2d-x1-x2-alpha}}.
+    \item One might consider a multiple-sample two-dimensional Kolmogorov-Smirnov Test, taking as a starting point the code implementation of \citet{peacock_two-dimensional_1983}\footnote{Code: \url{https://uk.mathworks.com/matlabcentral/fileexchange/38617-kstest_2s_2d-x1-x2-alpha}}.
 \end{itemize}
 \item Work out how much of the optimality function is noise.
 \begin{itemize}
