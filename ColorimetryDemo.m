@@ -121,8 +121,8 @@ ylabel('{\its}_{MB}');
 
 load('C:\Users\cege-user\Dropbox\UCL\Data\Reference Data\Granada Data\Granada_daylight_2600_161.mat');
 T_SPD = final; clear final
-S_SPD = [300,5,161];
 T_SPD = T_SPD(17:97,1:20:end); %match sampling range and subsample across repeats
+S_SPD = S_xyz1931;
 
 for i=1:size(T_SPD,2)
     T_rad(:,:,i)  = sur_macbeth.*T_SPD(:,i);
@@ -138,4 +138,19 @@ axis equal, axis([0 1 0 1])
 xticks([0 1]), yticks([0 1])
 xlabel('x'), ylabel('y')
 
-save2pdf('C:\Users\cege-user\Dropbox\UCL\Ongoing Work\Thesis\figs\LitRev\ColorimetryDemo6.pdf')
+%save2pdf('C:\Users\cege-user\Dropbox\UCL\Ongoing Work\Thesis\figs\LitRev\ColorimetryDemo6.pdf')
+
+%% SPDs normalised to same luminance
+
+lum = T_xyz1931(2,:)*T_SPD;
+
+figure,
+plot(SToWls(S_SPD),T_SPD./lum)
+axis tight
+
+xlabel('Wavelength (nm)')
+ylabel('Relative power')
+ylim([0 0.14])
+yticks(ylim)
+
+%save2pdf('C:\Users\cege-user\Dropbox\UCL\Ongoing Work\Thesis\figs\LitRev\ColorimetryDemo7.pdf')
