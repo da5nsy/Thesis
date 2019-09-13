@@ -4,7 +4,7 @@
 
 \textit{He described how at the start of his PhD studies \citep{pointer_colour_1972}, he had made copies of every paper which had been written on his subject (Chromatic Adaptation) which were available from the library, and written to any authors whose work he had been unable to access, requesting copies. At the end of his first year he had a binder which contained, as far as he was aware, everything ever written on the subject. He finished his story rather abruptly, along the lines of ``since then, so many people have written on the subject that it would take much longer than you have within a PhD program to read it all. I don't know what you all will do''. Not an encouraging thought!}
 
-\textit{With this in mind, I shall attempt only to cover the basics and a few select papers of particular relevance in the following section, and shall take this opportunity to note my debt to a number of comprehensive overview papers and book chapters on this subject: \citet{foster_color_2011,smithson_sensory_2005,hurlbert_computational_1998,brainard_color_2014,fairchild_color_2013}.}
+\textit{With this in mind, I shall attempt only to cover the basics and a few select papers of particular relevance in the following section, and shall take this opportunity to note my debt to a number of comprehensive overview papers, book chapters and theses on this subject: \citet{foster_color_2011,maloney_computational_1984,barnard_practical_1999,smithson_sensory_2005,hurlbert_computational_1998,brainard_color_2014,fairchild_color_2013}.}
 
 \subsubsection{The problem}
 
@@ -34,23 +34,23 @@ In an environment such as the terrestrial environment, there is a great range in
 
 Where the process of adaptation responds to overall illumination levels, it is referred to as light adaptation and dark adaptation. Where the process of adaptation responds to the wavelength composition of light reaching the eye it is referred to as chromatic adaptation.
 
-In a natural environment, a change in the wavelength composition of radiation reaching the eye from a specific object might be caused by changing weather or time of day, or by the physical movement of the object from one space to another (where different lighting exists in the two different spaces). Figure \ref{fig:SPDnorm} shows a set of \glspl{SPD}, normalised by luminance, showing that the wavelength composition varies quite considerable, though in relatively systematic fashion.
+In a natural environment, a change in the wavelength composition of radiation reaching the eye from a specific object might be caused by changing weather or time of day, or by the physical movement of the object from one space to another (where different lighting exists in the two different spaces). Figure \ref{fig:SPDnorm} shows a set of measured daylight \glspl{SPD}, normalised by luminance, showing that the wavelength composition varies quite considerably, though in a relatively systematic fashion.
 
 \begin{figure}[htbp]
-%\includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo7.pdf}
+\includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo7.pdf}
 \caption{The \glspl{SPD} of a subset of the daylight measurements of \citet{hernandez-andres_color_2001} (further described in Section \ref{sec:coldata}), normalised by luminance.}
 \label{fig:SPDnorm}
 \end{figure}
 
 \subsubsection{Mechanistic vs. Inferential}
 
-In the literature there seems to be a long-running grapple between colour constancy and chromatic adaptation, with blurred boundaries and mixed definitions occurring frequently. \citet{brill_chromatic_1986} drive a wedge between the two concepts, asserting that the two operate on different timescales and in different fashions. The most common uses of the terms now seem to be for chromatic adaptation to refer to low level adaptation, with \citet{brainard_color_2014} using the term `mechanistic' to refer to this type of transformation.
+In the literature there seems to be a long-running grapple between colour constancy and chromatic adaptation, with blurred boundaries and mixed definitions occurring frequently. \citet{brill_chromatic_1986} drive a wedge between the two concepts, but refute the simple division that chromatic adaptation is the process and colour constancy is the ability, asserting that the two should be considered as separate processes, operating on different timescales and in different fashions. The most common use of the term `chromatic adaptation' now seems to be to refer to low level adaptation, with \citet{brainard_color_2014} using the term `mechanistic' to refer to this type of transformation.
 
 \begin{citequote}{brainard_color_2014}
 Adaptation of this sort supports constancy to the extent that its overall effect is to stabilize the postreceptoral representation of the light reflected from objects across changes of illumination (as well as other contextual changes).
 \end{citequote}
 
-The term `colour constancy', by contrast, is used to refer to higher level inference-based processes, which occur at faster timescales than are possible by adaptation alone \citep{rinner_time_2000}.
+The term `colour constancy', by contrast, is used to refer to higher level inference-based processes, which occur at faster timescales than are possible by adaptation alone \citep{rinner_time_2000}. It seems likely that multiple processes work in tandem at multiple levels and timescales to acheive colour constancy.
 
 \subsubsection{von Kries Adaptation}
 
@@ -88,20 +88,35 @@ where $L$, $M$ and $S$ represent the cone group responses; $K_{L}$, $K_{M}$ and 
 the organ of vision becomes less effective for that kind or for that part of its performance which is demanded from it for an extended period of time, whereas it becomes more effective for the activity which is, in a sense, opposed to that. This can be conceived in the sense that the individual components present in the organ of vision are completely independent of one another and each is fatigued or adapted exclusively according to its own function.
 \end{itquote}
 
-von Kries' thoughts have inspired many decades of research into \glspl{CAT}, which are a vital part of modern colour appearance models and other colour science computations such as colour rendering index calculations. 
+Many interpretations have been made of this statement, and a corresponding number of nominations for methods by which to calculate values have $K$ have been proposed. The most frequently considered methods are those referred to as \acrfull{GW} (where the reciprocal of the mean response across a scene is used) and \acrfull{BiW} (where the reciprocal of the brightest point in the scene is used). \citet{finlayson_shades_2004} showed that these two variants can be considered as part of a single framework, and that (Minkowski norm), and that other members from this family of algorithms provide benefits over \gls{GW} and \gls{BiW}.
+
+von Kries' thoughts have inspired many decades of research into \glspl{CAT}, which are a vital part of modern colour appearance models and other colour science computations such as colour rendering index calculations. This relatively simple concept has withstood the test of time, as noted by \citet[p. 182]{fairchild_color_2013} who reproduces this quote:
+
+\begin{citequote}{von_kries_beitrag_1970}
+If some day it becomes possible to distinguish in an objective way the
+various effects of light by direct observation of the retina, people will perhaps
+recall with pitying smiles the efforts of previous decades which
+undertook to seek an understanding of the same phenomena by such
+lengthy detours.
+\end{citequote}
+
+followed by the comment:
+
+\begin{citequote}{fairchild_color_2013}
+Over eleven decades later, there is no one looking back at von Kries’ work
+with a “pitying smile.” Rather, many are looking back at his work with
+astonishment at how well it has withstood the test of time.
+\end{citequote}
 
 \subsubsection{Retinex}
 
-Considered in the context on von Kries' work, Edwin Land's Retinex model 45,46,47 might be described as `von Kries with spatial considerations' but I imagine such a statement would have rather riled the often bombastic sounding Land. It appears to have been Land's understanding that the Retinex model was not a model of chromatic adaptation, but rather a model to usurp and do away with the very concept of chromatic adaptation.
+Considered in the context on von Kries' work, the Retinex model of Land and colleagues \citep{land_retinex_1964,land_lightness_1971,land_recent_1983,land_recent_1986,mccann_quantitative_1976} might be described as `von Kries with spatial considerations' but I imagine such a statement would have rather riled the often bombastic sounding Land. It appears to have been Land's understanding that the Retinex model was not a model of chromatic adaptation, but rather a model to usurp and do away with the very concept of chromatic adaptation.
 
-Land was fond of picking apart Newton's statements regarding colour; particularly that the perception of colour was the result of an objects' `excess and predominance in the [spectra of the] reflected light'48. Land asserted that rather than work from the premise that the visual system was correcting an absolute record of the world, by normalising it to account for the ambient light source, one should instead consider visual input only as a relative record, where each element within a scene only takes on properties by comparison with the other elements of the scene. 
+Land was fond of picking apart Newton's statements regarding colour; particularly that the perception of colour was the result of an objects' `excess and predominance in the [spectra of the] reflected light' \citep{newton_opticks_1704}. Land asserted that rather than work from the premise that the visual system was correcting an absolute record of the world, by normalising it to account for the ambient light source, one should instead consider visual input only as a relative record, where each element within a scene only takes on properties by comparison with the other elements of the scene. 
 
 He suggested for consideration the idea of the human visual system recording three separate lightness images, each representing the recording from a different band of receptors, where each element within each image is scaled against the brightest element in each specific image. Retinex theory also provides an interesting algorithm for discounting not only coloured illumination but illumination which varies across the visual field.
 
-However, computationally difficult to impliment, no clear way in which it could be biologically implemented.
-
-\subsubsection{Bright-is-white and Grey-world}
-They are all special cases of X general theory
+However, \citet{barnard_practical_1999} points out that the various versions of the Retinex algorithm simplify to versions of the von Kries adaptation, and \citet{brainard_analysis_1986} found that `the algorithm is too sensitive to changes in the color of nearby objects to serve as an adequate model of human color constancy'. In addition, it has been found to be computationally difficult to implement, with no clear way in which it could be biologically implemented.
 
 \subsubsection{Linear models}
 
