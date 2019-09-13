@@ -1,46 +1,13 @@
 \begin{abstract} % 300 word limit
 
-%Museum lighting would benefit from an improved understanding of colour constancy, since the correlated colour temperature of illumination affects how much damage is caused to objects.
+Museums seek a pragmatic compromise between lighting which causes minimal damage to objects and lighting which allows maximal visitor enjoyment. One way to reduce damage is to choose illumination of a lower correlated colour temperature (CCT), since this contains less short-wavelength radiation, which is generally more damaging.
 
+Colour appearance models suggest that a change in CCT alone should not affect visual experience, but there is a long history of studies which aim to find a `preferred' CCT for museum environments. These experiments have often had conflicting findings. One potential cause for this would be if the spectral sensitivity for adaptation differed from the spectral sensitivity for vision, as generally only the chromaticity (not the spectrum) is controlled in such experiments. Such a situation might arise if the recently discovered intrinsically photosensitive Retinal Ganglion Cells were involved in colour constancy.
 
+Two psychophysical experiments were performed whereby observers were adapted to different spectra whilst performing an achromatic matching task. The first experiment used sixteen different narrow-band sources as adapting fields, and the second used two perceptually indistinguishable sources which differed in melanopic power. Neither experiment found evidence for a role of melanopsin in colour constancy, but it was noted that the model of colour constancy implicitly under examination was under-developed and did not produce clear predictions.
 
+Regarding this, an exploratory computational study was performed, to explore whether, and in what way, a melanopsin signal might contribute to an observer's ability to achieve colour constancy. It was found that a normalised melanopic signal provided a means by which colour constancy could be roughly achieved, without the need for scene-level regularities which other algorithms rely upon.
 
-
-
-% Light causes damage to objects in museums. Museums seek a pragmatic compromise between lighting which causes minimal damage to objects, and lighting which allows maximal visitor enjoyment. One way to reduce damage is to choose illumination of a lower correlated colour temperature (CCT), since this will contain less short-wavelength radiation.
-
-% A series of interviews with museum professionals showed that this technique is not currently being employed. One reason is a belief that changing the CCT in an environment will affect the visual experience and the atmosphere in the room.
-
-% Colour appearance models suggest that a change in CCT alone should not affect visual experience, but there is a long history of studies which aim to find a `preferred' CCT for museum environments. These experiments have often found preferences for certain CCTs, but often studies conflict with one another. One potential cause for this would be if the spectral sensitivity for adaptation differed from the spectral sensitivity for vision, as generally only the chromaticity (not the spectrum) is reported in such experiments. Such a situation may arise if the recently discovered intrinsically photosensitive Retinal Ganglion Cells were involved in the process of chromatic adaptation.
-
-% OH GOD IT NEEDS TO BE WAY SHORTER
-
-% Extended abstract: 
-
-%Light causes damage to objects in museums. Museums seek a pragmatic compromise between lighting which causes minimal damage to objects, and lighting which allows maximal visitor enjoyment. Generally this is achieved by following industry recommendations for maximum illuminance and colour rendering index.
-%
-%A complementary way to reduce damage, highlighted by the Commission Internationale de l'Eclairage in a 2004 publication, is to choose illumination of a lower Correlated Colour Temperature (CCT), because such illumination will contain most radiation energy in the longer wavelengths, which are generally less damaging to objects. Computations performed for a range of commercially available lighting products showed a strong correlation between predicted damage and CCT, with a factor of two between the low and high CCT sources. Practically, a sensitive object might be displayed for twice as long under a low CCT illuminant than a high one, before passing a damage threshold. 
-%
-%A series of interviews with museum professionals showed that this technique is not currently being employed. One reason is a belief that changing the CCT in an environment will affect the visual experience and the atmosphere in the room.
-%
-%Models of vision suggest that a change in CCT alone should not affect visual experience; that in a space with a single type of lighting we should be able to adapt to any colour of illumination. This seems at most only partially true. It is true that we adapt reasonably well to the ambient illumination, both in terms of luminance and chromaticity, such that our perception of object colours relates primarily to object reflectance properties rather than the absolute intensities reaching our eyes. Generally, however, we do also seem to have an awareness of the properties of the illumination in a scene, and even a preference for some sources over others. Historically, experiments seeking to find an ideal preferred CCT have provided conflicting results.
-%
-%One possible reason for these conflicting results might be that an additional retinal mechanism is involved in chromatic adaptation. The studies in this thesis have investigated whether a cell group called the `intrinsically photosensitive Retinal Ganglion Cells' (ipRGCs) might be involved in colour constancy. This cell group has traditionally been considered as having no output to visual pathways, and so colour constancy experiments haven't controlled for ipRGC activation, but recent research has shown that ipRGCs do in fact have a limited input to visual pathways. There are a range of reasons that suggest that they may play a role in colour constancy specifically.
-%
-%To investigate the effect of different levels of ipRGC activation on an observer's state of colour constancy,	two lab-based psychophysical experiments were performed. The first sought to examine the effect of different wavelengths of light upon chromatic adaptation. Within a Ganzfeld viewing environment, illuminated by one of 16 different wavelengths of near-monochromatic light, observers performed an achromatic setting task, controlling the chromaticity of a display visible in the central field through a 4° circular aperture with two handheld sliders.
-%
-%In the second experiment the role of melanopsin in chromatic adaptation was more directly questioned. The same task was performed as in the first experiment, but the Ganzfeld was this time illuminated by one of two perceptually metameric lights with different melanopic irradiance levels. Neither of these experiments provided evidence for a simple or strong effect of ipRGC activation, though this is limited to the case where peripheral stimulation would affect central perception.
-%
-%Concurrently, a method has been developed for performing colour constancy experiments outside of the lab environment, which can be completed quickly by naive observers in `real-life' illumination conditions. The method uses a tablet computer, on which an isoluminant plane through CIELUV is presented, successively varying in orientation and spatial offset. The observer is tasked with selecting, by touching with a finger, an achromatic point from within each stimulus. From the recorded selections an estimate of the observer's state of chromatic adaptation is computed.
-%
-%Following these experiments a different approach was adopted: rather than asking what was the affect of varying ipRGC activation upon experimental subjects, instead the question was posed whether an ipRGC-based signal could hypothetically be useful for colour constancy, considering what we know of daylight variability and natural surface reflectance properties. A computational methodology was employed. It was found that the spectral sensitivity of melanopsin is optimal for providing a signal that can transform raw chromatic signals to an illuminant-independent space, and that this can be done without using any scene level assumptions such as grey-world.
-%
-%The applied goal of this research was to increase our understanding of colour constancy so as to advise museums on how to reduce damage to objects without degrading visitor experience. Asking whether ipRGCs play a role in colour constancy is additionally valuable to the vision science community, and to lighting engineering applications beyond the museum world.
-
-
-%--------------------
-% Not included in intro:
-
-% The applied goal of this research was to increase our understanding of colour constancy so as to advise museums on how to reduce damage to objects without degrading visitor experience. Asking whether \glspl{ipRGC} play a role in colour constancy is additionally valuable to the vision science community, and to lighting engineering applications beyond the museum world.
+Additionally, a novel method for performing colour constancy experiments upon a tablet computer was developed, so that experiments could be run more easily within real world environments.
 
 \end{abstract}
