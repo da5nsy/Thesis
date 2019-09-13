@@ -1,8 +1,27 @@
 \subsection{Chromatic Adaptation and Colour Constancy}
 
-\textit{I am indebted to comprehensive overview papers on this subject by \citet{foster_color_2011} and \citet{smithson_sensory_2005}, and to Fairchild's chapters on Chromatic Adaptation and \glspl{CAM} \citep[ch. 8 \& 9]{fairchild_color_2013}.}
+\textit{Shortly after the start of my PhD program I attended a symposium for PhD students in the field of lighting research (LumeNet). At this symposium Prof. Michael Pointer delivered a welcome talk, and one particular part of it stuck with me.}
+
+\textit{He described how at the start of his PhD studies \citep{pointer_colour_1972}, he had made copies of every paper which had been written on his subject (Chromatic Adaptation) which were available from the library, and written to any authors whose work he had been unable to access, requesting copies. At the end of his first year he had a binder which contained, as far as he was aware, everything ever written on the subject. He finished his story rather abruptly, along the lines of ``since then, so many people have written on the subject that it would take much longer than you have within a PhD program to read it all. I don't know what you all will do''. Not an encouraging thought!}
+
+\textit{With this in mind, I shall attempt only to cover the basics and a few select papers of particular relevance in the following section, and shall take this opportunity to note my debt to a number of comprehensive overview papers and book chapters on this subject: \citet{foster_color_2011,smithson_sensory_2005,hurlbert_computational_1998,brainard_color_2014,fairchild_color_2013}.}
 
 \bigskip
+
+\subsubsection{The problem}
+
+At the start of this section I stated that ``Our perception of colour generally correlates with the way in which objects preferentially reflect some wavelengths over others''. It transpires that this ability is non-trivial, because our visual systems do not have access to the \glspl{SRF} of the objects which are seen, only the cone catches which result from the interaction of illuminant, surface and sensor. 
+
+Figure \ref{fig:problem} demonstrates the issue, by reproducing \ref{fig:1931} but instead of showing the chromaticities of the surfaces under only a single illuminant, a large number of illuminants are used. It can be seen that it is not uncommon one surface to have the chromaticity under one illuminant of another surface under a different illuminant.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo6.pdf}
+\caption{A reproduction of Figure \ref{fig:1931}, but this time with the chromaticity co-ordinates for the 24 macbeth colour checker patches under a range of daylights, drawn from the Granada dataset \citep{hernandez-andres_color_2001} (further described in Section \ref{sec:coldata}).}
+\label{fig:problem}
+\end{figure}
+
+
+\subsubsection{Adaptation}
 
 `Adaptation' is the general mechanism by which a finite range of sensitivity can be shifted in terms of absolute sensitivity bounds. The benefit of having an adaptive system, as opposed to a fixed system, is that the sensitivity of the system to small changes is maximised, whilst maintaining a broad overall sensitivity, at the expense of being able to sense over the entire range at a single time-point. 
 
