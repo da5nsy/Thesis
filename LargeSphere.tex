@@ -13,13 +13,13 @@ Within a Ganzfeld viewing environment, illuminated by one of 16 different wavele
 
 Two different analyses were performed, with neither providing comprehensive support for rejecting the null hypothesis. However, it is noted that several assumptions are implicit in the experimental design, and that the experiment samples only a small region of the potential search space for melanopic input to adaptation (See Section \ref{sec:LSdis}).
 
-This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the authors academic supervisors), who initiated the experiment, and TR who was a student of LM's. The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it appeared that there had been a technical fault during this run of data collection, and my data was deemed corrupted. Thus, my only contribution to this work is an extension to the data analysis started by LM, upon which I shall focus on in this chapter.
+This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the author's academic supervisors), who initiated the experiment, and TR who was a student in the Medical Physics department. The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it appeared that there had been a technical fault during this run of data collection, and my data was deemed corrupted. Thus, my only contribution to this work is an extension to the data analysis started by LM, upon which I shall focus on in this chapter.
 
 \section{Methodology}
 
 \subsection{Hardware}
 
-A hollow fibreglass sphere of approximately 750mm diameter was prepared with three holes; the first for an observer's face, the second (above) for an illuminant to illuminate the Ganzfed, and the third (opposite the first) through which a small portion of an LCD screen could be seen. The interior of the sphere was painted with RAL 7040 dulux vinyl matt, of approximately 38\% reflectance. Illumination was provided by a Kodak slide projector, filtered through one of 16 near-monochromatic filters, ranging in 20nm intervals from 400-700nm inclusive. % Add something about `mesopic'
+A hollow fibreglass sphere of approximately 750mm diameter was prepared with three holes; the first for an observer's face, the second (above the observer's head) for a light source to illuminate the Ganzfeld, and the third (opposite the first) through which a small portion of an LCD screen could be seen. The interior of the sphere was painted with RAL 7040 dulux vinyl matt grey, of approximately 38\% reflectance. Illumination was provided by a Kodak slide projector with a tungsten-halogen light source, filtered through one of 16 near-monochromatic filters, ranging in 20nm intervals from 400-700nm inclusive. % Add something about `mesopic'
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/sketch.png}
@@ -28,15 +28,21 @@ A hollow fibreglass sphere of approximately 750mm diameter was prepared with thr
 \end{figure}
 
 \begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/Alejandro.jpg}
+\caption{An observer sat at the sphere. Photograph courtesy of Lindsay MacDonald.}
+\label{fig:Alejandro}
+\end{figure}
+
+\begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/LSillum.pdf}
-\caption{The illuminants within the sphere, created by filtering light from a slide projector, measured as reflecting from a point just to the right of the aperture through which an observer would view the screen. Measurements made by Lindsay MacDonald.} %%%%%%?????
+\caption{The illuminations within the sphere, created by filtering light from a slide projector, measured as reflecting from a point just to the right of the aperture through which an observer would view the screen. Measurements made by Lindsay MacDonald.} %%%%%%?????
 \label{fig:LSillum}
 \end{figure}
 
 \subsection{Observer task}
 
 The observer sat on one side of the sphere with their face inside the sphere, such that nothing outside of the sphere was visible. On view on the opposite side of the sphere was a circular 4$^{\circ}$ aperture onto an LCD screen, upon which a random colour % drawn from ??????
-was visible (See section \ref{sec:LSstim}). It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic (an achromatic setting task). Once they were happy with the achromacy of the patch, they were to hit a button at which point a new random colour would be presented. The first displayed colour was displayed at L* of 85, with subsequent colours descending by 5 L* until 10 L*. This scale was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), visualised in Figure \ref{fig:ExperimentalPro}.
+was visible (See section \ref{sec:LSstim}). It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic (an achromatic setting task). Once the observer was happy with the achromacy of the patch, a button was pressed to record the setting and a new random colour would be presented. The first displayed colour was at L* of 85, with subsequent colours descending by 5 L* until 10 L*. This sequence was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), one session for each adapting wavelength, visualised in Figure \ref{fig:ExperimentalPro}. In an additional (17th) session the narrow-band filter was replaced by a neutral density filter, to produce an achromatic adapting field.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/ExperimentalPro.png}
@@ -47,7 +53,7 @@ was visible (See section \ref{sec:LSstim}). It was the observer's task to use tw
 \subsection{Stimulus specification}
 \label{sec:LSstim}
 
-The stimulus was controlled via a MATLAB script, which read the input of two sliders and a button via a `Phidget' interface. The two linear sliders provided values of between 0 and 1000, and these values were converted to CIELAB co-ordinates in such a manner that the slider maxima corresponded to the Natural Colour System (NCS) unique hue positions as computed by \citet{derefeldt_transformation_1986}. In this manner the sliders could be considered as moving between red and green (via the CIELAB origin), and blue and yellow (via the CIELAB origin) respectively. These values were transformed into standard sRGB values, with white references of [XYZ = 99.04, 100, 151.30] for observer LM and [XYZ = 94.97, 100, 98.15] for observer TR, and these values were output to the screen.
+The stimulus was controlled via a MATLAB script, which read the input of two sliders and a button via a `Phidget' interface. The two linear sliders provided values of between 0 and 1000, and these values were converted to approximate CIELAB co-ordinates in such a manner that the slider maxima corresponded to the Natural Colour System (NCS) unique hue positions as computed by \citet{derefeldt_transformation_1986}. In this manner the sliders could be considered as moving along opponent axes between red and green (via the CIELAB origin), and blue and yellow (via the CIELAB origin) respectively. These values were transformed into standard XYZ values, with white references of [XYZ = 99.04, 100, 151.30] for observer LM and [XYZ = 94.97, 100, 98.15] for observer TR. These values were  then converted to display RGB signals using the GOG characterisation model and output to the screen.
 
 The generation of random colours was achieved by modulating the nominal zero-point on each slider scale, where the default zero point is considered as 500, sampling from a uniform distribution between 250 and 750 for each presentation. 
 
@@ -71,7 +77,7 @@ A set of data referred to as the `baseline' data was generated, where there was 
 
 %The effect of the random offsetting was also queried, and it was found that the maximum random offset pushed the chromaticities halfway between \dots
 
-Two distinct approaches were taken to data analysis. The first attempted to process the data in a chromatic space, with the reasoning that under the null condition chromatic selections should simply correspond to the chromaticity of the surround illuminants, presumably with some sort of gain function applied. If it were shown that this relationship was not as expected, in a manner which might suggest involvement by other mechanisms (meaning rods or \glspl{ipRGC}), then this could be considered as evidence against the null hypothesis.
+Two distinct approaches were taken to data analysis. The first attempted to process the data in a chromatic space, with the reasoning that under the null condition chromatic selections should simply correspond to the chromaticity of the surround illuminations, presumably with some sort of gain function applied. If it could be shown that this relationship was not as expected, in a manner which might suggest involvement by other mechanisms (meaning rods or \glspl{ipRGC}), then this could be considered as evidence against the null hypothesis.
 
 The second approach took advantage of the fact that measurements were taken at samples across the wavelength spectrum. Since we know the power at each waveband, and the spectral sensitivities of the receptors, we can see whether the responses (transformed to cone space) relate in some simple way to spectral sensitivities.
 
@@ -85,7 +91,7 @@ Visually summarising the results for even a single observer is difficult due to 
 
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/LMdataOverview.pdf}
-\caption{The dataset of observer LM. In all plots, the average CIELAB values are taken over the 10 repeats within each session. \emph{Top left:} an overview of the chromaticity of selected points. Connections between points indicate that they are from the say run (under the same adapting wavelength). Colouring of points and lines indicates the adapting wavelength, though whilst there is a rough correspondence between the colour of the line and the appearance of the adapting field this is only meant as a means to differentiate between the different lines and is not in any way an accurate representation of appearance. \emph{Top right:} as for top left but only for points recorded at specific values of L*. Colours are as for top left, but lines linking points now represent points of like L*. This plot is included to show the relationship across wavelength of the adapting field. \emph{Lower left and right:} Other perspectives upon the CIELAB projection. Data as for top left.}
+\caption{The dataset of observer LM. In all plots, the average CIELAB values are taken over the 10 repeats within each session. \emph{Top left:} an overview of the chromaticity of selected points. Connections between points indicate that they are from the same run (under the same adapting wavelength). Colouring of points and lines indicates the adapting wavelength, though whilst there is an approximate correspondence between the colour of the line and the appearance of the adapting field this is only meant as a means to differentiate between the different lines and is not in any way an accurate representation of appearance. \emph{Top right:} as for top left but only for points recorded at specific values of L*. Colours are as for top left, but lines linking points now represent points of like L*. This plot is included to show the relationship across wavelength of the adapting field. \emph{Lower left and right:} Other perspectives upon the CIELAB projection. Data as for top left.}
 \label{fig:overviewLM}
 \end{figure}
 
@@ -103,19 +109,19 @@ Visually summarising the results for even a single observer is difficult due to 
 
 It can be seen in the data for all observers that there is a clear L*-dependent shift. Interestingly, the precise nature of this seems different for each observer; the data of LM clusters tightly around [0,0] for low values of L* and then generally moves north-west as L* increases, before returning towards the origin at the highest values of L*. For TR the shift is monotonic and roughly south-west.
 
-Within this pattern it can be seen for observers LM and TR that there is a correspondence between the adapting wavelength and the selected chromaticity. This is most easily seen in the top right plots of Figures \ref{fig:overviewLM} and \ref{fig:overviewTR}. In both cases a rough circle can be seen for both of the values of L* shown.
+Within this pattern it can be seen for observers LM and TR that there is a causal relationship between the adapting wavelength and the selected chromaticity. This is most easily seen in the top right plots of Figures \ref{fig:overviewLM} and \ref{fig:overviewTR}. In both cases a rough circle can be seen for both of the values of L* shown.
 
-In Figure \ref{fig:overviewDG} is can be seen in the lower-right plot that the data splits into two distinct groups, one is which is considerably lower in b* than is seen for either of the previous observers, or would generally be expected. It is suspected that there was a screen calibration issue which led to offsetting of the screen output in an unpredictable session-by-session fashion. It was found that a basic offsetting applied selectively to those sessions which appeared to be affected could `correct' for this issue, but without a better understanding of the issue this dataset is considered unsuitable for further analysis.
+In Figure \ref{fig:overviewDG} it can be seen for observer DG in the lower-right plot that the data splits into two distinct groups, one of which is considerably lower in b* than is seen for either of the previous observers, or would generally be expected. It is suspected that there was a screen calibration issue which led to offsetting of the screen output in an unpredictable session-by-session fashion. It was found that a basic offsetting applied selectively to those sessions which appeared to be affected could `correct' for this issue, but without a better understanding of the issue this dataset is considered unsuitable for further analysis.
 
 \subsection{Variability over time/repeats}
 
 Not represented in the above plots is the way in which responses varied over time within each session, averaged over L* (the previous plots were averages over time). Figures \ref{fig:timeLM} and \ref{fig:timeTR} show the calibrated CIELAB values for observers LM and TR. 
 
-L* should theoretically remain steady throughout, with minor differences introduced presumably due to differences between the screen and sRGB, 8-bit quantization, and any selections where a gamut boundary was reached. Both a* and b* follow the broad trends which would be expected given previous figures. Newly visible in these figures is the manner in which responses change over time. For both observers LM and TR the first two or three repeats seem to be distinct from the rest of the set, suggesting that adaptation had not yet reached a steady-state during this time.
+L* should remain steady throughout (this was set), with minor differences introduced presumably due to differences between the screen and sRGB, 8-bit quantization, and any selections where a gamut boundary was reached. Both a* and b* follow the broad trends which would be expected given previous figures. Newly visible in these figures is the manner in which responses change over time. For both observers LM and TR the first two or three repeats seem to be distinct from the rest of the set, suggesting that adaptation had not yet reached a steady-state during this time.
 
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/LMdataOverTime.pdf}
-\caption{CIELAB co-ordinates across time (repeat number). Top plot is L*, middle a* and lower b*.}
+\caption{CIELAB co-ordinates across time (repeat number) for observer LM. Top plot is L*, middle a* and lower b*.}
 \label{fig:timeLM}
 \end{figure}
 
@@ -135,7 +141,7 @@ The CIELAB co-ordinates for the adapting fields were computed from the measureme
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/adapter1.pdf}
-\caption{The CIELAB values for the surround illuminants, calculated from the measurements shown in Figure \ref{fig:LSillum}, taking the white point of the screen as the white point.}
+\caption{The CIELAB values for the surround illuminations, calculated from the measurements shown in Figure \ref{fig:LSillum}, taking the white point of the screen (for the TR trials) as the white point.}
 \label{fig:adapter1}
 \end{figure}
 
@@ -143,7 +149,7 @@ If the surround fully controlled adaptation, and observers were fully adapted, i
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/LMcompareWithSurround.pdf}
-\caption{The CIELAB co-ordinates for the surround illuminants, relative to the white point used in the LM trials (black line), and the data from the top right sub-figure of Figure \ref{fig:overviewLM}, showing the CIELAB co-ordinates of the observer selections for 20 L* and 60 L* (dashed and dotted grey lines respectively).}
+\caption{The CIELAB co-ordinates for the surround illuminations, relative to the white point used in the LM trials (black line), and the data from the top right sub-figure of Figure \ref{fig:overviewLM}, showing the CIELAB co-ordinates of the observer selections for 20 L* and 60 L* (dashed and dotted grey lines respectively).}
 \label{fig:LMCompSurr}
 \end{figure}
 
@@ -235,7 +241,7 @@ It is reassuring that in each case, successful random combinations used high pos
 
 \subsubsection{Adding rods and ipRGCs}
 
-In order to investigate whether rods or \glspl{ipRGC} were playing a role in adaptation as measured by this dataset, the analysis was re-run with the additional rod input, additional \gls{ipRGC} input, and both rods and \glspl{ipRGC} as additional inputs. See Figure \ref{fig:LSsimdata} for a visualisation of these channels. The results of re-running the computations following the addition of these inputs is shown in Table \ref{tab:plusres}. Minor increases in correlation are exhibited. However, it should be noted that one would expect to see at least a minor increase in ability from practically any additional signal, so long as it differed from the already accessible signals.
+In order to investigate whether rods or \glspl{ipRGC} were playing a role in adaptation as measured by this dataset, the analysis was re-run with the additional rod input, additional \gls{ipRGC} input, and both rods and \glspl{ipRGC} as additional inputs. See Figure \ref{fig:LSsimdata} for a visualisation of these channels. The results of re-running the computations following the addition of these inputs is shown in Table \ref{tab:plusres}. Minor increases in correlation are exhibited. However, it should be noted that one would expect to see at least a minor increase in performance from practically any additional signal, so long as it was independent from the already accessible signals.
 
 \begin{table}[hbtp]
 \centering
@@ -262,13 +268,13 @@ Further, it is not clear to what extent the gains exhibited in Table \ref{tab:pl
 
 There is a clear distinction between the simple simulated response functions, and the recorded data. It is interesting that a simple linear recombination can improve the correlation so greatly. It should be remembered however that this type of post-hoc fitting is liable to delivering whatever results a researcher might hope to find. 
 
-Taken at face value, the results seem to indicate that the principal drivers of adaptation are not at the cone level, but rather at a higher level, once cone inputs have been combined. The results mirror what might be expected of these higher level signals - there appears to be a single signal for L and M, roughly mirrored between the two, with a reciprocal trade-off possible between L and M for both, and the S cone signal takes positive weights for S, and negative weights for both L and M, but with a curious hint of a reciprocal trade-off between S and M.
+Taken at face value, the results suggest that the principal drivers of adaptation are not at the cone level, but rather at a higher level, once cone inputs have been combined. The results mirror what might be expected of these higher level signals - there appears to be a single signal for L and M, roughly mirrored between the two, with a reciprocal trade-off possible between L and M for both, and the S cone signal takes positive weights for S, and negative weights for both L and M, but with a curious hint of a reciprocal trade-off between S and M.
 
 However, it is unclear to what extent these relationships may arise due to limitations of the experimental set-up; it is possible that a rise in one signal is yoked through hardware limitation to the rise or fall in another. Future investigators should consider whether this effect is modellable.
 
-Though there is a demonstrated ability of additional signals to improve the correlation with the real data, it would be a considerable leap to consider this as evidence for the existence of mechanisms operating in this manner.
+Though there is a demonstrated ability of additional signals to improve the correlation with the real data, it would be a leap to consider this as evidence for the existence of mechanisms operating in this manner.
 
-It is likely that any additional signal at a different wavelength (or even with a different frequency component) would have been able to deliver a higher correlation, since the data is noisy and through the random recombination we are functionally allowing every option to be tested. This is highly likely to result in over-fitting. One way to test whether this has occurred is to plot the contributions of the top performers from these situations (analogous to Figures \ref{fig:contributions_3} and \ref{fig:contributions_all}) and consider the apparent trends. This is plotted in Figure \ref{fig:contributions_5}. It can be seen that there does appear to be some trends for both rods and \glspl{ipRGC}. Splitting this apart, into Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods}, where we plot the results for simulations run where only the rods were added or only the \glspl{ipRGC} were added, we can see these trends slightly more clearly.
+It is likely that any additional signal at a different wavelength (or even with a different frequency component) would have been able to deliver a higher correlation, since the data is noisy and through the random recombination we are functionally allowing every option to be tested. This is highly likely to result in over-fitting. One way to test whether this has occurred is to plot the contributions of the top performers from these situations (analogous to Figures \ref{fig:contributions_3} and \ref{fig:contributions_all}) and consider the apparent trends. This is plotted in Figure \ref{fig:contributions_5}. It can be seen that there do appear to be some trends for both rods and \glspl{ipRGC}. Splitting this apart, into Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods}, where we plot the results for simulations run where only the rods were added or only the \glspl{ipRGC} were added, we can see these trends slightly more clearly.
 
 \begin{figure}[htbp]
 \includegraphics[max width=0.9\textwidth]{figs/LargeSphere/contributions_5.pdf}
@@ -288,7 +294,7 @@ It is likely that any additional signal at a different wavelength (or even with 
 \label{fig:contributions_5minusrods}
 \end{figure}
 
-Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods} appear somewhat similar. Considering the similar spectral characteristics of rods and melanopsin, it should be expected that the model would use the signals in somewhat similar fashions. It appears as though neither have a particularly strong role to play in the L and M adaptation, however both seem to reliably be used as a negative weighting for S. It is unclear whether this is simply a response to a single high datapoint in this dataset (the peak at 460nm) or whether this integration serves a broader purpose. This peak at 460nm also seems to be the cause for the stubbornly low correlation coefficients for the S channel (compared to L and M), which max out at around 0.81 (see Figure \ref{fig:relcontributions}).
+Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods} appear somewhat similar. Considering the similar spectral characteristics of rods and melanopsin, it should be expected that the model would use the signals in somewhat similar fashions. It appears as though neither has a particularly strong role to play in the L and M adaptation, however both seem to reliably be used as a negative weighting for S. It is unclear whether this is simply a response to a single high datapoint in this dataset (the peak at 460nm) or whether this integration serves a broader purpose. This peak at 460nm also seems to be the cause for the stubbornly low correlation coefficients for the S channel (compared to L and M), which max out at around 0.81 (see Figure \ref{fig:relcontributions}).
 
 \section{Conclusion}
 \label{sec:LSdis}
@@ -299,34 +305,33 @@ The chromaticity-based analysis showed that there was a strong correspondence be
 
 The spectrum-based analysis showed that the results for one observer could not be well fitted by a simple model of Von-Kries-type observer, but that simple linear combinations of the responses of such an observer could be made to fit the recorded data very well. Though the ability of these fits is to be expected from this type of post-hoc fitting, the types of models which are predicted by the fitting align well with our understanding of post-receptoral signals, which suggests that we may be measuring adaptation at these levels. It would be particularly valuable to see whether the temporal nature of responses also aligned with our understanding of the timecourses of these different signals. It should be noted that this result could be due to the nature of the experimental set-up; observers were unable to modulate the cone activations directly. For example, to make the stimulus more green, the observer would inherently have to make it less red. It is plausible that this may account for the relationships seen in this analysis.
 
-The second analysis further showed that integration of the simulated rod and melanopic signals provide additional value in fitting the data. Again, this is to be expected from this type of fitting. The minimal improvement delivered by the inclusion of rod and melanopic signals does not furnish me with strong enough evidence to reject the null hypothesis that chromatic adaptation can be fully accounted for by cone and rod mechanisms. 
+The second analysis further showed that integration of the simulated rod and melanopic signals provides additional value in fitting the data. Again, this is to be expected from this type of fitting. The minimal improvement delivered by the inclusion of rod and melanopic signals does not furnish me with strong enough evidence to reject the null hypothesis that chromatic adaptation can be fully accounted for by cone and rod mechanisms. 
 
 \subsection{Limitations}
 
 Several limitations have been identified with this experimental design which should be borne in mind when analysing this dataset, or planning similar experiments.
 
 \begin{itemize}
-\item Other research \hl{[REF]} has indicated that melanopsin is inactive below moderate light levels. The light levels in this experiment were very low \hl{[info]}, and so it is unclear whether we might expect to see melanopsin activation, and thus any melanopic interaction to adaptation, at these levels.
-\item The light levels were different for each condition. Presumably a stronger adapting illuminant might have a stronger adaptive effect, but it is unclear what how this might manifest (faster? more chromatic neutral point?) and what the underlying relationship may be. It would be tempting to match the adapting surrounds for luminance, or radiant power, but neither of these solutions provide genuine equality across conditions (when matching for luminance almost no level of 400nm radiation would be able to match the luminance at other wavelengths, and there is no reason that radiant power should directly translate to adaptive effect).
+\item The light levels in this experiment were in the mesopic range, and it is unclear whether we might expect to see melanopsin activation, and thus any melanopic interaction to adaptation, at these levels.
+\item The light levels were different for each condition. Presumably a stronger adapting illumination might have a stronger adaptive effect, but it is unclear what how this might manifest (faster? more chromatic neutral point?) and what the underlying relationship may be. It would be tempting to match the adapting surrounds for luminance, or radiant power, but neither of these solutions provides genuine equality across conditions (when matching for luminance almost no level of 400nm radiation would be able to match the luminance at other wavelengths, and there is no reason why radiant power should directly translate to adaptive effect).
 \item This experimental paradigm requires the assumption that adapting one part of the retina (the periphery) has an effect upon the adaptive state of another part (the fovea). This assumption is implicit in all chromatic adaptation models, but to some extent we know this to be incorrect - consider for example spatially locked after-images. See also the previous work of \citet{macadam_chromatic_1956} where two halves of the retina were explicitly adapted differently.
 \item This method provides very noisy data, and it is difficult to average over any of the nominal `repeat' conditions since every variable seems to have a non-negligible effect, and none of these effects appear to be easily modellable. The inherent noise in this data collection methods places heavy limits on the scale of detectable effect sizes.
-\item It is difficult to distinguish effects that indicate a biological conclusion and those which arise due to experimental limitations. For example, in the spectrum-based analysis it was unclear whether an increase in one sensor activation was required to make a match, or whether it was simply yokes to a decrease in another by the restraints placed upon the response space.
-\item It appears that there is a strong correlation between an observer's match and their previous match. It is unclear whether this is due to the fact that the new `random' starting condition is centred upon the previous selection, or whether this is a foveal adaptive effect.
-\item The spectral resolution is relatively low for analyses such as the spectrum based analysis. However, increasing the resolution would probably be an unrealistic goal, considering the amount of required observer time.
-\item There were limited gamut boundary issues.
+\item It is difficult to distinguish effects that indicate a biological basis and those which arise due to experimental limitations. For example, in the spectrum-based analysis it was unclear whether an increase in one sensor activation was required to make a match, or whether it was simply yoked to a decrease in another by the restraints placed upon the response space.
+\item It appears that there is a strong correlation between an observer's match and the previous match. It is unclear whether this is due to the fact that the new `random' starting condition is centred upon the previous selection, or whether this is a foveal adaptive effect.
+\item The spectral resolution of 20nm is relatively low for analyses such as the spectrum based analysis. However, increasing the resolution would probably be an unrealistic goal, considering the amount of required observer time.
 \end{itemize}
 
 
 \subsection{Further Work}
 
-This dataset may only comprise data from two observers, but it is broad and may serve valuable to those interested in chromatic adaptation and colour constancy. Various further analyses are envisioned:
+This dataset may only comprise data from two observers, but it is broad and may be valuable to those interested in chromatic adaptation and colour constancy. Various further analyses are envisioned:
 \begin{itemize}
-    \item As previously mentioned, there would likely to value in the further modelling of the potential response space of an observer on this task, and the interaction the types of analyses performed here.
+    \item As previously mentioned, there would likely be some value in the further modelling of the potential response space of an observer on this task, and the interaction the types of analysis performed here.
     \item It would be interesting to consider non-linear adaptation responses. This may better account for the data at the extremes of the wavelength range where luminance was very low.
-    \item The temporal dimension of the data is not considered either of the analyses presented here, but the code for the second analysis has been written in such a way that it should be relatively easy to implement. Considering the different expected time courses for adaptation for cones/rods/\glspl{ipRGC} this may serve to be a fruitful avenue.
+    \item The temporal dimension of the data is not considered in either of the analyses presented here, but the code for the second analysis has been written in such a way that it should be relatively easy to implement. Considering the different expected time courses for adaptation for cones/rods/\glspl{ipRGC} this may serve to be a fruitful avenue.
     \item It would be valuable to collect data for more observers, ideally under conditions where the white point of the display was matched between observers, in order to understand what effects are robust across observers.
-    \item If the L* dependent effects could be accounted for, then averaging over the entire range of L* could be implemented, which would theoretically reduce noise, and improve the ability of an investigator to make conclusions from a chromaticity-based analysis.
-    \item For the spectrum-based analysis, currently only a single model observer is used (Stockman-Sharpe 10deg). It would be possible, and more correct to use specific observers relating to actual ages and visual fields. It may also be possible to use sharpened spectral sensitivities (see \citet{finlayson_spectral_1994}), though this would need to be done particularly carefully, considering the already large potential for overfitting.
+    \item If the L* dependent effects could be accounted for, then averaging over the entire range of L* could be implemented, which should reduce the level of noise, and improve the ability of an investigator to draw conclusions from a chromaticity-based analysis.
+    \item For the spectrum-based analysis, currently only a single colorimetric observer is used (Stockman-Sharpe 10deg). It would be possible, and more correct to use specific observers relating to actual ages and visual fields. It may also be possible to use sharpened spectral sensitivities (see \citet{finlayson_spectral_1994}), though this would need to be done particularly carefully, considering the already large potential for overfitting.
 \end{itemize}
 
 
