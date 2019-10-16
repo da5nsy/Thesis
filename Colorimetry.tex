@@ -175,11 +175,26 @@ Whereas the relationship between the axes of previous colour spaces was importan
 
 \subsubsection{Correlated Colour Temperature}
 
-The \acrfull{CCT} of an illuminant describes the chromaticity of a light source on a one dimensional axis roughly from blue to yellow, based on the apparent chromaticity of a black body radiator at differing temperatures. Figure \ref{fig:BBR} shows the curve formed in \gls{CIE} 1931 chromaticity space by a set of black body radiators of different temperatures. It is worth noting that most real light sources fall upon the relatively straight section of the left-hand part of this line.
+The \acrfull{CCT} of an illuminant is defined by CIE 15.3:2004 \citep{cie_cie_2004-2} as follows:
+
+\begin{itquote}{}
+The temperature of a Planckian radiator having the chromaticity nearest the chromaticity associated with the given spectral distribution on a diagram where the (CIE 1931 standard observer based) u', 2/3v' coordinates of the Planckian locus and the test stimulus are depicted.
+\end{itquote}
+
+Whilst by this definition a light source of any chromaticity could be assigned a \gls{CCT}, as the distance between the Planckian locus and the test stimulus increases, the \gls{CCT} becomes a less meaningful descriptor. CIE 15.3:2004 \citep{cie_cie_2004-2} defines chromaticity limits on the maximum distance between the Planckian locus and the test stimulus, beyond which \gls{CCT} should not be used, which are described in Equation \ref{eq:CCTlim}.
+
+\begin{equation}
+\Delta C=\left[\left(u_{t}^{\prime}-u_{P}^{\prime}\right)^{2}+\frac{4}{9} \cdot\left(v_{t}^{\prime}-v_{P}^{\prime}\right)^{2}\right]^{1 / 2}=5 \cdot 10^{-2}
+\label{eq:CCTlim}
+\end{equation}
+
+where $u^{\prime}_{t}, v^{\prime}_{t}$ refer to the test source and $u^{\prime}_{P}, v^{\prime}_{P}$ to the Planckian radiator.
+
+Figure \ref{fig:BBR} shows Planckian locus (the curve formed by a set of black body radiators of different temperatures) in \gls{CIE} 1931 chromaticity space. It is worth noting that most real light sources (natural and artificial) fall upon the relatively straight section of the left-hand part of this line.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/BBR.pdf}
-\caption{The black body radiator curve on a \gls{CIE} 1931 chromaticity chart, highlighting \glspl{CCT} of 1000K, 6500K and 10000K.}
+\caption{The Planckian locus on a \gls{CIE} 1931 chromaticity chart, highlighting \glspl{CCT} of 1000K, 6500K and 10000K.}
 \label{fig:BBR}
 \end{figure}
 
