@@ -1,6 +1,6 @@
 \subsection{Colorimetry}
 
-\textit{The current recommended source for colorimetry is \gls{CIE} document `\gls{CIE} 015:2018'\citep{cie_cie_2018}\footnote{Though as \citet{fairchild_cie_2019} notes, this document is `expensive and somewhat difficult to find', and as such I have been using a draft of the now superseded `\gls{CIE} 15.3:2004'\citep{cie_cie_2004-2} as my personal guide. All equations listed in this chapter come from this source.}. Whilst this is the authoritative reference, my personal opinion is that an understanding of \gls{CIE} colorimetry is best gained from an understanding of its history, and for this I recommend Janos Schanda's book `Colorimetry: Understanding the \gls{CIE} System'\citep{schanda_colorimetry_2007}. Another valuable, and perhaps more easily accessed, reference source is \citet{stockman_color_2010}.}
+\textit{The current recommended source for colorimetry is \gls{CIE} document `\gls{CIE} 015:2018'\citep{cie_cie_2018}\footnote{Though as \citet{fairchild_cie_2019} notes, this document is `expensive and somewhat difficult to find', and as such I have been using a draft of the now superseded `\gls{CIE} 15.3:2004'\citep{cie_cie_2004-2} as my personal guide. All equations listed in this chapter come from this source.}. Whilst this is the authoritative reference, my personal opinion is that an understanding of \gls{CIE} colorimetry is best gained from an understanding of its history, and for this I recommend Janos Schanda's book `Colorimetry: Understanding the \gls{CIE} System' \citep{schanda_colorimetry_2007}. Another valuable, and perhaps more easily accessed, reference source is \citet{stockman_color_2010}.}
 
 \bigskip
 
@@ -28,7 +28,7 @@ The light reaching the eye for a given reflecting surface under a given illumina
 \phi(\lambda)=R(\lambda) \cdot S(\lambda)
 \end{equation}
 
-where $R(\lambda)$ is the \gls{SRF}, $S(\lambda)$ is the \gls{SPD} and $\phi(\lambda)$ is the resulting colour signal. From this a set of values termed `tristimulus values' may be computed. Tristimulus values are computed by multiplying the colour signal by the \glspl{CMF} or \glspl{SSF}, and following the principle of univariance (that each cone type cannot alone distinguish between different wavelengths) the tristimulus values can, to some extent, be thought of as containing the entirety of the chromatic information about a surface (excluding high level colour appearance phenomena predicted by \Glspl{CAM}, and properties such as gloss).
+where $R(\lambda)$ is the \gls{SRF}, $S(\lambda)$ is the \gls{SPD} and $\phi(\lambda)$ is the resulting colour signal. From this a set of values termed `tristimulus values' may be computed. Tristimulus values are computed by multiplying the colour signal by the \glspl{CMF} or \glspl{SSF}, and following the principle of univariance (that each cone type cannot alone distinguish between different wavelengths) the tristimulus values can, to some extent, be thought of as containing the entirety of the chromatic information about a surface (for a human standard observer, excluding high level colour appearance phenomena predicted by \Glspl{CAM}, and properties such as gloss).
 
 %KC: make sure these equations are on the same page as the explanation 
 
@@ -43,9 +43,9 @@ Z=k \sum_{\lambda} \phi(\lambda) \overline{z}(\lambda) \Delta \lambda
 
 \nopagebreak %this doesn't work currently
 
-where $\overline{x}(\lambda)$ (said `x bar'), $\overline{y}(\lambda)$ and $\overline{z}(\lambda)$ are the \glspl{CMF} of the 1931 observer (or are replaced by the \Glspl{CMF}/\Glspl{SSF} or the chosen observer), $\phi(\lambda)$ is as defined above, $k$ is a normalising factor, and it is recommended that $\Delta\lambda$ be 1nm. It is traditional to set $k$ such that $Y=100$, though in the case of relative colorimetry (most cases) this is often not done since the following equation renders it superfluous.
+where $\overline{x}(\lambda)$ (said `x bar'), $\overline{y}(\lambda)$ and $\overline{z}(\lambda)$ are the \glspl{CMF} of the 1931 observer (or are replaced by the \Glspl{CMF}/\Glspl{SSF} of the chosen observer), $\phi(\lambda)$ is as defined above, $k$ is a normalising factor, and $\Delta\lambda$ is 1nm. It is traditional to set $k$ such that $Y=100$, though in the case of relative colorimetry (most cases) this is often not done since the following equation renders it superfluous.
 
-From the tristimulus values chromaticity co-ordinates ($x$ and $y$) can be computed. These can then be plotted on a 1931 chromaticity space diagram, shown as Figure \ref{fig:1931}.
+From the tristimulus values ($X,Y$ and $Z$) chromaticity co-ordinates ($x$ and $y$) can be computed. These can then be plotted on a 1931 chromaticity space diagram, shown as Figure \ref{fig:1931}.
 
 \begin{subequations}
 \begin{align}
@@ -83,7 +83,7 @@ y=\frac{Y}{X+Y+Z}
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo1.pdf}
-\caption{The \gls{CIE} 1931 chromaticity space, showing the chromaticity of the macbeth colour checker patches under D65. Note that for all of the plots in this section, the colours used for the spectral loci are only approximations.}
+\caption{The \gls{CIE} 1931 chromaticity space, showing the chromaticity of the Macbeth colour checker patches under D65. Note that for all of the plots in this section, the colours used for the spectral loci are only approximations.}
 \label{fig:1931}
 \end{figure}
 
@@ -140,9 +140,9 @@ b^{*} &= 200[f(Y/Y_{n}) - f(Z/Z_{n})] \\
 \end{align}
 \end{subequations}
 
-where $f(X/X_{n})$ and $f(Z/Z_{n})$ follow the same format as $f(X/X_{n})$.
+where $f(X/X_{n})$ and $f(Z/Z_{n})$ follow the same format as $f(Y/Y_{n})$.
 
-The final colour space presented here is the \acrfull{MB} colour space. This space does not aspire to be perceptually uniform\footnote{This can be clearly noted by comparing Figure \ref{fig:lrMB} with previous figures. Where this set of chromaticities previously spanned the spaces fairly broadly, here all the chromaticities inhabit only a small portion of the chromaticity space.}. Instead, it aspires to provide a colour space which has a physiological underpinning. As such, the standard observer mdoel consists of nominal \glspl{SSF} (rather than \glspl{CMF}), and the conversion from tristimulus values to chromaticity space attempts to mirror the way in which this actually occurs physiologically.
+The final colour space presented here is the \acrfull{MB} colour space. This space does not aspire to be perceptually uniform\footnote{This can be clearly noted by comparing Figure \ref{fig:lrMB} with previous figures. Where this set of chromaticities previously spanned the spaces fairly broadly, here all the chromaticities inhabit only a small portion of the chromaticity space.}. Instead, it aspires to provide a colour space which has a physiological underpinning. As such, the standard observer model consists of nominal \glspl{SSF} (rather than \glspl{CMF}), and the conversion from tristimulus values to chromaticity space attempts to mirror the way in which this actually occurs physiologically.
 
 It was originally proposed by \citet{macleod_chromaticity_1979}, but was recently revised and endorsed by the \gls{CIE}, in documents `CIE 170-1:2006' \citep{cie_cie_2006} and `CIE 170-2:2015' \citep{cie_cie_2015}\footnote{I understand that the final publication in the series (`CIE 170-3:XXXX') is in preparation.}. The revisions included the definition of a new observer, based on the work of \citet{stockman_spectral_1999} and \citet{stockman_spectral_2000}, and the introduction of a set of new normalising terms, such that it is now calculated as follows.
 
@@ -169,7 +169,7 @@ Whereas the relationship between the axes of previous colour spaces was importan
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/ColorimetryDemo5.pdf}
-\caption{A \gls{MB} chromaticity space diagram (as per \gls{CIE} 170-2:2015\citep{cie_cie_2015}) showing the values for the macbeth colour checker patches under D65, as in previous figures.}
+\caption{A \gls{MB} chromaticity space diagram (as per \gls{CIE} 170-2:2015 \citep{cie_cie_2015}) showing the values for the macbeth colour checker patches under D65, as in previous figures.}
 \label{fig:lrMB}
 \end{figure}
 
@@ -191,6 +191,19 @@ Whilst by this definition a light source of any chromaticity could be assigned a
 where $u^{\prime}_{t}, v^{\prime}_{t}$ refer to the test source and $u^{\prime}_{P}, v^{\prime}_{P}$ to the Planckian radiator.
 
 Figure \ref{fig:BBR} shows Planckian locus (the curve formed by a set of black body radiators of different temperatures) in \gls{CIE} 1931 chromaticity space. It is worth noting that most real light sources (natural and artificial) fall upon the relatively straight section of the left-hand part of this line.
+
+\gls{CCT} is often used as the independent variable in experiments, with the implicit assumption that this can be considered a complete descriptor of a light source. This assumption only holds to the extent that the spectral form is similar between conditions (for example if only a single light source is used and well defined filtration is applied, which shifts the chromaticity of the light source along the Planckian locus), and that the only difference between conditions is a shift along the Planckian locus. 
+
+A shift in chromaticity perpendicular to the Planckian locus would result in no change to the \gls{CCT}. To counter this issue, an additional parameter ($D_{\text {uv }}$) is defined \citep{ohno_practical_2014} as per Equation \ref{eq:Duv}, which provides a value for the distance from the Planckian locus.
+
+\begin{equation}
+D_{\mathrm{uv}}=\left[\left(u^{\prime}-u_{0}^{\prime}\right)^{2}+\left(\frac{2}{3} v^{\prime}-\frac{2}{3} v_{0}^{\prime}\right)^{2}\right]^{\frac{1}{2}} \cdot \operatorname{sgn}\left(v^{\prime}-v_{0}^{\prime}\right)
+\label{eq:Duv}
+\end{equation}
+
+\citet{ohno_practical_2014} notes that the combination of \gls{CCT} and $D_{\text {uv }}$ is suffice to describe the chromaticity of most light sources, and does so in a fashion which is slightly more intuitive than values of chromaticity.
+
+where $\operatorname{sgn}(z)=1$ for $z\geq0$ and $\operatorname{sgn}(z)=-1$ for $z<0$.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/BBR.pdf}
