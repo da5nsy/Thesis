@@ -46,16 +46,23 @@ In a natural environment, a change in the wavelength composition of radiation re
 
 In the literature there seems to be a long-running grapple between colour constancy and chromatic adaptation, with blurred boundaries and mixed definitions occurring frequently. \citet{brill_chromatic_1986} drive a wedge between the two concepts, but refute the traditional division that chromatic adaptation is the process and colour constancy is the ability, asserting that the two should be considered as separate processes, operating on different timescales and in different fashions.
 
-\citet{hurlbert_computational_1998} divides computational models into two classes: \emph{sensory} and \emph{perceptual}, which broadly follow the low-level / high-level divide. `Sensory' models `could be achieved early in visual processing by adaptive scaling of the initial receptor responses'. `Perceptual' models `would necessarily occur at later stages of visual processing'.
+\citet{hurlbert_computational_1998} divides computational models of colour constancy into two classes: \emph{sensory} and \emph{perceptual}, which broadly follow the low-level / high-level divide. `Sensory' models `could be achieved early in visual processing by adaptive scaling of the initial receptor responses'. `Perceptual' models `would necessarily occur at later stages of visual processing'.
+
+Hurlbert [personal communication] notes that understanding the differing perspectives of researchers from different fields allows one to understand how the mixed use of these terms in the literature may have arisen: 
+
+\begin{itquote}{}
+The mixed use of the terms chromatic adaptation and colour constancy is largely explained by different usages in different fields. In \emph{colour science}, chromatic adaptation is often considered synonymous with colour constancy, as it is considered to be the only mechanism contributing to stabilising colour appearance under changes in illumination. In \emph{vision science}, colour constancy is generally defined as a perceptual phenomenon, and distinction is made between different contributory mechanisms at different levels (which \citet{hurlbert_computational_1998} attempts to define and onto which different proposed computational solutions are mapped).
+\end{itquote}
+
+Within vision science, the most common use of the term `chromatic adaptation' now seems to be to refer to low level adaptation, with \citet{brainard_color_2014} using the term `mechanistic' to refer to this type of transformation.
+
+\begin{itquote}
+Adaptation of this sort supports constancy to the extent that its overall effect is to stabilize the post-receptoral representation of the light reflected from objects across changes of illumination (as well as other contextual changes).
+\end{itquote}
+
+The term `colour constancy', by contrast, is used to refer to higher level inference-based processes, which occur at faster timescales than are possible by adaptation alone \citep{rinner_time_2000}. It seems likely that multiple processes work in tandem at multiple levels and timescales to achieve colour constancy \citep{hurlbert_colour_2007}.
 
 
-The most common use of the term `chromatic adaptation' now seems to be to refer to low level adaptation, with \citet{brainard_color_2014} using the term `mechanistic' to refer to this type of transformation.
-
-\begin{citequote}{brainard_color_2014}
-Adaptation of this sort supports constancy to the extent that its overall effect is to stabilize the postreceptoral representation of the light reflected from objects across changes of illumination (as well as other contextual changes).
-\end{citequote}
-
-The term `colour constancy', by contrast, is used to refer to higher level inference-based processes, which occur at faster timescales than are possible by adaptation alone \citep{rinner_time_2000}. It seems likely that multiple processes work in tandem at multiple levels and timescales to acheive colour constancy \citep{hurlbert_colour_2007}.
 
 \subsubsection{Von Kries Adaptation}
 
@@ -121,9 +128,9 @@ Land was fond of picking apart Newton's statements regarding colour; particularl
 
 He suggested for consideration the idea of the human visual system recording three separate lightness images, each representing the recording from a different band of receptors, where each element within each image is scaled against the brightest element in each specific image. Retinex theory also provides an interesting algorithm for discounting not only coloured illumination but illumination which varies across the visual field.
 
-However, \citet{barnard_practical_1999} points out that the various versions of the Retinex algorithm simplify to versions of the Von Kries adaptation, and \citet{brainard_analysis_1986} found that `the algorithm is too sensitive to changes in the color of nearby objects to serve as an adequate model of human color constancy'. In addition, it has been found to be computationally difficult to implement, with no clear way in which it could be biologically implemented.
+However, \citet{barnard_practical_1999} points out that the various versions of the Retinex algorithm simplify to versions of the Von Kries adaptation, and \citet{brainard_analysis_1986} found that `the algorithm is too sensitive to changes in the color of nearby objects to serve as an adequate model of human color constancy'. In addition, it has been found to be computationally difficult to implement, with no clear way in which it could be biologically implemented (though see \citet{hurlbert_formal_1986}).
 
-The work of Land et al. has spurred a great deal of progress in the world of digital imaging, where the term `computational colour constancy' is used. The number of distinct algorithms increases at a rate which seems to always accelerate, and I shall not review them all here, though I shall point to valuable overview papers:  \citet{hordley_reevaluation_2006, gijsenij_computational_2011}.
+The work of Land et al. has spurred a great deal of progress in the world of digital imaging, where the term `computational colour constancy' is used. The number of distinct algorithms increases at a rate which seems to always accelerate, and I shall not review them all here, though I shall point to valuable overview papers:  \citet{hordley_reevaluation_2006, gijsenij_computational_2011, hurlbert_computational_1998}.
 
 \subsubsection{Linear models}
 
@@ -133,7 +140,7 @@ For this stricter definition of colour constancy Maloney et al. \citep{maloney_c
 
 \citet{maloney_color_1986} find that `with three classes of photoreceptors, we can exactly recover surface reflectances drawn from a fixed model of surface reflectance with at most two degrees of freedom'. \citet{maloney_computational_1984} showed that this generalised such that with $n$ classes of photoreceptors, \glspl{SRF} could be reconstructed for surfaces drawn from models with $n-1$ degrees of freedom, so long as there were not more than $n$ degrees of freedom in the illumination model, and so long as the minimum complexity condition was met (there were enough surfaces visible).
 
-Despite its mathematical elegance, quantitative analysis of this algorithm showed that it performance was poor \cite{brainard_bayesian_1994, finlayson_color_1995}, which is not surprising considering that natural surface \glspl{SRF} generally require more than two basis functions for accurate reconstruction.
+Despite its mathematical elegance, quantitative analysis of this algorithm showed that its performance was poor \cite{brainard_bayesian_1994, finlayson_color_1995}, which is not surprising considering that natural surface \glspl{SRF} generally require more than two basis functions for accurate reconstruction.
 
 \bigskip
 
