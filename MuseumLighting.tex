@@ -76,7 +76,7 @@ c & Oil paints on canvas & 850 & 0.0115 \\ \hline
 d & Textiles & 290 & 0.0100 \\ \hline
 e & Water colours on rag paper & 175 & 0.0115 \\ \hline
 \end{tabular}
-\caption{Table reproduced from \gls{CIE} 157:2004 \citep{cie_cie_2004}, showing the values for $H_{s,dm}$ and $b$ for various categories. Note: the source for this data is not particularly clear; it is listed as `The Berlin researchers', which is assumed to follow the references: \citet{krochmann_beleuchtung_1988,cie_cie_1991,hilbert_zur_1991}; none of which I have been able to access.}
+\caption{Table reproduced from \gls{CIE} 157:2004 \citep{cie_cie_2004}, showing the values for $H_{s,dm}$ (threshold effective radiant exposure) and $b$ for various categories. Note: the source for this data is not particularly clear; it is listed as `The Berlin researchers', which is assumed to follow the references: \citet{cie_cie_1991} (which I have been unable to access), \citet{hilbert_zur_1991} which provides the values of $H_{s,dm}$, and \citet{krochmann_beleuchtung_1988} which appears to provide equations similar to Equation \ref{eq:damfac} but no specific values for $b$.}
 \label{tab:b}
 \end{table}
 
@@ -87,7 +87,7 @@ The classic study on how reflectance properties relate to damage is that of \cit
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LitRev/Cuttle.png}
-\caption{The original data for this figure is from \citet{saunders_wavelength-dependent_1994}, later re-plotted by \citet{cuttle_control_1999}, and reproduced (with the addition of the Berlin functions) by the authors of \gls{CIE} 157:2004 \citep{cie_cie_2004}. Caption from \gls{CIE} 157:2004: ``Spectral absorptance (solid line) and relative spectral responsivity (broken line) for artist's pigments \dots The dotted lines show relative spectral sensitivities normalised at 400nm based on the Berlin relative spectral responsivity function.''}
+\caption{The original data for this figure is from \citet{saunders_wavelength-dependent_1994}, later re-plotted by \citet{cuttle_control_1999}, and reproduced (with the addition of the Berlin functions) by the authors of \gls{CIE} 157:2004 \citep{cie_cie_2004}. Caption from \gls{CIE} 157:2004: ``Spectral absorptance (solid line) and relative spectral responsivity (broken line) for artist's pigments \dots The dotted lines show relative spectral sensitivities normalised at 400nm based on the Berlin relative spectral responsivity function.'' It seems that in this context the \gls{CIE} document uses the term `spectral responsivity' to refer to measured change, and `spectral sensitivity' to refer to predictions of damage, though this distinction is not particularly clear.}
 \label{fig:Cuttle}
 \end{figure}
 
@@ -212,7 +212,7 @@ R\textsubscript{w} (worst R) about 80 or better, \\
 and Crawford Class A, B or C
 \end{itquote}
 
-No research is referenced to support this recommendation. The inclusion of $R$\textsubscript{w} (the lowest value of $R$\textsubscript{i}) is notable due to its lack of consideration in other documents. 
+No research is referenced to support this recommendation. The inclusion of $R$\textsubscript{w} (the lowest value of $R$\textsubscript{i}, the rendering index for an individual \gls{TCS} before averaging and scaling is applied to produce $R$\textsubscript{a}) is notable due to its lack of consideration in other documents. 
 
 Still on the topic of colour rendering, of additional note is Thomson's general introduction to the subject, where he frames the conversation in a manner which presents colour rendering as a measure of the colour changes to which the human visual system is unable to adapt to, opposite changes induced by changes in \gls{CCT} to which the human visual system is generally able to adapt easily to. Thomson also provides an accessible, and often quoted summary of the underpinnings of how the \gls{CIE} General Colour Rendering Index operates in principle:
 

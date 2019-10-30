@@ -4,7 +4,9 @@
 \emph{How is colour constancy measured?} With difficulty.
 \end{citequote}
 
+The following section is divided into two following the split in research methods between those who could be described as coming from a `colour science' perspective (where quantification and specification of colour are primary goals, and the development of \glspl{CAT} is a primary goal) and those coming from a `vision science' perspective (where an understanding of the visual system is the primary goal). Further discussion of this split, and the introduction of a third group, comes in Section \ref{sec:schools}.
 
+\subsubsection{Within Colour Science}
 
 CIE 160:2004 \citep{cie_tc_1-52_cie_2004} and \citet{luo_review_2000} provide a comprehensive overview of the different methods which have been used by the \gls{CAT} group:
 
@@ -31,13 +33,16 @@ CIE 160:2004 \citep{cie_tc_1-52_cie_2004} and \citet{luo_review_2000} provide a 
 
 \paragraph{Magnitude Estimation} appears to be similar to memory matching, in that observers are requested to verbally describe an object whilst in an ambient adapting field. The distinction is that the observers are requested to communicate their perceptions using the perceptually meaningful attributes of hue, saturation and brightness, and as such results can be easily integrated into colour appearance models. Recent experiments \citep{kuo_various_1995,xu_testing_1997,luo_quantifying_1991-1,luo_quantifying_1991,luo_quantifying_1993-1,luo_quantifying_1993} of this type collected data which was used to create CIECAM97s.
 
-Away from the development of \glspl{CAT}, and towards researchers using the term `colour constancy', a subtly different set of experimental techniques has been developed with which to probe the operation of colour constancy. A valuable overview is provided by \citet{foster_color_2011}, who lists four main methods:
+\subsubsection{Within Vision Science} \label{sec:methvis} 
+
+Methodologies similar to those described above, but with subtle yet important differences have been used by those whose primary goal is an understanding of the visual system. A valuable overview is provided by \citet{foster_color_2011}, who lists four main methods:
 
 \begin{enumerate}
 \item Asymmetric color matching
 \item Color naming and related methods
 \item Achromatic adjustment
-\item Discriminating illuminant changes from reflectance changes
+\item Discriminating illumination changes from reflectance changes
+\item Illumination discrimination tasks
 \end{enumerate}
 
 \paragraph{Asymmetric matching} is in many ways analogous to the haploscopic matching described above, in that it describes an experimental set-up whereby one stimulus is compared with another, generally where each stimulus exists within a distinct adapting field and attributes of one stimulus can be either adjusted or responded to by an observer. The term asymmetric matching might be thought to be inclusive of a wider range of experimental set-ups, where haploscopic (Greek roots: haploieides, single and skopeo, to view) is necessarily concerned with each individual eye receiving distinct input. Asymmetric matching may refer to experiments where stimuli are viewed simultaneously, successively, or in an alternating fashion, binocularly or haploscopically.
@@ -46,7 +51,10 @@ Away from the development of \glspl{CAT}, and towards researchers using the term
 
 \paragraph{Achromatic Adjustment} experiments ask an observer to set a stimulus to a neutral achromatic hue, on the assumption that the internal grey point of an observer shifts in response to different adapting fields. These adjustments are generally easy for an observer to make, but the extrapolation of the results makes various assumptions about conceptual colour space and the nature of achromacy. Experiments are easily confounded by complex or real stimuli where there exists a close-to-neutral object in the scene which could consciously or unconsciously be used as a reference.
 
-\paragraph{Discriminating illuminant changes from reflectance changes} provides a key way to examine colour constancy in an operational manner. Following the assumption that chromatic adaptation allows an observer to discount the illuminant in some manner, an experimental set up where observers are requested to distinguish between an illuminant change and a reflectance change represents a situation which very closely mirrors the natural process of colour constancy. This experimental technique is well placed to examine whether or not colour constancy in this form is active and efficient, but it provides little way of probing the underlying mechanisms of colour constancy.
+\paragraph{Discriminating illumination changes from reflectance changes} provides a key way to examine colour constancy in an operational manner. Following the assumption that chromatic adaptation allows an observer to discount the illumination in some manner, an experimental set up where observers are requested to distinguish between an illumination change and a reflectance change represents a situation which very closely mirrors the natural process of colour constancy. This experimental technique is well placed to examine whether or not colour constancy in this form is active and efficient, but it provides little way of probing the underlying mechanisms of colour constancy.
+
+\paragraph{Illumination discrimination tasks}
+A related method, illumination discrimination tasks comprise a scene which is unvarying in terms of content and surface reflectances, but varying in terms of illumination. In the general set-up (such as that described by \citet{pearce_chromatic_2014}), a target illumination is compared to two test illuminations, where one of the test illuminations is identical to the the target illumination and the other differs in chromaticity. The observer performs a two-alternative forced choice task, and from this estimates of the observers discrimination thresholds for illuminations of differing chromatic directions away from the test illuminant can be estimated. \citet{aston_illumination_2019} describes the interpretation of data from such as experiments as offering two types of insight. Firstly, where no difference can be seen by observers this can be thought of as perfect colour constancy (assuming that the chromaticity differences are above surface discriminability thresholds) and comparisons across different chromatic directions can be made. Secondly, an indication as to the accuracy with which illumination colour is encoded can be gleaned.
 
 % %recent advances in colour constancy?
 % % using more realistic stimuli
@@ -68,15 +76,3 @@ Away from the development of \glspl{CAT}, and towards researchers using the term
 
 % Those approaching colour constancy with a basic interest in the physiology and general function of colour constancy have adopted/created a rather wider set of experimental techniques, owing to the fact that this direction of study is much less well broader than the former
 
-
-
-
-
-% \citet{foster_color_2011}, in his grand overview of colour constancy, identifies four key methods for colour constancy experiments:
-
-% \begin{enumerate}
-% \item Asymmetric color matching
-% \item Color naming and related methods
-% \item Achromatic adjustment
-% \item Discriminating illuminant changes from reflectance changes
-% \end{enumerate}
