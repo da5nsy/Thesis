@@ -77,27 +77,32 @@ and a subset\footnote{10 surfaces were chosen from the Vrhel dataset, with a rou
 of the reflectances of \citet{vrhel_measurement_1994}\footnote{Available as `sur\_vrhel' in \gls{PTB}.}
 were used.
 
-Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ (as per standard tristumulus values but using the melanopsin fundamental, see Equation \ref{eq:iMB}) were computed as per Equation \ref{eq:MBTristim} for each illuminant. A real-world version of this would be to measure a spectralon tile (or other uniformly reflective surface) under each daylight condition. Tristimulus values were then computed for each surface under each illuminant.
+Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ were computed as per Equation \ref{eq:MBTristim} for each illuminant (as per standard tristumulus values but using the melanopsin fundamental, see Equation \ref{eq:iMBtri}). A real-world version of this would be to measure a spectralon tile (or other uniformly reflective surface) under each daylight condition. Tristimulus values were then computed for each surface under each illuminant.
 
-\gls{MB} chromaticity co-ordinates were calculated, for both illuminant alone and for each surface under each illuminant, as per Equation \ref{eq:MB}\footnote{Note to assist in the reading of associated code: the normalising factors $k$ were applied during the Equation \ref{eq:MB} rather than Equation \ref{eq:MBTristim}.} The \gls{MB} chromaticities are plotted in Figure \ref{fig:MB}. 
+\begin{equation}
+    I_{\text{MB}}=\sum_{\lambda} \phi(\lambda) \overline{i}(\lambda) \Delta \lambda
+    \label{eq:iMBtri}
+\end{equation}
+
+\gls{MB} chromaticity co-ordinates were calculated, for both illuminant alone and for each surface under each illuminant, as per Equation \ref{eq:MB}\footnote{Note to assist in the reading of associated code: the normalising factors $k$ were applied during the Equation \ref{eq:MB} rather than Equation \ref{eq:MBTristim}.}. The \gls{MB} chromaticities are plotted in Figure \ref{fig:MB}. 
 
 \bigskip
 \noindent
 Support for various other options was included:
 \begin{itemize}
-    \item A range of CIE D series illuminants\footnote{Generated with the \gls{PTB} function `GenerateCIEDay'.}
+    \item A range of CIE D series illuminants\footnote{Generated with the \gls{PTB} function `GenerateCIEDay'.}.
     \item Scenes 1-4 of the
-\citet{nascimento_statistics_2002}\footnote{Data: \url{https://personalpages.manchester.ac.uk/staff/d.h.foster/Hyperspectral_images_of_natural_scenes_02.html}} hyperspectral reflectance data
+\citet{nascimento_statistics_2002}\footnote{Data: \url{https://personalpages.manchester.ac.uk/staff/d.h.foster/Hyperspectral_images_of_natural_scenes_02.html}} hyperspectral reflectance data.
     \item Scenes 1-5 of the 
 \citet{foster_frequency_2006}\footnote{Data: \url{https://personalpages.manchester.ac.uk/staff/d.h.foster/Hyperspectral_images_of_natural_scenes_04.html}}
-hyperspectral reflectance data
+hyperspectral reflectance data.
 \end{itemize}
 
 The CIE D-series illuminants allowed for a smaller and more controlled daylight dataset and the Nascimento/Foster et al. data allowed for a more realistic distribution of reflectances.
 
 \begin{figure}[htbp]
     \includegraphics[max width=\textwidth]{figs/comp/predictingChromaticity/BasicMB_2.pdf}
-    \caption{\gls{MB} chromaticities of 130 daylight illuminants (black points), and for 10 reflectances under each illuminant (coloured points). Colours are not linked to surface appearances; they are arbitrary and used solely to distinguish different surfaces from one another. The edge of the spectral locus is visible along the lower edge.}
+    \caption{\gls{MB} chromaticities of 130 daylight illuminants (black points), and for 10 reflectances under each illuminant (coloured points). Colours are not linked to surface appearances; they are arbitrary and used solely to distinguish different surfaces from one another. The edge of the spectral locus is visible along the lower edge. This figure shows an analagous problem to that shown in Figure \ref{fig:problem}.}
     \label{fig:MB}
 \end{figure} 
 
@@ -135,7 +140,7 @@ Following this, similar plots were made which plotted $l_{\text{MB}}$ against $s
 
 \begin{figure}
 \includegraphics[max width=0.8\textwidth]{figs/comp/predictingChromaticity/allComboSignals.pdf}
-\caption{Relationship between chromaticity and second-level signals. Plotted on the x-axis here is $l_{\text{MB}}$, with second-level signals on the apparent y-axis. During analysis these plots were three dimensional, with the apparent y-axis being a z-axis and the x-axis joined by a y-axis of $s_{\text{MB}}$. As before, black points indicate direct illuminant values, with coloured values corresponding to surface reflectances (though the colours do not relate the surfaces other than to distinguish one from another). It can be seen that on a per object basis (incl. no object) there is good correlation between chromaticity and all of the above signals. A similar relationship holds for the $s_{\text{MB}}$ perspective.}
+\caption{Relationship between chromaticity and second-level signals. Plotted on the x-axis here is $l_{\text{MB}}$, with second-level signals on the apparent y-axis. During analysis these plots were three dimensional, with the apparent y-axis being a z-axis and the x-axis joined by a y-axis of $s_{\text{MB}}$. As before, black points indicate direct illuminant values, with coloured values corresponding to surface reflectances (though the colours do not relate the surfaces other than to distinguish one from another). It can be seen that on a per object basis there is good correlation between chromaticity and all of the above signals (mean correlation coefficient of 0.9782, SD of correlation coefficients of 0.0144, calculated for surface data only). A similar relationship holds for the $s_{\text{MB}}$ perspective (0.9821, 0.0073 respectively).}
 % See gifs online at...
 \label{fig:allComboSignals}
 \end{figure}
@@ -196,26 +201,23 @@ To summarise this section:
 
 Whilst estimating the chromaticity of the illuminant is one way in which colour constancy might be achieved, it is also possible that some transformation might exist which delivers signals into an illuminant-independent space but which doesn't explicitly depend upon an estimate of the chromaticity of the illuminant.
 
-Considering that the absolute melanopic values seemed to offer little predictive benefit (see Figure \ref{fig:level1}) the choice was made to create a normalised melanopic value similar in nature to the MB values. Following Equations \ref{eq:MBTristim} and \ref{eq:MB}, but with a melanopic fundamental, allowed for the creation of what will be termed the $i_{\text{MB}}$ values.
+Considering that the absolute melanopic values seemed to offer little predictive benefit (see Figure \ref{fig:level1}) the choice was made to create a normalised melanopic value similar in nature to the MB values. Following Equation \ref{eq:MB}, but with a melanopic fundamental (as per Equation \ref{eq:iMBtri}), allowed for the creation of what will be termed the `$i_{\text{MB}}$' values.
 
-\begin{subequations}
-\begin{align}
-I_{\text{MB}}&=\sum_{\lambda} \phi(\lambda) \overline{i}(\lambda) \Delta \lambda \\
-i_{\text{MB}}&= \frac{I_{\text{MB}}}{L_{\text{MB}}+M_{\text{MB}}} 
-\end{align}
+\begin{equation}
+i_{\text{MB}} = \frac{I_{\text{MB}}}{L_{\text{MB}}+M_{\text{MB}}} 
 \label{eq:iMB}
-\end{subequations}
+\end{equation}
 
 where $\overline{i}(\lambda)$ is the melanopsin fundamental of \citet{lucas_measuring_2014}.
 
 
 \subsection{A melanopic signal as a third dimension}
 
-In order to understand the relationships between the \gls{MB} chromaticities and the new $i_{\text{MB}}$ values, and to understand what types of corrective computations might be effective, consideration was given to the $i_{\text{MB}}$ signal as a third dimension upon the already two-dimensional \gls{MB} chromaticity space, such as shown in Figure \ref{fig:ZL} (akin to Figure \ref{fig:level1}, but for this new second-level signal). This allowed for the consideration of what properties a signal in this third dimension would need to posses in order to be able to transform the values into a two-dimensional illuminant-independent space.
+In order to understand the relationships between the \gls{MB} chromaticities and the new $i_{\text{MB}}$ values, and to understand what types of corrective computations might be effective, consideration was given to the $i_{\text{MB}}$ signal as a third dimension upon the already two-dimensional \gls{MB} chromaticity space, such as shown in Figure \ref{fig:ZL} (akin to Figure \ref{fig:level1}, but for this new second-level signal). This allowed for the consideration of what properties a signal in this third dimension would need to possess in order to be able to transform the values into a two-dimensional illuminant-independent space.
 
 \begin{figure}[htbp]
  \includegraphics[max width=\textwidth]{figs/comp/thirdDimension/ZL.pdf}
- \caption{X and Y axes are a \gls{MB} chromaticity space, and the Z axis is $i_{\text{MB}}$. Data plotted are same as previous section.}
+ \caption{X and Y axes are a \gls{MB} chromaticity space, and the Z axis is $i_{\text{MB}}$. Data plotted are same as previous section (surfaces only).}
  \label{fig:ZL}
 \end{figure}
 
@@ -233,7 +235,7 @@ Another key finding at this stage was that there is a perspective upon a three-d
 
 \begin{figure}[htbp] % redo this. Is this log data?
 \includegraphics[max width=\textwidth]{figs/comp/thirdDimension/viewpoint.pdf}
- \caption{Figure \ref{fig:ZL} rotated to a perspective where it can be seen that the points project upon a two-dimensional plane in a clustered fashion whilst not degrading to a line within that space.}
+ \caption{Figure \ref{fig:ZL} rotated to a perspective where it can be seen that the points project upon a two-dimensional plane in a clustered fashion whilst not degrading to a line within that space. A physiological analogue of such a rotation would be a recombination of weighted signals.}
  \label{fig:viewpoint}
 \end{figure} 
 
@@ -354,7 +356,7 @@ GT  = GroundTruth; % The actual cluster information
 KMI = KMeansIndex; % Result from K-means clustering
 
 for ii = 1:numberOfClusters
-    MP(i) = mean(mode(KMI(GT == ii)) == KMI(GT == ii)); 
+    MP(ii) = mean(mode(KMI(GT == ii)) == KMI(GT == ii)); 
     %mode proportion
 end
 
@@ -396,7 +398,7 @@ The simple melanopic algorithm (additive/subtractive) was compared with 3 other 
 
 The results of the four algorithms are shown in Figure \ref{fig:output100}. It can be seen that the \gls{GW} algorithm performs particularly well under this test condition, separating the different surfaces into very tightly clustered and very distant groups. The \gls{BiW} algorithm appears to choose one of two surfaces as the brightest, which splits each surface group into two groups. If it were able to pick a single reference point it appears as though it would be similarly successful. The melanopsin-based correction performs moderately well; as shown before it improves greatly upon the \gls{DN} condition, but the groups are not particularly tightly clustered and there is a moderate amount of overlap between the groups.
 
-This visual analysis is mirrored by the k-means-marks computed for each output. They were: \gls{DN}: 0.5869, \gls{GW}: 0.9631, \gls{BiW}: 0.5308, mel-based: 0.9346.\footnote{It should be noted that due to the random nature of initial seeding in k-means clustering, these values are expected the vary slightly depending on initial state of the random number generator.}
+This visual analysis is mirrored by the k-means-marks computed for each output. They were: \gls{DN}: 0.5869, \gls{GW}: 0.9631, \gls{BiW}: 0.5308, mel-based: 0.9346.\footnote{It should be noted that due to the random nature of initial seeding in k-means clustering, these values are expected to vary slightly depending on initial state of the random number generator.}
 
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth, center]{figs/comp/comparisonFourAlgos/output100.pdf}
@@ -546,7 +548,7 @@ There are a number of suggestions for further research:
 \item Work out how much of the optimality function is noise.
 \begin{itemize}
 %\item Re-run test with random number generators un-set or set with different seeds to understand their influence
-\item The function plotted in Figure \ref{fig:optimality} is currently rather noisy. A limited amount of this will be the result of the random nature of the k-means analysis but even is this was replaced with some method that did not suffer in this way, I suspect that this function would still be rather jagged due to specific artefacts of any chosen dataset. It would be beneficial to consider whether the general form of the structure was robust to different observers, daylight data, and surface data.
+\item The function plotted in Figure \ref{fig:optimality} is currently rather noisy. A limited amount of this will be the result of the random nature of the k-means analysis but even if this was replaced with some method that did not suffer in this way, I suspect that this function would still be rather jagged due to specific artefacts of any chosen dataset. It would be beneficial to consider whether the general form of the structure was robust to different observers, daylight data, and surface data.
 \end{itemize}
 \item Compare and combine with other colour constancy algorithms.
 \begin{itemize}
@@ -557,7 +559,7 @@ There are a number of suggestions for further research:
     \item As discussed above, the approach of \citet{maloney_color_1986} may prove valuable to this problem.
     \item Recent work has also highlighted the value of a luminance signal to colour constancy \citep{chakrabarti_color_2015}. It is unclear whether this is anything further than the loose association between luminance and chromaticity noted early in this chapter.
 \end{itemize}
-\item Consider whether a melanopic transform could explain the unexpected results of \citet{cao_evidence_2018}? (melanopsin activation induced LM modulation but not S).
+\item Consider whether a melanopic transform could explain the unexpected results (melanopsin activation induced LM modulation but not S) of \citet{cao_evidence_2018}?.
 \item Consider that if we do use this signal in natural environments, does the degradation of this signal in artificial environments impact our preference ratings? Could evidence of this mechanism show up in lighting preference indices used in the lighting engineering world?
 \end{itemize}
 
