@@ -10,19 +10,9 @@ Retinal rod and cone cells (of three types, l/m/s) are well established as the p
 
 This intrinsic photosenstivity was only confirmed recently relative to our knowledge of other retinal cell types \citep{qiu_induction_2005}, following a search for a retinal cell type or combination of cell types which would fit the spectral sensitivity properties found to influence entrainment of the circadian rhythm in humans and other animals \citep{brainard_human_2001,brainard_action_2001}, which was dissimilar to all of the spectral sensitivities of the cell classes known at the time.
 
-Additionally, it was found that animals and humans with no functioning rods or cones were still able to have a correctly functioning circadian system \citep{freedman_regulation_1999,zaidi_short-wavelength_2007}, further suggesting that that the circadian rhythm was influenced by a novel receptor with a distinct photoreceptor. It is now believed to be these cells which provide input to the second of the signalling pathways originating in the retina, that which controls the \gls{NIF} response to illumination.
+Additionally, it was found that animals and humans with no functioning rods or cones were still able to have a correctly functioning circadian system \citep{freedman_regulation_1999,zaidi_short-wavelength_2007}, further suggesting that that the circadian rhythm was influenced by a novel receptor with a distinct photoreceptor. It is now believed to be these cells which provide input to the \gls{NIF} pathway.
 
 \Glspl{ipRGC} were found to express a photopigment fitting such attributes, named melanopsin. The spectral sensitivity of melanopsin peaks around 480nm \citep{qiu_induction_2005,hankins_primary_2002,dacey_melanopsin-expressing_2005,peirson_melanopsin_2006,bailes_human_2013} which places it between the s-cone (cyanolabe photopsin) and rod cell (rhodopic rhodopsin) spectral sensitivities, see Figure \ref{fig:specsens}. In humans, pre-receptoral filtering leads to a functional peak sensitivity of closer to 490nm \citep{cie_cie_2015-1}. 
-
-Exogenously expressed mouse melanopsin has been shown to be tristable \citep{emanuel_melanopsin_2015,matsuyama_photochemical_2012-1}, that is: existing in one of three possible states. A photon interaction converts melanopsin in one of these states to another, with two of the states being electrically silent (not providing a signal) and one being signal-producing. Notably, these different states have slightly different spectral sensitivities, and thus exposure to specific wavelengths biases the population distribution in different ways, as shown in Figure \ref{fig:melssf}.
-
-\begin{figure}[htbp]
-\includegraphics[max width=\textwidth, center]{figs/LitRev/melstates.png}
-\caption{Reproduced from \citep{do_melanopsin_2019} (Fig 5D in original source). \textit{``[M]ouse melanopsin is understood to have three states (R, M, and E). The peak spectral sensitivities of R and E are determined from the electrophysiological responses of M1s. Spectrophotometric measurements of purified melanopsin yielded similar values (467 and 446 nm, respectively) and gave information for M (476 nm; [\citet{matsuyama_photochemical_2012-1}]). Bottom, the distribution of melanopsin states as a function of wavelength, estimated from a model based on values from purified melanopsin.''}}
-\label{fig:melssf}
-\end{figure}
-
-Human melanopsin appears to be bistable (of two states), and there is uncertainty regarding whether this bistability would have physiological consequences \citep{cie_cie_2015-1,mure_melanopsin_2009,rollag_does_2008,wada_color_2018,mure_melanopsin-dependent_2007,mawad_absence_2008,koyanagi_cephalochordate_2005,emanuel_melanopsin_2015}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth, center]{figs/LitRev/ciemel.png}
@@ -30,15 +20,39 @@ Human melanopsin appears to be bistable (of two states), and there is uncertaint
 \label{fig:specsens}
 \end{figure}
 
-\Glspl{ipRGC} are sparse in the retina; discounting input from other cell types, they operate at a much lower resolution than as would be required for meaningful spatial vision. They also operate much more slowly compared to other cell types, taking several seconds to respond, but are able to sustain a response in contrast to other retinal cell types which are able to respond quickly but only for short periods.
+Exogenously expressed mouse melanopsin has been shown to be tristable \citep{emanuel_melanopsin_2015,matsuyama_photochemical_2012-1}, that is: existing in one of three possible states. A photon interaction converts melanopsin in one of these states to another, with two of the states being electrically silent (not providing a signal) and one being signal-producing. Notably, these different states have slightly different spectral sensitivities, and thus exposure to specific wavelengths biases the population distribution in different ways, as shown in Figure \ref{fig:melssf}.
 
-It has been proposed that \glspl{ipRGC} may allow an observer to sense a level of absolute irradiance \citep{brown_melanopsin_2010}. 
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth, center]{figs/LitRev/melstates.png}
+\caption{Reproduced from \citet{do_melanopsin_2019} (Fig 5D in original source). \textit{``[M]ouse melanopsin is understood to have three states (R, M, and E). The peak spectral sensitivities of R and E are determined from the electrophysiological responses of M1s. Spectrophotometric measurements of purified melanopsin yielded similar values (467 and 446 nm, respectively) and gave information for M (476 nm; [\citet{matsuyama_photochemical_2012-1}]). Bottom, the distribution of melanopsin states as a function of wavelength, estimated from a model based on values from purified melanopsin.''}}
+\label{fig:melssf}
+\end{figure}
+
+Human melanopsin appears to be bistable (of two states), and there is uncertainty regarding whether this bistability has physiological consequences \citep{cie_cie_2015-1,mure_melanopsin_2009,rollag_does_2008,wada_color_2018,mure_melanopsin-dependent_2007,mawad_absence_2008,koyanagi_cephalochordate_2005,emanuel_melanopsin_2015}.
+
+\Glspl{ipRGC} form a sparse mesh across the retina, each covering roughly 10$^{\circ}$ of visual angle \citep{ecker_melanopsin-expressing_2010}; discounting input from other cell types, they operate at a much lower resolution than as would be required for spatial vision of the type we are accustomed to. 
+
+They also operate much more slowly than other cell types, taking several seconds to respond, but are able to sustain a response in contrast to other retinal cell types which are able to respond quickly but only for short periods (See \citet[p.210]{do_melanopsin_2019} for a summary).
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth, center]{figs/LitRev/melspeed.png}
+\caption{Reproduced from \citet{lucas_measuring_2014}. \textit{``Dim-flash responses of outer photoreceptors and M1s (normalized photocurrent, having the same waveform as the single-photon response). Note the 10-fold
+longer time base for the M1. The dashed line indicates the baseline current and the timing of the flash is shown below the curves, which are traced from
+electrophysiological recordings (\citet{emanuel_biophysical_2017,field_nonlinear_2002,nikonov_physiological_2006}).''}}
+\label{fig:melspeed}
+\end{figure}
+
+\Glspl{ipRGC} vary greatly in the range of light intensities that they are sensitive, are unimodal (stop responding above a certain threshold), and as a population their sensitivity spans a large range of lights levels \citep{do_melanopsin_2019}. It has been proposed that these properties \glspl{ipRGC} would allow an observer to efficiently sense a level of absolute irradiance \citep{brown_melanopsin_2010,milner_population_2017} (restricted to the wavelengths which ipRGCs and their inputs are sensitive to). 
 
 \subsection{ipRGC connectivity}
 
+% Draft: (what do I want to say) ipRGCs take input from other cells, and also exhibit their own sensititvity. 
+% They project to visual and non-visual areas.
+% #puzzling
+
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth, center]{figs/LitRev/lucas.png}
-\caption{Reproduced from \citet{lucas_measuring_2014}. \textit{``Schematic of the relevant retinal circuitry in humans. Non-image-forming responses originate in the retina and have been attributed to a particular class of retinal ganglion cell (ipRGC). ipRGCs are directly photosensitive owing to expression of melanopsin, which allows them to respond to light even when isolated from the rest of the retina. In situ they are connected to the outer retinal rod and cone photoreceptors via the conventional retinal circuitry. The details of their intraretinal connections are not completely understood and probably vary between different subtypes. Shown here are major connections with on cone bipolar cells (on CBCs) connecting them to cone and, via amacrine cells (AII) and rod bipolar cells (RBC), rod photoreceptors. As a consequence, the firing pattern of ipRGCs can be influenced by both intrinsic melanopsin photoreception and extrinsic signals originating in rods and each of the spectrally distinct cone classes (shown in red, green, and blue). ''}}
+\caption{Reproduced from \citet{lucas_measuring_2014}. \textit{``Schematic of the relevant retinal circuitry in humans. Non-image-forming responses originate in the retina and have been attributed to a particular class of retinal ganglion cell (ipRGC). ipRGCs are directly photosensitive owing to expression of melanopsin, which allows them to respond to light even when isolated from the rest of the retina. In situ they are connected to the outer retinal rod and cone photoreceptors via the conventional retinal circuitry. The details of their intraretinal connections are not completely understood and probably vary between different subtypes. Shown here are major connections with on cone bipolar cells (on CBCs) connecting them to cone and, via amacrine cells (AII) and rod bipolar cells (RBC), rod photoreceptors. As a consequence, the firing pattern of ipRGCs can be influenced by both intrinsic melanopsin photoreception and extrinsic signals originating in rods and each of the spectrally distinct cone classes (shown in red, green, and blue).''}}
 \label{fig:lucas}
 \end{figure}
 
