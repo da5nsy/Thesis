@@ -29,7 +29,7 @@ Further details on all of the above amendments will be included in the following
 
 \subsection{Hardware}
 
-The sphere used in this experiment was 400mm in diameter, with ports of similar functions to those in the Large Sphere. On one side there was a padded port for an observer's face. Mirroring this was a circular aperture of 52mm diameter (giving a viewing angle of roughly 6.6 degrees), through which an LCD screen was visible. At the top of the sphere was a port through which adapting illumination was provided. An additional port, on the observer's side of the base, was added such that the illumination provided to the sphere could be unobtrusively monitored throughout experiments.
+The sphere used in this experiment was 400mm in diameter, with ports of similar functions to those in the Large Sphere. On one side there was a padded port for an observer's face. Mirroring this was a circular aperture of 52mm diameter (giving a viewing angle of roughly 6.6 degrees), through which an LCD screen was visible. At the top of the sphere was a port through which adapting illumination was provided. An additional port, on the observer's side of the base, was added such that the illumination provided to the sphere could be unobtrusively monitored throughout experiments. A schematic is shown in Figure \ref{fig:diagram}, and a photo of an observer in position for the experiment is shown in Figure \ref{fig:SSphoto}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth,center]{figs/SmallSphere/diagram.pdf}
@@ -39,7 +39,7 @@ The sphere used in this experiment was 400mm in diameter, with ports of similar 
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth,center]{figs/SmallSphere/SSphoto.jpg}
-\caption{An observer sits with two hands on the sliders. Actual experiments were performed with the room lights turned off}
+\caption{An observer sits with two hands on the sliders. Actual experiments were performed with the room lights turned off.}
 \label{fig:SSphoto}
 \end{figure}
 
@@ -78,7 +78,7 @@ The lighting in this experiment was designed such that two lighting conditions c
 
 Four types of \gls{LED}, to operate as two pairs, were chosen to maximise melanopic contrast between the pairs. An additional limitation was that no LED with a peak wavelength shorter than 400nm was to be used (due to safety concerns).
 
-50 LEDs, mounted in a breadboard, were controlled by an Arduini Uno. %photo?
+50 LEDs, mounted in a breadboard, were controlled by an Arduini Uno. Their \glspl{SPD} are shown in Figure \ref{fig:LED_SPDs}. %photo?
 
 \begin{itemize}
     \item 20: Bivar UV5TZ-400-15 (henceforth `UV')
@@ -98,7 +98,7 @@ Four types of \gls{LED}, to operate as two pairs, were chosen to maximise melano
 \label{fig:LED_SPDs}
 \end{figure}
 
-The arduino script set the \glspl{LED}, via pulse width modulation, to the output levels decided in the perceptual nulling segment of the experiment. The two modes had either the combination of UV and amber, or blue and red, allowing for the chromaticities falling upon the lines shown in Figure \ref{fig:LED_SPDs}. The combinations UV and blue, or amber and red, were never used.
+The arduino script set the \glspl{LED}, via pulse width modulation, to the output levels decided in the perceptual nulling segment of the experiment. The two modes had either the combination of UV and amber, or blue and red, allowing for the chromaticities falling upon the lines shown in Figure \ref{fig:LED_cross}. The combinations UV and blue, or amber and red, were never used.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth,center]{figs/SmallSphere/LED_cross.pdf}
@@ -131,7 +131,7 @@ In this experiment there were two stages to the observer task; the first (percep
 
 The basic logic of this experiment is as follows: under the null hypothesis two adapting fields of identical appearance should cause an observer to be adapted in exactly the same way. In order to design two adapting field illuminants which appear identical (perceptual metamers) we can either make predictions based upon standard observers (with parameters set to match our real observers regards age and pupil dilation etc.) or we can employ a process whereby individual observers make minor alterations to two conditions (that are designed such that they could be metamers) until they appear identical. We have opted to use colorimetry as a starting point to choose LED primaries (Figure \ref{fig:LED_cross}), and then allow observers to fine-tune this matching.
 
-We run the risk of falling into circularity here: we ask observers to set two fields such that they appear identical, and then (in a roundabout way) we ask them whether there is any visual difference between them. If melanopsin does have a direct impact upon visual perception we are at risk of accounting for this at this stage. In an attempt to avoid this problem, we perform the perceptual nulling under conditions which we predict should not allow for \gls{ipRGC} involvement, or should minimise such. It seems to be the case that \glspl{ipRGC} do not react strongly over very short timescales ($<$0.5hz \citep{spitschan_human_2017-1}), with cones being much more active in this temporal window, so we chose to alternate rapidly between the two conditions and ask observers to make alterations until there is a minimal visible flicker.
+We run the risk of falling into circularity here: we ask observers to set two fields such that they appear identical, and then (in a roundabout way) we ask them whether there is any visual difference between them. If melanopsin does have a direct impact upon visual perception we are at risk of accounting for this at this stage. In an attempt to avoid this problem, we perform the perceptual nulling under conditions which we predict should not allow for \gls{ipRGC} involvement, or should minimise such. It seems to be the case that \glspl{ipRGC} do not react strongly over very short timescales ( faster than roughly 0.5hz \citep{spitschan_human_2017-1}), with cones being much more active in this temporal window, so we chose to alternate rapidly between the two conditions and ask observers to make alterations until there is a minimal visible flicker.
 
 Observers were instructed to fixate upon a small fixation point displayed at the centre of the otherwise dark display. They placed their hands upon three dials which could be independently varied to change the peripheral adapting illumination inside the sphere.
 
@@ -147,7 +147,7 @@ The observer was allowed to switch back and forth between these two modes until 
 
 Observers found this task rather arduous, predominantly due to the inherent difficulty in making colour matches in the periphery. An additional difficulty was that since eye movements were not strictly controlled, if an observer were to look away briefly from the fixation they would be able to see the adapting field with their foveal vision. This was problematic since in most cases the peripheral matches induced strong contrast for foveal perception. Though it was unintentional, this seems to be a particularly effective way of generating the perception of a Maxwell spot \citep{isobe_functional_1955}. Further to this, the authors' experience was that the visible periphery could be further divided, by eccentricity, into two or possibly three areas where a match in one area would not provide a match in both areas.
 
-Despite these difficulties, observers generally found settings which for them resulted in a metameric match (where they could no longer perceive flicker, or perceived very little flicker). 
+Despite these difficulties, observers generally found settings which for them resulted in a metameric match (where they could no longer perceive flicker, or perceived very little flicker). It should be noted that whilst perceptual matches were found, it should not be expected for these matches to also be colorimetric matches for either of the \gls{CIE} 2$^{\circ}$ or 10$^{\circ}$ observers, as these matches are being made at greater eccentricities than those represented by the \gls{CIE} standard observers, and it can be expected that the functional spectral sensitivities of non-foveal receptors differ substantially from foveal and parafoveal receptors, if only due to pre-retinal filtering. The perceptual differences for foveal vision were large, as evidenced by the appearance of Maxwell spots. The chromaticities for the chosen illuminations are plotted in Figure \ref{fig:SSLEDs}.
 
 One observer who initially agreed to take part in this study withdrew at this stage, partly due to a difficulty completing this task, but mainly due to a claustrophobic reaction. Another potential observer withdrew at this stage, since he was unable to make a match using this set of primaries, which we tentatively attribute to incipient cataracts.
 
@@ -266,7 +266,7 @@ There were statistically significant differences between the achromatic settings
 
 For one observer (LW), there were not significant differences between the different conditions, but there was a large magnitude difference between the repeat conditions (See Figure \ref{fig:SSsummary} or \ref{fig:SS_LW}). To be clear - with a single day separating inter-condition trials, this observer exhibited no difference between conditions, but after roughly three months, when returning to do a second pair of trials (again with a single day separating) the results were strikingly different. This is particularly unusual considering how well matched the inter-condition responses are; if it were just the case that this particular observer was particularly unreliable in their selections (and their data does exhibit generally quite high standard deviations, see Table \ref{tab:SS}) then I posit that they would be as unlikely to be able to repeat their selections after a break of a day as they would be after a break of three months.
 
-The differences cannot readily be explained by hardware issues; variation in the surround illumination and screen output are minimal between sessions. Further, the same level of variations were present for both observer LW and observer HC.
+The differences cannot readily be explained by hardware issues; variation in the surround illumination and screen output are minimal between sessions. Further, the same level of hardware variations would have been present for both observer LW and observer HC, and no such dramatic shift is seen for HC's data.
 
 Regarding Figure \ref{fig:SSLEDs2}, which shows the chromaticities of the peripheral illumination, it can be seen that there was some variation between repeated conditions, and also a small amount of variation within each session. The variation across sessions is likely due to physical disturbance of the equipment (either the measurement device or the illumination source) and is of a relatively minor magnitude. The variation within session seems to be systematic, perhaps relating to warm-up time of the illumination source, with the chromaticity being quite variable for the first few minutes of several trials before gaining stability.
 

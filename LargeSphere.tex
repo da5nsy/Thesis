@@ -7,19 +7,19 @@ Code and data is provided: \url{https://github.com/da5nsy/LargeSphere}
 
 \section{Summary}
 
-The goal of this experimental work was to examine the effect of different wavelengths of light upon chromatic adaptation. Our hypothesis was that \gls{ipRGC} stimulation may need to be considered in order to fully model the induced adaptation, with the null hypothesis being that chromatic adaptation can be fully accounted for by cone and rod mechanisms.
+The goal of this experimental work was to examine the effect of different wavelengths of light upon chromatic adaptation. Our hypothesis was that \gls{ipRGC} stimulation may need to be considered in order to fully model the induced adaptation, with the null hypothesis being that chromatic adaptation can be fully accounted for by cone and rod mechanisms. If evidence of a melanopic input to chromatic adaptation were found, it may help to explain conflicting results in previous experiments which sought a `preferred \gls{CCT}', which may in turn allow for control of \gls{CCT} in museums to be used more extensively as a means to control damage to objects. 
 
-Within a Ganzfeld viewing environment, illuminated by one of 16 different wavelengths of near-monochromatic light, observers performed an achromatic setting task, controlling the chromaticity of a display visible in the central field through a 4$^{\circ}$ circular aperture with two handheld sliders.
+This experiment is of a similar type to those discussed in Section \ref{sec:aadi}. Within a Ganzfeld viewing environment, illuminated by one of 16 different wavelengths of near-monochromatic light, observers performed an achromatic setting task, controlling the chromaticity of a display visible in the central field through a 4$^{\circ}$ circular aperture with two handheld sliders. Under these conditions it would be expected that an observer's chosen achromatic point would correspond in hue to the adapting field, and be of a saturation somewhere between a nominal objective white point and the adapting stimulus. If melanopsin were involved in chromatic adaptation we may expect unusual results for the part of the spectrum that melanopsin is most sensitive to (roughly 480nm).
 
 Two different analyses were performed, with neither providing comprehensive support for rejecting the null hypothesis. However, it is noted that several assumptions are implicit in the experimental design, and that the experiment samples only a small region of the potential search space for melanopic input to adaptation (See Section \ref{sec:LSdis}).
 
-This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the author's academic supervisors), who initiated the experiment, and TR who was a student in the Medical Physics department. The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it appeared that there had been a technical fault during this run of data collection, and my data was deemed corrupted. Thus, my only contribution to this work is an extension to the data analysis started by LM, upon which I shall focus on in this chapter.
+This project was designed before the author arrived at \gls{UCL}, and data from two participants had already been collected. Data collection required at least 16 hours commitment from observers, and so the only observers up to that point had been LM (one of the author's academic supervisors), who initiated the experiment, and TR who was a student in the Medical Physics department. The original goal for my involvement in this project was that I should be a third observer, and assist in the data analysis. However, following the collection and initial data analysis of my own data, it appeared that there had been a technical fault during this run of data collection, and my data was deemed corrupted. Thus, my only contribution to this work is an extension to the data analysis started by LM, upon which I shall focus on in this chapter. The issue does not seem to have affected the data from the other two observers.
 
 \section{Methodology}
 
 \subsection{Hardware}
 
-A hollow fibreglass sphere of approximately 750mm diameter was prepared with three holes; the first for an observer's face, the second (above the observer's head) for a light source to illuminate the Ganzfeld, and the third (opposite the first) through which a small portion of an LCD screen could be seen. The interior of the sphere was painted with RAL 7040 dulux vinyl matt grey, of approximately 38\% reflectance. Illumination was provided by a Kodak slide projector with a tungsten-halogen light source, filtered through one of 16 near-monochromatic filters, ranging in 20nm intervals from 400-700nm inclusive. % Add something about `mesopic'
+A hollow fibreglass sphere of approximately 750mm diameter was prepared with three holes; the first for an observer's face, the second (above the observer's head) for a light source to illuminate the Ganzfeld, and the third (opposite the first) through which a small portion of an LCD screen could be seen (A Fujitsu-Siemens SCALEOVIEW D19-1, SN:YE5L006100). A schematic is shown in Figure \ref{fig:sketch}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/sketch.png}
@@ -27,22 +27,30 @@ A hollow fibreglass sphere of approximately 750mm diameter was prepared with thr
 \label{fig:sketch}
 \end{figure}
 
-\begin{figure}[htbp]
-\includegraphics[max width=\textwidth]{figs/LargeSphere/Alejandro.jpg}
-\caption{An observer sat at the sphere. Photograph courtesy of Lindsay MacDonald.}
-\label{fig:Alejandro}
-\end{figure}
+The screen was characterised such that calibrated stimuli could be generated. This was done by taking spectral measurements at 21 levels of pixel value for each channel, and later interpolating to create a full look-up-table to transform from pixel value to XYZ values and vice versa.
+
+The interior of the sphere was painted with RAL 7040 dulux vinyl matt grey, of approximately 38\% reflectance. 
+
+Illumination was provided by a Kodak slide projector with a tungsten-halogen light source, filtered through one of 16 near-monochromatic filters, ranging in 20nm intervals from 400-700nm inclusive. Measurements of the internal illumination were taken with a \gls{PR650} device, plotted in Figure \ref{fig:LSillum}. The illumination has been described further in \citet{macdonald_chromatic_2013}: ``The average luminance of the surrounding chromatic adapting field ranged from a maximum of 0.75 cd/m2 at 560 nm to less than 0.05 cd/m2 at the ends of the spectrum, corresponding to a retinal illuminance through a pupil of diameter 8mm ranging from 38 trolands (max) to less than 2.5 trolands, meaning that the viewing environment was in the upper mesopic range''. No effort was made to ensure that light from inside the sphere did not hit and/or reflect from the LCD display. 
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/LSillum.pdf}
-\caption{The illuminations within the sphere, created by filtering light from a slide projector, measured as reflecting from a point just to the right of the aperture through which an observer would view the screen. Measurements made by Lindsay MacDonald.} %%%%%%?????
+\caption{The illuminations within the sphere, created by filtering light from a slide projector, measured as reflecting from a point just to the right of the aperture through which an observer would view the screen. Measurements made by Lindsay MacDonald.}
 \label{fig:LSillum}
 \end{figure}
 
 \subsection{Observer task}
 
-The observer sat on one side of the sphere with their face inside the sphere, such that nothing outside of the sphere was visible. On view on the opposite side of the sphere was a circular 4$^{\circ}$ aperture onto an LCD screen, upon which a random colour % drawn from ??????
-was visible (See section \ref{sec:LSstim}). It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic (an achromatic setting task). Once the observer was happy with the achromacy of the patch, a button was pressed to record the setting and a new random colour would be presented. The first displayed colour was at L* of 85, with subsequent colours descending by 5 L* until 10 L*. This sequence was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), one session for each adapting wavelength, visualised in Figure \ref{fig:ExperimentalPro}. In an additional (17th) session the narrow-band filter was replaced by a neutral density filter, to produce an achromatic adapting field.
+The observer sat on one side of the sphere with their face inside the sphere (as shown in Figure \ref{fig:Alejandro}), such that nothing outside of the sphere was visible. On view on the opposite side of the sphere was a circular 4$^{\circ}$ aperture onto an LCD screen, upon which a random colour was visible (See section \ref{sec:LSstim} for further details of the randomisation starting routine). It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic (an achromatic setting task). On average it took observers roughly 20 seconds to make a selection. Once the observer was happy with the achromacy of the patch, a button was pressed to record the setting and a new random colour would be presented. The first displayed colour was at \gls{CIE} L* (of CIELAB and CIELUV) of 85, with subsequent colours descending by 5 L* until 10 L*. This sequence was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), one session for each adapting wavelength, visualised in Figure \ref{fig:ExperimentalPro}. Observers found sessions quite fatiguing and generally did not wish to do more than two or three sessions per day. A brief break was generally taken between sessions, though minimum time for such was prescribed.
+
+
+In an additional (17th) session the narrow-band filter was replaced by a neutral density filter, to produce an achromatic adapting field.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/Alejandro.jpg}
+\caption{An observer sat at the sphere. Photograph courtesy of Lindsay MacDonald.}
+\label{fig:Alejandro}
+\end{figure}
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/ExperimentalPro.png}
@@ -53,9 +61,9 @@ was visible (See section \ref{sec:LSstim}). It was the observer's task to use tw
 \subsection{Stimulus specification}
 \label{sec:LSstim}
 
-The stimulus was controlled via a MATLAB script, which read the input of two sliders and a button via a `Phidget' interface. The two linear sliders provided values of between 0 and 1000, and these values were converted to approximate CIELAB co-ordinates in such a manner that the slider maxima corresponded to the Natural Colour System (NCS) unique hue positions as computed by \citet{derefeldt_transformation_1986}. In this manner the sliders could be considered as moving along opponent axes between red and green (via the CIELAB origin), and blue and yellow (via the CIELAB origin) respectively. These values were transformed into standard XYZ values, with white references of [XYZ = 99.04, 100, 151.30] for observer LM and [XYZ = 94.97, 100, 98.15] for observer TR. These values were  then converted to display RGB signals using the GOG characterisation model and output to the screen.
+The stimulus was controlled via a MATLAB script, which read the input of two sliders and a button via a `Phidget' interface. The two linear sliders provided values of between 0 and 1000, and these values were converted to approximate CIELAB co-ordinates in such a manner that the slider maxima corresponded to the Natural Colour System (NCS) unique hue positions as computed by \citet{derefeldt_transformation_1986}. In this manner the sliders could be considered as moving along opponent axes between red and green (via the CIELAB origin), and blue and yellow (via the CIELAB origin) respectively. These values were transformed into standard XYZ values, with white references of [XYZ = 99.04, 100, 151.30] for observer LM and [XYZ = 94.97, 100, 98.15] for observer TR. It is unclear why these values were chosen, though it is suspected that at least one of them was the native white point for the display as measured at the time. These values were  then converted to display RGB signals using the GOG characterisation model and output to the screen.
 
-The generation of random colours was achieved by modulating the nominal zero-point on each slider scale, where the default zero point is considered as 500, sampling from a uniform distribution between 250 and 750 for each presentation. 
+The generation of random starting colours was achieved by modulating the nominal zero-point on each slider scale, where the default zero point is considered as 500, sampling from a uniform distribution between 250 and 750 for each presentation. 
 
 The slider position was then considered relative to this new zero-point, meaning that once an observer hit the button to confirm their selection, a new random colour, anchored to their previous selection (in a rough manner) would be presented. It should be noted that this new colour was not entirely independent of the previous selection, due to this anchoring.
 
@@ -65,7 +73,7 @@ The slider position was then considered relative to this new zero-point, meaning
 
 \subsection{Data Processing}
 
-Data were calibrated in the following manner: the recorded RGB values of the observers' selections were bounded (values above 1 or below 0 were brought within range, with an `absolute' rendering intent), quantized to 8-bits, and converted via look-up-table to \gls{CIE} 1931 XYZ tristimulus values. From these, xy chromaticities and CIELAB values were computed (with the white point of the display, as loaded from the characterisation file, used as the white reference).
+Data were calibrated in the following manner: the recorded RGB values of the observers' selections were bounded (values above 1 or below 0, which occurred when observers made selections which were outside of the sRGB gamut, were brought within range, with an `absolute' rendering intent), quantized to 8-bits, and converted via look-up-table to \gls{CIE} 1931 XYZ tristimulus values. From these, xy chromaticities and CIELAB values were computed (with the white point of the display, as loaded from the characterisation file, used as the white reference).
 
 A set of data referred to as the `baseline' data was generated, where there was no observer input, to consider the range of possible responses that an observer could make. This data was processed in exactly the same manner as the observer data, and is shown in Figure \ref{fig:overviewBL}, where it can be seen that the chromatic gamut increases as L* increases (due to a factor \texttt{cfac} in the display code which aimed to scale chromatic space with L*, mirroring the shape of CIELAB). It can also be seen that the gamut boundary is sometimes reached at higher levels of L*, with some of the vectors curving to remain within gamut.
 

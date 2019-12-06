@@ -88,7 +88,7 @@ For Experiment 3 (Section \ref{sec:SAPS_exp3}), nine participants (5 female, 4 m
 
 \subsubsection{Instructions to the participants}
 
-The observer was instructed to hold the tablet such as was comfortable for them to do so, upon which the first trial of the experiment was already visible. They were instructed to `touch the grey-est, or least colourful, point on the screen'. Upon touching the screen, the stimulus would be replaced with a new stimulus. This new stimulus was a new subsection of the full stimulus image (See Figure \ref{fig:Stimulus}) which had been randomly rotated and offset (further information provided in Section \ref{sec:stimuli}).
+The observer was instructed to hold the tablet such as was comfortable for them to do so, upon which the first trial of the experiment was already visible (see Figure \ref{fig:grant_demo}). They were instructed to `touch the grey-est, or least colourful, point on the screen'. Upon touching the screen, the stimulus would be replaced with a new stimulus. This new stimulus was a new subsection of the full stimulus image (See Figures \ref{fig:finger} and \ref{fig:Stimulus}) which had been randomly rotated and offset (further information provided in Section \ref{sec:stimuli}).
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/MVI_3213-1.jpg} % E:\Pictures\2016\2016-10-14
@@ -96,13 +96,13 @@ The observer was instructed to hold the tablet such as was comfortable for them 
 \label{fig:grant_demo}
 \end{figure}
 
-Most observers seemed to find this task difficult for the first stimulus (appearing confused and often verbally expressing difficulty), but within the first few stimuli seemed to develop an increased comfort and ease with the task, resulting in a decreased response time (Figure \ref{fig:mediantime}). At this point the observer was told that there would be thirty trials. No observers dropped out mid-session. No training was provided, and no runs were excluded as training runs. One stimulus was forced to have identical rotation and offset to an earlier stimulus, in order to assess intra-observer variation (see Section \ref{sec:exclusion}).
-
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/MVI_3889-4.jpg} % E:\Pictures\2016\2016-10-18
 \caption{A stimulus displayed upon tablet and finger in motion towards subjective point of achromacy.}
 \label{fig:finger}
 \end{figure}
+
+Most observers seemed to find this task difficult for the first stimulus (appearing confused and often verbally expressing difficulty), but within the first few stimuli seemed to develop an increased comfort and ease with the task, resulting in a decreased response time (Figure \ref{fig:mediantime}). At this point the observer was told that there would be thirty trials. No observers dropped out mid-session. No training was provided, and no runs were excluded as training runs. One stimulus was forced to have identical rotation and offset to an earlier stimulus, in order to assess intra-observer variation (see Section \ref{sec:exclusion}).
 
 Following the thirty trials, a secondary task was presented to observers, designed to characterise their touch input. This task features a 2x2 checker board pattern upon a black background (See Figure \ref{fig:checker-board}). Observers were instructed to touch the centre of this checker board. Upon registering a touch, a new checker-board would be presented, of the same attributes but modulated in position in the same way as the main stimulus. This stimulus is presented 10 times. This data was later used to calibrate touch input, and to ascertain the amount of measurement uncertainty derived from touch input. %!!!!!! This is doing weird formatting, check before submission
 
@@ -206,7 +206,7 @@ It is assumed that specular reflections are clearly distinguishable to most user
 
 The key concern then is reflection at other levels of the screen architecture. Using the screen calibration framework \cite{berns_crt_1993}, this may be considered as an environment-dependent `offset', that is, a figure which is added to the output of the screen at all levels. It is assumed that this level is constant in an unchanging environment, and independent of the output of the screen. It therefore follows that this will have greatest impact on the chromaticity of the display at low luminances, where the amount of reflected light is high relative to the output of the display.
 
-To consider whether such reflections exist for our specific set-up, telespectroradiometric measurements were taken of screen at varying pixel value levels (0 to 255, intervals of 15)\footnote{Code: \url{https://github.com/da5nsy/SAPS/blob/master/auxiliary_functions/tablet\%20characterization/calibration.py}} under 3 different lighting conditions (Warm White (`WW') : [u'v'] = [0.248,0.524]; Cool White (`CW') : [u'v'] = [0.200,0.465)], Mel-High (`MH') :	[u'v'] = [0.201,0.467], further described in Section \ref{sec:PAMELA}) One condition was repeated to assess measurement uncertainty. The measurement device used was a \gls{PR650}. 
+To consider whether such reflections exist for our specific set-up, telespectroradiometric measurements were taken of screen at varying pixel value levels (0 to 255, intervals of 15)\footnote{Code: \url{https://github.com/da5nsy/SAPS/blob/master/auxiliary_functions/tablet\%20characterization/calibration.py}} under 3 different lighting conditions (Warm White (`WW') : [u'v'] = [0.248,0.524]; Cool White (`CW') : [u'v'] = [0.200,0.465)], Mel-High (`MH') :	[u'v'] = [0.201,0.467], further described in Section \ref{sec:PAMELA}) One condition was repeated to assess measurement uncertainty. The measurement device used was a \gls{PR650}. The set-up is shown in Figures \ref{fig:pr6501} and \ref{fig:pr6502}.
 
 Broadly speaking, at a pixel value of 0 one would expect that the illumination reaching the position of the observer depends almost entirely upon the illumination (entirely, if we assume that the black of the screen is uniformly spectrally reflective), whereas at maximum output (pixel values of 255 in all channels) the illumination reaching the position of the observer would be greatly more dependent upon the output of the device, hopefully with negligible influence of the illumination (so long as the illumination was below a certain threshold). The point of interest is therefore assumed to be the pixel value where the shift resulting from differing illuminants jumps from being non-negligible to negligible for our purposes.
 
@@ -343,7 +343,7 @@ Intuitive threshold: the SD of a `baseline' observer & No intuitive threshold \\
 
 \subsubsection{UCL PAMELA} \label{sec:PAMELA}
 
-\gls{UCL}'s \acrfull{PAMELA} (used for Experiments 1 and 3) consists of a large open space, enclosed within a light-proof warehouse, and is most often used for its customisable floor space, where small sections can be independently raised or lowered to recreate the spatial configurations of public spaces such as streets or railway platforms (see \citet{cheng_effect_2018} for example, and Figure \ref{fig:PAMELAobs1}). It is of interest to this project since it also has a customisable lighting rig comprising 44 addressable fixtures, each with 6 independent channels, which is controlled via a PC interface, and an additional high power white channel, which is on a separate control system. 
+\gls{UCL}'s \acrfull{PAMELA} (used for Experiments 1 and 3) consists of a large open space, enclosed within a light-proof warehouse, and is most often used for its customisable floor space, where small sections can be independently raised or lowered to recreate the spatial configurations of public spaces such as streets or railway platforms (see \citet{cheng_effect_2018} for example, and Figure \ref{fig:PAMELAobs1}). It is of interest to this project since it also has a customisable lighting rig comprising 44 addressable fixtures (see Figure \ref{fig:PAMELAlights1}), each with 6 independent channels (see Figure \ref{fig:PAMELAlights2}), which is controlled via a PC interface, and an additional high power white channel, which is on a separate control system. 
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/PAMELAlights1.jpg}
@@ -353,7 +353,7 @@ Intuitive threshold: the SD of a `baseline' observer & No intuitive threshold \\
 
 \begin{figure}[hbtp]
 \includegraphics[max width=\textwidth]{figs/tablet/PAMELA_SPD.pdf}
-\caption{\glspl{SPD} of the 7 different channels available in the \gls{PAMELA} lighting rig, including the conditions `Warm White' (`WW') and `Cool White' (`CW').}
+\caption{The \glspl{SPD} of the 7 different channels available in the \gls{PAMELA} lighting rig, including the conditions `Warm White' (`WW') and `Cool White' (`CW').}
 \label{fig:PAMELAlights2}
 \end{figure}
 
