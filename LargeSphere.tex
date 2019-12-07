@@ -171,7 +171,19 @@ For both observers we see that the pattern of responses corresponds very well to
 
 Whilst there is some marked variation from a perfect replication of the surround CIELAB co-ordinates - for example the 500nm and 600nm points for LM, and the 520nm and 540nm points for TR, these variations seem to be in line with the level of noise in the responses, and attribution to a specific cause (such as melanopsin or rod input) cannot easily be achieved, since many variables are confounded.
 
-Based on this analysis I do not find sufficient evidence to reject the null hypothesis.
+Based on this analysis I do not find sufficient evidence to reject the null hypothesis (that adaptation can be fully accounted for by considering cone and rod input alone).
+
+\subsubsection{Colour Constancy Indices}
+
+\Glspl{CCI} can be calculated by comparing the distance between a pre-adaptation point (generally some sort of objective white point) and the post-adaptation point (the participant-selected achromatic point, or some average of), with the distance between the pre-adaptation point and the nominal `ideal' match (which in this case would be the chromaticity of the surround adapting field). The \gls{CCI} is calculated as:
+
+\begin{equation}
+CCI = 1-b/a
+\end{equation}
+
+where $b$ is the distance between the post-adaptation point and the ideal match, and $a$ is the distance between the pre-adaptation point and the ideal match\footnote{For further discussion see \citet[Section 4.1, pg. 681]{foster_color_2011}.}.
+
+Averaging over time for each observer, and using the average response for each observer as the pre-adaptation point yields \glspl{CCI} as shown in Figures \ref{fig:LMCCI} and \ref{fig:TRCCI}. Only data for L* of 20 and 60 is plotted for clarity, in keeping with previous figures. It can be seen that there are common trends across wavelength at the different values of L*.
 
 % But luminance \dots
 
