@@ -171,7 +171,7 @@ For both observers we see that the pattern of responses corresponds very well to
 
 Whilst there is some marked variation from a perfect replication of the surround CIELAB co-ordinates - for example the 500nm and 600nm points for LM, and the 520nm and 540nm points for TR, these variations seem to be in line with the level of noise in the responses, and attribution to a specific cause (such as melanopsin or rod input) cannot easily be achieved, since many variables are confounded.
 
-Based on this analysis I do not find sufficient evidence to reject the null hypothesis (that adaptation can be fully accounted for by considering cone and rod input alone).
+%Based on this analysis I do not find sufficient evidence to reject the null hypothesis (that adaptation can be fully accounted for by considering cone and rod input alone).
 
 \subsubsection{Colour Constancy Indices}
 
@@ -179,11 +179,32 @@ Based on this analysis I do not find sufficient evidence to reject the null hypo
 
 \begin{equation}
 CCI = 1-b/a
+\label{eq:CCI}
 \end{equation}
 
 where $b$ is the distance between the post-adaptation point and the ideal match, and $a$ is the distance between the pre-adaptation point and the ideal match\footnote{For further discussion see \citet[Section 4.1, pg. 681]{foster_color_2011}.}.
 
 Averaging over time for each observer, and using the average response for each observer as the pre-adaptation point yields \glspl{CCI} as shown in Figures \ref{fig:LMCCI} and \ref{fig:TRCCI}. Only data for L* of 20 and 60 is plotted for clarity, in keeping with previous figures. It can be seen that there are common trends across wavelength at the different values of L*.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/LMCCI.pdf}
+\caption{\Glspl{CCI} for observer LM, calculated as per Equation \ref{eq:CCI} for the data of LM shown in Figure \ref{fig:LMCompSurr}.}
+\label{fig:LMCCI}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/TRCCI.pdf}
+\caption{As per Figure \ref{LMCCI} but for observer TR.}
+\label{fig:TRCCI}
+\end{figure}
+
+It is highly unusual for values of \gls{CCI} to be below 0; this indicates that the selected post-adaptation point is further from the pre-adaptation point than the ideal match. Normally, assuming that adaptation occurred on the same vector as that connecting the neutral point and the ideal match, this would mean that the observer had \emph{over}-adapted, something which is very unusual. Additionally, results like this generally aren't seen because observers are adapted to highly saturated adapters, often on/near the spectral locus, and colours outside of this simply don't exist to be chosen (in a linear space). 
+
+We see such results here for a number of reasons. Firstly, we are not in a linear space. In CIELAB the chromatic gamut increases as a function of L*, meaning that a high L* value can be outside of the gamut of a set of low L* primaries. Secondly, in concert with this non-linearity, the slider ranges were fixed to represent a broader range of a* and b* values are higher L* values (otherwise it would have felt as though a specific movement at low L* would have resulted in a much greater chromatic shift than that same movement would have done for higher values of L*). The effect of this is shown in Figure \ref{fig:overviewBL}.
+
+Additionally, it appears as though there is substantial offsetting and L* dependent shifting, which call into question the appropriateness of such a metric. It should also be noted that in this current analysis, averages are taken over time, which obscures and adopts any underlying trends which time may influence. It seems as though there is a risk of obscuring more than is revealed through use of such a metric.
+
+However, it is curious to see a dip in the results for both observers at 500nm, which is roughly where we might expect to see an effect should there be an effect of melanopsin (which theoretically peaks at around 480nm, but is predicted to have an increased value of peak sensitivity as a function of pre-receptoral filtering). Based on Figures \ref{fig:LMCompSurr} and \ref{fig:TRCompSurr} this was not anticipated. However, without a clear prediction for what effect we would expect melanopsin to have (in terms of the direction or magnitude of effect) I suggest caution in interpreting this as evidence of an effect. I would suggest that this result justifies further experimentation in this area, especially research which proposed a firm hypothesis which would allow for confirmatory research as opposed to further exploratory work.
 
 % But luminance \dots
 
