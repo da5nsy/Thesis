@@ -43,8 +43,7 @@ Illumination was provided by a Kodak slide projector with a tungsten-halogen lig
 
 The observer sat on one side of the sphere with their face inside the sphere (as shown in Figure \ref{fig:Alejandro}), such that nothing outside of the sphere was visible. On view on the opposite side of the sphere was a circular 4$^{\circ}$ aperture onto an LCD screen, upon which a random colour was visible (See section \ref{sec:LSstim} for further details of the randomisation starting routine). It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic (an achromatic setting task). On average it took observers roughly 20 seconds to make a selection. Once the observer was happy with the achromacy of the patch, a button was pressed to record the setting and a new random colour would be presented. The first displayed colour was at \gls{CIE} L* (of CIELAB and CIELUV) of 85, with subsequent colours descending by 5 L* until 10 L*. This sequence was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), one session for each adapting wavelength, visualised in Figure \ref{fig:ExperimentalPro}. Observers found sessions quite fatiguing and generally did not wish to do more than two or three sessions per day. A brief break was generally taken between sessions, though minimum time for such was prescribed.
 
-
-In an additional (17th) session the narrow-band filter was replaced by a neutral density filter, to produce an achromatic adapting field.
+For one observer, in an additional (17th) session the narrow-band filter was replaced by a neutral density filter, to produce an achromatic adapting field.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/Alejandro.jpg}
@@ -188,13 +187,13 @@ Averaging over time for each observer, and using the average response for each o
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/LMCCI.pdf}
-\caption{\Glspl{CCI} for observer LM, calculated as per Equation \ref{eq:CCI} for the data of LM shown in Figure \ref{fig:LMCompSurr}.}
+\caption{\Glspl{CCI} for observer LM, calculated as per Equation \ref{eq:CCI} for the data of LM shown in Figure \ref{fig:LMCompSurr}. Error bars are standard deviation.}
 \label{fig:LMCCI}
 \end{figure}
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/TRCCI.pdf}
-\caption{As per Figure \ref{LMCCI} but for observer TR.}
+\caption{As per Figure \ref{fig:LMCCI} but for observer TR.}
 \label{fig:TRCCI}
 \end{figure}
 
@@ -206,9 +205,51 @@ Additionally, it appears as though there is substantial offsetting and L* depend
 
 However, it is curious to see a dip in the results for both observers at 500nm, which is roughly where we might expect to see an effect should there be an effect of melanopsin (which theoretically peaks at around 480nm, but is predicted to have an increased value of peak sensitivity as a function of pre-receptoral filtering). Based on Figures \ref{fig:LMCompSurr} and \ref{fig:TRCompSurr} this was not anticipated. However, without a clear prediction for what effect we would expect melanopsin to have (in terms of the direction or magnitude of effect) I suggest caution in interpreting this as evidence of an effect. This peak could also be the result of rod-based intrusions (the peak of the rod \gls{SSF} is 507nm). It is unclear what magnitude and vector of effect should be expected from rod intrusion.
 
-Averaging over wavelength and time allows us to visualise the effect of L*. Here, instead of calculating the \gls{CCI}, a simpler measure is used: the distance from the pre-adaptation point to the post-adaptation point. This gives us a more raw impression of the extent of adaptation, without the assumption of adaptation vector angle. In the context of Equation \ref{eq:CCI} this value could be denoted $c$, as it represents the final side of the triangle $abc$. 
+Averaging over wavelength and time allows us to visualise the effect of L*. Here, instead of calculating the \gls{CCI}, a simpler measure is used: the distance from the pre-adaptation point (the average of all recorded achromatic points, per observer) to the post-adaptation point. This gives us a rawer impression of the extent of adaptation, without the assumption of adaptation vector angle. In the context of Equation \ref{eq:CCI} this value could be denoted $c$, as it represents the final side of the triangle $abc$. 
 
-It is assumed, based on the analysis presented in Figure \ref{overviewBL}, that as L* increases, the length of these vectors shall increase, simply as a result of the experimental set-up.
+It is assumed, based on the analysis presented in Figure \ref{fig:overviewBL}, that as L* increases, the length of these vectors shall increase, simply as a result of the experimental set-up. This is shown to be the case in Figures \ref{fig:LMCCI_L} and \ref{fig:TRCCI_L}, with near monotonic increases as L* increases for both observers.
+
+\begin{figure}[htbp]
+\includegraphics[max width=0.8\textwidth]{figs/LargeSphere/LMCCI_L.pdf}
+\caption{Average distance (in the a*b* plane of CIELAB) between pre-adaptation point and post-adaptation point for different values of L* for observer LM. Error bars are standard deviation.}
+\label{fig:LMCCI_L}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=0.8\textwidth]{figs/LargeSphere/TRCCI_L.pdf}
+\caption{As per Figure \ref{fig:LMCCI_L} but for observer TR.}
+\label{fig:TRCCI_L}
+\end{figure}
+
+Averaging over wavelength and L* allows us to visualise adaptation over time. Again, we would assume that as time increases (technically, we use repeat number here as a rough surrogate of time) we should expect to see an increase in the vector distance between pre-adapt and post-adapt. It is possible that a hint of this trend is visible in the data presented in Figures \ref{fig:LMCCI_T} and \ref{fig:TRCCI_T} but the level of noise is very high as can be seen from the measures of standard deviation.
+
+\begin{figure}[htbp]
+\includegraphics[max width=0.8\textwidth]{figs/LargeSphere/LMCCI_T.pdf}
+\caption{Average distance (in the a*b* plane of CIELAB) between pre-adaptation point and post-adaptation point for different repeat numbers for observer LM. Error bars are standard deviation.}
+\label{fig:LMCCI_T}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=0.8\textwidth]{figs/LargeSphere/TRCCI_T.pdf}
+\caption{As per Figure \ref{fig:LMCCI_T} but for observer TR.}
+\label{fig:TRCCI_T}
+\end{figure}
+
+A multi-way ANOVA performed upon the data, treating wavelength, time and L* and independent categorical variables found a significant effect of each, as shown in Figures \ref{fig:anova} and \ref{fig:anova}, with a level of alpha of 0.05.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/anova.png}
+\caption{The multi-way ANOVA output table for the LM data, where X1 is wavelength, X2 is repeat number (time), and X3 is L*.}
+\label{fig:anova}
+\end{figure}
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth]{figs/LargeSphere/anova2.png}
+\caption{As per Figure \ref{fig:anova} but for observer TR.}
+\label{fig:anova2}
+\end{figure}
+
+\clearpage
 
 % But luminance \dots
 
