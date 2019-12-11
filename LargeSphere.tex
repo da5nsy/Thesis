@@ -31,7 +31,7 @@ The screen was characterised such that calibrated stimuli could be generated. Th
 
 The interior of the sphere was painted with RAL 7040 dulux vinyl matt grey, of approximately 38\% reflectance. 
 
-Illumination was provided by a Kodak slide projector with a tungsten-halogen light source, filtered through one of 16 near-monochromatic filters, ranging in 20nm intervals from 400-700nm inclusive. Measurements of the internal illumination were taken with a \gls{PR650} device, plotted in Figure \ref{fig:LSillum}. The illumination has been described further in \citet{macdonald_chromatic_2013}: ``The average luminance of the surrounding chromatic adapting field ranged from a maximum of 0.75 cd/m2 at 560 nm to less than 0.05 cd/m2 at the ends of the spectrum, corresponding to a retinal illuminance through a pupil of diameter 8mm ranging from 38 trolands (max) to less than 2.5 trolands, meaning that the viewing environment was in the upper mesopic range''. No effort was made to ensure that light from inside the sphere did not hit and/or reflect from the LCD display. 
+Illumination was provided by a Kodak slide projector with a tungsten-halogen light source, filtered through one of 16 near-monochromatic filters, ranging in 20nm intervals from 400-700nm inclusive (Figure \ref{fig:LSillum}). During each session, only one filter was used and the surround illumination remained the same throughout. Measurements of the internal illumination were taken with a \gls{PR650} device, plotted in Figure \ref{fig:LSillum}. The illumination has been described further in \citet{macdonald_chromatic_2013}: ``The average luminance of the surrounding chromatic adapting field ranged from a maximum of 0.75 cd/m2 at 560 nm to less than 0.05 cd/m2 at the ends of the spectrum, corresponding to a retinal illuminance through a pupil of diameter 8mm ranging from 38 trolands (max) to less than 2.5 trolands, meaning that the viewing environment was in the upper mesopic range''. No effort was made to ensure that light from inside the sphere did not hit and/or reflect from the LCD display. 
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/LSillum.pdf}
@@ -41,7 +41,11 @@ Illumination was provided by a Kodak slide projector with a tungsten-halogen lig
 
 \subsection{Observer task}
 
-The observer sat on one side of the sphere with their face inside the sphere (as shown in Figure \ref{fig:Alejandro}), such that nothing outside of the sphere was visible. On view on the opposite side of the sphere was a circular 4$^{\circ}$ aperture onto an LCD screen, upon which a random colour was visible (See section \ref{sec:LSstim} for further details of the randomisation starting routine). It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic (an achromatic setting task). On average it took observers roughly 20 seconds to make a selection. Once the observer was happy with the achromacy of the patch, a button was pressed to record the setting and a new random colour would be presented. The first displayed colour was at \gls{CIE} L* (of CIELAB and CIELUV) of 85, with subsequent colours descending by 5 L* until 10 L*. This sequence was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), one session for each adapting wavelength, visualised in Figure \ref{fig:ExperimentalPro}. Observers found sessions quite fatiguing and generally did not wish to do more than two or three sessions per day. A brief break was generally taken between sessions, though minimum time for such was prescribed.
+The observer sat on one side of the sphere with their face inside the sphere (as shown in Figure \ref{fig:Alejandro}), such that nothing outside of the sphere was visible. On view on the opposite side of the sphere was a circular 4$^{\circ}$ aperture onto an LCD screen, upon which a random colour was visible (See section \ref{sec:LSstim} for further details of the randomisation starting routine). Surrounding the aperture, the rest of the ganzfeld was illuminated by light from the slide projector, filtered through one of 16 near-monochromatic filters (Figure \ref{fig:LSillum}). It was the observer's task to use two handheld sliders, which controlled the chromaticity of the screen, to make the appearance of the screen achromatic (an achromatic setting task). 
+
+On average it took observers roughly 20 seconds to make a selection. Once the observer was happy with the achromacy of the patch, a button was pressed to record the setting and a new random colour would be presented. The first displayed colour was at \gls{CIE} L* (of CIELAB and CIELUV) of 85, with subsequent colours descending by 5 L* until 10 L*. 
+
+This sequence was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), one session for each surround adapting wavelength. The overall protocol is visualised in Figure \ref{fig:ExperimentalPro}. Observers found sessions quite fatiguing and generally did not wish to do more than two or three sessions per day. A brief break was generally taken between sessions, though minimum time for such was prescribed.
 
 For one observer, in an additional (17th) session the narrow-band filter was replaced by a neutral density filter, to produce an achromatic adapting field.
 
@@ -60,11 +64,11 @@ For one observer, in an additional (17th) session the narrow-band filter was rep
 \subsection{Stimulus specification}
 \label{sec:LSstim}
 
-The stimulus was controlled via a MATLAB script, which read the input of two sliders and a button via a `Phidget' interface. The two linear sliders provided values of between 0 and 1000, and these values were converted to approximate CIELAB co-ordinates in such a manner that the slider maxima corresponded to the Natural Colour System (NCS) unique hue positions as computed by \citet{derefeldt_transformation_1986}. In this manner the sliders could be considered as moving along opponent axes between red and green (via the CIELAB origin), and blue and yellow (via the CIELAB origin) respectively. These values were transformed into standard XYZ values, with white references of [XYZ = 99.04, 100, 151.30] for observer LM and [XYZ = 94.97, 100, 98.15] for observer TR. It is unclear why these values were chosen, though it is suspected that at least one of them was the native white point for the display as measured at the time. These values were  then converted to display RGB signals using the GOG characterisation model and output to the screen.
+The stimulus was controlled via a MATLAB script, which read the input of two sliders and a button via a `Phidget' interface. The two linear sliders provided values of between 0 and 1000, and these values were converted to approximate CIELAB co-ordinates in such a manner that the slider maxima corresponded to the Natural Colour System (NCS) unique hue positions as computed by \citet{derefeldt_transformation_1986}. In this manner the sliders could be considered as moving along opponent axes between red and green (via the CIELAB origin), and blue and yellow (via the CIELAB origin) respectively. 
 
-The generation of random starting colours was achieved by modulating the nominal zero-point on each slider scale, where the default zero point is considered as 500, sampling from a uniform distribution between 250 and 750 for each presentation. 
+These values were transformed into XYZ values, with white references of [XYZ = 99.04, 100, 151.30] for observer LM and [XYZ = 94.97, 100, 98.15] for observer TR. The white reference for LM related to a screen characterisation performed around the time that the initial measurements were made. It is assumed that the same is true of the white point used for observer TR, although this characterisation data is no longer available. These values were then converted to sRGB values, and output to screen.
 
-The slider position was then considered relative to this new zero-point, meaning that once an observer hit the button to confirm their selection, a new random colour, anchored to their previous selection (in a rough manner) would be presented. It should be noted that this new colour was not entirely independent of the previous selection, due to this anchoring.
+The generation of random starting colours was achieved by modulating the nominal zero-point on each slider scale, where the default zero point is considered as 500, sampling from a uniform distribution between 250 and 750 for each presentation. The slider position was then considered relative to this new zero-point. The effect of this can be considered as such: if the observer were to leave the slider in a central position throughout (make no selections) they would be provided with random colours drawn uniformly from within bounds either side of the objective white-point. Since, hopefully, the observer was making selections, each new `random' colour would be biased towards the previous selection (based on where the sliders had been left from the previous selection). It should be noted that this new colour was not entirely independent of the previous selection, due to this bias.
 
 % \subsection{Data Collection}
 
@@ -74,17 +78,17 @@ The slider position was then considered relative to this new zero-point, meaning
 
 Data were calibrated in the following manner: the recorded RGB values of the observers' selections were bounded (values above 1 or below 0, which occurred when observers made selections which were outside of the sRGB gamut, were brought within range, with an `absolute' rendering intent), quantized to 8-bits, and converted via look-up-table to \gls{CIE} 1931 XYZ tristimulus values. From these, xy chromaticities and CIELAB values were computed (with the white point of the display, as loaded from the characterisation file, used as the white reference).
 
-A set of data referred to as the `baseline' data was generated, where there was no observer input, to consider the range of possible responses that an observer could make. This data was processed in exactly the same manner as the observer data, and is shown in Figure \ref{fig:overviewBL}, where it can be seen that the chromatic gamut increases as L* increases (due to a factor \texttt{cfac} in the display code which aimed to scale chromatic space with L*, mirroring the shape of CIELAB). It can also be seen that the gamut boundary is sometimes reached at higher levels of L*, with some of the vectors curving to remain within gamut.
+A set of data referred to as the `baseline' data was generated, where there was no observer input, to consider the range of possible responses that an observer could make. The element of code which provided new random starting positions was excluded for these sessions. This data was processed in exactly the same manner as the observer data, and is shown in Figure \ref{fig:overviewBL}, where it can be seen that the chromatic gamut increases as L* increases (due to a factor \texttt{cfac} in the display code which aimed to scale chromatic space with L*, mirroring the shape of CIELAB). It can also be seen that the gamut boundary is sometimes reached at higher levels of L*, with some of the vectors curving to remain within gamut.
 
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/baselinedataOverview.pdf}
-\caption{The baseline dataset. This data represents the condition where there is no observer input, and the two sliders are left at their maximum (1000), minimum (0), or neutral (500) positions (9 combinations). In the legend the first number denotes the slider A position, and the second denotes the slider B position.}
+\caption{The baseline dataset. This data represents the condition where there is no observer input. The points on the curves are the different values of L* presented during a session. Each curve represents a single `session'. The two sliders are left at their maximum (1000), minimum (0), or neutral (500) positions (9 combinations). This was done computationally; no actual slider input was used. In the legend the first number denotes the slider A position, and the second denotes the slider B position.}
 \label{fig:overviewBL}
 \end{figure}
 
 %The effect of the random offsetting was also queried, and it was found that the maximum random offset pushed the chromaticities halfway between \dots
 
-Two distinct approaches were taken to data analysis. The first attempted to process the data in a chromatic space, with the reasoning that under the null condition chromatic selections should simply correspond to the chromaticity of the surround illuminations, presumably with some sort of gain function applied. If it could be shown that this relationship was not as expected, in a manner which might suggest involvement by other mechanisms (meaning rods or \glspl{ipRGC}), then this could be considered as evidence against the null hypothesis.
+Two distinct approaches were taken to data analysis. The first attempted to process the data in a chromatic space, with the reasoning that under the null condition chromatic selections should simply correspond to the chromaticity of the surround adapting illuminations, presumably with some sort of gain function applied. If it could be shown that this relationship was not as expected, in a manner which might suggest involvement by other mechanisms (meaning rods or \glspl{ipRGC}), then this could be considered as evidence against the null hypothesis.
 
 The second approach took advantage of the fact that measurements were taken at samples across the wavelength spectrum. Since we know the power at each waveband, and the spectral sensitivities of the receptors, we can see whether the responses (transformed to cone space) relate in some simple way to spectral sensitivities.
 
@@ -124,7 +128,7 @@ In Figure \ref{fig:overviewDG} it can be seen for observer DG in the lower-right
 
 Not represented in the above plots is the way in which responses varied over time within each session, averaged over L* (the previous plots were averages over time). Figures \ref{fig:timeLM} and \ref{fig:timeTR} show the calibrated CIELAB values for observers LM and TR. 
 
-L* should remain steady throughout (this was set), with minor differences introduced presumably due to differences between the screen and sRGB, 8-bit quantization, and any selections where a gamut boundary was reached. Both a* and b* follow the broad trends which would be expected given previous figures. Newly visible in these figures is the manner in which responses change over time. For both observers LM and TR the first two or three repeats seem to be distinct from the rest of the set, suggesting that adaptation had not yet reached a steady-state during this time.
+L* should remain steady throughout (this was set), with minor differences introduced presumably due to differences between the screen and sRGB, 8-bit quantization, and any selections where a gamut boundary was reached. Both a* and b* follow the broad trends which would be expected given previous figures. Newly visible in these figures is the manner in which responses change over time. For both observers LM and TR the first two or three repeats seem to be distinct from the rest of the set, suggesting that adaptation had not yet reached a steady-state during this time. Further quantitative analysis is provided in the following section.
 
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth, center]{figs/LargeSphere/LMdataOverTime.pdf}
@@ -148,7 +152,7 @@ The CIELAB co-ordinates for the adapting fields were computed from the measureme
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/adapter1.pdf}
-\caption{The CIELAB values for the surround illuminations, calculated from the measurements shown in Figure \ref{fig:LSillum}, taking the white point of the screen (for the TR trials) as the white point.}
+\caption{The CIELAB values for the surround adapting illuminations, calculated from the measurements shown in Figure \ref{fig:LSillum}, taking the white point of the screen (for the TR trials) as the white point.}
 \label{fig:adapter1}
 \end{figure}
 
@@ -162,7 +166,7 @@ If the surround fully controlled adaptation, and observers were fully adapted, i
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/TRcompareWithSurround.pdf}
-\caption{As per Figure \ref{fig:LMCompSurr} but for the data of TR.}
+\caption{As per Figure \ref{fig:LMCompSurr} but for the data of TR. Note that the white point used for visualisation relate to the white points used during data collection, which differ for each observer.}
 \label{fig:TRCompSurr}
 \end{figure}
 
@@ -182,6 +186,8 @@ CCI = 1-b/a
 \end{equation}
 
 where $b$ is the distance between the post-adaptation point and the ideal match, and $a$ is the distance between the pre-adaptation point and the ideal match\footnote{For further discussion see \citet[Section 4.1, pg. 681]{foster_color_2011}.}.
+
+There are multiple reasonable options for which value to use as a `pre-adaptation point'. First, the origin of the space within which selections are made (different for each observer) seems to be a possible option; this corresponds to the central point on each slider over time for each individual. However, though the set-up ascribes some value to this point, it is not definitively linked to the settings that observers made; it can be seen in Figures \ref{fig:LMCompSurr} and \ref{fig:TRCompSurr} that there seems to be no particular relevance of the point [0,0]. A second option would be to use the measurements made under a neutral density filter for both observers. This data has not been used thus far. However, again there is no actual significance of these values - a neutral density filter could be slightly chromatic and still be labelled as a neutral density filter, and even if it were perfectly spectrally neutral, it's designation as a gold standard `neutral' only actually passes on responsibility to the chromaticity of the projector lamp, which is under no obligation to be especially `neutral'. The third option is to use the average setting value, which has no specific logical background, but is vastly more practically relevent than the previous two options. This third option was chosen for future analyses.
 
 Averaging over time for each observer, and using the average response for each observer as the pre-adaptation point yields \glspl{CCI} as shown in Figures \ref{fig:LMCCI} and \ref{fig:TRCCI}. Only data for L* of 20 and 60 is plotted for clarity, in keeping with previous figures. It can be seen that there are common trends across wavelength at the different values of L*.
 
@@ -235,7 +241,7 @@ Averaging over wavelength and L* allows us to visualise adaptation over time. Ag
 \label{fig:TRCCI_T}
 \end{figure}
 
-A multi-way ANOVA performed upon the data, treating wavelength, time and L* and independent categorical variables found a significant effect of each, as shown in Figures \ref{fig:anova} and \ref{fig:anova}, with a level of alpha of 0.05.
+A three-way ANOVA performed upon the data, treating wavelength, time and L* and independent categorical variables found a significant effect of each, as shown in Figures \ref{fig:anova} and \ref{fig:anova2}, with a level of $\alpha$ of 0.05.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/anova.png}
@@ -249,7 +255,11 @@ A multi-way ANOVA performed upon the data, treating wavelength, time and L* and 
 \label{fig:anova2}
 \end{figure}
 
-\clearpage
+Whilst variables were treated as categorical in the above analysis, there would be an argument for treating each as a continuous variable. However, several factors would need to be considered. Foremost, whilst wavelength is nominally a continuous variable, in this experiment each wavelength category had a difference level of radiance, which means that caution should be taken in assuming their equivalence. It is also possible that each filter might have a meaningfully different spectral transmission profile, specifically the band-pass width (see Figure \ref{fig:LSillum}).
+
+Caution is also required regarding the assumption of independence of measurements. Due to the nature of chromatic adaptation, it would not be possible to interleave conditions, and so wavelength is further confounded with various other factors; date, time of day, and all manner of secondary factors relating to these (whether the observer has eaten recently for example).
+
+It would be of interest to assess whether the contrast between the surround and the selection area influenced settings, but for this specific experiment the contrast is confounded by wavelength and L* and there does not seem to be a clear way to examine the influence of contrast directly.
 
 % But luminance \dots
 
@@ -261,9 +271,18 @@ A multi-way ANOVA performed upon the data, treating wavelength, time and L* and 
 
 \subsection{Spectrum-based analysis}
 
-%\textit{The code to reproduce the following analysis can be found at \url{https://github.com/da5nsy/LargeSphere/blob/master/Data\%20Analysis/VonKriesTest.m}}
+This analysis aimed to leverage the fact that we have access to estimates of the of the spectral emission of the screen for each RGB value, and thus can calculate the relative cone/rod/\gls{ipRGC} catches for each achromatic setting. This in turn allows us to test to what extent the results seen can be explained simply by scaling cone mechanisms (a \emph{diagonal}, or Von-Kries-type transformation) and to ask whether adding additional inputs to the model (rods and/or \glspl{ipRGC}) improves our ability to explain the measured results.
 
-The first stage of this analysis was to generate simulated data which represented the situation whereby there was only simple Von Kries adaptation. This was accomplished by multiplying the individual \glspl{SPD} (Figure \ref{fig:LSillum}) by the CIE 2006 10$^{\circ}$ observer fundamentals (not in the manner in which this is usually done, resulting in tristimulus values, but rather point-wise, thus retaining the spectral nature of the data). See Figure \ref{fig:LSsimdata}.
+The first stage of this analysis was to generate simulated data which represented the situation whereby there was only simple Von Kries adaptation. Under this situation the estimated cone catches for the achromatic matches would be equal to the \glspl{SSF} of the cones, linearly scaled by the radiance levels of each surround adapting field. If the radiance levels were equal at each wavelength interval, the simulated data would be equal to the cone \glspl{SSF}. If, hypothetically, one wavelength interval were vastly higher in radiance, we would expect a correspondingly higher adaptive effect, which would result in a higher level of activation required in order for an achromatic visual appearance. In this way, we predict what results may look like if the only type of adaptation occurring was a simple Von Kries / diagonal scaling. 
+
+Practically, this is accomplished by element-wise multiplication of each sensor \gls{SSF} by the measured emission from each adapting surround, as per Equation \ref{eq:VK}. The absolute scaling, and the relative inter-sensor scaling, is irrelevant due to the freedom that will be allowed later in the analysis.
+
+\begin{equation}
+s_i = p_i \odot e
+\label{eq:VK}
+\end{equation}
+
+where $s$ is the simulated required sensor catch for achromacy (with the index $i$ denoting the sensor), $p$ is the sensor \gls{SSF}, and $e$ is the measured emission from each adapting surround. The CIE 2006 10$^{\circ}$ observer fundamentals were used, and the results are visualised in Figure \ref{fig:LSsimdata}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/LSsimdata.pdf}
@@ -387,7 +406,7 @@ Figures \ref{fig:contributions_4} and \ref{fig:contributions_5minusrods} appear 
 
 Two methods of analysis for the \citet{macdonald_chromatic_2013} data are presented here.
 
-The chromaticity-based analysis showed that there was a strong correspondence between the patterns of the chromaticities of the adapting fields and the pattern of responses. There were a small number of outliers, which could plausibly be due to additional inputs to the adaptive process, however these outliers were in line with the amount of noise in the data, and confounded by many other variables and sources of noise. This analysis provides no basis for rejecting the null hypothesis.
+The chromaticity-based analysis showed that there was a strong correspondence between the patterns of the chromaticities of the adapting fields and the pattern of responses. There were a small number of outliers, which could plausibly be due to additional inputs to the adaptive process, however these outliers were in line with the amount of noise in the data, and confounded by many other variables and sources of noise. This analysis provides no basis for rejecting the null hypothesis that cones and rods are the sole responsible agents in adaptation for the studied retinal locations and conditions.
 
 The spectrum-based analysis showed that the results for one observer could not be well fitted by a simple model of Von-Kries-type observer, but that simple linear combinations of the responses of such an observer could be made to fit the recorded data very well. Though the ability of these fits is to be expected from this type of post-hoc fitting, the types of models which are predicted by the fitting align well with our understanding of post-receptoral signals, which suggests that we may be measuring adaptation at these levels. It would be particularly valuable to see whether the temporal nature of responses also aligned with our understanding of the timecourses of these different signals. It should be noted that this result could be due to the nature of the experimental set-up; observers were unable to modulate the cone activations directly. For example, to make the stimulus more green, the observer would inherently have to make it less red. It is plausible that this may account for the relationships seen in this analysis.
 
@@ -419,6 +438,12 @@ This dataset may only comprise data from two observers, but it is broad and may 
     \item If the L* dependent effects could be accounted for, then averaging over the entire range of L* could be implemented, which should reduce the level of noise, and improve the ability of an investigator to draw conclusions from a chromaticity-based analysis.
     \item For the spectrum-based analysis, currently only a single colorimetric observer is used (Stockman-Sharpe 10deg). It would be possible, and more correct to use specific observers relating to actual ages and visual fields. It may also be possible to use sharpened spectral sensitivities (see \citet{finlayson_spectral_1994}), though this would need to be done particularly carefully, considering the already large potential for overfitting.
 \end{itemize}
+
+\section{Interim Summary}
+
+The experiment reported in this chapter aimed to extend our understanding of colour constancy and chromatic adaptation, specifically asking whether there was a melanopic influence. No clear effect for a melanopic influence was found, though the absence of an effect could not be authoritatively be confirmed.
+
+A large number of limitations were identified with this experimental set-up, and it was deemed appropriate to develop a second version of this experimental set-up, and perform a further experiment. This further experiment is reported in the following chapter.
 
 
 

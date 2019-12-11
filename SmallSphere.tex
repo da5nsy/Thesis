@@ -6,7 +6,11 @@
 
 \section{Summary}
 
-This experiment was performed to develop upon the Large Sphere experiment (Chapter \ref{chap:LargeSphere}) by narrowing down the number of variables and more directly exploring the question of whether melanopsin plays a role in colour constancy. Observers were adapted to one of two perceptually metameric conditions, one with a high melanopic content and one with a low melanopic content. Statistically significant but low magnitude differences were found between conditions for two out of three observers. For the two observers who performed repeated trials, inter-trial variability was high, and of a similar magnitude to inter-condition differences. One observer provided drastically difference responses during the repeat sessions; hardware issues which may cause such a difference are discounted, and remaining hypotheses for what may have caused such a large distinction are discussed. 
+This experiment was performed to develop upon the Large Sphere experiment (Chapter \ref{chap:LargeSphere}) by narrowing down the number of variables and more directly exploring the question of whether melanopsin plays a role in colour constancy. Observers were adapted to one of two perceptually metameric conditions, one with a high melanopic content and one with a low melanopic content.
+
+It was predicted that if \glspl{ipRGC} played a role in chromatic adaptation or colour constancy that we would different achromatic settings for the mel-low and mel-high conditions. No prediction was made regarding the magnitude or direction of the effect.
+
+Statistically significant but low magnitude differences were found between conditions for two out of three observers. For the two observers who performed repeated trials, inter-trial variability was high, and of a similar magnitude to inter-condition differences. One observer provided drastically different responses during the repeat sessions; hardware issues which may cause such a difference are discounted, and remaining hypotheses for what may have caused such a large distinction are discussed. 
 
 This study was approved by the \gls{UCL} Ethics committee (Project ID Number: 9357/003), application attached as Appendix \ref{app:ethics3}. Code and data are provided: \url{https://github.com/da5nsy/Small-Sphere}.
 
@@ -29,7 +33,7 @@ Further details on all of the above amendments will be included in the following
 
 \subsection{Hardware}
 
-The sphere used in this experiment was 400mm in diameter, with ports of similar functions to those in the Large Sphere. On one side there was a padded port for an observer's face. Mirroring this was a circular aperture of 52mm diameter (giving a viewing angle of roughly 6.6 degrees), through which an LCD screen was visible. At the top of the sphere was a port through which adapting illumination was provided. An additional port, on the observer's side of the base, was added such that the illumination provided to the sphere could be unobtrusively monitored throughout experiments. A schematic is shown in Figure \ref{fig:diagram}, and a photo of an observer in position for the experiment is shown in Figure \ref{fig:SSphoto}.
+The sphere used in this experiment was 400mm in diameter, with ports of similar functions to those in the Large Sphere. On one side there was a padded port for an observer's face. Mirroring this was a circular aperture of 52mm diameter (giving a viewing angle of 6.6 degrees), through which an LCD screen was visible. At the top of the sphere was a port through which adapting illumination was provided. An additional port, on the observer's side of the base, was added such that the illumination provided to the sphere could be unobtrusively monitored throughout experiments. A schematic is shown in Figure \ref{fig:diagram}, and a photo of an observer in position for the experiment is shown in Figure \ref{fig:SSphoto}.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth,center]{figs/SmallSphere/diagram.pdf}
@@ -62,7 +66,13 @@ Measurements of the \glspl{SRF} of the 8 tested spray-paints, and further detail
 
 \subsection{The Screen}
 
-The screen was offset by roughly 150mm through a short black paper tube in order to limit the interference (either way) between the screen emission and the sphere illumination. 
+The screen was the same screen as used in the Large Sphere experiment, but was offset by roughly 150mm through a short black paper tube in order to limit the interference (either way) between the screen emission and the sphere illumination. This was seen as a great improvement over the Large Sphere experiment, where no such effort was made. Analysis showed that at the average pixel values of the selections made by observers there was negligible screen chromaticity difference between the case where the internal sphere illumination was on and where it was off. However, at levels in line with the darkest matches made by observers, it was found that there was clear, but relatively minor, intrusion. The level of this intrusion is illustrated in Figure \ref{fig:SSA}\footnote{This intrusion was only found after data had already been collected and so no attempt was made to rectify this situation. In future experiments a more effective foil might be made by using a longer tube, either folded in the manner of a traditional light trap, and/or lined with a less reflective material such as velvet.}.
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth,center]{figs/SmallSphere/ScreenShieldingAnalysis.pdf}
+\caption{Chromaticity values measured from the screen during a number of characterisation procedures. All channels were set a pixel value of 25, in line with the lowest value that an observer picked as an achromatic match, as this is where the effect of intrusion of the light from the sphere to the screen was likely to be greatest. The black asterisk represents the dark condition (no internal sphere illumination) and each red point represents one of the primary characterisation measures (with internal sphere illumination as it would be during each experimental session).}
+\label{fig:SSA}
+\end{figure}
 
 \subsubsection{Characterisation}
 
@@ -100,6 +110,14 @@ Four types of \gls{LED}, to operate as two pairs, were chosen to maximise melano
 
 The arduino script set the \glspl{LED}, via pulse width modulation, to the output levels decided in the perceptual nulling segment of the experiment. The two modes had either the combination of UV and amber, or blue and red, allowing for the chromaticities falling upon the lines shown in Figure \ref{fig:LED_cross}. The combinations UV and blue, or amber and red, were never used.
 
+An example of the \glspl{SPD} of the illumination inside the sphere under different conditions (following perceptual nulling, described in Section \ref{sec:null}) is shown in Figure \ref{fig:LED_SPDcontrast}, for both conditions for observer HC. These conditions were perceptually metameric but had melanopic contrast of 309\% (for this observer).
+
+\begin{figure}[htbp]
+\includegraphics[max width=\textwidth,center]{figs/SmallSphere/LED_SPDcontrast.pdf}
+\caption{The \glspl{SPD} of the two conditions for observer HC.}
+\label{fig:LED_SPDcontrast}
+\end{figure}
+
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth,center]{figs/SmallSphere/LED_cross.pdf}
 \caption{The chromaticities of the Small Sphere \glspl{LED} in CIE 1931 space, with lines connecting the pairs which were activated simultaneously. From each pair, illumination with chromaticity values extending along each line was generatable. Even if there were differences in the spectral sensitivities of the observers (compared to the CIE 1931 observer), with these narrow-band primaries there should theoretically always be a point at which the two lines cross.}
@@ -131,7 +149,7 @@ In this experiment there were two stages to the observer task; the first (percep
 
 The basic logic of this experiment is as follows: under the null hypothesis two adapting fields of identical appearance should cause an observer to be adapted in exactly the same way. In order to design two adapting field illuminants which appear identical (perceptual metamers) we can either make predictions based upon standard observers (with parameters set to match our real observers regards age and pupil dilation etc.) or we can employ a process whereby individual observers make minor alterations to two conditions (that are designed such that they could be metamers) until they appear identical. We have opted to use colorimetry as a starting point to choose LED primaries (Figure \ref{fig:LED_cross}), and then allow observers to fine-tune this matching.
 
-We run the risk of falling into circularity here: we ask observers to set two fields such that they appear identical, and then (in a roundabout way) we ask them whether there is any visual difference between them. If melanopsin does have a direct impact upon visual perception we are at risk of accounting for this at this stage. In an attempt to avoid this problem, we perform the perceptual nulling under conditions which we predict should not allow for \gls{ipRGC} involvement, or should minimise such. It seems to be the case that \glspl{ipRGC} do not react strongly over very short timescales ( faster than roughly 0.5hz \citep{spitschan_human_2017-1}), with cones being much more active in this temporal window, so we chose to alternate rapidly between the two conditions and ask observers to make alterations until there is a minimal visible flicker.
+We run the risk of falling into circularity here: we ask observers to set two fields such that they appear identical, and then (in a roundabout way) we ask them whether there is any visual difference between them. If melanopsin does have a direct impact upon visual perception we are at risk of accounting for this at this stage. In an attempt to avoid this problem, we perform the perceptual nulling under conditions which we predict should not allow for \gls{ipRGC} involvement, or should minimise such. It seems to be the case that \glspl{ipRGC} do not react strongly over very short timescales, as discussed in Section \ref{sec:ipRGCs}, with cones being much more active in this temporal window, so we chose to alternate rapidly between the two conditions and ask observers to make alterations until there is a minimal visible flicker.
 
 Observers were instructed to fixate upon a small fixation point displayed at the centre of the otherwise dark display. They placed their hands upon three dials which could be independently varied to change the peripheral adapting illumination inside the sphere.
 
@@ -159,7 +177,9 @@ This method has since been further developed by \citet{allen_form_2019} who used
 
 3 observers took part in the main experiment (the author (DG), HC, and LW). 
 
-The task was identical to that performed in the Large Sphere experiment; using two sliders (controlling the yellow/blue component and the red/green component) to set the foveal stimulus to appear achromatic. The instruction was given to set the central disc such that it appeared not red, green, blue or yellow. As previously noted, instead of 10 runs of L* 85 descending in 5* increments to L* 10, there were 30 runs of a pseudo-randomly permuted (each run) set of stimuli specified such that there was one at every 10 L* interval between 30 L* and 70 L*. The range was reduced so as to minimise the impact of gamut-boundary issues. The L* interval was increased to allow for a greater number of repetitions of specific values within a similar time frame. The order was pseudo-randomly permuted to avoid any trend based effects.
+The task was identical to that performed in the Large Sphere experiment; using two sliders (controlling the yellow/blue component and the red/green component) to set the foveal stimulus to appear achromatic. The instruction was given to set the central disc such that it appeared not red, green, blue or yellow. Once happy with their selection the observer was to press a button, at which point they would be presented with a new random colour. The same starting condition as was used for the large sphere was used.
+
+As previously noted, instead of 10 runs of L* 85 descending in 5* increments to L* 10, there were 30 runs of a pseudo-randomly permuted (each run) set of stimuli specified such that there was one at every 10 L* interval between 30 L* and 70 L*. The range was reduced so as to minimise the impact of gamut-boundary issues. The L* interval was increased to allow for a greater number of repetitions of specific values within a similar time frame. The order was pseudo-randomly permuted to avoid any trend based effects.
 
 Two observers (HC and LW) performed 4 complete runs each, 2 under each condition. The author completed 2 runs, one under each condition. Each observer only completed one run per day. There was a gap of roughly three months between the initial runs of HC and LW and the repeat runs.
 
@@ -220,61 +240,61 @@ LW-AU-10-11 & 56.6233765384295 & 43.2106748934748 & 13.5352420755118 & 14.854941
 
 \begin{figure}[htbp]
 \includegraphics[max width=1.2\textwidth,center]{figs/SmallSphere/LW.pdf}
-\caption{As per Figure \ref{fig:SS_DG} but for the data of observer LW.}
+\caption{As per Figure \ref{fig:SS_DG} but for the data of observer LW. Note the interaction with the gamut boundary, most easily seen in the top right of the middle subplot, where the lines in L* break down.}
 \label{fig:SS_LW}
 \end{figure} 
 
 All combinations of sets of data were submitted to a two-dimensional two-sample Kolmogorov-Smirnov test\footnote{Using the function available from \url{https://uk.mathworks.com/matlabcentral/fileexchange/38617-kstest_2s_2d-x1-x2-alpha}.}. There was a statistical difference for all combinations ($\alpha$ = 0.05) except LW-AU-7-20- v. LW-RB-7-21-, and LW-AU-10-11 v. LW-RB-10-12. With Bonferroni correction to account for multiple tests ($\alpha$ = 0.05/45 = 0.0011), HC-AU-10-18 v. HC-AU-7-21- additionally fell above the $\alpha$ threshold.
 
+\clearpage
+
 \subsection{Secondary Data}
 
-Data describing the characterisations of hardware follow. Figures \ref{fig:SSLEDs} and \ref{fig:SSLEDs2} show the chromaticities of the adapting surrounds as recorded during each session. 
-%
+Data describing the characterisations of hardware follow. Figures \ref{fig:SSLEDs} and \ref{fig:SSLEDs2} show the chromaticities of the adapting surrounds as recorded during each session. Figure \ref{fig:SSgamut} shows the recorded gamut and white points of the display measured before or after each session. Figure \ref{fig:SScal2} shows representative results from one of the secondary characterisation sessions.
+
 \begin{figure}[htbp]
 \includegraphics[max width=0.9\textwidth,center]{figs/SmallSphere/OOwide.pdf}
 \caption{The \gls{CIE} 1931 chromaticities of the adapting field as measured during data collection, with the spectral locus for context. See figure \ref{fig:SSLEDs2} for further detail.}
 \label{fig:SSLEDs}
 \end{figure}
-%
+
 \begin{figure}[htbp]
 \includegraphics[max width=0.9\textwidth,center]{figs/SmallSphere/OO.pdf}
-\caption{As per Figure \ref{fig:SSLEDs} but with different scaling and labels.}
+\caption{As per Figure \ref{fig:SSLEDs} but with different scaling and additional labels.}
 \label{fig:SSLEDs2}
 \end{figure}
-%
-Figure \ref{fig:SSgamut} shows the recorded gamut and white points of the display measured before or after each session. 
-%
+
 \begin{figure}[htbp]
 \includegraphics[max width=0.9\textwidth,center]{figs/SmallSphere/SSgamut.pdf}
-\caption{The display gamut at multiple pixel output levels, and white points, for all sessions.}
+\caption{The display gamut at multiple pixel output levels, and white points, for all sessions. Measurements are grouped by pixel value (0-255).}
 \label{fig:SSgamut}
 \end{figure}
-%
-Figure \ref{fig:SScal2} shows representative results from one of the secondary characterisation sessions.
-%
+
 \begin{figure}[htbp]
-\includegraphics[max width=0.9\textwidth,center]{figs/SmallSphere/SSseccal.pdf}
-\caption{Representative results from a single secondary characterisation session.}
+\includegraphics[max width=0.9\textwidth,center]{figs/SmallSphere/SSseccal2.pdf}
+\caption{Results from two secondary characterisation sessions. There appears to be a minor rotation in chromaticity space. Importantly, the distortion appears systematic across sessions, and therefore is unlikely to be the cause of the large difference between the two sets of LW data. The level of differences shown here mirrors that measured in all other characterisation sessions.}
 \label{fig:SScal2}
 \end{figure}
 
-%\clearpage
+\clearpage
 
 \section{Discussion}
 
 There were statistically significant differences between the achromatic settings across almost all conditions (exclusions previously noted), including nominal repeat conditions. Most of these differences were relatively minor in magnitude, and within the range of what might reasonably be expected from various inherent sources of error and/or noise.
 
-For one observer (LW), there were not significant differences between the different conditions, but there was a large magnitude difference between the repeat conditions (See Figure \ref{fig:SSsummary} or \ref{fig:SS_LW}). To be clear - with a single day separating inter-condition trials, this observer exhibited no difference between conditions, but after roughly three months, when returning to do a second pair of trials (again with a single day separating) the results were strikingly different. This is particularly unusual considering how well matched the inter-condition responses are; if it were just the case that this particular observer was particularly unreliable in their selections (and their data does exhibit generally quite high standard deviations, see Table \ref{tab:SS}) then I posit that they would be as unlikely to be able to repeat their selections after a break of a day as they would be after a break of three months.
+For observers DG and HC there was a consistent shift to higher values of a* under the RB (mel-high) condition, which corresponds to an NCS value of R20B (red with a small amount of blue) according to \citet{derefeldt_transformation_1986}. In the case of observer DG this was accompanied by an upward shift in b*, which suggests a shift to a yellower red.
+
+For observer LW there were not significant differences between the different conditions, but there was a large magnitude difference between the repeat conditions (See Figure \ref{fig:SSsummary} or \ref{fig:SS_LW}). To be clear - with a single day separating inter-condition trials, this observer exhibited no difference between conditions, but after roughly three months, when returning to do a second pair of trials (again with a single day separating) the results were strikingly different. This is particularly unusual considering how well matched the inter-condition responses are; if it were just the case that this particular observer was particularly unreliable in their selections (and their data does exhibit generally quite high standard deviations, see Table \ref{tab:SS}) then I posit that they would be as unlikely to be able to repeat their selections after a break of a day as they would be after a break of three months.
 
 The differences cannot readily be explained by hardware issues; variation in the surround illumination and screen output are minimal between sessions. Further, the same level of hardware variations would have been present for both observer LW and observer HC, and no such dramatic shift is seen for HC's data.
 
 Regarding Figure \ref{fig:SSLEDs2}, which shows the chromaticities of the peripheral illumination, it can be seen that there was some variation between repeated conditions, and also a small amount of variation within each session. The variation across sessions is likely due to physical disturbance of the equipment (either the measurement device or the illumination source) and is of a relatively minor magnitude. The variation within session seems to be systematic, perhaps relating to warm-up time of the illumination source, with the chromaticity being quite variable for the first few minutes of several trials before gaining stability.
 
-Figures \ref{fig:SSgamut} and \ref{fig:SScal2} show the results of the primary and secondary characterisation protocols respectively. Figure \ref{fig:SSgamut} summarises all the collected data, showing that at very low pixel values there is a moderate level of variability, which seems to correspond to the sphere illumination, suggesting that some illumination from the sphere does reach the screen. Figure \ref{fig:SSgamut} also shows the recorded white point of the screen for each characterisation, but these points stack fairly precisely atop one another. Figure \ref{fig:SScal2} shows a representative set of results from the secondary characterisation protocol (for observer `LW', under red-blue adapting illumination, initial trial - 7/21). It can be seen that there is some distortion between the values as recorded (following calibration) and the measured screen output. There are several potential sources for this error; the calibration routine (for the calibration we rely on tristimulus values computed directly by the \gls{PR650}, whereas for the measurements we record a spectrum and then compute our own tristimulus values), the experimental code (there are a large number of colour-space conversions in the experimental code, it is possible that one has a minor error), amongst others. Importantly, the distortion seems to be systematic (a slight rotation of points roughly around the white point) and of regular magnitude across sessions.
+Figures \ref{fig:SSgamut} and \ref{fig:SScal2} show the results of the primary and secondary characterisation protocols respectively. Figure \ref{fig:SSgamut} summarises all the collected data, showing that at very low pixel values there is a moderate level of variability, which seems to correspond to the sphere illumination, suggesting that some illumination from the sphere does reach the screen. Figure \ref{fig:SSgamut} also shows the recorded white point of the screen for each characterisation, but these points stack fairly precisely atop one another. Figure \ref{fig:SScal2} shows two representative sets of results from the secondary characterisation protocol (for observer `LW', under red-blue adapting illumination, both trials). It can be seen that there is some distortion between the values as recorded (following calibration) and the measured screen output. There are several potential sources for this error; the calibration routine (for the calibration we rely on tristimulus values computed directly by the \gls{PR650}, whereas for the measurements we record a spectrum and then compute our own tristimulus values), the experimental code (there are a large number of colour-space conversions in the experimental code, it is possible that one has a minor error), amongst others. Importantly, the distortion seems to be systematic (a slight rotation of points roughly around the white point) and of regular magnitude across sessions.
 
 This suggests that there must be some other cause for the difference between LW's first set of data and the repeats. Since it is not the focus of this investigation I shall not dwell upon this point, but I shall suggest two possible causes which have presented themselves. 
 
-The first - although relatively clear instructions were given to observers, it is possible that observer LW chose a distinct interpretation of instructions for the second set of measurements. Specifically, it is possible that the observer switched between making a `hue / saturation / brightness match' to making a `surface-colour' match. It does seem to be the case that for the second pair of datasets, the chosen white points are considerably closer to the chromaticity that a neutral surface would possess, so much so that some responses from this observer hit the display gamut (this is what causes the degradation of data visible in the top right hand corner of the middle plot of Figure \ref{fig:SS_LW}).
+The first - although relatively clear instructions were given to observers, it is possible that observer LW chose a distinct interpretation of instructions for the second set of measurements. Specifically, it is possible that the observer switched between making a `hue / saturation / brightness match' to making a `surface-colour' match. It does seem to be the case that for the second pair of datasets, the chosen white points are considerably closer to the chromaticity that a neutral surface would possess, so much so that some responses from this observer hit the display gamut (this is what causes the degradation of data visible in the top right hand corner of the middle plot of Figure \ref{fig:SS_LW}). If this were the case, it would underscore the importance of clear and intentional observer instructions (See \citet[p.679]{foster_color_2011} and \citet{arend_simultaneous_1986} for discussions of instructional effects).
 
 The second, though I am aware that this sounds rather fanciful, is that this result could represent a genuine shift in the perception of the observer between sessions. Though it seems unlikely that such a drastic change could result from such, in the absence of other options I feel it is worth considering. There is evidence to suggest that an observer's white point may change seasonally \cite{welbourne_human_2015}, as an effect of changing chromatic distributions of one's surroundings. Three months between sessions seems like a reasonable time-frame within which to witness such a change, particularly when the difference is between July and October (Summer to Autumn), where it is most likely that there would have been a considerable difference in the lushness of vegetation.
 
@@ -283,6 +303,12 @@ One argument against this line of reasoning is that observer HC did not exhibit 
 The data of observer HC by comparison shows a high level of regularity. For each session there is a regular orientation of variance (see Figure \ref{fig:SSsummary}), and there is little variation either between conditions or between repeats. What difference there is, could tentatively be considered as systematic - for both the initial and repeat conditions, the RB condition receives responses that are offset to higher a* values compared to the AU condition. Both repeated trials have higher b* means than the initial data-sets, but this change seems to be in line with magnitude and direction of change between the chromaticities of the adapting fields between conditions (see Figure \ref{fig:SSLEDs2}, where the for the second set of recordings the chromaticities have shifted upwards and rightwards in \gls{CIE} 1931 chromaticity space - roughly towards yellow).
 
 The data of observer DG (the author's data) exhibits a lower level of variance (probably due to increased level of familiarity with the test) and exhibits an inter-condition difference of similar magnitude and direction to that for observer HC.
+
+It would be desirable to understand the effect of luminance or L* on the achromatic settings made, but as with the analysis performed for the Large Sphere data, there would be no means by which it would be possible to separate out the effect of the experimental set-up (whereby the sliders represented higher chromaticity shifts per unit movement at higher values of L*) from any underlying effect. For this reason such an analysis has not been performed.
+
+Colour constancy indices have not been calculated for this data for a number of reasons. Firstly, there is no meaningful white point which could be used as a `pre-adaptation' point in such calculations. Secondly, the `ideal match' values (which would under normal circumstances be the peripheral adapting illuminant chromaticities) are designed in such a manner that they are metameric but also have a large difference in chromaticity space (Figure \ref{fig:SSLEDs2}) due to the difference in \gls{SSF} in the fovea and the periphery. For this reason, a chromaticity based description of the surrounds is likely to be both misleading and disingenuous, given our lack of knowledge about the \glspl{SSF} of peripheral vision. 
+
+It is for this reason also that I have been careful not to plot the chromaticities of the surrounds alongside the chromaticities of the central achromatic settings. 
 
 \subsection{Limitations}
 
@@ -293,3 +319,11 @@ With the benefit of such a framework we would be much better placed to assess th
 If there was a model which predicted a specific difference with a predicted orientation and magnitude, it may be possible to use alternative analysis methods which would provide greater clarity. Further, it may be possible to design experiments to more robustly test a more specific hypothesis. Chapter \ref{chap:Melcomp} aims to fill this gap in our understanding.
 
 The other key limitation, which applies equally to this experiment and the Large Sphere Experiment, is that there is an implicit assumption that foveal adaptation is affected by peripheral stimulation. Though this is implicit in all \glspl{CAT} (with only a single transformation applied across an image), it is not clear whether there is a physiological mechanism by which a single transformation could be applied across the entire retina. Indeed we know, from simple experience with after-images, that adaptation to a small area of the retina is certainly possible. It remains unclear what the level of adaptational cross-talk across the retina is. To minimise the impact of this issue, and to increase our understanding of this process, it is recommended that further experiments of this type employ a modified design such that both the periphery and fovea (and further divisions) can be used as both adapting field and test field. Further proposed modifications will be discussed in the final chapter of this thesis.
+
+\section{Interim Summary}
+
+As with Chapter \ref{chap:LargeSphere}, the goal of this experiment was to explore whether there was a melanopic influence to colour constancy or chromatic adaptation. As with Chapter \ref{chap:LargeSphere} no clear effect was found.
+
+However, it was noted that there were a great deal of assumptions about how a melanopic input might operate, which were implicit in the experimental design, which were not necessarily backed up by what we know about \gls{ipRGC} physiology, or ecological requirements. 
+
+It was therefore decided that further work was required to understand the ecological requirements for colour constancy, and to work out abstractly whether a melanopic input might be of value to colour constancy. This inspired the work presented in Chapter \ref{chap:Melcomp}. Alongside this, an experimental method was explored which would allow colour constancy experiments to be performed in a wider range of environments, including more ecologically valid ones, than had previously been used (Chapter \ref{chap:Tablet}).
