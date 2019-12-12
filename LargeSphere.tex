@@ -7,7 +7,7 @@ Code and data is provided: \url{https://github.com/da5nsy/LargeSphere}
 
 \section{Summary}
 
-The goal of this experimental work was to examine the effect of different wavelengths of light upon chromatic adaptation. Our hypothesis was that \gls{ipRGC} stimulation may need to be considered in order to fully model the induced adaptation, with the null hypothesis being that chromatic adaptation can be fully accounted for by cone and rod mechanisms. If evidence of a melanopic input to chromatic adaptation were found, it may help to explain conflicting results in previous experiments which sought a `preferred \gls{CCT}', which may in turn allow for control of \gls{CCT} in museums to be used more extensively as a means to control damage to objects. 
+The goal of this experimental work was to examine the effect of different wavelengths of light upon chromatic adaptation. Our hypothesis was that \gls{ipRGC} stimulation may need to be considered in order to fully model the induced adaptation, with the null hypothesis being that chromatic adaptation can be fully accounted for by cone and rod mechanisms. If evidence of a melanopic input to chromatic adaptation was found, it may help to explain conflicting results in previous experiments which sought a `preferred \gls{CCT}', which may in turn allow for control of \gls{CCT} in museums to be used more extensively as a means to control damage to objects. 
 
 This experiment is of a similar type to those discussed in Section \ref{sec:aadi}. Within a Ganzfeld viewing environment, illuminated by one of 16 different wavelengths of near-monochromatic light, observers performed an achromatic setting task, controlling the chromaticity of a display visible in the central field through a 4$^{\circ}$ circular aperture with two handheld sliders. Under these conditions it would be expected that an observer's chosen achromatic point would correspond in hue to the adapting field, and be of a saturation somewhere between a nominal objective white point and the adapting stimulus. If melanopsin were involved in chromatic adaptation we may expect unusual results for the part of the spectrum that melanopsin is most sensitive to (roughly 480nm).
 
@@ -45,7 +45,7 @@ The observer sat on one side of the sphere with their face inside the sphere (as
 
 On average it took observers roughly 20 seconds to make a selection. Once the observer was happy with the achromacy of the patch, a button was pressed to record the setting and a new random colour would be presented. The first displayed colour was at \gls{CIE} L* (of CIELAB and CIELUV) of 85, with subsequent colours descending by 5 L* until 10 L*. 
 
-This sequence was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), one session for each surround adapting wavelength. The overall protocol is visualised in Figure \ref{fig:ExperimentalPro}. Observers found sessions quite fatiguing and generally did not wish to do more than two or three sessions per day. A brief break was generally taken between sessions, though minimum time for such was prescribed.
+This sequence was repeated 10 times per session. Per session observers made 10 selections at 16 lightness levels (160 total). Observers performed 16 sessions (2560 selections total), one session for each surround adapting wavelength. The overall protocol is visualised in Figure \ref{fig:ExperimentalPro}. Observers found sessions quite fatiguing and generally did not wish to do more than two or three sessions per day. A brief break was generally taken between sessions, though no minimum time for such was prescribed.
 
 For one observer, in an additional (17th) session the narrow-band filter was replaced by a neutral density filter, to produce an achromatic adapting field.
 
@@ -166,7 +166,7 @@ If the surround fully controlled adaptation, and observers were fully adapted, i
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/TRcompareWithSurround.pdf}
-\caption{As per Figure \ref{fig:LMCompSurr} but for the data of TR. Note that the white point used for visualisation relate to the white points used during data collection, which differ for each observer.}
+\caption{As per Figure \ref{fig:LMCompSurr} but for the data of TR. Note that the white points used for visualisation are the white points used during data collection, which differ for each observer.}
 \label{fig:TRCompSurr}
 \end{figure}
 
@@ -187,7 +187,7 @@ CCI = 1-b/a
 
 where $b$ is the distance between the post-adaptation point and the ideal match, and $a$ is the distance between the pre-adaptation point and the ideal match\footnote{For further discussion see \citet[Section 4.1, pg. 681]{foster_color_2011}.}.
 
-There are multiple reasonable options for which value to use as a `pre-adaptation point'. First, the origin of the space within which selections are made (different for each observer) seems to be a possible option; this corresponds to the central point on each slider over time for each individual. However, though the set-up ascribes some value to this point, it is not definitively linked to the settings that observers made; it can be seen in Figures \ref{fig:LMCompSurr} and \ref{fig:TRCompSurr} that there seems to be no particular relevance of the point [0,0]. A second option would be to use the measurements made under a neutral density filter for both observers. This data has not been used thus far. However, again there is no actual significance of these values - a neutral density filter could be slightly chromatic and still be labelled as a neutral density filter, and even if it were perfectly spectrally neutral, it's designation as a gold standard `neutral' only actually passes on responsibility to the chromaticity of the projector lamp, which is under no obligation to be especially `neutral'. The third option is to use the average setting value, which has no specific logical background, but is vastly more practically relevent than the previous two options. This third option was chosen for future analyses.
+There are multiple reasonable options for which value to use as a `pre-adaptation point'. First, the origin of the space within which selections are made (different for each observer) seems to be a possible option; this corresponds to the central point on each slider over time for each individual. However, though the set-up ascribes some value to this point, it is not definitively linked to the settings that observers made; it can be seen in Figures \ref{fig:LMCompSurr} and \ref{fig:TRCompSurr} that there seems to be no particular relevance of the point [0,0]. A second option would be to use the measurements made under a neutral density filter. However, again there is no actual significance of these values - a neutral density filter could be slightly chromatic and still be labelled as a neutral density filter, and even if it were perfectly spectrally neutral, its designation as a gold standard `neutral' only actually passes on responsibility to the chromaticity of the projector lamp, which is under no obligation to be especially `neutral'. The third option is to use the average setting value, which has no specific logical background, but is vastly more practically relevent than the previous two options. This third option was chosen for future analyses.
 
 Averaging over time for each observer, and using the average response for each observer as the pre-adaptation point yields \glspl{CCI} as shown in Figures \ref{fig:LMCCI} and \ref{fig:TRCCI}. Only data for L* of 20 and 60 is plotted for clarity, in keeping with previous figures. It can be seen that there are common trends across wavelength at the different values of L*.
 
@@ -205,13 +205,13 @@ Averaging over time for each observer, and using the average response for each o
 
 It is highly unusual for values of \gls{CCI} to be below 0; this indicates that the selected post-adaptation point is further from the pre-adaptation point than the ideal match. Normally, assuming that adaptation occurred on the same vector as that connecting the neutral point and the ideal match, this would mean that the observer had \emph{over}-adapted, something which is very unusual. Additionally, results like this generally aren't seen because observers are adapted to highly saturated adapters, often on/near the spectral locus, and colours outside of this simply don't exist to be chosen (in a linear space). 
 
-We see such results here for a number of reasons. Firstly, we are not in a linear space. In CIELAB the chromatic gamut increases as a function of L*, meaning that a high L* value can be outside of the gamut of a set of low L* primaries. Secondly, in concert with this non-linearity, the slider ranges were fixed to represent a broader range of a* and b* values are higher L* values (otherwise it would have felt as though a specific movement at low L* would have resulted in a much greater chromatic shift than that same movement would have done for higher values of L*). The effect of this is visualised in Figure \ref{fig:overviewBL}.
+We see such results here for a number of reasons. Firstly, we are not in a linear space. In CIELAB the chromatic gamut increases as a function of L*, meaning that a high L* value can be outside of the gamut of a set of low L* primaries. Secondly, in concert with this non-linearity, the slider ranges were fixed to represent a broader range of a* and b* values at higher L* values (otherwise it would have felt as though a specific movement at a low value of L* would have resulted in a much greater chromatic shift than that same movement would have done for higher values of L*). The effect of this is visualised in Figure \ref{fig:overviewBL}.
 
 Additionally, it appears as though there is substantial offsetting and L* dependent shifting, which call into question the appropriateness of such a metric. It should also be noted that in this current analysis, averages are taken over time, which obscures and adopts any underlying trends which time may influence. It seems as though there is a risk of obscuring more than is revealed through use of such a metric.
 
 However, it is curious to see a dip in the results for both observers at 500nm, which is roughly where we might expect to see an effect should there be an effect of melanopsin (which theoretically peaks at around 480nm, but is predicted to have an increased value of peak sensitivity as a function of pre-receptoral filtering). Based on Figures \ref{fig:LMCompSurr} and \ref{fig:TRCompSurr} this was not anticipated. However, without a clear prediction for what effect we would expect melanopsin to have (in terms of the direction or magnitude of effect) I suggest caution in interpreting this as evidence of an effect. This peak could also be the result of rod-based intrusions (the peak of the rod \gls{SSF} is 507nm). It is unclear what magnitude and vector of effect should be expected from rod intrusion.
 
-Averaging over wavelength and time allows us to visualise the effect of L*. Here, instead of calculating the \gls{CCI}, a simpler measure is used: the distance from the pre-adaptation point (the average of all recorded achromatic points, per observer) to the post-adaptation point. This gives us a rawer impression of the extent of adaptation, without the assumption of adaptation vector angle. In the context of Equation \ref{eq:CCI} this value could be denoted $c$, as it represents the final side of the triangle $abc$. 
+Averaging over wavelength and time allows us to visualise the effect of L*. Here, instead of calculating the \gls{CCI}, a simpler measure is used: the distance from the pre-adaptation point (the average of all recorded achromatic points, per observer) to the post-adaptation point. This gives us a more direct impression of the extent of adaptation, without the assumption of adaptation vector angle. In the context of Equation \ref{eq:CCI} this value could be denoted $c$, as it represents the final side of the triangle $abc$. 
 
 It is assumed, based on the analysis presented in Figure \ref{fig:overviewBL}, that as L* increases, the length of these vectors shall increase, simply as a result of the experimental set-up. This is shown to be the case in Figures \ref{fig:LMCCI_L} and \ref{fig:TRCCI_L}, with near monotonic increases as L* increases for both observers.
 
@@ -241,7 +241,7 @@ Averaging over wavelength and L* allows us to visualise adaptation over time. Ag
 \label{fig:TRCCI_T}
 \end{figure}
 
-A three-way ANOVA performed upon the data, treating wavelength, time and L* and independent categorical variables found a significant effect of each, as shown in Figures \ref{fig:anova} and \ref{fig:anova2}, with a level of $\alpha$ of 0.05.
+A three-way ANOVA performed upon the data, treating wavelength, time and L* as independent categorical variables found a significant effect of each, as shown in Figures \ref{fig:anova} and \ref{fig:anova2}, with a level of $\alpha$ of 0.05.
 
 \begin{figure}[htbp]
 \includegraphics[max width=\textwidth]{figs/LargeSphere/anova.png}
@@ -255,7 +255,7 @@ A three-way ANOVA performed upon the data, treating wavelength, time and L* and 
 \label{fig:anova2}
 \end{figure}
 
-Whilst variables were treated as categorical in the above analysis, there would be an argument for treating each as a continuous variable. However, several factors would need to be considered. Foremost, whilst wavelength is nominally a continuous variable, in this experiment each wavelength category had a difference level of radiance, which means that caution should be taken in assuming their equivalence. It is also possible that each filter might have a meaningfully different spectral transmission profile, specifically the band-pass width (see Figure \ref{fig:LSillum}).
+Whilst variables were treated as categorical in the above analysis, there would be an argument for treating each as a continuous variable. However, several factors would need to be considered. Foremost, whilst wavelength is nominally a continuous variable, in this experiment each wavelength category had a different level of radiance, which means that caution should be taken in assuming their equivalence. It is also possible that each filter might have a meaningfully different spectral transmission profile, specifically the band-pass width (see Figure \ref{fig:LSillum}).
 
 Caution is also required regarding the assumption of independence of measurements. Due to the nature of chromatic adaptation, it would not be possible to interleave conditions, and so wavelength is further confounded with various other factors; date, time of day, and all manner of secondary factors relating to these (whether the observer has eaten recently for example).
 
@@ -441,9 +441,9 @@ This dataset may only comprise data from two observers, but it is broad and may 
 
 \section{Interim Summary}
 
-The experiment reported in this chapter aimed to extend our understanding of colour constancy and chromatic adaptation, specifically asking whether there was a melanopic influence. No clear effect for a melanopic influence was found, though the absence of an effect could not be authoritatively be confirmed.
+The experiment reported in this chapter aimed to extend our understanding of colour constancy and chromatic adaptation, specifically asking whether there was a melanopic influence. No clear effect for a melanopic influence was found, though the absence of an effect could not be authoritatively confirmed.
 
-A large number of limitations were identified with this experimental set-up, and it was deemed appropriate to develop a second version of this experimental set-up, and perform a further experiment. This further experiment is reported in the following chapter.
+A large number of limitations were identified, and it was deemed appropriate to develop a second version of this experimental set-up, and perform a further experiment. This further experiment is reported in the following chapter.
 
 
 
