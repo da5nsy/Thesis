@@ -84,6 +84,8 @@ Tristimulus values $[L,M,S]$ and analogous melanopic values $I$ were computed as
     \label{eq:iMBtri}
 \end{equation}
 
+where $\overline{i}(\lambda)$ is the melanopsin fundamental of \citet{lucas_measuring_2014}.
+
 \gls{MB} chromaticity co-ordinates were calculated, for both illuminant alone and for each surface under each illuminant, as per Equation \ref{eq:MB}\footnote{Note to assist in the reading of associated code: the normalising factors $k$ were applied during the Equation \ref{eq:MB} rather than Equation \ref{eq:MBTristim}.}. The \gls{MB} chromaticities are plotted in Figure \ref{fig:MB}. 
 
 \bigskip
@@ -208,7 +210,7 @@ i_{\text{MB}} = \frac{I_{\text{MB}}}{L_{\text{MB}}+M_{\text{MB}}}
 \label{eq:iMB}
 \end{equation}
 
-where $\overline{i}(\lambda)$ is the melanopsin fundamental of \citet{lucas_measuring_2014}.
+where $I_{\text{MB}}$ follows from Equation \ref{eq:iMBtri}, and $L_{\text{MB}}$ and $M_{\text{MB}}$ follow from Equation \ref{eq:MBTristim}.
 
 
 \subsection{A melanopic signal as a third dimension}
